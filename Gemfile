@@ -45,4 +45,5 @@ group :development do
   gem 'spring'
 
   gem 'better_errors'
+  gem 'dotenv-rails'
 end
