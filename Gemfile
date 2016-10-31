@@ -36,6 +36,11 @@ gem 'httparty'
 
 gem 'foundation-rails'
 
+# Foundation Rails Gem
+gem 'foundation-rails'
+# Required due to an incompatibility between TurboLinks and Foundation.
+gem 'jquery-turbolinks'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
