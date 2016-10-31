@@ -28,6 +28,9 @@ gem 'foundation-rails'
 # Required due to an incompatibility between TurboLinks and Foundation.
 gem 'jquery-turbolinks'
 
+# API GEMS
+gem 'httparty'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -44,7 +47,7 @@ group :development, :test do
   # for better development/testing output in browser
   gem 'better_errors'
   gem 'binding_of_caller'
-  # for implementing OAuth log-in
+  # for implementing OAuth Log-in/accessing secrets
   gem 'dotenv-rails'
 end
 
