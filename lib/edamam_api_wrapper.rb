@@ -23,21 +23,4 @@ class EdamamApiWrapper
     return recipe_list
   end
 
-  # def self.sendmsg(channel, msg, token = nil)
-  #   token = TOKEN if token == nil
-  #   puts "Sending message to channel #{channel}: #{msg}"
-  #
-  #   url  = BASE_URL + "chat.postMessage?" + "token=#{token}"
-  #   data = HTTParty.post(url,
-  #   body:  {
-  #     "text" => "#{msg}",
-  #     "channel" => "#{channel}",
-  #     "username" => "Bottomless Pit",
-  #     "icon_emoji" => ":fries:",
-  #     "as_user" => "false"
-  #   },
-  #   :headers => { 'Content-Type' => 'application/x-www-form-urlencoded' })
-  # end
-
-
 end
