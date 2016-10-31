@@ -1,5 +1,13 @@
 source 'https://rubygems.org'
+require 'awesome_print'
 
+
+# Required due to an incompatibility between TurboLinks and Foundation.
+gem 'jquery-turbolinks'
+
+gem 'faker'
+
+gem 'awesome_print'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
@@ -32,9 +40,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# API GEMS
+gem 'httparty'
+
+gem 'foundation-rails'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'dotenv-rails'
+  gem 'better_errors'
 end
 
 group :development do
@@ -44,4 +60,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
