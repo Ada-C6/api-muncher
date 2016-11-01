@@ -8,22 +8,16 @@ class EdamamApiWrapper
   def self.recipe_search(search_term)
     url = BASE_URL + "search?q=" + search_term  + "&app_id=" + ID + "&app_key=" +  KEY
     data = HTTParty.get(url)
-    if data["params"]
-      return data["params"]
+    recipe_list = []
+    if !data["params"].nil?
+      data["params"].each do |hit|
+        wrapper = Recipe.new(name: hits["recipe"]["label"], recipe_image:  hits["recipe"]["image"] source_url:  hits["recipe"]["url"], ingredients: hits["recipe"]["ingredientLines"], calories: hits["recipe"]["calories"], dietary_info: hits["recipe"]["digest"], yield: hits["recipe"]["yield"], source: hits["recipe"]["source"], source_icon: hits["recipe"]["souceIcon"])
+        recipe_list.push(wrapper)
+      end
+      return recipe_list
     else
       return []
     end
-  end
-
-  def self.list_recipies()
-    recipe_list = []
-    if data["params"]
-      data["params"].each do |hit|
-        wrapper = Recipe.new hits["recipe"]["name"], recipe["id"] , purpose:  hits["recipe"]["purpose"], is_archived: channel["is_archived"],   members: channel["members"]
-        channel_list.push(wrapper)
-      end
-    end
-  return recipe_list
   end
 
 end
