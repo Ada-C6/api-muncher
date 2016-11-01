@@ -49,6 +49,10 @@ group :development, :test do
   gem 'binding_of_caller'
   # for implementing OAuth Log-in/accessing secrets
   gem 'dotenv-rails'
+
+  # user VCR for mocking HTTP requests
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do

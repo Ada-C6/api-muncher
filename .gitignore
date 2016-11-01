@@ -18,3 +18,4 @@
 
 # Ignore my secrets
 .env
+/test/cassettes
