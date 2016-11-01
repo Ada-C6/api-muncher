@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-  get 'recipies/', to: 'recipes#index', as: 'recipies'
+  get 'recipes/', to: 'recipes#index', as: 'recipes'
   get 'recipe/:id', to: 'recipes#show', as: 'recipe'
 
   # The priority is based upon order of creation: first created -> highest priority.
