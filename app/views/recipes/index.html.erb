@@ -1,0 +1,22 @@
+<h1>Please search for an ingredient!</h1>
+
+<% @recipes.each do |recipe| %>
+  <p>
+    <%= recipe.label %>
+    <%= recipe.url %>
+    <%= image_tag recipe.image, alt: "Picture of dish" %>
+    <%= recipe.calories %>
+
+  </p>
+<% end %>
+
+<!--
+
+
+@image = options[:image]
+@url = options[:url]
+@ingredients = options[:ingredients]
+@calories = options[:calories]
+@level = options[:level]
+@healthLabels = options[:healthLabels]
+@dietLabels = options[:dietLabels] -->
