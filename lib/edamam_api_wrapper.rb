@@ -4,14 +4,13 @@ class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/"
 
   def self.listrecipes(searchterm)
-  url = BASE_URL + "search?q=" + "#{ searchterm }" + "&app_id=#{ EDAMAM_ID }" + "&app_key=#{ EDAMAM_KEY }"
+  url = BASE_URL + "search?q=" + "#{ searchterm }" + "&app_id=#{ ID }" + "&app_key=#{ KEY }"
   data = HTTParty.get(url)
   recipe_list = []
-  if data["recipes"]
-    data["recipes"].each do |recipe|
-      # This is how the Slack channel example did it:
-      # wrapper = Channel.new channel["name"], channel["id"] , purpose: channel["purpose"], is_archived: channel["is_archived"], members: channel["members"]
-
+  if data["hits"]
+    data["hits"].each do |recipe_hash|
+      recipe = recipe_hash["recipe"]
+      wrapper = Recipe.new recipe["label"], image: recipe["image"], url: recipe["url"], ingredients: recipe["ingredients"], calories: recipe["calories"], difficultylevel: recipe["level"], healthlabel: recipe["healthLabels"], dietlabels: ["dietLabels"]
       recipe_list << wrapper
     end
   end
