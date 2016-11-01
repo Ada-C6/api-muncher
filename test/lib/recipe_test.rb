@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ReciipeTest < ActiveSupport::TestCase
+class RecipeTest < ActiveSupport::TestCase
   test "whether the teset are running" do
     assert true
   end
