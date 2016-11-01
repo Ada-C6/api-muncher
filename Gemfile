@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# to be able to use httparty to wrap api requests. 
+# to be able to use httparty to wrap api requests.
 gem 'httparty'
 
 # Use ActiveModel has_secure_password
@@ -42,6 +42,10 @@ group :development, :test do
   gem 'dotenv-rails'
 
   gem 'better_errors'
+
+  # for testing with APIs.
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do

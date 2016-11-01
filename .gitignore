@@ -16,4 +16,8 @@
 !/log/.keep
 /tmp
 
+# This has all the secrets. 
 .env
+
+# Our VCR test helper thing is going to save our request URLs which have our secrets in them!
+test/cassettes/
