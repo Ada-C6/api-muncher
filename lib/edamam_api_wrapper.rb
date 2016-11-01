@@ -5,7 +5,7 @@ class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search"
 
   def self.listsearchresults(query)
-    url = BASE_URL + "?q=" + query # + "&pretty=1&exclude_archived=1"
+    url = "#{ BASE_URL }?" + "#{ API_ID }=" + "#{ API_KEY }&" + "q=" + query # + "&pretty=1&exclude_archived=1"
     data = HTTParty.get(url)
     search_result_list = []
     if data["search_result"]
