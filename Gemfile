@@ -46,6 +46,7 @@ group :development, :test do
   # for testing with APIs.
   gem 'minitest-vcr'
   gem 'webmock'
+
 end
 
 group :development do
@@ -58,4 +59,6 @@ end
 
 group :test do
   gem 'minitest-reporters'
+  # test coverage
+  gem 'simplecov'
 end
