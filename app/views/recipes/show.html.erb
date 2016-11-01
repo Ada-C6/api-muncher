@@ -1,14 +1,9 @@
-
-
-
-
-
-<!-- @label = label
-
-@image = options[:image]
-@url = options[:url]
-@ingredients = options[:ingredients]
-@calories = options[:calories]
-@level = options[:level]
-@healthLabels = options[:healthLabels]
-@dietLabels = options[:dietLabels] -->
+<section class="show-recipe">
+  <%= image_tag @recipe.image, alt: "Picture of dish" %>
+  <p><%= link_to "#{ @recipe.label }", 'recipe.url' %></p>
+  <p><%= @recipe.ingredients %></p>
+  <p><%= @recipe.calories %></p>
+  <p><%= @recipe.level %></p>
+  <p><%= @recipe.healthLabels %></p>
+  <p><%= @recipe.dietLabels %></p>
+</section>

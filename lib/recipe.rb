@@ -21,8 +21,8 @@ class Recipe
     attr_reader :recipes
   end
 
-  def self.all
-    @recipes ||= EdamamApiWrapper.listrecipes
+  def self.all(keyword = nil)
+    @recipes ||= EdamamApiWrapper.listrecipes(keyword)
   end
 
   def self.reset
@@ -30,6 +30,6 @@ class Recipe
   end
 
   def self.by_label(label)
-    all.select{ |r| r.label == label }.first
+    self.all.select{ |r| r.label == label }.first
   end
 end
