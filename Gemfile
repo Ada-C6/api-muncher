@@ -39,6 +39,8 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'dotenv-rails'
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :test do
