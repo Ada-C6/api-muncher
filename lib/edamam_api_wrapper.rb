@@ -11,7 +11,7 @@ class EdamamApiWrapper
     recipe_list = []
     if data["recipes"]
       data["recipes"].each do |recipe|
-        wrapper = Recipe.new recipe["name"], recipe["id"] , purpose: recipe["purpose"], is_archived: recipe["is_archived"], members: recipe["members"]
+        wrapper = Recipe.new recipe["name"], recipe["id"] , name: recipe["label"], image: recipe["image"], source_url: recipe["url"], diet_labels: recipe["dietLabels"], health_labels: recipe["healthLabels"], cautions: recipe["cautions"], ingredients: recipe["ingredients"]
         recipe_list << wrapper
       end
     end
