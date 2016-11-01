@@ -39,10 +39,12 @@ gem 'foundation-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'pry'
   gem 'dotenv-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  #Use VCR for mocking API requests
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do
@@ -51,4 +53,10 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'pry'
+end
+
+group :test do
+  gem 'minitest-reporters'
 end
