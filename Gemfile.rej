@@ -1,0 +1,43 @@
+***************
+*** 40,45 ****
+    gem 'byebug', platform: :mri
+    gem 'dotenv-rails'
+    gem 'better_errors'
+  end
+  
+  
+--- 40,48 ----
+    gem 'byebug', platform: :mri
+    gem 'dotenv-rails'
+    gem 'better_errors'
++   gem "binding_of_caller"
++   gem 'minitest-vcr'
++   gem 'webmock'
+  end
+  
+  
+***************
+*** 50,55 ****
+    # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+    gem 'spring'
+    gem 'spring-watcher-listen', '~> 2.0.0'
+  end
+  
+  # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+--- 53,68 ----
+    # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+    gem 'spring'
+    gem 'spring-watcher-listen', '~> 2.0.0'
++ 
++   gem "better_errors"
++ 
++   gem "pry-rails"
++ end
++ 
++ group :test do
++   gem 'minitest-reporters'
++   gem "pry-rails"
++ 
+  end
+  
+  # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

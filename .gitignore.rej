@@ -1,0 +1,11 @@
+***************
+*** 19,21 ****
+  
+  # Ignore Byebug command history file.
+  .byebug_history
+--- 19,23 ----
+  
+  # Ignore Byebug command history file.
+  .byebug_history
++ 
++ .env

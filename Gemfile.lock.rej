@@ -1,0 +1,207 @@
+***************
+*** 38,43 ****
+        i18n (~> 0.7)
+        minitest (~> 5.1)
+        tzinfo (~> 1.1)
+      arel (7.1.4)
+      babel-source (5.8.35)
+      babel-transpiler (0.7.0)
+--- 38,45 ----
+        i18n (~> 0.7)
+        minitest (~> 5.1)
+        tzinfo (~> 1.1)
++     addressable (2.4.0)
++     ansi (1.5.0)
+      arel (7.1.4)
+      babel-source (5.8.35)
+      babel-transpiler (0.7.0)
+***************
+*** 47,52 ****
+        coderay (>= 1.0.0)
+        erubis (>= 2.6.6)
+        rack (>= 0.9.0)
+      builder (3.2.2)
+      byebug (9.0.6)
+      coderay (1.1.1)
+--- 49,56 ----
+        coderay (>= 1.0.0)
+        erubis (>= 2.6.6)
+        rack (>= 0.9.0)
++     binding_of_caller (0.7.2)
++       debug_inspector (>= 0.0.1)
+      builder (3.2.2)
+      byebug (9.0.6)
+      coderay (1.1.1)
+***************
+*** 63,68 ****
+        sprockets-es6 (>= 0.9.0)
+      globalid (0.3.7)
+        activesupport (>= 4.1.0)
+      httparty (0.14.0)
+        multi_xml (>= 0.5.2)
+      i18n (0.7.0)
+--- 69,75 ----
+        sprockets-es6 (>= 0.9.0)
+      globalid (0.3.7)
+        activesupport (>= 4.1.0)
++     hashdiff (0.3.0)
+      httparty (0.14.0)
+        multi_xml (>= 0.5.2)
+      i18n (0.7.0)
+***************
+*** 85,96 ****
+        mime-types-data (~> 3.2015)
+      mime-types-data (3.2016.0521)
+      mini_portile2 (2.1.0)
+      minitest (5.9.1)
+      multi_json (1.12.1)
+      multi_xml (0.5.5)
+      nio4r (1.2.1)
+      nokogiri (1.6.8.1)
+        mini_portile2 (~> 2.1.0)
+      puma (3.6.0)
+      rack (2.0.1)
+      rack-test (0.6.3)
+--- 92,120 ----
+        mime-types-data (~> 3.2015)
+      mime-types-data (3.2016.0521)
+      mini_portile2 (2.1.0)
++     minispec-metadata (2.0.0)
++       minitest
+      minitest (5.9.1)
++     minitest-reporters (1.1.12)
++       ansi
++       builder
++       minitest (>= 5.0)
++       ruby-progressbar
++     minitest-vcr (1.4.0)
++       minispec-metadata (~> 2.0)
++       minitest (>= 4.7.5)
++       vcr (>= 2.9)
+      multi_json (1.12.1)
+      multi_xml (0.5.5)
+      nio4r (1.2.1)
+      nokogiri (1.6.8.1)
+        mini_portile2 (~> 2.1.0)
++     pry (0.10.4)
++       coderay (~> 1.1.0)
++       method_source (~> 0.8.1)
++       slop (~> 3.4)
++     pry-rails (0.3.4)
++       pry (>= 0.9.10)
+      puma (3.6.0)
+      rack (2.0.1)
+      rack-test (0.6.3)
+***************
+*** 122,127 ****
+      rb-fsevent (0.9.8)
+      rb-inotify (0.9.7)
+        ffi (>= 0.5.0)
+      sass (3.4.22)
+      sass-rails (5.0.6)
+        railties (>= 4.0.0, < 6)
+--- 146,153 ----
+      rb-fsevent (0.9.8)
+      rb-inotify (0.9.7)
+        ffi (>= 0.5.0)
++     ruby-progressbar (1.8.1)
++     safe_yaml (1.0.4)
+      sass (3.4.22)
+      sass-rails (5.0.6)
+        railties (>= 4.0.0, < 6)
+***************
+*** 129,134 ****
+        sprockets (>= 2.8, < 4.0)
+        sprockets-rails (>= 2.0, < 4.0)
+        tilt (>= 1.1, < 3)
+      spring (2.0.0)
+        activesupport (>= 4.2)
+      spring-watcher-listen (2.0.1)
+--- 155,161 ----
+        sprockets (>= 2.8, < 4.0)
+        sprockets-rails (>= 2.0, < 4.0)
+        tilt (>= 1.1, < 3)
++     slop (3.6.0)
+      spring (2.0.0)
+        activesupport (>= 4.2)
+      spring-watcher-listen (2.0.1)
+***************
+*** 156,166 ****
+        thread_safe (~> 0.1)
+      uglifier (3.0.3)
+        execjs (>= 0.3.0, < 3)
+      web-console (3.4.0)
+        actionview (>= 5.0)
+        activemodel (>= 5.0)
+        debug_inspector
+        railties (>= 5.0)
+      websocket-driver (0.6.4)
+        websocket-extensions (>= 0.1.0)
+      websocket-extensions (0.1.2)
+--- 183,198 ----
+        thread_safe (~> 0.1)
+      uglifier (3.0.3)
+        execjs (>= 0.3.0, < 3)
++     vcr (3.0.3)
+      web-console (3.4.0)
+        actionview (>= 5.0)
+        activemodel (>= 5.0)
+        debug_inspector
+        railties (>= 5.0)
++     webmock (2.1.0)
++       addressable (>= 2.3.6)
++       crack (>= 0.3.2)
++       hashdiff
+      websocket-driver (0.6.4)
+        websocket-extensions (>= 0.1.0)
+      websocket-extensions (0.1.2)
+***************
+*** 170,175 ****
+  
+  DEPENDENCIES
+    better_errors
+    byebug
+    coffee-rails (~> 4.2)
+    dotenv-rails
+--- 202,208 ----
+  
+  DEPENDENCIES
+    better_errors
++   binding_of_caller
+    byebug
+    coffee-rails (~> 4.2)
+    dotenv-rails
+***************
+*** 178,183 ****
+    jbuilder (~> 2.5)
+    jquery-rails
+    listen (~> 3.0.5)
+    puma (~> 3.0)
+    rails (~> 5.0.0, >= 5.0.0.1)
+    sass-rails (~> 5.0)
+--- 211,219 ----
+    jbuilder (~> 2.5)
+    jquery-rails
+    listen (~> 3.0.5)
++   minitest-reporters
++   minitest-vcr
++   pry-rails
+    puma (~> 3.0)
+    rails (~> 5.0.0, >= 5.0.0.1)
+    sass-rails (~> 5.0)
+***************
+*** 188,193 ****
+    tzinfo-data
+    uglifier (>= 1.3.0)
+    web-console
+  
+  BUNDLED WITH
+     1.13.1
+--- 224,230 ----
+    tzinfo-data
+    uglifier (>= 1.3.0)
+    web-console
++   webmock
+  
+  BUNDLED WITH
+     1.13.1
