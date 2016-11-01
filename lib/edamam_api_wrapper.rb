@@ -5,19 +5,41 @@ class EdamamApiWrapper
   TOKEN = ENV["APP_KEY"]
   ID = ENV["APP_ID"]
 
+  attr_reader :search_term
+
+  def initialize(search_term, token = nil)
+    @search_term = search_term
+    @web_address = web_address
+
+  end
+
   def self.list_recipes
-    url = BASE_URL + "q=#{@search_term}" + "app_id=#{ID}" + "token=#{TOKEN}"
+    token = TOKEN if token == nil
+    id = ID if id == nil
+
+    url = BASE_URL + "q=#{search_term}" + "app_id=#{id}" + "app_key=#{token}"
     data = HTTParty.get(url)
 
-    recipe_list = []
-    data["recipes"].each do |recipes|
-      label = recipe["label"]
-      image = recipe["image"]
-      url = recipe["url"]
-      recipe_list << Recipe_List.new(label, image, url)
+    recipes = []
+    if data["recipes"]  # if the request was successful
+      data["recipes"].each do |recipe|
+        label = recipe["label"]
+        image = recipe["image"]
+        recipes << Recipe_List.new(label, image)
+      end
+      return recipes
+    else
+      return nil
     end
-    return recipe_list
   end
+
+  def self.show_recipe
+    token = TOKEN if token == nil
+    id = ID if id == nil
+
+    url = BASE_URL + "r=#{web_address}" + "app_id=#{id}" + "app_key=#{token}"
+    data = HTTParty.get(url)
+
 
 
 
