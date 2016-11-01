@@ -41,6 +41,10 @@ group :development, :test do
 
   gem 'better_errors'
   gem 'dotenv-rails'
+
+  # User VCR for mocking HTTP requests
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do
@@ -50,4 +54,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'minitest-reporters'
 end
