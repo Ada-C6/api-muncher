@@ -1,0 +1,9 @@
+<% query = params["q"] %>
+
+<%= "Recipes containing '#{ query }'" %>
+
+<% recipe_list = EdamamApiWrapper.listrecipes(query) %>
+
+<% recipe_list.each do |i| %>
+  <li><%= i.name %></li>
+<% end %>
