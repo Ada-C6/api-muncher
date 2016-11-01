@@ -3,18 +3,14 @@ class Recipe
 
   attr_reader :name, :id, :health_labels, :ingredients, :uri, :yield, :nutrients
 
-  def initialize(name, id, options = {} )
-    @name = name
-    @id = id
-
-    if name==nil || id==nil || name=='' || id==''
-    	raise ArgumentError
-    end
-
-    @purpose = options[:purpose]
-    @is_archived = options[:is_archived]
-    @is_general = options[:is_archived]
-    @members = options[:members]
+  def initialize(recipe_hash)
+    @name = recipe_hash[:name]
+    @id = recipe_hash[:id]
+    @health_labels = recipe_hash[:health_labels]
+    @ingredients = recipe_hash[:ingredients]
+    @uri = recipe_hash[:uri]
+    @yield = recipe_hash[:yield]
+    @nutrients = recipe_hash[:nutrients]
   end
 
 end
