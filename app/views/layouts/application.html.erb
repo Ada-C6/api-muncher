@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="top-bar">
+    <h1 class="title-area">API Muncher</h1>
+    <nav class="top-bar-section">
+      <ul class="menu top-bar-right">
+        <li><a href="#">Search</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
 
 <%= yield %>
 
+<footer>
+</footer>
 </body>
 </html>
