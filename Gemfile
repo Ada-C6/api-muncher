@@ -38,6 +38,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'minitest-vcr'
   gem 'webmock'
+  gem 'binding_of_caller'
 end
 
 group :development do
