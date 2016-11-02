@@ -8,21 +8,14 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
   test "that the search bar retrieves information" do
     VCR.use_cassette("results") do
       search_term = "eggs"
-      results = EdamamApiWrapper.results(search_term)
+      results = EdamamApiWrapper.search(search_term)
       assert_kind_of Array, results
       assert_not results.empty?
+      results.each do |recipe|
+        assert_kind_of Recipe, recipe
+      end
     end
-
   end
 
-  # test "that listchannel returns all channels" do
-  #   VCR.use_cassette("channels") do
-  #     channels = SlackApiWrapper.listchannels
-  #     assert_kind_of Array, channels
-  #     assert_not channels.empty?
-  #     channels.each do |channel|
-  #       assert_kind_of Channel, channel
-  #     end
-  #   end
 
 end

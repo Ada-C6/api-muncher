@@ -6,23 +6,20 @@ BASE_URL = "https://api.edamam.com/search?q=" #this is always used, so you can k
   TOKEN = ENV["EDAMAM_TOKEN"]
   APP_KEY = ENV["APP_KEY"]
 
-  def self.results(search_term)
+  def self.search(search_term)
     url = BASE_URL + search_term + "&app_id=#{APP_KEY}&app_key=#{TOKEN}"
 
     data = HTTParty.get(url) #returns all the results
 
-  #   return data
-  # end
-  #
     recipes_list = []
     if data["hits"]
       data["hits"].each do |recipe|
         recipe_info = {
-        name: recipe["label"],
-        photo: recipe["img"],
-        url: recipe["url"],
-        ingredients: recipe["ingredientLines"],
-        dietary_labels: recipe["dietLabels"]
+        name: recipe["recipe"]["label"],
+        photo: recipe["recipe"]["image"],
+        url: recipe["recipe"]["url"],
+        ingredients: recipe["recipe"]["ingredientLines"],
+        dietary_labels: recipe["recipe"]["dietLabels"]
       }
         wrapper = Recipe.new(recipe_info)
         recipes_list << wrapper

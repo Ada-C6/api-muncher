@@ -1,0 +1,7 @@
+<h1>Results for <%= "#{params[:search]}" %> </h1>
+ <% @recipes.each do |recipe| %>
+<ul>
+  <li> Name: <%= link_to "#{ recipe.name}" %> </li>
+</ul>
+
+<% end  %>

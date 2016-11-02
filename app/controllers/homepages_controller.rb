@@ -1,8 +1,6 @@
 class HomepagesController < ApplicationController
 
-  # def index
-  #     @data = Recipe.all
-  # end
+  def index; end
   #
   # #   def create
   # #     result = Channel.by_name(params[:channel]).sendmsg(params[:message])
