@@ -3,21 +3,27 @@ require "#{Rails.root}/lib/recipe_list.rb"
 
 class HomepagesController < ApplicationController
   def index
-    @data = EdamamApiWrapper.list_recipes
+    @results = EdamamApiWrapper.list_recipes(params[:search_term])
 
-    if @data != nil && @data != []
-      render status: :created
-    else
-      render status: :service_unavailable
-    end
+    # if @data != nil && @data != []
+    #   render status: :created
+    # else
+    #   render status: :service_unavailable
+    # end
   end
 
-  def show
-    @recipe = EdamamApiWrapper.show_recipe
-    if @recipe != nil && @recipe != []
-      render status: :created
-    else
-      render status: :service_unavailable
-    end
+  def results
+
+    @results = EdamamApiWrapper.list_recipes(params[:search_term])
+
   end
+
+  # def show
+  #   @recipe = EdamamApiWrapper.show_recipe
+  #   if @recipe != nil && @recipe != []
+  #     render status: :created
+  #   else
+  #     render status: :service_unavailable
+  #   end
+  # end
 end
