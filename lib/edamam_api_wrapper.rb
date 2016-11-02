@@ -10,7 +10,8 @@ class EdamamApiWrapper
   if data["hits"]
     data["hits"].each do |recipe_hash|
       recipe = recipe_hash["recipe"]
-      wrapper = Recipe.new recipe["label"], image: recipe["image"], url: recipe["url"], ingredients: recipe["ingredients"], calories: recipe["calories"], difficultylevel: recipe["level"], healthlabel: recipe["healthLabels"], dietlabels: ["dietLabels"]
+      wrapper = Recipe.new recipe["label"], image: recipe["image"], url: recipe["url"], ingredients: recipe["ingredientLines"], calories: recipe["calories"],
+        difficultylevel: recipe["level"], healthlabels: recipe["healthLabels"], dietlabels: recipe["dietLabels"]
       recipe_list << wrapper
     end
   end

@@ -1,9 +1,12 @@
 <section class="show-recipe">
-  <%= image_tag @recipe.image, alt: "Picture of dish" %>
-  <p><%= link_to "#{ @recipe.label }", 'recipe.url' %></p>
-  <p><%= @recipe.ingredients %></p>
-  <p><%= @recipe.calories %></p>
-  <p><%= @recipe.level %></p>
-  <p><%= @recipe.healthLabels %></p>
-  <p><%= @recipe.dietLabels %></p>
+  <h1><%= link_to "#{ @recipe.label }", "#{ @recipe.url }", :target => "_blank" %></h1>
+  <%= render partial: "dietinfo" %>
+  <section class="row">
+    <section class="column small-4">
+      <%= image_tag @recipe.image, alt: "Picture of dish" %>
+    </section>
+    <%= render partial: "ingredient" %>
+  </section>
+
+  <p>Calories: <%= @recipe.calories.to_i/10 %></p>
 </section>

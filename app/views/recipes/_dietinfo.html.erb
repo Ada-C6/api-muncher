@@ -1,0 +1,8 @@
+<section class="diet-info">
+    <% @recipe.healthlabels.each do |health| %>
+      <%= health %>
+    <% end %>
+    <% @recipe.dietlabels.each do |diet| %>
+      <%= diet %>
+    <% end %>
+</section>

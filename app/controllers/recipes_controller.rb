@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   def index
+    Recipe.reset
     @recipes = Recipe.all(params["searchterm"])
   end
 
