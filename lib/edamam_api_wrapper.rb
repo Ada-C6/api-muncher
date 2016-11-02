@@ -7,7 +7,7 @@ class EdamamApiWrapper
   KEY = ENV["EDAMAM_KEY"]
 
 
-  def self.findrecipes(keyword, startindex = 0, endindex = 10) #gives possibility of looking at the next ten hits.
+  def self.findrecipes(keyword, startindex, endindex) 
     puts "Finding recipes with this keyword: #{keyword}"
 
     url = BASE_URL + "?q=" + keyword + "&app_id=#{ID}" + "&app_key=#{KEY}" + "&from=#{startindex}" + "&to=#{endindex}"

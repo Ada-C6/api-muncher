@@ -1,6 +1,12 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    if params[:search]
+      @recipes = Recipe.find(params[:search])
+    end
+  end
+
+  def show
+    @recipes = Recipe.find(params[:search])
   end
 end

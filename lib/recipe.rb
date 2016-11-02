@@ -13,12 +13,13 @@ class Recipe
     @image = options[:image]
   end
 
-  def self.all
-    EdamamApiWrapper.findrecipes("all")
-  end
+  # yeah so it turns out "all" does not do what I think it does. Haha.
+  # def self.all
+  #   EdamamApiWrapper.findrecipes("all")
+  # end
 
-  def self.find(keyword)
-    EdamamApiWrapper.findrecipes(keyword)
+  def self.find(keyword, startindex = 0, endindex = 10) #gives possibility of looking at the next ten hits.
+    EdamamApiWrapper.findrecipes(keyword, startindex, endindex)
   end
 
 

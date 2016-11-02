@@ -12,16 +12,16 @@ class RecipeTest < ActiveSupport::TestCase
     assert_equal recipe.label, label
   end
 
-  test "Recipe.all should return an array of recipes" do
-    VCR.use_cassette("recipes") do
-      recipes = Recipe.all
-      assert_kind_of Array, recipes
-      assert_not recipes.empty?
-      recipes.each do |recipe|
-        assert_kind_of Recipe, recipe
-      end
-    end
-  end
+  # test "Recipe.all should return an array of recipes" do
+  #   VCR.use_cassette("recipes") do
+  #     recipes = Recipe.all
+  #     assert_kind_of Array, recipes
+  #     assert_not recipes.empty?
+  #     recipes.each do |recipe|
+  #       assert_kind_of Recipe, recipe
+  #     end
+  #   end
+  # end
 
   test "Recipe.find should return an array of recipes" do
     VCR.use_cassette("recipes") do

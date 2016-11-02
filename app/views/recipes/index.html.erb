@@ -1,6 +1,22 @@
 <h1>This should be the homepage.</h1>
 
-<% @recipes[0..10].each do |recipe| %>
-<p>Here is a recipe:</p>
-<p><%= recipe.label %></p>
+<%= form_tag(recipes_index_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, "" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% if @recipes %>
+  <% if @recipes.empty? %>
+    <p>Sorry, no such recipes were found.</p>
+  <% else %>
+    <% @recipes.each do |recipe| %>
+    <p>Here is a recipe:</p>
+    <p><%= recipe.label %></p>
+    <% end %>
+  <% end %>
+
+<% else %>
+  <p>
+    Here will appear your delicious, delicious recipes. Yum. Recipes.
+  </p>
 <% end %>
