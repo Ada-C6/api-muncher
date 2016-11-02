@@ -7,8 +7,10 @@ class HomepagesControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show
+    get :show, {search: "search_term"} #{id: tasks(:adas_task).id}
     assert_response :success
   end
+
+
 
 end

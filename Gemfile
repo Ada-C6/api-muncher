@@ -10,6 +10,9 @@ gem 'foundation-rails'
 
 gem 'awesome_print'
 
+# Simplecov gem
+gem 'simplecov', :require => false, :group => :test
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
 # Use sqlite3 as the database for Active Record
@@ -46,6 +49,10 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'better_errors'
+  gem 'minitest-reporters'
+
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do
