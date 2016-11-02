@@ -1,4 +1,10 @@
 class Recipe
+  # Create a class-level instance variable.
+  # Much more likely to work as expected than a class variable
+  # See http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/
+  class << self; attr_reader :recipes end
+
+  attr_reader :label, :image, :difficulty_level
 
   def initialize(label, options = {} )
     raise ArgumentError if label == nil || label == ""
