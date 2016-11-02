@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   #     @data = Recipe.search(params[:recipe_params])
   # end
   def index
-  @recipes = Recipe.search(params[:search])
+    @recipes = Recipe.search(params[:search])
   end
 #
 #   private

@@ -15,11 +15,3 @@ class RecipeTest <ActiveSupport::TestCase
   end
 
 end
-#
-# test "Channel can be created with name and ID" do
-#   name = "test channel name"
-#   id = "test id"
-#   c = Channel.new(name, id)
-#   assert_equal c.name, name
-#   assert_equal c.id, id
-# end
