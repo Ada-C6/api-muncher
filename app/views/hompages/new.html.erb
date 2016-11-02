@@ -1,2 +1,9 @@
-<h1>Hompages#new</h1>
-<p>Find me in app/views/hompages/new.html.erb</p>
+<h1>Food Love</h1>
+<p>Finding all the food you love.</p>
+
+<section>
+  <%= form_tag homepages_path, method: "get" do %>
+  <%= text_field_tag :search_term %>
+  <%= submit_tag "Find Recipes", class: "Button" %>
+<% end %>
+</section>
