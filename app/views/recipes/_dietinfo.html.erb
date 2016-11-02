@@ -1,8 +1,14 @@
 <section class="diet-info">
+  <ul>
     <% @recipe.healthlabels.each do |health| %>
-      <%= health %>
+      <li>
+        <%= health %>
+      </li>
     <% end %>
     <% @recipe.dietlabels.each do |diet| %>
-      <%= diet %>
+      <li>
+        <%= diet %>
+      </li>
     <% end %>
+  </ul>
 </section>

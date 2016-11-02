@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :label, :image, :url, :ingredients, :calories, :difficultylevel, :healthlabels, :dietlabels
+  attr_reader :label, :image, :url, :ingredients, :calories, :difficultylevel, :healthlabels, :dietlabels, :servings
 
   def initialize(label, options = {} )
     raise ArgumentError if label == nil || label == ""
@@ -13,6 +13,7 @@ class Recipe
     @difficultylevel = options[:difficultylevel]
     @healthlabels = options[:healthlabels]
     @dietlabels = options[:dietlabels]
+    @servings = options[:servings]
   end
 
   # Create a class-level instance variable.

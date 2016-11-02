@@ -15,3 +15,10 @@
  *= require foundation_and_overrides
 
  */
+.diet-info li:not(:last-child):after {
+  content: ' // ';
+}
+
+.diet-info li {
+  display: inline;
+}

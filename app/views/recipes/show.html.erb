@@ -4,9 +4,8 @@
   <section class="row">
     <section class="column small-4">
       <%= image_tag @recipe.image, alt: "Picture of dish" %>
+      <p>Calories per serving: <%= @recipe.calories.to_i/@recipe.servings.to_i %></p>
     </section>
     <%= render partial: "ingredient" %>
   </section>
-
-  <p>Calories: <%= @recipe.calories.to_i/10 %></p>
 </section>
