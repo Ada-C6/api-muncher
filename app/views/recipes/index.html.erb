@@ -1,17 +1,12 @@
 <h1>RECIPES</h1>
 
-<%= form_tag(recipes_search_path, method: "get") do %>
+<%= form_tag(root_path, method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
+  <%= submit_tag("Search", name: nil) %>
 <% end %>
 
-<% if @data %>
-  <% @data.each do |recipe| %>
-    <h3><%= recipe.name %></h3>
-    <img href="<%= recipe.img %>"/>
-  <% end %>
-
-<% else %>
-
+<% @data.each do |recipe| %>
+  <h3><%= link_to recipe.name, recipe_path(recipe.name) %></h3>
+  <img src="<%= recipe.image %>"/>
 <% end %>

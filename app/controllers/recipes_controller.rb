@@ -1,14 +1,10 @@
 class RecipesController < ApplicationController
   def index
-    # @data = EdamamApiWrapper.search(params[:q])
-  end
-
-  def search
-    @data = EdamamApiWrapper.search(params[:q])
-    redirect_to recipes_path
+    @data = EdamamApiWrapper.search(params[:q]) if params[:q].present?
   end
 
   def show
+
   end
 
   def new
