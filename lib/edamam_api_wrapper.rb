@@ -16,7 +16,8 @@ class EdamamApiWrapper
           photo: hit["recipe"]["image"],
           original_link: hit["recipe"]["url"],
           ingredients: hit["recipe"]["ingredientLines"],
-          diet_labels: hit["recipe"]["dietLabels"]
+          diet_labels: hit["recipe"]["dietLabels"],
+          uri: hit["recipe"]["uri"]
         }
         wrapper = Recipe.new(recipe_hash)
         results << wrapper
@@ -24,4 +25,23 @@ class EdamamApiWrapper
     end
     return results
   end
+
+  def self.find(id)
+    url = BASE_URL + "?r=" + id[0..42] + "%23" + id[44..-1] + "&app_id=#{ APP_ID }&app_key=#{ APP_KEY }"
+    recipe_data = HTTParty.get(url)
+    wrapper = nil
+    if recipe_data != []
+      recipe_hash = {
+        name: recipe_data[0]["label"],
+        photo: recipe_data[0]["image"],
+        original_link: recipe_data[0]["url"],
+        ingredients: recipe_data[0]["ingredientLines"],
+        diet_labels: recipe_data[0]["dietLabels"],
+        uri: recipe_data[0]["uri"]
+      }
+      wrapper = Recipe.new(recipe_hash)
+    end
+    return wrapper
+  end
+
 end
