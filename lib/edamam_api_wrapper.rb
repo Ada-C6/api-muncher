@@ -5,22 +5,20 @@ class EdamamApiWrapper
   KEY = ENV["APP_KEY"]
   ID = ENV["APP_ID"]
 
+  def initialize(search_word)
+    @search_word = search_word
+  end
 
   def self.listrecipes(search_word)
-    url = "#{BASE_URL}" + "#{search_word}" + "&app_id=$#{ID}" + "&app_key=$#{KEY}"
+    url = "#{BASE_URL}" + "#{@search_word}" + "&app_id=#{ID}" + "&app_key=#{KEY}"
     data = HTTParty.get(url)
 
-    # puts "#{url}"
-    # return data
     recipes_list = []
 
     if data["hits"]
       data["hits"].each do |entry|
-        entry["recipe"].each do |recipe|
-          wrapper = Recipe.new(recipe["label"]) #{ image: entry["image"], source: entry["source"], ingredients: entry["ingredientLines"], url: entry[:url] } )
-
-          recipes_list << wrapper
-        end
+        thing = Recipe.new(entry["recipe"]["label"], { image: entry["recipe"]["image"], source: entry["recipe"]["source"], ingredients: entry["recipe"]["ingredientLines"], url: entry["recipe"]["url"] } )
+        recipes_list << thing
       end
     end
 
