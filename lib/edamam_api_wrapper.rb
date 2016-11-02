@@ -15,7 +15,8 @@ class EdamamApiWrapper
         #foods = {
         # label: hit["recipe"]["label"]
         #hash uri: hit[recipe] [uri]}
-        wrapper = Recipe.new #foods
+        wrapper = Recipe.new hit["recipe"]["label"]
+         #foods
 
         foods << wrapper
       end
