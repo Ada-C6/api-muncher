@@ -4,7 +4,8 @@ class Recipe
   # See http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/
   class << self; attr_reader :recipes end
 
-  attr_reader :label, :image, :difficulty_level
+  attr_reader :label, :image, :original_site, :original_url, :ingredients,
+      :diet_labels, :health_labels
 
   def initialize(label, options = {} )
     raise ArgumentError if label == nil || label == ""
@@ -12,6 +13,7 @@ class Recipe
     @label = label
 
     @image         = options[:image]
+    @original_site  = options[:original_site]
     @original_url  = options[:original_url]
     @ingredients   = options[:ingredients]
     @diet_labels   = options[:diet_labels]
