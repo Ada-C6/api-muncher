@@ -1,0 +1,10 @@
+
+<h1>Top hits for <%= "#{@ingredient}"%></h1>
+<table>
+  <% @recipes.each do |recipe| %>
+  <tr>
+    <td><%=image_tag("#{recipe.image}")%></td>
+    <td><%= link_to "#{recipe.name}", sho%></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,8 +1,8 @@
 
-<h1>Please Enter in an Indegredient to See some Recipes </h1>
+<h1>Please Enter in an Indgredient to See some Recipes </h1>
 
-<%= form_tag recipes_show_path(:recipe), method: "get" do %>
-  <%= label_tag :recipe, "Ingredients" %>
-  <%= text_field_tag :recipe %>
+<%= form_tag recipes_search_path(:name), method: "get" do %>
+  <%= label_tag :name, "Ingredients" %>
+  <%= text_field_tag :name %>
   <%= submit_tag "Send Message", class: "Button" %>
 <% end %>

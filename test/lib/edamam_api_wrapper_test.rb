@@ -7,7 +7,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
 
   test "find_recipes will return an Array" do
     VCR.use_cassette("recipes") do
-      recipes = EdamamApiWrapper.find_recipies("chicken")
+      recipes = EdamamApiWrapper.find_recipes("chicken")
       assert_kind_of Array, recipes
       assert_not recipes.empty?
       recipes.each do |recipe|
