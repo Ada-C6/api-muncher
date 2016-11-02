@@ -18,12 +18,17 @@ class Recipe
     @health_labels = options[:health_labels]
   end
 
-  # Return a memoized set of all channels
+  # Return a memoized set of all recipes
   def self.all(keyword = nil)
     @recipes ||= EdamamApiWrapper.list_recipes(keyword)
   end
 
-  # Return either the first (probably only) channel matching
+  # Used to reset the memoization so a new search will return different results
+  def self.reset
+    @recipes = nil
+  end
+
+  # Return either the first (probably only) recipe matching
   # the given name, or nil.
   def self.by_label(label)
 
