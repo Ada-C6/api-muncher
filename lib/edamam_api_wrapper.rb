@@ -7,13 +7,15 @@ class EdamamApiWrapper
   APP_KEY = ENV["EDAMAM_APP_KEY"]
 
   def self.find_recipies(food)
-    url = BASE_URL + "search?q=" + "#{food}" + "&app_id=" + APP_ID + "&app_key=" + APP_KEY
+    url = BASE_URL + SEARCH + "#{food}" + "&app_id=" + APP_ID + "&app_key=" + APP_KEY
     recipe = HTTParty.get(url)
     foods = []
     if recipe["hits"]
       recipe["hits"].each do |hit|
-        wrapper = 
+        wrapper = Recipe.new hit["recipe"]
+        foods << wrapper
       end
     end
+    return foods
   end
 end
