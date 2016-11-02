@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   root to: 'homepages#index'
 
-  resources :homepages, only: [:index, :show]
+  resources :homepages, only: [:list]
 
   get 'homepages/index'
-  get 'homepages/show'
-  get 'homepages/list'
+  get 'homepages/list' => 'homepages#list', as: 'list'
+  get 'homepages/show/:id' => 'homepages#show', as: 'show'
+
 
 
 end

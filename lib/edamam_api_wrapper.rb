@@ -8,14 +8,12 @@ class EdamamApiWrapper
   APP_ID = ENV["app_id"]
   APP_KEY = ENV["app_key"]
 
-  attr_reader :recipe_name, :recipe_uri#, :purpose, :is_archived, :members
+  attr_reader :recipe_name, :recipe_uri, :image#, :purpose, :is_archived, :members
 
-  def initialize( recipe_name, recipe_uri, options = {} )
+  def initialize( recipe_name, recipe_uri, image options = {} )
     @recipe_name = recipe_name
     @recipe_uri = recipe_uri
-
-    # In here write the recipe search thingies
-    @image = options[:image]
+    @image = image
     # @is_archived = options[:is_archived]
     # @is_general = options[:is_archived]
     # @members = options[:members]
@@ -42,7 +40,7 @@ class EdamamApiWrapper
     recipes = []
     if data["hits"]
       data["hits"].each do |hit|
-        wrapper = Recipe_Results.new hit["recipe"]["label"], hit["recipe"]["uri"], image: hit["recipe"]["image"]
+        wrapper = Recipe_Results.new( hit["recipe"]["label"], hit["recipe"]["uri"], hit["recipe"]["image"] )
         recipes << wrapper
       end
       return recipes
