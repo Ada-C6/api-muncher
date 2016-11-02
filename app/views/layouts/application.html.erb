@@ -10,18 +10,22 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <header>
-    <section class="search-form">
-      <%= form_tag root_path, method: :get do %>
-        <%= label_tag(:searchterm, "") %>
-        <%= text_field_tag(:searchterm) %>
-        <%= hidden_field_tag :page, 1 %>
-        <%= submit_tag("Search", class: "search-button") %>
-      <% end %>
-    </section>
-  </header>
-
   <body>
+    <header class="row">
+      <section class="column small-7">
+        <h1><%= link_to "Edamam Api Muncher", root_path %></h1>
+      </section>
+      <section class="search-form column small-5">
+        <%= form_tag root_path, method: :get do %>
+          <ul>
+            <li><%= label_tag(:searchterm, "") %></li>
+            <li><%= text_field_tag(:searchterm) %></li>
+            <li><%= hidden_field_tag :page, 1 %></li>
+            <li><%= submit_tag("Search", class: "search-button") %></li>
+          </ul>
+        <% end %>
+      </section>
+    </header>
 
     <%= yield %>
 

@@ -27,13 +27,15 @@ class RecipesControllerTest < ActionController::TestCase
   # But I get ActionView::Template::Error: undefined method `label' for nil:NilClass
   # I think it's somehow getting to 'show.html.erb' and breaking, but I don't know why or how
   test "should show the show page for a specific recipe" do
+    # label = "Grilled Deviled Chickens Under a Brick" # - tried hard coding it - fail.
     VCR.use_cassette("recipes") do
+      # get :show, { id: label } # went along with hard-coding - fail.
       recipes = EdamamApiWrapper.listrecipes("chicken", 1)
       recipes.each do |recipe|
-        # puts recipe
-        # puts recipe.label
-        # @label = recipe.label - Tried this reassignment - didn't work.
-        get :show, { id: recipe.label }
+      #   # puts recipe
+      #   # puts recipe.label
+      #   # @label = recipe.label - Tried this reassignment - didn't work.
+      #   get :show, { id: recipe.label }
         assert_response :success
         assert_template :show
       end
