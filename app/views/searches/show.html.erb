@@ -1,7 +1,9 @@
 <h1><%= @recipe.name %></h1>
-<%= image_tag url(@recipe.image) %>
+<%= image_tag @recipe.image %>
 <h4>Source:</h4>
-<p><%= @recipe %></p>
+  <ul>
+    <li><%= @recipe.source %></li>
+  </ul>
 
 <h4>Ingredients:</h4>
   <ul>
@@ -11,4 +13,4 @@
   </ul>
 
 <h4>Instructions:</h4>
-<p><%= @recipe.url %></p>
+<a href="<%= @recipe.url %>"</a><%= @recipe.url %></p>

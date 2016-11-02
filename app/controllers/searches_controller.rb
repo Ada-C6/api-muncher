@@ -4,23 +4,17 @@ class SearchesController < ApplicationController
   end
 
   def show
-    raise
-    selection = @results.select do |recipe|
-      if recipe.name == params[:recipe_name]
-      end
-    end
-
-    return selection[0]
+    @recipe ||= EdamamApiWrapper.listrecipe(params[:id])
   end
 
   def new; end
 
+  # class << self
+  #   attr_writer :results
+  # end
 
   def create
     @results ||= EdamamApiWrapper.listrecipes(params[:search_word])
-    class << self
-      attr_writer :results
-    end
     render :index
   end
 
