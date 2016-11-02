@@ -1,1 +1,6 @@
-<%= @recipe %>
+<section class="recipe-label row">
+  <h1 class="column"><%= @recipe.label %></h1>
+</section>
+<section class="link-original row">
+  <p class="column"><%= link_to "View Original Recipe", @recipe.url, target: "_blank" %></p>
+</section>
