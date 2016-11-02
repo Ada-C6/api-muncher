@@ -1,15 +1,21 @@
 class Recipe
 
-  def initialize(label, image, options = {} )
+  def initialize(label, options = {} )
     raise ArgumentError if label == nil || label == ""
 
     @label = label
 
-    @difficulty_level = options[:difficulty_level]
-    @image = options[:image]
-    @yield = options[:yeild]
-    @descriptions = options[:description]
-    @ingredients = options[:ingredients]
+    @image         = options[:image]
+    @original_url  = options[:original_url]
+    @ingredients   = options[:ingredients]
+    @diet_labels   = options[:diet_labels]
+    @health_labels = options[:health_labels]
+  end
+
+  # Return a memoized set of all channels
+  def self.all(keyword = nil)
+    @recipes ||= EdamamApiWrapper.list_recipes(keyword)
+  end
 
   end
 
