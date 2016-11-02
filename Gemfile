@@ -41,7 +41,7 @@ group :development, :test do
   gem 'better_errors'
   #Use VCR for mocking HTTP requests
   gem 'minitest-vcr'
-  #gem 'webmock'
+  gem 'webmock'
 end
 
 group :development do
