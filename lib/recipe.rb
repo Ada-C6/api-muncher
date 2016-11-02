@@ -1,26 +1,34 @@
 class Recipe
-  attr_reader :label, :source, :uri, :image, :source_url, :source_icon
+  attr_reader :label, :source, :identifier, :image, :source_url, :source_icon
 
-  def initialize(label, source_site, uri, options = {} )
+  def initialize(label, source_site, identifier, options = {} )
     @label = label
     @source = source_site
-    @uri = uri
+    @identifier = identifier
     @image = options[:image]
     @source_url = options[:source_url]
     @source_icon = options[:source_icon]
+    @ingredients = options[:ingredients]
   end
 
   # Create a class-level instance variable.
   # Much more likely to work as expected than a class variable
   # See http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/
   class << self
-    attr_reader :recipes
+    attr_reader :recipes, :recipe
   end
 
-  # Return a memoized set of all channels
+  # Return a memoized collection of recipes
   def self.all(term)
-    
+    #TODO: If term is the same, then can use memoized version, but if term isn't, need to make the request again.
     # @recipes ||= EdamamApiWrapper.search(term)
     @recipes = EdamamApiWrapper.search(term)
+  end
+
+  def self.recipe(identifier)
+    # Should check and see if this idenfitier already exists in my @recipes and if it doesn't then, call this.
+    # if @recipes.include? (Recipe)
+    @recipe = EdamamApiWrapper.recipe(identifier)
+    # if @recipes.include?(Recipe)
   end
 end
