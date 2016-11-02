@@ -21,4 +21,5 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  Minitest::Reporters.use!  # use Minitest Reporters for colored output.
 end
