@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  get 'homepages/index'
+  root to: 'homepages#index'
 
-  get 'receipes/index'
+  # get 'homepages/index'
 
-  get 'receipes/show'
+  # get 'receipes/index'
+
+  # get 'receipes/show'
+ 
+  get 'recipes/search' => 'recipes#search', as: :search_recipes
+
+  resources :recipes, only: [:index, :show]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
