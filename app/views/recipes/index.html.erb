@@ -1,6 +1,6 @@
 <h1>This should be the homepage.</h1>
 
-<%# @data[0..10].each do |datum| %>
-<%# puts "Here is a recipe:"  %>
-<%# puts datum.label %>
-<%# end %>
+<% @recipes[0..10].each do |recipe| %>
+<p>Here is a recipe:</p>
+<p><%= recipe.label %></p>
+<% end %>

@@ -9,6 +9,38 @@ class RecipeTest < ActiveSupport::TestCase
     label = "Best Test Ever!"
     recipe = Recipe.new(label)
     assert_kind_of Recipe, recipe
-    # assert_equal, recipe.name, name
+    assert_equal recipe.label, label
   end
+
+  test "Recipe.all should return an array of recipes" do
+    VCR.use_cassette("recipes") do
+      recipes = Recipe.all
+      assert_kind_of Array, recipes
+      assert_not recipes.empty?
+      recipes.each do |recipe|
+        assert_kind_of Recipe, recipe
+      end
+    end
+  end
+
+  test "Recipe.find should return an array of recipes" do
+    VCR.use_cassette("recipes") do
+      recipes = Recipe.find("chicken")
+      assert_kind_of Array, recipes
+      assert_not recipes.empty?
+      recipes.each do |recipe|
+        assert_kind_of Recipe, recipe
+        assert recipe.label.downcase.include?("chicken")
+      end
+    end
+  end
+
+  test "Recipe.find should return an empty array if no match" do
+    VCR.use_cassette("recipes") do
+      recipes = Recipe.find("this-recipe-is-a-savoflange-for-testing-only")
+      assert recipes.empty?
+      assert_kind_of Array, recipes
+    end
+  end
+
 end
