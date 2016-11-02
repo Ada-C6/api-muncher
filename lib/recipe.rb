@@ -23,6 +23,14 @@ class Recipe
     @recipes ||= EdamamApiWrapper.list_recipes(keyword)
   end
 
+  # Return either the first (probably only) channel matching
+  # the given name, or nil.
+  def self.by_label(label)
+
+    matches = self.all.select do |r|
+      r.label == label
+    end
+    return matches.first
   end
 
 end
