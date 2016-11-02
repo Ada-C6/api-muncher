@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # adds pagination ability
 gem 'will_paginate', '~> 3.1.0'
+gem 'api-pagination'
 
 
 # Use ActiveModel has_secure_password

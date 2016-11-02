@@ -1,11 +1,8 @@
-<h1>Receipes#search</h1>
-<!-- :name, :id, :health_labels, :ingredients, :uri, :servings, :nutrients
- -->
 <p>search results for: <%= @term %> </p>
-<% @my_recipes.each do |recipe| %>
+<% @recipes.each do |recipe| %>
 	<h3> <%= link_to(recipe.name, recipe_path(recipe.id)) %> </h3>
 	<%= image_tag(recipe.photo_url) %>
 <%end%>
-
+<%= will_paginate @paginated_results %>
 
 
