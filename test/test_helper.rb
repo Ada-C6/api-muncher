@@ -4,7 +4,7 @@ require 'rails/test_help'
 require "minitest/reporters"
 
 require 'vcr'
-require 'webmock/minitest'
+#require 'webmock/minitest'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
