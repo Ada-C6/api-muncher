@@ -1,6 +1,35 @@
 <h1>Recipes#show</h1>
 <p>Find me in app/views/recipes/show.html.erb</p>
+<main>
 
-<p>
-  <%= @recipe.label %>
-</p>
+
+  <section class='row'>
+    <div class='columns small-12'>
+      <h2><%= @recipe.label %></h2>
+    </div>
+  </section>
+
+  <aside>
+    <ul class='labels-list'>
+        <%= render partial: "list", locals: {list: @recipe.health_labels} %>
+    </ul>
+    <ul class='labels-list'>
+      <%= render partial: "list", locals: {list: @recipe.diet_labels} %>
+    </ul>
+  </aside>
+
+  <article class='row'>
+    <div class='columns small-12 medium-6 large-4'>
+      <%= image_tag @recipe.image %>
+    </div>
+    <div class='column small-12 medium-6 large-8'>
+      <ul class='check-list'>
+        <%= render partial: "list", locals: {list: @recipe.ingredients} %>
+      </ul>
+    </div>
+    <div class='columns small-12 off-site-link'>
+      <small>Source: <%= link_to @recipe.original_site, @recipe.original_url %></small>
+    </div>
+  </article>
+
+</main>
