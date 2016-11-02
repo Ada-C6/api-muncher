@@ -5,11 +5,12 @@
   </header>
 
   <section>
-    <p> This doesn't work yet, need to hook up to form. </p> 
-    <ul class="menu">
-      <li><input type="search" placeholder="Search"></li>
-      <li><button type="button" class="button">Search</button></li>
-    </ul>
+    <!-- <%= render partial: "search_form" %> -->
+    <%= form_tag(recipes_results_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+        <%= submit_tag "Search", :name => nil %>
+    <% end %>
+
   </section>
 
   <section>

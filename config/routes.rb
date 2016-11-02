@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get "/recipes", to: "recipes#index", as: "recipes"
 
   get 'recipes/results' => 'recipes#results'
-  post 'recipes/search' => 'recipes#search'
 
   get 'recipe/:id/' => 'recipes#show', as: 'recipe'
 

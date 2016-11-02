@@ -1,0 +1,15 @@
+<article>
+  <section>
+    <table>
+      <% @recipes.each do |recipe| %>
+      <tr>
+        <td>
+          <%= image_tag recipe.image %>
+          <%= recipe.label %>
+          From: <%= image_tag recipe.source_icon %>  <%= recipe.source %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </section>
+</article>
