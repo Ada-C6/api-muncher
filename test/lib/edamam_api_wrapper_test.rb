@@ -7,7 +7,8 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
 
   test "that the search bar retrieves information" do
     VCR.use_cassette("results") do
-      results = EdamamApiWrapper.results
+      search_term = "eggs"
+      results = EdamamApiWrapper.results(search_term)
 
       assert_not results.empty?
     end

@@ -18,7 +18,7 @@ VCR.configure do |config|
   # Don't leave the Edamam token lying around in a cassette file.
 config.filter_sensitive_data("<EDAMAM_TOKEN>") do
   ENV['EDAMAM_TOKEN']
-end
+  end
 end
 
 class ActiveSupport::TestCase
