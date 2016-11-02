@@ -1,6 +1,9 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  color: #666;
+}
 
 li {
   list-style: none;
@@ -10,13 +13,63 @@ li {
   opacity: 0.4;
 }
 
-.recipe-label, h2 {
-  font-size: 1.5rem;
-  overflow: hidden;
-  text-overflow-multiline: ellipsis;
+.recipe-tile:hover  .recipe-picture {
+  opacity: 0.7;
+
+}
+
+.recipe-label {
+  visibility: hidden;
+  font-size: 1rem;
+  // transition-timing-function: ease-in;
+  // transition: .25s;
+  // transition: 0.2s all ease-in-out;
+  color: grey;
+  text-align: center;
+
+}
+
+.recipe-tile:hover .recipe-label {
+  visibility: visible;
+
 }
 
 .recipe-tile  {
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+article {
+  padding: 2rem;
+}
+
+.labels-list > li {
+  display: inline;
+}
+
+.labels-list > li:not(:last-child):after {
+  content:' |';
+}
+
+.check-list > li {
+	list-style-image: url(uncheck.gif);
+	border-bottom: 1px solid #ccc;
+	padding: .2em 0 .2em .5em;
+	color: #666;
+}
+
+.check-list > li:hover {
+	cursor: pointer;
+	background-color: #f2f2f2;
+	color: #000;
+
+}
+
+.check-list > li:hover:before {
+  color: #666;
+  font-family: FontAwesome;
+  content: "\f0f5";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
 }
