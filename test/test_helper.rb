@@ -3,6 +3,9 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require "minitest/reporters"
 
+#simplecov
+require 'simplecov'
+SimpleCov.start 'rails'
 #vcr for api tests
 require 'vcr'
 require 'webmock/minitest'

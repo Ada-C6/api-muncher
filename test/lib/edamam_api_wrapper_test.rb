@@ -9,7 +9,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     VCR.use_cassette("results") do
       search_term = "eggs"
       results = EdamamApiWrapper.results(search_term)
-
+      assert_kind_of Array, results
       assert_not results.empty?
     end
 
