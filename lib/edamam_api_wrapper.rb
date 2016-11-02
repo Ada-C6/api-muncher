@@ -4,8 +4,9 @@ class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/"
 
   def self.listrecipes(searchterm)
-  url = BASE_URL + "search?q=" + "#{ searchterm }" + "&app_id=#{ ID }" + "&app_key=#{ KEY }"
+  url = BASE_URL + "search?q=" + "#{ searchterm }" + "&app_id=#{ ID }" + "&app_key=#{ KEY }" + "&from=0&to=100"
   data = HTTParty.get(url)
+  # data["hits"]["to"].to_i = data["hits"]["count"].to_i
   recipe_list = []
   if data["hits"]
     data["hits"].each do |recipe_hash|
