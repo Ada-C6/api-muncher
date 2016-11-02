@@ -1,0 +1,7 @@
+<h1>Please enter a food search word here:</h1>
+
+<%= form_tag searches_path do %>
+  <label for="lookup">Lookup</label>
+  <%= text_field_tag :search_word %>
+  <%= submit_tag "Submit" %>
+<% end %>

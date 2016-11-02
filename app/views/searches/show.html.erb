@@ -1,0 +1,14 @@
+<h1><%= @recipe.name %></h1>
+<%= image_tag url(@recipe.image) %>
+<h4>Source:</h4>
+<p><%= @recipe %></p>
+
+<h4>Ingredients:</h4>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+  </ul>
+
+<h4>Instructions:</h4>
+<p><%= @recipe.url %></p>
