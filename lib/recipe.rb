@@ -1,16 +1,15 @@
 class Recipe
-  attr_reader :name, :recipe_image, :source_url, :ingredients, :calories,  :yield, :source, :source_icon #, :dietary_info
+  attr_reader :name, :recipe_image, :source_url, :ingredients, :calories,  :yield, :source, :source_icon, :dietary_info
 
   def initialize(name, options = {})
     raise ArgumentError if name == nil || name == ""
 
     @name = name
     @recipe_image = options[:recipe_image]
-    @id = options[:id]
     @source_url = options[:source_url]
     @ingredients = options[:ingredients]
     @calories = options[:calories]
-    # @dietary_info = options[:dietary_info]
+    @dietary_info = options[:dietary_info]
     @yield = options[:yield]
     @source = options[:source]
     @source_icon = options[:source_icon]

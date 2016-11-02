@@ -13,17 +13,30 @@ class EdamamApiWrapper
     if !data["hits"].nil?
       data["hits"].each do |hit|
         name = hit["recipe"]["label"]
-        api_hash = {recipe_image: hit["recipe"]["image"], source_url: hit["recipe"]["url"], ingredients: hit["recipe"]["ingredientLines"], calories: hit["recipe"]["calories"].to_i,
-        # dietary_info:
-        # hit["recipe"]["digest"].each do |nutrient|
-          # if !hit["recipe"]["digest"]["sub"].nil?
-          # [
-            # nutrient["label"], nutrient["total"].to_f, nutrient["unit"]
-          # ]
-        # end
-        yield: hit["recipe"]["yield"].to_i, source: hit["recipe"]["source"], source_icon: hit["recipe"]["souceIcon"]}
+
+        dietary_info = hit["recipe"]["digest"].each_with_index.map do |nutrient, index|
+          if !hit["recipe"]["digest"][0]["sub"].nil?
+            [nutrient["label"], nutrient["total"].to_f, nutrient["unit"]]
+          elsif hit["recipe"]["digest"][0]["sub"].nil?
+            [nutrient["label"], nutrient["total"].to_f, nutrient["unit"]]
+            nutrient["sub"].each do |sub_nutrient, value|
+              [value]
+            end
+          end
+        end
+        api_hash = {
+          recipe_image: hit["recipe"]["image"],
+          source_url: hit["recipe"]["url"],
+          ingredients: hit["recipe"]["ingredientLines"],
+          calories: hit["recipe"]["calories"].to_i,
+          dietary_info: dietary_info,
+          yield: hit["recipe"]["yield"].to_i,
+          source: hit["recipe"]["source"],
+          source_icon: hit["recipe"]["souceIcon"]}
+
         recipe = Recipe.new(name, api_hash)
         recipe_list.push(recipe)
+
       end
       return recipe_list
     else
