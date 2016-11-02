@@ -1,2 +1,17 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<h1>RECIPES</h1>
+
+<%= form_tag(recipes_search_path, method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @data %>
+  <% @data.each do |recipe| %>
+    <h3><%= recipe.name %></h3>
+    <img href="<%= recipe.img %>"/>
+  <% end %>
+
+<% else %>
+
+<% end %>
