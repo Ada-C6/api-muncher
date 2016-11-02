@@ -26,7 +26,7 @@ class Recipe
         url: recipe_hash['recipe']['url'],
         servings: recipe_hash['recipe']['yield'],
         nutrients: Nutrient.make_nutrients_from_api(recipe_hash['recipe']['totalNutrients']),
-        photo_url: recipe_hash['recipe']['imgage']
+        photo_url: recipe_hash['recipe']['image']
 
          })
     end
