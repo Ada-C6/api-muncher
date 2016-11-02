@@ -27,4 +27,13 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
       assert_equal id, find_recipe.uri
     end
   end
+
+  test ".find returns nil if there is no recipe with that id" do
+    VCR.use_cassette("recipes") do
+      id = "invalid_url"
+      find_recipe = EdamamApiWrapper.find(id)
+
+      assert_nil find_recipe
+    end
+  end
 end
