@@ -9,10 +9,6 @@ class SearchesController < ApplicationController
 
   def new; end
 
-  # class << self
-  #   attr_writer :results
-  # end
-
   def create
     @results ||= EdamamApiWrapper.listrecipes(params[:search_word])
     render :index
