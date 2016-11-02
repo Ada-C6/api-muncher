@@ -14,11 +14,12 @@ class Nutrient
 	    api_data_hash.keys.each do |key|
 	      nutrients<<Nutrient.new({
 	        id: key,
-	        name: api_data_hash[key]['label'],
+	        name: api_data_hash[key]['label'] ,
 	        quantity: api_data_hash[key]['quantity'].to_f,
 	        unit: api_data_hash[key]['unit']
 	         })
 	    end
+	    nutrients[0].name="Calories"
 	    return nutrients
 	end
 end

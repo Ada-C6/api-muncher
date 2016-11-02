@@ -1,2 +1,25 @@
-<h1>Receipes#show</h1>
-<p>Find me in app/views/receipes/show.html.erb</p>
+<p><%= link_to(@this_recipe.name, @this_recipe.url)%></p>
+<%= image_tag(@this_recipe.photo_url) %>
+
+<article>
+<section>
+	<h3>Ingredients</h3>
+	<ul>
+	<% @this_recipe.ingredients.each do |ingredient| %>
+		<li> <%=ingredient.text%></li>
+	<%end%>
+	</ul>
+
+</section>
+	<h3>Nutritional Information</h3>
+	<table>
+	<% @this_recipe.nutrients.each do |nutrient| %>
+		<tr>
+			<td> <%=nutrient.name%></td>
+			<td> <%=nutrient.quantity%><%=nutrient.unit%></td>
+		</tr>
+		
+	<%end%>
+	</table>
+</article>
+<%= link_to "Back to search results", :back %>
