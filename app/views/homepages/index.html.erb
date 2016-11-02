@@ -1,8 +1,10 @@
 <h1>Edamam Recipes</h1>
 
-<%= form_tag(search_recipes_path, :method => 'get') do %>
+<p>homepages#index</p>
+
+<%= form_tag(search_recipes_path, method: :get) do %>
   <p>
-    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+    <%= text_field_tag :search, params[:search]%>
     <%= submit_tag "Search", :name => nil%>
   </p>
 <% end %>

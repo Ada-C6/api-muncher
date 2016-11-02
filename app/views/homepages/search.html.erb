@@ -2,5 +2,7 @@
 
 
 <% @searched.each do |recipe| %>
-<p><%= recipe.label %></p>
+  <%= link_to "#{image_tag(recipe.photo)}".html_safe, show_recipe_path(recipe.label), class: "category-img" %>
+  <p><%= recipe.label %></p>
+  <p><%= link_to recipe.label, show_recipe_path(recipe.label) %></p>
 <% end %>

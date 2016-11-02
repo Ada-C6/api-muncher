@@ -1,15 +1,22 @@
 class HomepagesController < ApplicationController
   def index
     @searched = Recipe.search(params[:search])
-  end
-
-  def main
-    @searched = Recipe.search(params[:search])
+    return @searched
   end
 
   def search
-    # @q = "%#{params[:query]}%"
-    # @recipies = Recipe.where("label LIKE ?", @q)
     @searched = Recipe.search(params[:search])
+
+    @searched.each do |recipe|
+      @link = recipe.link
+      @photo = recipe.photo
+    end
+    return @searched
+  end
+
+  def show
+    # @show_recipe = Recipe.by_name(params[:search])
+    # return @show_recipe
+    @recipe = Recipe.by_label(params[:recipe])
   end
 end
