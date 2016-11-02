@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'recipes#search'
 
+  get 'recipes/page/:page', to: 'recipes#page', as: 'page'
+
   resources :recipes, only: [:index, :show]
 
 

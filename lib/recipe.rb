@@ -14,11 +14,20 @@ class Recipe
   end
 
   class << self
-    attr_reader :results # this hasn't been set anywhere yet, but will be when we memoize it below?
+    attr_reader :results, :count # this hasn't been set anywhere yet, but will be when we memoize it below?
   end
 
-  def self.search(search_term)
-    @results ||= EdamamApiWrapper.search(search_term)
+  def self.search(search_term, page = nil)
+    if page == nil
+      from = 0
+      to = 10
+    else
+      from = page * 10
+      to = from + 10
+    end
+    results ||= EdamamApiWrapper.search(search_term, from, to)
+    @results = results[0]
+    @count = results[1]
   end
 
 end

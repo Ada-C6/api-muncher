@@ -2,7 +2,7 @@
   <h1 class="column">Recipe Results</h1>
 </section>
 <section class="search-query row">
-  <h3 class="column">Recipes matching "<%= @search_term %>":</h3>
+  <h3 class="column"><%= "#{@count} recipes matching '#{@search_term}'" %>:</h3>
 </section>
 
 <ul class="row small-up-1 medium-up-3 large-up-4">
@@ -17,3 +17,5 @@
     <% id += 1 %>
   <% end %>
 </ul>
+
+<%= link_to "Next", page_path(1), params:{ pagee: 1, search: @search_term }%>
