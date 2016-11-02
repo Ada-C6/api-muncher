@@ -1,0 +1,9 @@
+<section>
+  <h4>Ingredients</h4>
+
+  <%= @recipe.name %>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <p><%= ingredient %></p>
+    <% end %>
+    <a href="<%= @recipe.source_url%>" target="_blank">Original Recipe</a>
+</section>

@@ -1,0 +1,10 @@
+<section>
+  <h1>Search Results</h2>
+
+  <% @recipes.each do |recipe| %>
+    <p><%= recipe.name %></p>
+    <img src="<%= recipe.recipe_image %>">
+    <p><%= link_to("Details", recipe_path(recipe.name)) %>
+  <% end %>
+
+</section>
