@@ -15,10 +15,16 @@ class RecipeTest < ActiveSupport::TestCase
     assert_equal r.label, label
   end
 
-
   #
   # SELF METHODS
   #
 
+  test "Recipe will be set to nil if reset" do
+    label = "chicken"
+    r = Recipe.new(label)
+    assert_not_nil r
+    r = Recipe.reset
+    assert_nil r
+  end
 
 end
