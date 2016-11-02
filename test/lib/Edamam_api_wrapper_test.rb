@@ -15,7 +15,6 @@ class EdamamAPIWrapperTest < ActiveSupport::TestCase
       recipes = EdamamApiWrapper.recipe_search(search_term)
       assert response["ok"]
       assert_equal hit["recipe"]["label"], name
-      assert_equal , api_hash
     end
   end
 

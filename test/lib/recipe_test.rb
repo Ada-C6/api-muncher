@@ -10,58 +10,42 @@ class RecipeTest < ActiveSupport::TestCase
   # INSTANCE METHODS
   #
 
-  test "Channel can be created with name and ID" do
+  test "Recipe can be created with name and api_hash" do
     name = "test name"
-    id = "test id"
-    c = Channel.new(name, id)
+    api_hash = {"test" => "hash"}
+    c = Recipe.new(name, api_hash)
     assert_equal c.name, name
-    assert_equal c.id, id
+    assert_equal c.api_hash, api_hash
   end
 
   #
   # SELF methods
   #
 
-  test "Channel.all should return an array of channels" do
-    VCR.use_cassette("channels") do
-      channels = Channel.all
-      assert_not channels.empty?
-      assert_kind_of Array, channels
-      channels.each do |channel|
-        assert_kind_of Channel, channel
+  test "Recipe.all should return an array of recipes" do
+    VCR.use_cassette("recipes") do
+      recipes = Recipe.all
+      assert_not recipes.empty?
+      assert_kind_of Array, recipes
+      recipes.each do |recipe|
+        assert_kind_of Recipe, recipe
       end
     end
   end
 
   test "Channel.by_name should return nil if no match" do
-    VCR.use_cassette("channels") do
+    VCR.use_cassette("recipes") do
       channel = Channel.by_name("this-channel-does-not-exist")
       assert_nil channel
     end
   end
 
-  test "Channel.by_name should return the only match" do
-    VCR.use_cassette("channels") do
-      name = "test-api-brackets"
-      channel = Channel.by_name(name)
-      assert_kind_of Channel, channel
-      assert_equal channel.name, name
+  test "Recipe.by_name should return the only match" do
+    VCR.use_cassette("recipes") do
+      name = "Grilled Deviled Chickens Under a Brick"
+      channel = Recipe.by_name(name)
+      assert_kind_of Recipe, recipes
+      assert_equal recipe.name, name
     end
   end
-
-  # TODO: uncomment me if Slack ever starts giving back duplicate channels
-  # test "Channel.by_name should return the first patch" do
-
-  # Dan would have manufactored a new cassette with a duplicate present
-
-  #   name = "test name"
-  #   Channel.channels = []
-  #   Channel.channels << Channel.new(name, 123)
-  #   Channel.channels << CHannel.new(name, 456)
-  #
-  #   channel = Channel.by_name(name)
-  #   assert_kind_of CHannel, channel
-  #   assert_equal channel.name, name
-  # end
-
 end
