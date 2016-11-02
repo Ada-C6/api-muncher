@@ -1,7 +1,7 @@
 
 <h1>Please Enter in an Indegredient to See some Recipes </h1>
 
-<%= form_tag recipes_show_path(@ingredient), method: "get" do %>
+<%= form_tag recipes_show_path(:recipe), method: "get" do %>
   <%= label_tag :recipe, "Ingredients" %>
   <%= text_field_tag :recipe %>
   <%= submit_tag "Send Message", class: "Button" %>

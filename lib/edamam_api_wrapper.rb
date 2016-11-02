@@ -12,7 +12,11 @@ class EdamamApiWrapper
     foods = []
     if recipe["hits"]
       recipe["hits"].each do |hit|
-        wrapper = Recipe.new hit["recipe"]
+        #foods = {
+        # label: hit["recipe"]["label"]
+        #hash uri: hit[recipe] [uri]}
+        wrapper = Recipe.new #foods
+
         foods << wrapper
       end
     end
