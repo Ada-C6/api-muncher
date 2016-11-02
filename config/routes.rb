@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :homepages, only: [:index]
+
+  get '/searches/', to: 'searches#index', as: 'searches'
+  post '/searches/', to: 'searches#create', as: 'create_search'
+  get '/searches/new/', to: 'searches#new', as: 'new_search'
+  get '/searches/:recipe/', to: 'searches#show', as: 'search'
+
 end
