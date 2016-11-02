@@ -8,18 +8,24 @@ class RecipesController < ApplicationController
     Recipe.search(@search_term, page)
     @results = Recipe.results
     @count = Recipe.count
+    @pages = @count/10
+    # raise
   end
-
-  def page
-    raise
-    @results = Recipe.results
-    until to >= @count
-      from += 10
-      to += 10
-      Recipe.search(@search_term, from, to)
-      @results = Recipe.results
-    end
-  end
+  #
+  # def page
+  #   # raise
+  #   page = params["page"]
+  #   @search_term = params["search"]
+  #
+  #   Recipe.search(@search_term, page)
+  #   @results = Recipe.results
+  #   # until to >= Recipe.count
+  #   #   from += 10
+  #   #   to += 10
+  #   #   Recipe.search(@search_term, from, to)
+  #   #   @results = Recipe.results
+  #   # end
+  # end
 
   def show
     results = Recipe.results

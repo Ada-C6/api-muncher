@@ -22,12 +22,12 @@ class Recipe
       from = 0
       to = 10
     else
-      from = page * 10
+      from = page.to_i * 10
       to = from + 10
     end
-    results ||= EdamamApiWrapper.search(search_term, from, to)
-    @results = results[0]
-    @count = results[1]
+    results_array = EdamamApiWrapper.search(search_term, from, to)
+    @results = results_array[0]
+    @count = results_array[1]
   end
 
 end

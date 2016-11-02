@@ -18,4 +18,6 @@
   <% end %>
 </ul>
 
-<%= link_to "Next", page_path(1), params:{ pagee: 1, search: @search_term }%>
+<% @pages.times do |i| %>
+  <%= link_to "#{i}", recipes_path(page: i, search: @search_term )%>
+<% end %>

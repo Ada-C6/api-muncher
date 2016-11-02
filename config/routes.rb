@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   root 'recipes#search'
 
-  get 'recipes/page/:page', to: 'recipes#page', as: 'page'
+  # get 'recipes/page/:page', to: 'recipes#page', as: 'page'
 
   resources :recipes, only: [:index, :show]
-
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
