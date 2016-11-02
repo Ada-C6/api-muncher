@@ -9,6 +9,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     VCR.use_cassette("recipes") do
       recipes = EdamamApiWrapper.listrecipes("chicken")
       assert_kind_of Array, recipes
+      assert_not recipes.empty?
       recipes.each do |recipe|
         assert_kind_of Recipe, recipe
       end

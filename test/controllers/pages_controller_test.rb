@@ -6,4 +6,9 @@ class PagesControllerTest < ActionController::TestCase # ActionController::TestC
     assert_response :success
   end
 
+  test "should get show" do
+    get :show
+    assert_response :success
+  end
+
 end

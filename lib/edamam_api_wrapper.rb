@@ -8,7 +8,6 @@ class EdamamApiWrapper
   def self.listrecipes(search_term)
     url = BASE_URL + search_term + "&app_id=#{ID}&app_key=#{KEY}" #+ "&pretty=1&exclude_archived=1"
     data = HTTParty.get(url)
-    puts "#{url}"
     recipe_list = []
     if data["hits"]
       data["hits"].each do |hit|
