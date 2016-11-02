@@ -14,6 +14,11 @@ VCR.configure do |config|
     :record => :new_episodes,    # record new data when we don't have it yet
     :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
   }
+
+  # Don't leave the Edamam token lying around in a cassette file.
+config.filter_sensitive_data("<EDAMAM_TOKEN>") do
+  ENV['EDAMAM_TOKEN']
+end
 end
 
 class ActiveSupport::TestCase
