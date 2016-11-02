@@ -13,12 +13,12 @@ class Recipe
     @dietary_info = options[:dietary_info]
   end
 
-  # class << self
-  #   attr_reader :results # this hasn't been set anywhere yet, but will be when we memoize it
-  # end
+  class << self
+    attr_reader :results # this hasn't been set anywhere yet, but will be when we memoize it below?
+  end
 
   def self.search(search_term)
-    EdamamApiWrapper.search(search_term)
+    @results ||= EdamamApiWrapper.search(search_term)
   end
 
 end

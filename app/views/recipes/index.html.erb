@@ -1,0 +1,19 @@
+<section class="page-name row">
+  <h1 class="column">Recipe Results</h1>
+</section>
+<section class="search-query row">
+  <h3 class="column">Recipes matching "<%= @search_term %>":</h3>
+</section>
+
+<ul class="row small-up-1 medium-up-3 large-up-4">
+  <% id = 0 %>
+  <% @results.each do |recipe| %>
+    <li class="column">
+      <%= link_to recipe_path(id), :target => "_blank" do %>
+        <%= image_tag "#{recipe.image_url}", alt: "#{recipe.label} Image" %>
+      <% end %>
+      <%= link_to recipe.label, recipe_path(id), target: "_blank" %>
+    </li>
+    <% id += 1 %>
+  <% end %>
+</ul>
