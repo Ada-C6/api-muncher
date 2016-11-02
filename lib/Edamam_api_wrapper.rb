@@ -14,13 +14,15 @@ class EdamamApiWrapper
       data["hits"].each do |hit|
         name = hit["recipe"]["label"]
 
-        dietary_info = hit["recipe"]["digest"].each_with_index.map do |nutrient, index|
-          if !hit["recipe"]["digest"][0]["sub"].nil?
-            [nutrient["label"], nutrient["total"].to_f, nutrient["unit"]]
-          elsif hit["recipe"]["digest"][0]["sub"].nil?
-            [nutrient["label"], nutrient["total"].to_f, nutrient["unit"]]
-            nutrient["sub"].each do |sub_nutrient, value|
-              [value]
+        dietary_info = []
+
+        hit["recipe"]["digest"].map do |nutrient|
+          if nutrient["sub"].nil?
+            dietary_info.push(nutrient["label"] + " " + nutrient["total"].to_s + nutrient["unit"])
+          else
+            dietary_info.push(nutrient["label"] + " " + nutrient["total"].to_s + nutrient["unit"])
+            nutrient["sub"].each do |sub_nutrient|
+              dietary_info.push(sub_nutrient["label"] + " " + sub_nutrient["total"].to_s + sub_nutrient["unit"])
             end
           end
         end
