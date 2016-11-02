@@ -29,7 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-# pagination gem
+# pagination gems
 # gem 'will_paginate', '~> 3.1.1'
 # gem 'pager_api'
 

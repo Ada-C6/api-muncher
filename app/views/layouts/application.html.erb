@@ -15,6 +15,7 @@
       <%= form_tag root_path, method: :get do %>
         <%= label_tag(:searchterm, "") %>
         <%= text_field_tag(:searchterm) %>
+        <%= hidden_field_tag :page, 1 %>
         <%= submit_tag("Search", class: "search-button") %>
       <% end %>
     </section>

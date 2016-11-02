@@ -9,6 +9,16 @@
   <% end %>
 </section>
 
+<% if @page.to_i > 1 %>
+  <%= link_to "Previous page", next_page_path( { :searchterm => @searchterm, :page => @page, :page_num => -1 }) %>
+<% end %>
+<div class="page-num">
+  <%= "Page #{ @page }" %>
+</div>
+<% unless @recipes.count < 10 %>
+  <%= link_to "Next page", next_page_path( { :searchterm => @searchterm, :page => @page, :page_num => 1}) %>
+<% end %>
+
 <%# if !params[:searchterm].nil? %>
   <%# will_paginate @recipes %>
 <%# end %>

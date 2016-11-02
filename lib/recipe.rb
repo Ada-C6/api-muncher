@@ -22,8 +22,8 @@ class Recipe
     attr_reader :recipes
   end
 
-  def self.all(keyword = nil)
-    @recipes ||= EdamamApiWrapper.listrecipes(keyword)
+  def self.all(keyword = nil, page = 0)
+    @recipes ||= EdamamApiWrapper.listrecipes(keyword, page)
   end
 
   def self.reset

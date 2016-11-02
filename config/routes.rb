@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'recipes#index'
+  get '/recipes/next', to: 'recipes#next', as: 'next_page'
 
   resources :recipes, only: [:show]
 

@@ -3,8 +3,8 @@ class EdamamApiWrapper
   ID = ENV["EDAMAM_ID"]
   BASE_URL = "https://api.edamam.com/"
 
-  def self.listrecipes(searchterm)
-  url = BASE_URL + "search?q=" + "#{ searchterm }" + "&app_id=#{ ID }" + "&app_key=#{ KEY }" + "&from=0&to=100"
+  def self.listrecipes(searchterm, page)
+  url = BASE_URL + "search?q=" + "#{ searchterm }" + "&app_id=#{ ID }" + "&app_key=#{ KEY }" + "&from=#{ (page.to_i - 1) * 10 }"
   data = HTTParty.get(url)
   # data["hits"]["to"].to_i = data["hits"]["count"].to_i
   recipe_list = []
