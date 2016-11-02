@@ -43,6 +43,10 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'better_errors'
+
+  # VCR
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do

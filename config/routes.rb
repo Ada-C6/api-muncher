@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  # Note, no controller for homepages, just draw upon the EdamamApiWrapper
+  get 'homepages/main', to: 'homepages#main'
+
+  get 'homepages/:search', to: 'homepages#search', as: 'search_recipes'
+
+  # get 'homepages/search', to: 'homepages#search', as: search
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
