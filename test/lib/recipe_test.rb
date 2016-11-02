@@ -9,11 +9,14 @@ class RecipeTest < ActiveSupport::TestCase
   end
 
   test "Recipe.search should return an array of Recipe objects" do
-    chicken_search = EdamamApiWrapper.search("chicken")
-    assert_kind_of Array, chicken_search
-    assert_not chicken_search.empty?
-    chicken_search.each do |item|
-      assert_kind_of Recipe, item
+    VCR.use_cassette("recipes") do
+      chicken_search = Recipe.search("chicken")
+      assert_kind_of Array, chicken_search
+      assert_not chicken_search.empty?
+      chicken_search.each do |item|
+        assert_kind_of Recipe, item
+      end
     end
   end
+  
 end
