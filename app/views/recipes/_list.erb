@@ -6,5 +6,7 @@
   </li>
 <% end %>
 
+<!-- Use page_num to differentiate between previous page and next page -->
+  <%= link_to "Previous page", next_page_path(:data => { :query => @query, :page => @page, :page_num => -1 }) %>
 <div class="page-nav"><%= "Page #{ @page }" %></div>
-<%= link_to "Next page", next_page_path(:data => { :query => @query, :page => @page}) %>
+<%= link_to "Next page", next_page_path(:data => { :query => @query, :page => @page, :page_num => 1 }) %>

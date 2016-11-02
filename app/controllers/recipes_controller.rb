@@ -6,8 +6,9 @@ class RecipesController < ApplicationController
   end
 
   def next_page
-    @page = params["data"]["page"].to_i + 1
+    @page = params["data"]["page"].to_i + params["data"]["page_num"].to_i
     @query = params["data"]["query"]
     @recipe_list = EdamamApiWrapper.listrecipes(@query, @page)
   end
+
 end
