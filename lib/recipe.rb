@@ -1,17 +1,17 @@
 class Recipe
   attr_reader :label, :image, :source_url, :diet_labels, :health_labels, :cautions, :ingredients
 
-  def initialize(label)#, image, options = {} )
-    # raise ArgumentError if label == nil || label == "" #|| image == nil || image == ""
+  def initialize(label)
+    raise ArgumentError if label == nil || label == ""
 
     @label = label
-    # @image = image
-    #
-    # @source_url = options[:source_url]
-    # @diet_labels = options[:diet_labels]
-    # @health_labels = options[:healthLabels]
-    # @cautions = options[:cautions]
-    # @ingredients = options[:ing]
+    @image = image
+
+    @source_url = source_url
+    @diet_labels = diet_labels
+    @health_labels = health_labels
+    @cautions = cautions
+    @ingredients = ingredients
   end
 
   def self.all
