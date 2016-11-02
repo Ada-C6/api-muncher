@@ -1,0 +1,26 @@
+
+<main>
+  <ul class='small-up-4'>
+    <% @recipes.each do |recipe|  %>
+    <li class='column recipe-tile'><%= link_to recipe_path(recipe.label) do %>
+      <ul>
+        <li>
+          <%= image_tag recipe.image, class: 'recipe-picture' %>
+        </li>
+        <li class='recipe-label'>
+          <h2><%= recipe.label %></h2>
+        </li>
+      </ul>
+      <% end  %>
+    </li>
+    <% end  %>
+  </ul>
+</main>
+
+<section>
+  <%# form_tag recipes_path, method: "get" do %>
+    <%# hidden_field :keyword, params["keyword"] %>
+    <%# hidden_field :end_page, paginate_counter %>
+    <%# submit_tag "Next Page", class: "button" %>
+  <%# end %>
+</section>
