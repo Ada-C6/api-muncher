@@ -3,7 +3,7 @@ require "#{Rails.root}/lib/results.rb"
 
 
 
-class HomepageController < ApplicationController
+class HomepagesController < ApplicationController
   def index
     @recipe = params[:search]
   end

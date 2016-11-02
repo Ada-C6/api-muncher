@@ -1,0 +1,11 @@
+<h1>Search for a recipe!</h1>
+
+<% if flash[:notice] %>
+  <h3 class="flash-notice"><%= flash[:notice] %></h3>
+<% end %>
+
+<%= form_tag homepages_path, method: "get" do %>
+  <%= label_tag :search, "Search here" %>
+  <%= text_field_tag :search %>
+  <%= submit_tag "Search Recipes", class: "Button" %>
+<% end %>
