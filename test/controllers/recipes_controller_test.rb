@@ -2,6 +2,15 @@ require 'test_helper'
 
 class RecipesControllerTest < ActionController::TestCase
 
+  test "should get index" do
+    VCR.use_cassette("recipes") do
+      recipes = EdamamApiWrapper.listrecipes("chicken", 1)
+      assert_kind_of Array, recipes
+      get :index
+      assert_response :success
+    end
+  end
+
   test "listrecipes returns an array of recipes" do
     VCR.use_cassette("recipes") do
       recipes = EdamamApiWrapper.listrecipes("chicken", 1)
@@ -12,18 +21,11 @@ class RecipesControllerTest < ActionController::TestCase
     end
   end
 
-
-
-
-
-
-
-  
-
-  # This should work and I have no idea why it isn't.
+  # This should work and I have no idea why it isn't. Neither did 2 TAs.
   # There is a recipe - #<Recipe:0x007fab5e6f6678>.
   # It has a label - Grilled Deviled Chickens Under a Brick
   # But I get ActionView::Template::Error: undefined method `label' for nil:NilClass
+  # I think it's somehow getting to 'show.html.erb' and breaking, but I don't know why or how
   test "should show the show page for a specific recipe" do
     VCR.use_cassette("recipes") do
       recipes = EdamamApiWrapper.listrecipes("chicken", 1)
@@ -37,19 +39,6 @@ class RecipesControllerTest < ActionController::TestCase
       end
     end
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   test "should show the next page of 10 recipes" do
     VCR.use_cassette("recipes") do

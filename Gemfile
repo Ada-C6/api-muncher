@@ -46,6 +46,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'minitest-vcr'
   gem 'webmock'
+  gem 'simplecov'
 end
 
 group :development do
