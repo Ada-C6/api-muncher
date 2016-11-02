@@ -1,20 +1,25 @@
 # lib/slack_api_wrapper.rb
-require `httparty`
+require 'httparty'
 
 class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search"
+  APP_ID = ENV["APP_ID"]
+  APP_KEY = ENV["APP_KEY"]
 
-  def self.listsearchresults(query)
-    url = "#{ BASE_URL }?" + "#{ API_ID }=" + "#{ API_KEY }&" + "q=" + query # + "&pretty=1&exclude_archived=1"
+  def self.list_search_results(query)
+    url = "#{ BASE_URL }?" + "#{ APP_ID }=" + "#{ APP_KEY }&" + "q=" + query
     data = HTTParty.get(url)
-    search_result_list = []
-    if data["search_result"]
-      data["search_result"].each do |result|
-        wrapper = SearchResult.new search_result["name"], search_result["id"] , purpose: channel["purpose"], is_archived: channel["is_archived"], members: channel["members"]
-        search_result_list << wrapper
+    search_results_list = []
+    if data["hits"]
+      data["hits"].each do |result|
+        wrapper = SearchResult.new(result["recipe"]["label"], result["recipe"]["image"], result["recipe"]["url"], result["recipe"]["dietLabels"], result["recipe"]["healthLabels"], result["recipe"]["ingredientLines"])
+        search_results_list << wrapper
       end
     end
-    return channel_list
+    return search_results_list
   end
+
+  # def self.detailed_result
+  # end
 
 end
