@@ -3,27 +3,37 @@ require "#{Rails.root}/lib/recipe_list.rb"
 
 class HomepagesController < ApplicationController
   def index
-    @results = EdamamApiWrapper.list_recipes(params[:search_term])
-
-    # if @data != nil && @data != []
-    #   render status: :created
-    # else
-    #   render status: :service_unavailable
-    # end
+    if params[:from] == nil
+      @recipes = EdamamApiWrapper.list_recipes(params[:search_term], 0)
+      params[:from] = 10
+      params[:to] = params[:from] + 10
+    else
+      params[:from] = params[:from].to_i
+      @recipes = EdamamApiWrapper.list_recipes(params[:search_term], params[:from])
+      params[:from] += 10
+      params[:to] = params[:from]+10
+    end
   end
 
   def results
-
-    @results = EdamamApiWrapper.list_recipes(params[:search_term])
-
+    if params[:from] == nil
+      @recipes = EdamamApiWrapper.list_recipes(params[:search_term], 0)
+      params[:from] = 10
+      params[:to] = params[:from] + 10
+    else
+      params[:from] = params[:from].to_i
+      @recipes = EdamamApiWrapper.list_recipes(params[:search_term], params[:from])
+      params[:from] += 10
+      params[:to] = params[:from]+10
+    end
   end
 
-  # def show
-  #   @recipe = EdamamApiWrapper.show_recipe
+  def show
+    @recipe = EdamamApiWrapper.show_recipe(params[:search_term])
   #   if @recipe != nil && @recipe != []
   #     render status: :created
   #   else
   #     render status: :service_unavailable
   #   end
-  # end
+  end
 end

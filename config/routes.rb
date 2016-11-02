@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   root to: 'homepages#index'
 
+  get 'homepages/show/*id' => 'homepages#show', as: 'show_page', format:false
+
   get 'homepages/results' => 'homepages#results', as: 'results_pages'
 
-  get 'homepages/show'
+  get 'homepages/results/:search_term/:from' => 'homepages#results', as: 'more_results'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

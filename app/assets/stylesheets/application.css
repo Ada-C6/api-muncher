@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ h3 {
+   width: 30%;
+
+ }
+
+ article.column {
+   margin: 3em 0 3em 0;
+   padding: 0 3em 0 3em;
+ }
