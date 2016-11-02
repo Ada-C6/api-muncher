@@ -6,8 +6,8 @@ class EdamamApiWrapper
   TOKEN_ID = ENV["EDAMAM_TOKEN_ID"]
   TOKEN_KEYS = ENV["EDAMAM_TOKEN_KEYS"]
 
-   def self.listrecipes(keyword)
-     url = BASE_URL + "search?q=#{ keyword }" + "&app_id=#{ TOKEN_ID }" + "&app_key=#{ TOKEN_KEYS }"
+   def self.listrecipes(keyword, page)
+     url = BASE_URL + "search?q=#{ keyword }" + "&app_id=#{ TOKEN_ID }" + "&app_key=#{ TOKEN_KEYS }" + "&from=#{ (page.to_i - 1) * 10 }"
      data = HTTParty.get(url)
      recipe_list = []
      if data["count"] > 0

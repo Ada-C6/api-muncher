@@ -1,0 +1,6 @@
+<%= form_tag("/index", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= hidden_field_tag :page, 1  %>
+  <%= submit_tag("Search") %>
+<% end %>

@@ -1,0 +1,10 @@
+<ul class="row small-up-1 medium-up-2 large-up-3">
+<% @recipe_list.each do |i| %>
+  <li class="column">
+    <%= image_tag(i.photo, alt: i.name) %>
+    <p class="recipe-name"><%= i.name %></p>
+  </li>
+<% end %>
+
+<div class="page-nav"><%= "Page #{ @page }" %></div>
+<%= link_to "Next page", next_page_path(:data => { :query => @query, :page => @page}) %>
