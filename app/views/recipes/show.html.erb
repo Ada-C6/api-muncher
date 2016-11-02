@@ -1,0 +1,55 @@
+<h1><%= @recipe.name %></h1>
+<p><%= image_tag @recipe.image, alt: @recipe.name %></p>
+<h2> Ingredients</h2>
+<ul>
+  <% @recipe.ingredients_block.each do |ingredient| %></p>
+    <li>
+      <%= ingredient %>
+    </li>
+  <% end %>
+</ul>
+<p> Makes <%= @recipe.servings.round %> servings. </p>
+<h2>Link to full recipe</h2>
+<p><%= link_to @recipe.name, @recipe.url %> (<%= @recipe.source %> <%= image_tag @recipe.source_icon, alt: @recipe.source_icon %>)</p>
+<h2>Nutrition information</h2>
+<h3>Calories (per serving)</h3>
+<p> <%= (@recipe.calories/@recipe.servings).round %> cal</p>
+<h3>Nutrition overview</h3>
+
+<table>
+  <tr>
+    <th>Nutrient</th>
+    <th>Quantity</th>
+    <th>Percent RDI</th>
+  </tr>
+
+  <% @recipe.digest.each do |block| %>
+    <tr>
+      <td><%= block['label'] %><br
+        <% if block['sub'] %>
+          <br>
+          <% block['sub'].each do |subitem| %>
+            &nbsp&nbsp&nbsp <%= subitem['label'] %><br>
+          <% end %>
+        <% end %>
+      </td>
+      <td><%= (block['total']/@recipe.servings).round %> <%= block['unit']%>
+        <% if block['sub'] %>
+          <br>
+          <% block['sub'].each do |subitem| %>
+            <%= (subitem['total']/@recipe.servings).round %> <%= subitem['unit']%><br>
+          <% end %>
+        <% end %>
+      </td>
+      <td><%= (block['daily']/@recipe.servings).round %> %
+        <% if block['sub'] %>
+          <br>
+          <% block['sub'].each do |subitem| %>
+            <%= (subitem['daily']/@recipe.servings).round %> %<br>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>

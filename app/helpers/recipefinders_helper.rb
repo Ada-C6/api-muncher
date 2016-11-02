@@ -1,0 +1,2 @@
+module RecipefindersHelper
+end

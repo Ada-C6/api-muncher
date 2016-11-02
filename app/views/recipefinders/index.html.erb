@@ -1,0 +1,10 @@
+<h1>R E C I P E F I N D E R S</h1>
+<p>Find new favorite recipes for every taste!</p>
+
+<p><%= flash[:notice] %>
+
+<%= form_tag recipefinders_show_path(0), method: "get" do %>
+  <%= label_tag :query, "Search" %>
+  <%= text_field_tag :query %>
+  <%= submit_tag "Find recipes", class: "Button" %>
+<% end %>

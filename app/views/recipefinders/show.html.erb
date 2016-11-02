@@ -1,0 +1,25 @@
+<h1>R E C I P E S</h1>
+
+<%= button_to "New search", recipefinders_index_path, method: :get %>
+
+<% if @recipes.length == 0 %>
+  <p>Sorry, there were no results for that search. Please try again!</p>
+<% else %>
+  <p> Showing results from <%= @results_begin %> to <%= @results_end %> </p>
+  <p>
+    <% if @results_begin > 10 %>
+      <%= link_to "Previous page", recipefinders_show_path(@results_begin-11, query: @search_term) %>
+    <% end %>
+    <% if @count - @results_end > 0 && @results_end < 100%>
+      <%= link_to "Next page", recipefinders_show_path(from: @results_end, query: @search_term) %>
+    <% end %>
+  </p>
+
+  <%@recipes.each do |recipe| %></p>
+    <p>
+      <%= image_tag recipe.image, alt: recipe.name %>
+      <%= link_to recipe.name, recipes_show_path(recipe.uri) %>
+    </p>
+  <% end %>
+
+<% end %>
