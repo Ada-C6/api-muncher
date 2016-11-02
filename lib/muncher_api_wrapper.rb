@@ -11,6 +11,6 @@ class MuncherApiWrapper
   	url = BASE_URL + "search?" + "&app_id=#{app_id}" + "&app_key=#{app_key}"  +"&q=#{search_term}"
   	puts url
   	hits = HTTParty.get(url)["hits"]
-  	return hits
+  	return hits #this returns an array of recipe data in hashes
   end
 end
