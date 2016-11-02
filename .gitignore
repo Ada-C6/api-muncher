@@ -19,3 +19,4 @@
 # Ignore the .env file (it's full of secrets!)
 .env
 /test/cassettes
+coverage/
