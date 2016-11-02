@@ -14,12 +14,12 @@ class Recipe
     @ingredients = ingredients
   end
 
-  def self.all
-    @@recipes ||= EdamamApiWrapper.listrecipes
+  def self.search(search_term)
+    EdamamApiWrapper.listrecipes(search_term)
   end
 
-  def self.reset
-    @@recipes = nil
-  end
+  # def self.reset
+  #   @@recipes = nil
+  # end
 
 end

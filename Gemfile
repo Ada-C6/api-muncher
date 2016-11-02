@@ -41,6 +41,7 @@ group :development, :test do
 
   gem 'minitest-vcr'
   gem 'webmock'
+  gem "binding_of_caller"
 end
 
 group :development do

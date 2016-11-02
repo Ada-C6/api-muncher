@@ -6,9 +6,10 @@ class EdamamApiWrapper
   KEY = ENV["app_key"]
 
   def self.listrecipes(search_term)
-    url = BASE_URL + search_term + "&app_id=#{ID}&app_key=#{KEY}" #+ "&pretty=1&exclude_archived=1"
+    url = BASE_URL + "#{search_term}" + "&app_id=#{ID}&app_key=#{KEY}" #+ "&pretty=1&exclude_archived=1"
     data = HTTParty.get(url)
     recipe_list = []
+    puts "#{url}"
     if data["hits"]
       data["hits"].each do |hit|
         wrapper = Recipe.new(name: hit["recipe"]["label"], image: hit["recipe"]["image"], source_url: hit["recipe"]["url"], diet_labels: hit["recipe"]["dietLabels"], health_labels: hit["recipe"]["healthLabels"], cautions: hit["recipe"]["cautions"], ingredients: hit["recipe"]["ingredients"])
