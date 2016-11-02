@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :recipes, only: [:index, :show]
+  # root to: "welcome#index"
+  root to: "recipes#home"
+  resources :recipes, only: [:home, :index, :show]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
