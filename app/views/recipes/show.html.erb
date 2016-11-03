@@ -9,9 +9,12 @@
 
 
 <% end %>
-<li>Dietary notes: <%= @recipe.dietary_labels %></li>
-<li> View Original Recipe for
-<%= link_to "#{@recipe.name}",  @recipe.url, :target => "_blank" %>  </li>
+<li>Dietary notes: <% @recipe.dietary_labels.each do |label| %>
+<%= label %>,
+<% end %>
+</li>
+<li><b> View Original Recipe for
+<%= link_to "#{@recipe.name}",  @recipe.url, :target => "_blank" %>  </b></li>
 </ul>
 
 </section>
