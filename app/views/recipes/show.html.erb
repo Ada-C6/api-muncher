@@ -1,0 +1,15 @@
+<h2><%= @recipe.name %></h2>
+<p><%= link_to("View Recipe", @recipe.original_link) %></p>
+<p><%= image_tag(@recipe.photo, alt: "photo of #{ @recipe.name }") %></p>
+<p>Ingredients:</p>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%=ingredient%></li>
+    <% end %>
+</ul>
+<p>Dietary information:</p>
+<ul>
+  <% @recipe.diet_labels.each do |label| %>
+    <li><%=label%></li>
+    <% end %>
+</ul>
