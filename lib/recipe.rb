@@ -16,7 +16,9 @@ class Recipe
   # Much more likely to work as expected than a class variable
   # See http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/
   class << self
-    attr_reader :recipes, :recipe, :api_call, :search_term
+    attr_accessor :search_term
+
+    attr_reader :recipes, :recipe, :api_call
   end
 
   # Return a memoized collection of recipes

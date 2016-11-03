@@ -36,12 +36,13 @@ end
   end
 
   test "Recipe.all should make an API call if search hasn't been made before; not make API call if term is same as previous search" do
-    # Not quite sure how to test memoization
     VCR.use_cassette("recipes") do
+      # ensuring that there's not been a search yet.
+      Recipe.search_term = nil
+
       term = "chicken"
       Recipe.all(term)
 
-      assert_equal Recipe.search_term, term
       assert_equal Recipe.api_call, true
     end
   end
@@ -51,9 +52,11 @@ end
     VCR.use_cassette("recipes") do
       term = "chicken"
       Recipe.all(term)
-      
+
       # call the same search term again, should execute memoized part of method.
       Recipe.all(term)
+
+      assert_equal Recipe.search_term, term
       assert_equal Recipe.api_call, false
     end
   end
@@ -79,22 +82,45 @@ end
     end
   end
 
-    test "Recipe.find_recipe doesn't make an API call if search has been done and recipe already stored" do
-      VCR.use_cassette("recipes") do
-        term = "chicken"
-        recipes = Recipe.all(term)
-        recipe = recipes.first
+  test "Recipe.find_recipe does make an API call if recipe is not in stored recipes variable" do
+    VCR.use_cassette("recipes") do
+      term = "chicken"
+      recipes = Recipe.all(term)
+      recipe = recipes.first
 
-        identifier = recipe.identifier
+      identifier = recipe.identifier
 
-        found_recipe = Recipe.find_recipe(identifier)
+      # resetting the search term and stored recipes variable
+      term = "couscous"
+      couscous_recipes = Recipe.all(term)
 
-        assert_equal recipe.identifier, found_recipe.identifier
+      found_recipe = Recipe.find_recipe(identifier)
 
-        assert_equal Recipe.api_call, false
+      assert_not_includes couscous_recipes, recipe
 
-      end
+      assert_equal recipe.identifier, found_recipe.identifier
+
+      assert_equal Recipe.api_call, true
+
     end
+  end
+
+  test "Recipe.find_recipe doesn't make an API call if search has been done and recipe already stored" do
+    VCR.use_cassette("recipes") do
+      term = "chicken"
+      recipes = Recipe.all(term)
+      recipe = recipes.first
+
+      identifier = recipe.identifier
+
+      found_recipe = Recipe.find_recipe(identifier)
+
+      assert_equal recipe.identifier,found_recipe.identifier
+
+      assert_equal Recipe.api_call, false
+
+    end
+  end
   #
   # test "by_name returns nil if there is no channel of that name" do
   #   VCR.use_cassette("channels") do
