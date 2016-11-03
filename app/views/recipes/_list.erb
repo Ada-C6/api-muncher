@@ -2,7 +2,7 @@
 <% @recipes.each do |i| %>
   <li class="column">
     <%= image_tag(i.photo, alt: i.label) %>
-    <p class="recipe-name"><%= link_to i.label, recipe_path(i.label) %></p>
+    <p class="recipe-name"><%= link_to i.label, recipe_path(i.label, :data => { :url => i.link }) %></p>
   </li>
 <% end %>
 </ul>

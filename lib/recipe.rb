@@ -16,9 +16,7 @@ class Recipe
   end
 
   def self.all(keyword = nil, page = 0)
-    # EdamamApiWrapper.reset
-
-    @recipes ||= EdamamApiWrapper.listrecipes(keyword, page)
+    @recipes = EdamamApiWrapper.listrecipes(keyword, page)
     return @recipes
   end
 
@@ -26,11 +24,10 @@ class Recipe
     @recipes = nil
   end
 
-  def self.by_label(label)
+  def self.by_url(url)
+    # USE URI TO SEARCH
     matches = all.select do |recipe|
-      # raise
-      recipe.label == label
-      # true
+      recipe.link == url
     end
     return matches.first
   end
