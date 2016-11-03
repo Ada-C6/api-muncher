@@ -21,8 +21,8 @@ class Recipe
   end
 
   # Return a memoized set of all recipes
-  def self.all(keyword = nil)
-    @recipes ||= EdamamApiWrapper.list_recipes(keyword)
+  def self.all(keyword = nil, page = 0)
+    @recipes ||= EdamamApiWrapper.list_recipes(keyword, page)
   end
 
   # Used to reset the memoization so a new search will return different results

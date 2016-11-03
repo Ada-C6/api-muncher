@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
-  def index; end
+  def index
+    @page = params[:page].to_i
+  end
 
 end

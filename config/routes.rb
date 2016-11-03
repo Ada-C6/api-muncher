@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-    root 'welcome#index'
-    get  'welcome/index'
+    root 'recipes#index'
+    get   '/recipes/next', to: 'recipes#next', as: 'next'
 
-    resources :recipes
+    resources :recipes, only: [:index, :show]
+
+
 
 end
