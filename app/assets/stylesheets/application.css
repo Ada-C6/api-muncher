@@ -18,6 +18,18 @@
  color: red;
  text-align: center;
 }
+header {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+}
+
+body {margin: 1%;}
+
+.needs-a-margin {
+  margin-top: 70px;
+}
 
 footer {
  display: block;
@@ -33,3 +45,4 @@ footer {
  bottom: 0;
  clear: both;
 }
+footer p {padding-top: 1%;}

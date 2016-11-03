@@ -12,17 +12,17 @@
     <% if flash[:notice] %>
       <h3 class="flash-notice"><%= flash[:notice] %></h3>
     <% end %>
-
-    <p class="row">
-    <%= form_tag( list_path, :method => "get" ) do %></p>
-      <p class="small-10 columns">
-        <%= text_field_tag :search, params[:search], placeholder: 'Enter a search term...' %></p>
-      <%= submit_tag "Search Recipes", class: "button" %>
-    <% end %>
+    <nav class="row">
+      <%= form_tag( list_path, :method => "get" ) do %>
+        <p class="small-8 medium-10 columns">
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter a search term...' %></p>
+        <p class="small-4 medium-2 columns"><%= submit_tag "Search Recipes", class: "button" %></p>
+      <% end %>
+    </nav>
   </header>
-
+<div class="needs-a-margin">
 <%= yield %>
-
+</div>
 <footer>
   <p class="small-12 columns">| &copy; Miriam Cortes | 2016 | This website is made possible thanks to a free API powered by <%= link_to(image_tag("https://www.edamam.com/images/logo-site-header.png"),"https://www.edamam.com/", :target => "_blank") %></p>
 </footer>
