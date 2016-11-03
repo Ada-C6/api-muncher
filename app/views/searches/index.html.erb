@@ -1,5 +1,9 @@
-<h2>Ten Search results</h2>
+<h2>Search results from <%= @search_index %> to <%= @search_index.to_i + 10 %> for <%= @search_word %></h2>
 
+<%= link_to "next page", next_path(search_index: @search_index, search_word: @search_word) %>
+
+<ul>
 <% @results.each do |result| %>
-  <p><%= link_to result.name, search_path(id: result.id) %></p>
+  <li><%= image_tag result.image %>
+  <p><%= link_to result.name, search_path(id: result.id), target: "_blank" %></p></li>
 <% end %>
