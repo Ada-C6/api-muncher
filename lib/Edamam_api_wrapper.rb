@@ -6,6 +6,8 @@ class EdamamApiWrapper
   KEY = ENV["EDAMAM_RECIPE_SEARCH_AUTH_KEY"]
 
   def self.recipe_search(search_term)
+
+    # need to use to/from in URL, save set of ranges you're currently on to a variable, and if !.nil? iterate to the new set
     url = BASE_URL + "search?q=" + search_term  + "&app_id=" + ID + "&app_key=" + KEY
     data = HTTParty.get(url)
     recipe_list = []
@@ -38,7 +40,6 @@ class EdamamApiWrapper
 
         recipe = Recipe.new(name, api_hash)
         recipe_list.push(recipe)
-
       end
       return recipe_list
     else
