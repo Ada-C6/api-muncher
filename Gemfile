@@ -31,6 +31,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'api-pagination'
 
 
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -51,6 +53,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'dotenv-rails'
+  #adds simple cov for test coverage
+  gem 'simplecov'
+  #vcr testing gems
+  gem 'minitest-vcr'
+  gem 'webmock'
+  #testing
+  gem 'minitest-reporters'
 end
 
 group :development do
