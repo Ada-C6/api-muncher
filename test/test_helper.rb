@@ -3,8 +3,11 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require 'simplecov'
 SimpleCov.start
+Dir["lib/*.rb"].each {|file| puts file; puts load(file); }
+
 require 'vcr'
 require 'webmock/minitest'
+
 
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -23,8 +26,11 @@ class ActiveSupport::TestCase
 	    :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
 	  }
 	  # Don't leave our Slack token lying around in a cassette file.
-	  config.filter_sensitive_data("<SLACK_TOKEN>") do
-	    ENV['SLACK_TOKEN']
+	  config.filter_sensitive_data("<APP_ID>") do
+	    ENV['APP_ID']
+	  end
+	  config.filter_sensitive_data("<APP_KEY>") do
+	    ENV['APP_KEY']
 	  end
 	end
   

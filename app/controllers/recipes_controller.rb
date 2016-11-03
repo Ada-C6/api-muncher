@@ -1,9 +1,9 @@
 class RecipesController < ApplicationController
   
 
-  def index
+  # def index
 
-  end
+  # end
 
   def show
     #I think this is not dry but I'm not sure how to improve it. A before action would

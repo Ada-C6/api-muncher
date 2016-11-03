@@ -7,7 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1><%= link_to("Muncher",root_path) %></h1>
+<header>
+	<%= image_tag("pacman.png")%>
+	<h1><%= link_to("Muncher",root_path) %></h1>
+</header>
 <%= form_tag search_recipes_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :term, params[:term], :required => 'required' %>
