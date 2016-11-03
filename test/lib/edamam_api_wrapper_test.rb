@@ -8,7 +8,7 @@ class RecipeTest < ActiveSupport::TestCase
 
   test 'list_recipes returns an array of Recipes' do
     VCR.use_cassette("recipes") do
-      recipes = EdamamApiWrapper.list_recipes("chicken")
+      recipes = EdamamApiWrapper.list_recipes("chicken", 1)
       assert_kind_of Array, recipes
 
       recipes.each do |recipe|
