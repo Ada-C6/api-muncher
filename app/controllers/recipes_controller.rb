@@ -3,11 +3,14 @@ class RecipesController < ApplicationController
   def home; end
 
   def index
-    @recipes = Recipe.search(params[:search])
+    @page = (params[:page] || 1).to_i # default so you dont have to set it in the url each time
+    @recipes = EdamamApiWrapper.search(params[:search], @page)
+
+
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = EdamamApiWrapper.find(params[:id])
   end
 
 end
