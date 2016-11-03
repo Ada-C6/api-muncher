@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   # root to: "welcome#index"
   root to: "recipes#home"
+  get "recipes/next" => "recipes#next", as: "next"
+  get "recipes/previous" => "recipes#previous", as: "previous"
   resources :recipes, only: [:home, :index, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
