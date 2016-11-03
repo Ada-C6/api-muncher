@@ -7,7 +7,6 @@ class EdamamApiWrapper
   def self.listrecipes(searchterm, page)
   url = BASE_URL + "search?q=" + "#{ searchterm }" + "&app_id=#{ ID }" + "&app_key=#{ KEY }" + "&from=#{ (page.to_i - 1) * 10 }"
   data = HTTParty.get(url)
-  # data["hits"]["to"].to_i = data["hits"]["count"].to_i
   recipe_list = []
   if data["hits"]
     data["hits"].each do |recipe_hash|

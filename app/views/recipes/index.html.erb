@@ -16,19 +16,19 @@
 </article>
 
 <section class="row">
-  <section class="column small-4">
+  <section class="column small-4 page-link">
     <% if @page.to_i > 1 %>
       <%= link_to "Previous page", next_page_path( { :searchterm => @searchterm, :page => @page, :page_num => -1 }) %>
     <% end %>
   </section>
   <% if !@searchterm.nil? %>
-    <section class="column small-4">
+    <section class="column small-4 page-link">
       <div class="page-num">
         <%= "Page #{ @page }" %>
       </div>
     </section>
   <% end %>
-  <section class="column small-4">
+  <section class="column small-4 page-link">
     <% unless @recipes.count < 10 %>
       <%= link_to "Next page", next_page_path( { :searchterm => @searchterm, :page => @page, :page_num => 1}) %>
     <% end %>

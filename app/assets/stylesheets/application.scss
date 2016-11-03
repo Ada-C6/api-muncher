@@ -31,7 +31,7 @@
     font-weight: bold;
     border-radius: 5px;
     padding: 5px;
-    background-color: purple;
+    background-color: blue;
 }
 
 // Formatting for list of diet labels beneath title of dish
@@ -47,10 +47,14 @@ footer, header {
   margin-top: 50px;
 }
 
-.main-text, .recipe-name {
+.main-text, .recipe-name, .page-link {
   text-align: center;
 }
 
 body {
   margin: 0 2%;
+}
+
+a {
+  color: purple;
 }
