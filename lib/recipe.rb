@@ -26,6 +26,7 @@ class Recipe
   end
 
   def self.by_uri(uri)
+    self.recipes ||= EdamamApiWrapper.recipe_from_uri(uri)
     matches = self.recipes.select do |recipe|
       recipe.uri == uri
     end
