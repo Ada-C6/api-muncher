@@ -9,6 +9,6 @@ class RecipesController < ApplicationController
    end
 
    def show
-     @recipe = Recipe.recipe_look_up(params[:id])
+     @recipe = Recipe.recipe_look_up(params[:name])
    end
 end

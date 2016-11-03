@@ -10,7 +10,8 @@ class Recipe
   end
 
   def self.recipe_look_up(recipe)
-    @recipes ||= EdamamApiWrapper.find_recipes(params[:name])
+    @recipes = EdamamApiWrapper.find_recipes(recipe)
+    @recipes.first
   end
 
 end
