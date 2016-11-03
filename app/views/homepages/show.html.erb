@@ -1,2 +1,9 @@
-<h1>This is the <%= @recipe.inspect %> recipe page!!!</h1>
-<p>Find me in app/views/homepages/show.html.erb</p>
+<h3 class="small-12 columns"><%= @recipe.recipe_name %></h3>
+<%= image_tag(@recipe.image, class:"image") %>
+<%= link_to(@recipe.url, :target => "_blank") %>
+
+<% @recipe.ingredients.each do |ingredient| %>
+  <p>
+    <%= ingredient %>
+  </p>
+<% end %>

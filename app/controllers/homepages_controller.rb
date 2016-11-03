@@ -8,7 +8,10 @@ class HomepagesController < ApplicationController
   end
 
   def show
-    @recipe = params[:recipe]
+    params
+
+    recipe_search = EdamamApiWrapper.listresults(params["format"].split("_")[1])
+    @recipe = recipe_search.last
   end
 
   def list

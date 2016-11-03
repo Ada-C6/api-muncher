@@ -7,6 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <p></p>
+    <% if flash[:notice] %>
+      <h3 class="flash-notice"><%= flash[:notice] %></h3>
+    <% end %>
+
+    <p class="row">
+    <%= form_tag( list_path, :method => "get" ) do %></p>
+      <p class="small-10 columns">
+        <%= text_field_tag :search, params[:search], placeholder: 'Enter a search term...' %></p>
+      <%= submit_tag "Search Recipes", class: "button" %>
+    <% end %>
+  </header>
 
 <%= yield %>
 

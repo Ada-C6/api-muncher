@@ -5,8 +5,7 @@ Rails.application.routes.draw do
 
   get 'homepages/index'
   get 'homepages/list' => 'homepages#list', as: 'list'
-  get 'homepages/show/:id' => 'homepages#show', as: 'show'
-
+  get 'homepages/show/*uri' => 'homepages#show', as: 'show'
 
 
 end
