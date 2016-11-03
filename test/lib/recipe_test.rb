@@ -63,7 +63,7 @@ class RecipeTest < ActiveSupport::TestCase
       # calls Recipe.all again with a new parameter
       Recipe.all('beef', 1)
 
-      assert_not_equal initial_recipes, Recipe.reci
+      assert_not_equal initial_recipes, Recipe.recipes
     end
   end
 
