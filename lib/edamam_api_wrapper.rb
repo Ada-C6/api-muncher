@@ -31,13 +31,6 @@ class EdamamApiWrapper
        recipe = data[0]
        wrapper = Recipe.new(recipe["label"], recipe["image"], recipe["uri"], link: recipe["url"], ingredients: recipe["ingredients"], dietary_info: recipe["dietLabels"])
        recipe_list << wrapper
-      #
-      #  puts data[0]["label"]
-      #  data.first do |d|
-      #   #  puts d["label"]
-      #    wrapper = Recipe.new(d["label"], d["image"], d["uri"], link: d["url"], ingredients: d["ingredients"], dietary_info: d["dietLabels"])
-      #    recipe_list << wrapper
-      #  end
      else
        # TODO
      end
