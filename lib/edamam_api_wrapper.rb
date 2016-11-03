@@ -8,6 +8,7 @@ class Edamam_Api_Wrapper
 
   def self.search(search_term, start_index)
 
+
     url = "#{BASE_URL}search?q=#{search_term}&from=#{start_index}&app_id=#{CLIENT_ID}&app_key=#{CLIENT_SECRET}"
     response = HTTParty.get(url)
 
