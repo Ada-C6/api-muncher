@@ -7,8 +7,8 @@ class RecipesController < ApplicationController
     @page = params["page"]
     Recipe.search(@search_term, @page)
     @results = Recipe.results
-    @count = Recipe.count
-    @pages = @count/10
+    @count = Recipe.count - 1
+    @pages = (@count/10.0).ceil
     # raise
   end
   #

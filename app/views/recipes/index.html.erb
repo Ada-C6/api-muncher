@@ -16,6 +16,18 @@
   <% end %>
 </ul>
 
-<%= @page.to_s + " of " + @pages.to_s + " pages" %>
-  <%# link_to "#{i}", recipes_path(page: i, search: @search_term )%>
-<%# end %>
+<section class="page-nav row">
+  <section class="column">
+    <% unless @page == 0 %>
+      <%= link_to "Previous", recipes_path(page: @page.to_i - 1, search: @search_term )%>
+    <% end %>
+  </section>
+  <section class="column">
+    <%= @page.to_s + " of " + @pages.to_s + " pages" %>
+  </section>
+  <section class="column">
+    <% if @page.to_i < @pages.to_i %>
+      <%= link_to "Next", recipes_path(page: @page.to_i + 1, search: @search_term )%>
+    <% end %>
+  </section>
+</section>
