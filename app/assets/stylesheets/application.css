@@ -1,15 +1,43 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('foundation.css');
+@import url('https://fonts.googleapis.com/css?family=Port+Lligat+Sans');
+
+/*HEADER*/
+header#main-header {
+  background-color: #7D7C84;
+}
+
+header h1 {
+  font-family: 'Port Lligat Sans', sans-serif;
+
+}
+
+.page-title {
+  font-family: 'Port Lligat Sans', sans-serif;
+  padding: 2% 0 0 2%;
+  width: auto;
+}
+
+#homepage-title {
+  font-family: 'Port Lligat Sans', sans-serif;
+  padding: 2% 0 0 2%;
+}
+
+.no-bullet {
+  list-style: none;
+}
+.indent {
+  padding: 2% 6% 2% 6%;
+}
+
+left-indent {
+  padding-left: 2%
+}
+
+/*FOOTER*/
+footer {
+  background-color: #7D7C84;
+}
+
+.logo {
+  width:10%;
+}

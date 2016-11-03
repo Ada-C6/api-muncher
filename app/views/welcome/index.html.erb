@@ -1,13 +1,15 @@
-<h1>welcome</h1>
 <article>
-  <header>
-    <h1 class="">Search page</h1>
+  <header class="row">
+    <h2 class="small-3", id="homepage-title">Search page</h2>
   </header>
 
+<section class="indent">
   <%= form_tag recipes_path, method: :get do %>
-        <%= label_tag :keyword, "Key Word:" %>
-        <%= text_field_tag :search_term, params[:search_term] %>
+    <%= label_tag :keyword, "Key Word:" %>
+    <%= text_field_tag :search_term, params[:search_term] %>
 
-        <%= submit_tag "Find Recipe", class: "button" %>
-      <% end %>
+    <%= submit_tag "Find Recipe", class: "button" %>
+  <% end %>
+</section>
+
 </article>

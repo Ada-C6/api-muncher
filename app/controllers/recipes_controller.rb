@@ -5,6 +5,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.by_label(params[:id])
+    @recipe = Recipe.by_label(params[:label])
   end
 end
