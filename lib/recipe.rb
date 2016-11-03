@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :label, :uri, :image, :source_name, :sourceIcon, :sourceUrl, :yield, :healthLabels, :ingredientLines
+  attr_reader :label, :uri, :image, :source_name, :sourceUrl, :yield, :healthLabels, :ingredientLines
 
   def initialize(label, source_name, uri, options = {} )
     raise ArgumentError if label == nil || label == "" || uri == nil || uri == "" || source_name == nil || source_name == ""
@@ -19,20 +19,9 @@ class Recipe
     EdamamApiWrapper.listrecipes(search_term)
   end
 
-  def self.by_label (label)
-    all_matches = []
-    matches = search(label)
-
-    # i realize that there are some duplicates that show up here, so I decided to take the first one because that is the one that shows up prior
-    #ask if there is a case where this doesn't work!!!
-    matches.each do | recipe |
-      all_matches << recipe
-    end
-
-    return all_matches[0]
-  end
-
-  def self.next_ten
+  def self.by_uri (uri_section)
+    uri_search = search(uri_section)
+    return uri_search.first   #since we are searching off of the unique uri, there will always only be 1 item returned in the array, therefore we can pull out the first
   end
 
 end

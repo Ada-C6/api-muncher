@@ -5,10 +5,22 @@
 
   <ul class="row small-up-3 no-bullet">
     <% @recipes.each do | recipe | %>
+      <% uri_section = recipe.uri.split("_").last %>
       <li class="column">
-        <p><%= link_to(image_tag(recipe.image), recipes_show_path(recipe.label)) %></p>
-        <p><%= link_to recipe.label, recipes_show_path(recipe.label) %></p>
+        <p><%= link_to(image_tag(recipe.image), recipes_show_path(uri_section)) %></p>
+        <p><%= link_to recipe.label, recipes_show_path(uri_section) %></p>
       <% end %>
       </li>
   </ul>
+
+<%= will_paginate @recipes, :page_links => true%>
+
+<%# "Page #{ @page }" %>
+<%# next_page = @page += 1 %>
+<%# previous_page = @page -= 1 %>
+
+<%# link_to "Next Page", Recipe.by_ten(params[:search_term], next_page) %>
+<%# if @page > 1 %>
+  <%# link_to "Previous Page", Recipe.by_ten(params[:search_term], previous_page) %>
+<%# end %>
 </article>

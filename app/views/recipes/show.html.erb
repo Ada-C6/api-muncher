@@ -1,14 +1,17 @@
 <article>
   <header>
-    <h1 class=""><%= @recipe.label %> </h1>
+    <h1 class="indent"><%= @recipe.label %> </h1>
   </header>
 
   <section>
-    <ul>
+    <ul class="no-bullet indent">
       <li><%= @recipe.label %></li>
       <li><%= image_tag(@recipe.image) %></li>
       <li><%= link_to("Source: #{ @recipe.source_name }", @recipe.sourceUrl, target: '_blank') %></li>
-      <li><%= @recipe.healthLabels %></li>
+      <li>
+        <% if @recipe.healthLabels != [] %>
+          <%= @recipe.healthLabels %></li>
+        <% end %> 
       <li><%= "Yields: #{ @recipe.yield }" %></li>
       <li><%= @recipe.ingredientLines %></li>
 
