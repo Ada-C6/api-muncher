@@ -5,7 +5,7 @@ class EdamamApiWrapper
   APP_ID = ENV["APP_ID"]
   APP_KEY = ENV["APP_KEY"]
 
-  attr_reader :q
+  attr_reader :q, :name
 
   def initialize(q)
     @q = q
@@ -18,12 +18,22 @@ class EdamamApiWrapper
     recipes = []
     if data["hits"]
       data["hits"].each do |hit|
-        wrapper = Recipe.new hit["recipe"]["label"], hit["recipe"]["uri"]
+        wrapper = Recipe.new hit["recipe"]["label"], hit["recipe"]["uri"], hit["recipe"]["image"], hit["recipe"]["label"], hit["recipe"]["ingredientLines"], hit["recipe"]["dietLabels"], hit["recipe"]["healthLabels"]
         recipes << wrapper
       end
-      print recipes
       return recipes
     end
+  end
+
+  def self.find_recipe(id)
+    url = BASE_URL + "?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{id}"
+    data = HTTParty.get(url)
+    data["hits"].each do |hit|
+      if hit["recipe"]["label"] == id
+       @recipe = Recipe.new hit["recipe"]["label"], hit["recipe"]["url"], hit["recipe"]["image"], hit["recipe"]["label"], hit["recipe"]["ingredientLines"], hit["recipe"]["dietLabels"], hit["recipe"]["healthLabels"]
+      end
+    end
+    return @recipe
   end
 
   def self.get_recipes(q, app_id = nil, app_key = nil)

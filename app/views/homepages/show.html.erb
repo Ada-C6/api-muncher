@@ -1,2 +1,15 @@
-<h1>Homepages#show</h1>
-<p>Find me in app/views/homepages/show.html.erb</p>
+<h2>Recipe for <%= @recipe.name %></h2>
+
+<h3><%= link_to( "Original recipe", @recipe.url ) %></h3>
+<h3>Ingredients</h3>
+<% @recipe.ingredients.each do |ingredient| %>
+  <p><%= ingredient %></p>
+<% end %>
+<h3>Diet information</h3>
+<% @recipe.diet_labels.each do |diet| %>
+  <p><%= diet %></p>
+<% end %>
+<h3>Health information</h3>
+<% @recipe.health_labels.each do |health| %>
+  <p><%= health %></p>
+<% end %>

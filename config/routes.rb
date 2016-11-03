@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'homepages/recipe' => 'homepages#recipe', as: 'recipes'
 
-  get 'homepages/show'
+  get 'homepages/show/:id' => 'homepages#show', as: 'show'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
