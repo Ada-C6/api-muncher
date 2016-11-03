@@ -1,9 +1,9 @@
 <article>
 <h1> Recipe for <%= "#{@recipe.name}" %> </h1>
-<section>
+<section class="row small-up-1 medium-up-2">
   <%= image_tag "#{ @recipe.photo}" %>
-<ul>
-  <li><h4>Ingredients: </h4></li>
+<ul class="column">
+  <li> <h4>Ingredients: </h4></li>
   <% @recipe.ingredients.each do |ingredient| %>
   <li><%= ingredient %> </li>
 

@@ -3,6 +3,11 @@
 li {
   list-style-type: none;
 }
+
+h1, h2{
+  text-align: center;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

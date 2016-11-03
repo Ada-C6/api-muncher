@@ -1,13 +1,16 @@
 <% if @recipes.blank? %>
   <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
 <% else %>
-
+<section class="row small-up-2 large-up-4">
 <h1>Results for <%= "#{params[:search]}" %> </h1>
+
  <% @recipes.each do |recipe| %>
   <% uri_id = recipe.uri.split("_").last %>
-<ul>
-  <li> Name: <%= link_to "#{ recipe.name}", recipe_path(uri_id)%></li>
-  <li> <%= image_tag "#{ recipe.photo}" %> </li>
-</ul>
+
+  <p class="column">
+    <%= image_tag "#{ recipe.photo}" %>
+    <%= link_to "#{ recipe.name}", recipe_path(uri_id)%>
+  </p>
 <% end  %>
+</section>
 <% end %>
