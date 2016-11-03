@@ -7,9 +7,18 @@ class RecipesController < ApplicationController
     @page = params["page"]
     Recipe.search(@search_term, @page)
     @results = Recipe.results
-    @count = Recipe.count - 1
-    @pages = (@count/10.0).ceil
+    if Recipe.count == 0
+      @pages = 1
+      @count = 0
+    else
+      @count = Recipe.count - 1
+      @pages = (@count/10.0).ceil
+    end
     # raise
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
   end
   #
   # def page
@@ -26,8 +35,4 @@ class RecipesController < ApplicationController
   #   #   @results = Recipe.results
   #   # end
   # end
-
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
 end

@@ -4,6 +4,9 @@ require 'rails/test_help'
 require "minitest/reporters"
 require 'vcr'
 require 'webmock/minitest'
+require 'simplecov'
+SimpleCov.start
+Rails.application.eager_load!
 
 VCR.configure do |config|
   config.cassette_library_dir = 'test/cassettes' # folder where casettes will be located

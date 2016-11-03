@@ -8,8 +8,10 @@ class Recipe
     @uri = uri.split(/[_]/).last
     @url = options[:url]
     @image_url = options[:image_url]
-    @ingredients = options[:ingredients].map do |i|
-      i["text"]
+    if options[:ingredients]
+      @ingredients = options[:ingredients].map do |i|
+        i["text"]
+      end
     end
     @dietary_info = options[:dietary_info]
   end
@@ -30,7 +32,7 @@ class Recipe
       recipe = results.find do |result|
         result.uri == id
       end
-      return recipe
+      return recipe unless recipe.nil?
     end
     return EdamamApiWrapper.recipe(id)
   end

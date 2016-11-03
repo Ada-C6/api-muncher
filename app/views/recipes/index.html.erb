@@ -16,14 +16,14 @@
   <% end %>
 </ul>
 
-<section class="page-nav row">
+<section class="page-nav small-up-1 medium-up-3 large-up-3 row">
   <section class="column">
-    <% unless @page == 0 %>
+    <% unless @page == 1 %>
       <%= link_to "Previous", recipes_path(page: @page.to_i - 1, search: @search_term )%>
     <% end %>
   </section>
   <section class="column">
-    <%= @page.to_s + " of " + @pages.to_s + " pages" %>
+    <%= @page.to_s + " of " + @pages.to_s + " page(s)" %>
   </section>
   <section class="column">
     <% if @page.to_i < @pages.to_i %>

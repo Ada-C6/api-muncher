@@ -32,5 +32,6 @@ class EdamamApiWrapper
     # return url
     data = HTTParty.get(url)
     recipe = Recipe.new data[0]["label"], data[0]["uri"], url: data[0]["url"], image_url: data[0]["image"], ingredients: data[0]["ingredients"], dietary_info:  data[0]["dietLabels"]
+    return recipe
   end
 end
