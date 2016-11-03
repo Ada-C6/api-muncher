@@ -1,0 +1,16 @@
+<article>
+  <header>
+    <h1 class=""><%= "Recipes that include #{ @ingredient }." %> </h1>
+  </header>
+
+  <ol>
+    <% @recipes.each do | recipe | %>
+      <li>
+        <p><%= link_to recipe.label, recipe_path(recipe.label) %></p>
+        <p><%= link_to(image_tag(recipe.image), recipe_path(recipe.label)) %></p>
+      <% end %>
+      </li>
+  </ul>
+
+
+</article>

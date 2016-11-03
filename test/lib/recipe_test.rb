@@ -5,11 +5,16 @@ class RecipeTest < ActiveSupport::TestCase
     assert true
   end
 
-  test "Recipe can be created with label and uri" do
+  test "Recipe can be created with label and uri and " do
     uri = "test-uri"
-    r = Recipe.new(uri)
+    label = "test-label"
+    source_name = "test-source_name"
+
+    r = Recipe.new(label, source_name, uri)
 
     assert_equal r.uri, uri
+    assert_equal r.label, label
+    assert_equal r.source_name, source_name
   end
 
   test "Recipe.search should return an array of recipies" do

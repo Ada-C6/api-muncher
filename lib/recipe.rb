@@ -1,27 +1,36 @@
 class Recipe
-  attr_reader :label, :uri, :image, :source, :sourceIcon, :sourceUrl, :yield, :healthLabels, :ingredientLines
+  attr_reader :label, :uri, :image, :source_name, :sourceIcon, :sourceUrl, :yield, :healthLabels, :ingredientLines
 
-  def initialize(uri, options = {} )
+  def initialize(label, source_name, uri, options = {} )
+    raise ArgumentError if label == nil || label == "" || uri == nil || uri == "" || source_name == nil || source_name == ""
+
+    @label = label
+    @source_name = source_name
     @uri = uri
-    # Commented out because there's no way I'd be able to remember
-    # all this live.
-    # @purpose = options[:purpose]
-    # @is_archived = options[:is_archived]
-    # @is_general = options[:is_archived]
-    # @members = options[:members]
+    @image = options[:image]
+    @sourceIcon = options[:sourceIcon]
+    @sourceUrl = options[:sourceUrl]
+    @yield = options[:yield]
+    @healthLabels = options[:healthLabels]
+    @ingredientLines = options[:ingredientLines]
   end
-  #
+
   def self.search (search_term)
     EdamamApiWrapper.listrecipes(search_term)
   end
-  #
-  # def self.by_name
-  # end
-  #
-  # def self.by_keyword
-  # end
-  #
-  # def self.top_10
-  # end
+
+  def self.by_label (label)
+    all_matches = []
+    matches = search(label)
+
+    matches.each do | recipe |
+      all_matches << recipe
+    end
+
+    return all_matches[0]
+  end
+
+  def self.next_ten
+  end
 
 end

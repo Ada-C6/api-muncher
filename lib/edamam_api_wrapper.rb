@@ -14,10 +14,7 @@ class EdamamApiWrapper
       data["hits"].each do | hit |
 
         recipe_data = {
-          uri: hit["recipe"]["uri"],
-          label: hit["recipe"]["label"],
           image: hit["recipe"]["image"],
-          source: hit["recipe"]["source"],
           sourceIcon: hit["recipe"]["sourceIcon"],
           sourceUrl: hit["recipe"]["url"],
           yield: hit["recipe"]["yield"],
@@ -25,8 +22,8 @@ class EdamamApiWrapper
           healthLabels: hit["recipe"]["healthLabels"],
           ingredientLines: hit["recipe"]["ingredientLines"]
         }
-
-        wrapper = Recipe.new recipe_data
+        
+        wrapper = Recipe.new(hit["recipe"]["label"], hit["recipe"]["source"], hit["recipe"]["uri"], recipe_data)
         recipe_list << wrapper
       end
     end
