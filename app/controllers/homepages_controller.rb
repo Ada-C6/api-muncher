@@ -6,17 +6,9 @@ class HomepagesController < ApplicationController
 
   def search
     @searched = Recipe.search(params[:search])
-
-    @searched.each do |recipe|
-      @link = recipe.link
-      @photo = recipe.photo
-    end
-    return @searched
   end
 
   def show
-    # @show_recipe = Recipe.by_name(params[:search])
-    # return @show_recipe
-    @recipe = Recipe.by_label(params[:recipe])
+    @recipe = Recipe.search(params[:recipe]).first
   end
 end

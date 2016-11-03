@@ -30,24 +30,24 @@ class RecipeTest <ActiveSupport::TestCase
     end
   end
 
-  test "Recipe.by_label should return only the match" do
-    VCR.use_cassette("recipes") do
-      label = "Grilled Deviled Chickens Under a Brick"
-      recipe = Recipe.by_label(label)
-      assert_kind_of Recipe, recipe
-      assert_equal recipe.label, label
-    end
-  end
-
-  test "Recipe.by_label should return the first match" do
-    VCR.use_cassette("recipes") do
-      # NOTE, "Herbes de Provence Rotisserie Chickens" is an actual piece of data that repeats multiple times.
-      recipe = Recipe.by_label("Herbes de Provence Rotisserie Chickens")
-      assert_kind_of Recipe, recipe
-      assert_equal recipe.label, "Herbes de Provence Rotisserie Chickens"
-      assert_equal recipe.link, "http://www.bonappetit.com/recipes/2007/07/herbes_de_provence_rotisserie_chickens"
-      # This is the link associated with the the second entry
-      assert_not_equal recipe.link, "http://www.epicurious.com/recipes/food/views/Herbes-de-Provence-Rotisserie-Chickens-238794"
-    end
-  end
+  # test "Recipe.by_label should return only the match" do
+  #   VCR.use_cassette("recipes") do
+  #     label = "Grilled Deviled Chickens Under a Brick"
+  #     recipe = Recipe.by_label(label)
+  #     assert_kind_of Recipe, recipe
+  #     assert_equal recipe.label, label
+  #   end
+  # end
+  #
+  # test "Recipe.by_label should return the first match" do
+  #   VCR.use_cassette("recipes") do
+  #     # NOTE, "Herbes de Provence Rotisserie Chickens" is an actual piece of data that repeats multiple times.
+  #     recipe = Recipe.by_label("Herbes de Provence Rotisserie Chickens")
+  #     assert_kind_of Recipe, recipe
+  #     assert_equal recipe.label, "Herbes de Provence Rotisserie Chickens"
+  #     assert_equal recipe.link, "http://www.bonappetit.com/recipes/2007/07/herbes_de_provence_rotisserie_chickens"
+  #     # This is the link associated with the the second entry
+  #     assert_not_equal recipe.link, "http://www.epicurious.com/recipes/food/views/Herbes-de-Provence-Rotisserie-Chickens-238794"
+  #   end
+  # end
 end

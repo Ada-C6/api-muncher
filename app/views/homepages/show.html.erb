@@ -1,7 +1,6 @@
-<h1>This is the show page</h1>
+<h1><%= @recipe.label %></h1>
 
-<p>homepages#show</p>
-
-<p><%= @recipe.label %></p>
-<p><%= @recipe.photo %></p>
+<%= image_tag(@recipe.photo) %>
 <p><%= @recipe.link %></p>
+<p><%= @recipe.health %></p>
+<p><%= @recipe.ingredients %></p>

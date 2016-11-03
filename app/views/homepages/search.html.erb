@@ -1,9 +1,8 @@
 <h1>YOUR RESULTS</h1>
-
+<h4> based on your search of <%= @keyword %></h4>
 
 <% @searched.each do |recipe| %>
-  <%= link_to "#{image_tag(recipe.photo)}".html_safe, show_recipe_path(recipe.label), class: "category-img" %>
-  <p><%= recipe.label %></p>
-  <p><%= recipe.link %></p>
-  <p><%= link_to recipe.label, show_recipe_path(recipe.label) %></p>
+  <% uri = recipe.uri.split("_").last %>
+  <%= link_to "#{image_tag(recipe.photo)}".html_safe, show_recipe_path(uri), class: "category-img" %>
+  <p><%= link_to recipe.label, show_recipe_path(uri) %></p>
 <% end %>
