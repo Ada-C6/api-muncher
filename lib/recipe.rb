@@ -26,11 +26,8 @@ class Recipe
   end
 
   def self.by_uri(uri)
-    # USE URI TO SEARCH
-    #self.recipes
     matches = self.recipes.select do |recipe|
       recipe.uri == uri
-      # raise
     end
     return matches.first
   end
