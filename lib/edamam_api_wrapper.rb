@@ -5,10 +5,12 @@ class EdamamApiWrapper
   APP_ID = ENV["APP_ID"]
   APP_KEY = ENV["APP_KEY"]
 
-  def self.search(search_term)
-    url = BASE_URL + "?q=" + search_term + "&app_id=#{ APP_ID }&app_key=#{ APP_KEY }"
+  def self.search(search_term, page)
+    start_index = (page - 1) * 10
+    url = BASE_URL + "?q=" + search_term + "&from=#{ start_index }&app_id=#{ APP_ID }&app_key=#{ APP_KEY }"
     data = HTTParty.get(url)
     results = []
+    count = data["count"]
     if data["hits"]
       data["hits"].each do |hit|
         recipe_hash = {
