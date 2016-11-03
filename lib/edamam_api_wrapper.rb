@@ -7,7 +7,7 @@ class EdamamApiWrapper
   APP_KEY = ENV["APP_KEY"]
 
   def self.list_search_results(query)
-    url = "#{ BASE_URL }?" + "#{ APP_ID }=" + "#{ APP_KEY }&" + "q=" + "#{ query }"
+    url = "#{ BASE_URL }?" + "#{ APP_ID }=" + "#{ APP_KEY }&" + "q=" + "#{ query }" + "&to=40"
     data = HTTParty.get(url)
     search_results_list = []
     if data["hits"]

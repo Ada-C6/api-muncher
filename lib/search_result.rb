@@ -1,5 +1,5 @@
 class SearchResult
-  attr_reader
+  attr_reader :label, :image, :url, :diet_labels, :health_labels, :ingredients
 
   def initialize(label, image, url, diet_labels, health_labels, ingredients)
     @label = label
@@ -20,7 +20,8 @@ class SearchResult
   end
 
   def self.all(query)
-    EdamamApiWrapper.list_search_results(query)
+    results = EdamamApiWrapper.list_search_results(query)
+    return results
   end
 
   # Forget all memoized values
