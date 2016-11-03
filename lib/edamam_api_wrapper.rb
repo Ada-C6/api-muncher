@@ -25,6 +25,8 @@ class EdamamApiWrapper
         from: "search")
         search_results_list << wrapper
       end
+    else
+      return nil
     end
     return search_results_list
   end
@@ -36,11 +38,21 @@ class EdamamApiWrapper
     #For some reason, my .env is not getting loaded, so this is the ugly workaround.
     Dotenv.load
 
+    # Don't want to make an API call if the identifier is visibly not valid.
+    if identifier.class != String || identifier.include?("http://") || identifier.length != 32
+      return nil
+    end
+
     url_base = "http://www.edamam.com/ontologies/edamam.owl%23recipe_"
 
     url = BASE_URL + "r=#{url_base}" + "#{identifier}" + "&app_id=#{ENV["EDAMAM_APP_ID"]}" + "&app_key=#{ENV["EDAMAM_APP_KEY"]}"
 
     data = HTTParty.get(url)
+
+    # If identifier looks valid, but doesn't return anything, also return nil. 
+    if data == "[]"
+      return nil
+    end
 
       wrapper = Recipe.new(data[0]["label"],
       data[0]["source"],
@@ -52,6 +64,6 @@ class EdamamApiWrapper
       from: "find_recipe"
       )
 
-    return wrapper
+      return wrapper
   end
 end
