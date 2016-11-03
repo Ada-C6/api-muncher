@@ -17,7 +17,7 @@ class Recipe
   end
 
   def self.all(keyword = nil, page = 0)
-    @recipes ||= EdamamApiWrapper.listrecipes(keyword, page)
+    @recipes = EdamamApiWrapper.listrecipes(keyword, page)
     return @recipes
   end
 
@@ -27,7 +27,8 @@ class Recipe
 
   def self.by_uri(uri)
     # USE URI TO SEARCH
-    matches = all.select do |recipe|
+    #self.recipes
+    matches = self.recipes.select do |recipe|
       recipe.uri == uri
       # raise
     end
