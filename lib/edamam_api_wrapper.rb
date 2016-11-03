@@ -15,14 +15,13 @@ class EdamamApiWrapper
 
         recipe_data = {
           image: hit["recipe"]["image"],
-          sourceIcon: hit["recipe"]["sourceIcon"],
           sourceUrl: hit["recipe"]["url"],
           yield: hit["recipe"]["yield"],
           dietLabels: hit["recipe"]["dietLabels"],
           healthLabels: hit["recipe"]["healthLabels"],
           ingredientLines: hit["recipe"]["ingredientLines"]
         }
-        
+
         wrapper = Recipe.new(hit["recipe"]["label"], hit["recipe"]["source"], hit["recipe"]["uri"], recipe_data)
         recipe_list << wrapper
       end

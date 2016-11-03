@@ -8,7 +8,6 @@
       <li><%= @recipe.label %></li>
       <li><%= image_tag(@recipe.image) %></li>
       <li><%= link_to("Source: #{ @recipe.source_name }", @recipe.sourceUrl, target: '_blank') %></li>
-      <li><%= @recipe.sourceIcon %></li>
       <li><%= "Yields: #{ @recipe.yield }" %></li>
       <li><%= @recipe.ingredientLines %></li>
       <li><%= @recipe.healthLabels %></li>

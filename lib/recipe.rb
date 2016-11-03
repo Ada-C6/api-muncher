@@ -8,7 +8,6 @@ class Recipe
     @source_name = source_name
     @uri = uri
     @image = options[:image]
-    @sourceIcon = options[:sourceIcon]
     @sourceUrl = options[:sourceUrl]
     @yield = options[:yield]
     @healthLabels = options[:healthLabels]
@@ -16,6 +15,7 @@ class Recipe
   end
 
   def self.search (search_term)
+    #change to ||= if time permits
     EdamamApiWrapper.listrecipes(search_term)
   end
 
