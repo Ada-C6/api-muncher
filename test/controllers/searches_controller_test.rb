@@ -1,10 +1,6 @@
 require 'test_helper'
 
 class SearchesControllerTest < ActionController::TestCase
-  # setup do
-  #   @search = searches(:one)
-  # end
-
   test "should get new" do
     get :new
     assert_response :success

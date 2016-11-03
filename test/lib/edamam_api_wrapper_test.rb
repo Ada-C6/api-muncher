@@ -46,4 +46,15 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     end # VCR
   end # test
 
+  test "search_results should return only recipe hits" do
+    VCR.use_cassette("search") do
+      term = "jello"
+      results = EdamamApiWrapper.search_results(term)
+
+      results.each do |result|
+        assert_not_nil result["recipe"]
+      end # each
+    end # VCR
+  end
+
 end # class

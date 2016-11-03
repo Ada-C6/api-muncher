@@ -1,7 +1,5 @@
 class SearchesController < ApplicationController
-  def new
-    # @search = EdamamApiWrapper.search(term)
-  end
+  def new; end
 
   def create
     # @todo - refactor this input check to somewhere else -- maybe edamam_api_wrapper?
