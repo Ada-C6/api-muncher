@@ -9,10 +9,10 @@
   <% id = 0 %>
   <% @results.each do |recipe| %>
     <li class="column">
-      <%= link_to recipe_path(id) do %>
+      <%= link_to recipe_path(recipe.uri) do %>
         <%= image_tag "#{recipe.image_url}", alt: "#{recipe.label} Image" %>
       <% end %>
-      <%= link_to recipe.label, recipe_path(id) %>
+      <%= link_to recipe.label, recipe_path(recipe.uri) %>
     </li>
     <% id += 1 %>
   <% end %>

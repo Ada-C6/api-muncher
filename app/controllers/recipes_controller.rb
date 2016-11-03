@@ -29,6 +29,12 @@ class RecipesController < ApplicationController
 
   def show
     results = Recipe.results
-    @recipe = results[params[:id].to_i]
+    unless results == nil
+      @recipe = results.find do |result|
+        result.uri == params[:id]
+      end
+      return @recipe
+    end
+    
   end
 end

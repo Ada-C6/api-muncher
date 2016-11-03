@@ -1,11 +1,12 @@
 class Recipe
-  attr_reader :label, :url, :image_url, :ingredients, :dietary_info
+  attr_reader :label, :uri, :url, :image_url, :ingredients, :dietary_info
 
-  def initialize(label, url, options = {})
-    raise ArgumentError if label == nil || label == "" || url == nil || url == ""
+  def initialize(label, uri, options = {})
+    raise ArgumentError if label == nil || label == "" || uri == nil || uri == ""
 
     @label = label
-    @url = url
+    @uri = uri.split(/[_]/).last
+    @url = options[:url]
     @image_url = options[:image_url]
     @ingredients = options[:ingredients].map do |i|
       i["text"]
