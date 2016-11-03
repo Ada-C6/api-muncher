@@ -27,16 +27,11 @@ class EdamamApiWrapper
   end
 
   def self.find(id)
-    #have to split up the id because the one given un uri is slightly different than the one required for a search `#` must become `%23`
-    if id.length > 44 #this is likely a poorly written way to account for the issue described above because if the argument is short, an error is raised for finding its pieces by index below
-      url = BASE_URL + "?r=" + id[0..42] + "%23" + id[44..-1] + "&app_id=#{ APP_ID }&app_key=#{ APP_KEY }"
-    else
-      return nil
-    end
+    url = BASE_URL + "?r=http://www.edamam.com/ontologies/edamam.owl%23" + id + "&app_id=#{ APP_ID }&app_key=#{ APP_KEY }"
 
-    recipe_data = HTTParty.get(url)
     wrapper = nil
-    if recipe_data != []
+    recipe_data = HTTParty.get(url)
+    if !recipe_data.empty?
       recipe_hash = {
         name: recipe_data[0]["label"],
         photo: recipe_data[0]["image"],

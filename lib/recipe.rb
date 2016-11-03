@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :name, :photo, :original_link, :ingredients, :diet_labels, :uri
+  attr_accessor :name, :photo, :original_link, :ingredients, :diet_labels, :uri
 
   def initialize(recipe_hash)
     @name = recipe_hash[:name]
@@ -15,7 +15,6 @@ class Recipe
   end
 
   def self.find(id) #takes in a Recipe object
-    recipe_uri = id.uri
-    EdamamApiWrapper.find(recipe_uri)
+    EdamamApiWrapper.find(id)
   end
 end
