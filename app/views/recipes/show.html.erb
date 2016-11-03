@@ -1,21 +1,23 @@
 <h1><%= @recipe.label %></h1>
 
 <%=image_tag(@recipe.image, :alt => "#{@recipe.label}") %>
-<p><%= link_to "External link", @recipe.url, :target => "_blank"%></p>
-<p>
+<p><%= link_to "Go see the original recipe", @recipe.url, :target => "_blank"%></p>
+<div>
   <h4>You'll need:</h4>
   <% @recipe.ingredients.each do |ingredient|%>
-  <%= ingredient %><br>
+  <p><%= ingredient %></p>
   <% end %>
-</p>
+</div>
 
-<p>
+<div>
   <h4>This recipe is a fit for the following diet plans:</h4>
-  <% unless @recipe.diet_labels.empty? %>
-    <% @recipe.diet_labels.each do |diet| %>
-    <%= diet %>
+  <% labels = @recipe.diet_labels + @recipe.health_labels %>
+  <% unless labels.empty? %>
+    <% labels.each do |diet| %>
+    <p><%= diet %></p>
     <% end %>
   <% else %>
     We apologize, but this recipe does not include information on matching diet plans.
   <% end %>
-</p>
+
+</div>

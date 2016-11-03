@@ -21,8 +21,11 @@ class EdamamApiWrapper
           label: hit["recipe"]["label"],
           ingredients: hit["recipe"]["ingredientLines"],
           diet_labels: hit["recipe"]["dietLabels"],
+          health_labels: hit["recipe"]["healthLabels"],
           image: hit["recipe"]["image"],
-          url: hit["recipe"]["shareAs"]
+          url: hit["recipe"]["shareAs"],
+          nutrients: hit["recipe"]["totalNutrients"]
+
         recipes << wrapper
       end
     end
@@ -37,8 +40,10 @@ class EdamamApiWrapper
       uri: data[0]["uri"],
       ingredients: data[0]["ingredientLines"],
       diet_labels: data[0]["dietLabels"],
+      health_labels: data[0]["healthLabels"],
       image: data[0]["image"],
-      url: data[0]["shareAs"]
+      url: data[0]["shareAs"],
+      nutrients: data[0]["totalNutrients"]
     return wrapper
   end
 
