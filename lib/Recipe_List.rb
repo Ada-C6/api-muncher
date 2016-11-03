@@ -1,12 +1,13 @@
 class RecipeList
-  attr_reader :label, :image, :uri, :health_labels, :ingredients
+  attr_reader :label, :image, :uri, :url, :ingredientLines
 
-  def initialize(label, image, uri, health_labels, ingredients)
+  def initialize(label, image, uri, url, ingredientLines = nil)
     @label = label
     @image = image
     @uri = uri
-    @health_labels = health_labels
-    @ingredients = ingredients
+    @url = url
+    @ingredientLines = ingredientLines
+
   end
 
 end

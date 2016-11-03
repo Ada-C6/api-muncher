@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'homepages#index'
 
-  get 'homepages/show/*id' => 'homepages#show', as: 'show_page', format:false
+  get 'homepages/show/*uri' => 'homepages#show', as: 'show_page', format:false
 
   get 'homepages/results' => 'homepages#results', as: 'results_pages'
 

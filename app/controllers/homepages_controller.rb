@@ -29,7 +29,7 @@ class HomepagesController < ApplicationController
   end
 
   def show
-    @recipe = EdamamApiWrapper.show_recipe(params[:search_term])
+    @recipe = EdamamApiWrapper.show_recipe(params[:uri])
   #   if @recipe != nil && @recipe != []
   #     render status: :created
   #   else

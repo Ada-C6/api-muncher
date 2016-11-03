@@ -19,26 +19,17 @@ class EdamamApiWrapper
       image = recipe["recipe"]["image"]
       uri = recipe["recipe"]["uri"]
       health_labels = recipe["recipe"]["healthLabels"]
-      ingredients = recipe["recipe"]["ingredients"]
-      recipes << RecipeList.new(label, image, uri, health_labels, ingredients)
+      recipes << RecipeList.new(label, image, uri, health_labels)
     end
     return recipes
   end
 
-  def self.show_recipe(search_term)
-    # search_term = search_term.gsub!('#','%23')
-    url = BASE_URL + "?r=#{search_term}"
-    recipe = HTTParty.get(url).parsed_response
-    return recipe.first
-    label = recipe["label"]
-    # image = recipe["image"]
-    # uri = recipe["uri"]
-    # diet_labels = recipe["dietLabels"]
-    # health_labels = recipe["healthLabels"]
-    # ingredient_list = recipe["ingredientLines"]
-    # ingredients = recipe["ingredients"]
-    # recipes << RecipeList.new(label, image, uri, health_labels, diet_labels, ingredient_list, ingredients)
-    # return recipes
+  def self.show_recipe(r)
+    url = BASE_URL + "?r=#{URI.encode(r)}" + "&app_id=#{ID}" + "&app_key=#{TOKEN}"
+    data = HTTParty.get(url)
+    recipe = RecipeList.new(data[0]["label"], data[0]["image"], data[0]["uri"], data[0]["url"], data[0]["ingredientLines"])
+    return recipe
+    
   end
 
 end
