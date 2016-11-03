@@ -10,11 +10,13 @@ class RecipeTest < ActiveSupport::TestCase
   # INSTANCE METHODS
   #
 
-  test "Recipe can be created with a label" do
-    label = "Yummy belly delight"
-    recipe = Recipe.new(label)
+  test "Recipe must be created with a label and an id " do
+    label  = "Yummy belly delight"
+    id     = "this-id"
+    recipe = Recipe.new(label, id)
 
     assert_equal recipe.label, label
+    assert_equal recipe.id, id
   end
 
   #
@@ -36,20 +38,20 @@ class RecipeTest < ActiveSupport::TestCase
   test "Recipe.by_name should return nil if no match" do
     VCR.use_cassette("recipes") do
       recipes = Recipe.all('chicken', 1)
-      recipe = Recipe.by_label("this-food-does-not-exist")
+      recipe = Recipe.by_id("these-are-not-the-ids-youre-looking-for")
       assert_nil recipe
     end
   end
 
-  
 
-  # test "Recipe.by_name should return the only match" do
-  #   VCR.use_cassette("recipes") do
-  #     recipes = Recipe.all('chicken', 1)
-  #     recipes.each do |recipe|
-  #       retrieved_recipe = Recipe.by_label(recipe.label)
-  #       assert_equal recipe, retrieved_recipe
-  #     end
-  #   end
-  # end
+
+  test "Recipe.by_name should return the only match" do
+    VCR.use_cassette("recipes") do
+      recipes = Recipe.all('chicken', 1)
+      recipes.each do |recipe|
+        retrieved_recipe = Recipe.by_id(recipe.id)
+        assert_equal recipe, retrieved_recipe
+      end
+    end
+  end
 end

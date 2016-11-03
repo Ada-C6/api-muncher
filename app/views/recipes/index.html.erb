@@ -9,7 +9,7 @@
 
   <ul class='small-up-5'>
     <% @recipes.each do |recipe|  %>
-    <li class='column recipe-tile'><%= link_to recipe_path(recipe.label) do %>
+    <li class='column recipe-tile'><%= link_to recipe_path(recipe.id) do %>
       <ul>
         <li>
           <%= image_tag recipe.image, class: 'recipe-picture' %>
