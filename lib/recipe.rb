@@ -1,3 +1,5 @@
+require_relative 'recipe_api_wrapper'
+
 class Recipe
 
   attr_reader :label, :photo, :url, :ingredients, :diet
@@ -12,8 +14,12 @@ class Recipe
     @diet = diet
   end
 
-  # def self.all(search_term)
-  #   @recipes ||= EdamamApiWrapper.list_recipes(search_term)
-  # end
+  def self.all(search_term, page_number)
+    @recipes ||= EdamamApiWrapper.list_recipes(search_term, page_number)
+  end
+
+  class << self
+    attr_reader :recipes
+  end
 
 end
