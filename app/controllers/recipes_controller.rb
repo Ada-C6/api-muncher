@@ -4,8 +4,8 @@ class RecipesController < ApplicationController
 
   def index
     @search_term = params["search"]
-    page = params["page"]
-    Recipe.search(@search_term, page)
+    @page = params["page"]
+    Recipe.search(@search_term, @page)
     @results = Recipe.results
     @count = Recipe.count
     @pages = @count/10
@@ -28,13 +28,6 @@ class RecipesController < ApplicationController
   # end
 
   def show
-    results = Recipe.results
-    unless results == nil
-      @recipe = results.find do |result|
-        result.uri == params[:id]
-      end
-      return @recipe
-    end
-    
+    @recipe = Recipe.find(params[:id])
   end
 end

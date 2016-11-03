@@ -6,7 +6,6 @@
 </section>
 
 <ul class="row small-up-1 medium-up-3 large-up-4">
-  <% id = 0 %>
   <% @results.each do |recipe| %>
     <li class="column">
       <%= link_to recipe_path(recipe.uri) do %>
@@ -14,10 +13,9 @@
       <% end %>
       <%= link_to recipe.label, recipe_path(recipe.uri) %>
     </li>
-    <% id += 1 %>
   <% end %>
 </ul>
 
-<% @pages.times do |i| %>
-  <%= link_to "#{i}", recipes_path(page: i, search: @search_term )%>
-<% end %>
+<%= @page.to_s + " of " + @pages.to_s + " pages" %>
+  <%# link_to "#{i}", recipes_path(page: i, search: @search_term )%>
+<%# end %>

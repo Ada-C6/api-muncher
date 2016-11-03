@@ -18,17 +18,20 @@ class Recipe
     attr_reader :results, :count # this hasn't been set anywhere yet, but will be when we memoize it below?
   end
 
-  def self.search(search_term, page = nil)
-    if page == nil
-      from = 0
-      to = 10
-    else
-      from = page.to_i * 10
-      to = from + 10
-    end
-    results_array = EdamamApiWrapper.search(search_term, from, to)
+  def self.search(search_term, page)
+    from = (page.to_i - 1) * 10
+    results_array = EdamamApiWrapper.search(search_term, from)
     @results = results_array[0]
     @count = results_array[1]
   end
 
+  def self.find(id)
+    unless self.results.nil?
+      recipe = results.find do |result|
+        result.uri == id
+      end
+      return recipe
+    end
+    return EdamamApiWrapper.recipe(id)
+  end
 end

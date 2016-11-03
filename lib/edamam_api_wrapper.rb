@@ -6,10 +6,10 @@ class EdamamApiWrapper
   # APP_ID =
   # APP_KEY =
 
-  def self.search(search_term, from, to)
+  def self.search(search_term, from)
     Dotenv.load
 
-    url = BASE_URL + "app_id=#{ENV["APP_ID"]}" + "&app_key=#{ENV["APP_KEY"]}" + "&q=#{search_term}" + "&from=#{from}&to=#{to}"
+    url = BASE_URL + "app_id=#{ENV["APP_ID"]}" + "&app_key=#{ENV["APP_KEY"]}" + "&q=#{search_term}" + "&from=#{from}"
 
     data = HTTParty.get(url)
     results = []
@@ -31,5 +31,6 @@ class EdamamApiWrapper
 
     # return url
     data = HTTParty.get(url)
+    recipe = Recipe.new data[0]["label"], data[0]["uri"], url: data[0]["url"], image_url: data[0]["image"], ingredients: data[0]["ingredients"], dietary_info:  data[0]["dietLabels"]
   end
 end
