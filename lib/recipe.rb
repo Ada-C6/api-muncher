@@ -16,18 +16,22 @@ class Recipe
   # Much more likely to work as expected than a class variable
   # See http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/
   class << self
-    attr_reader :recipes, :recipe
+    attr_reader :recipes, :recipe, :api_call, :search_term
   end
 
   # Return a memoized collection of recipes
   def self.all(term)
 
-    #If term is the same, use memoized search.
+    # If term is the same, use memoized search.
     if term == @search_term
+      @api_call = false
       return @recipes
+
     else
       @recipes = EdamamApiWrapper.search(term)
       @search_term = term
+      @api_call = true
+      return @recipes
     end
   end
 
@@ -38,6 +42,7 @@ class Recipe
       @recipes.each do |recipe|
         if recipe.identifier == identifier
           @recipe = recipe
+          @api_call = false
           return @recipe
         end
       end
@@ -45,6 +50,8 @@ class Recipe
 
     # Otherwise, do this.
     @recipe = EdamamApiWrapper.find_recipe(identifier)
+    @api_call = true
+    return @recipe
     # if @recipes.include?(Recipe)
   end
 end

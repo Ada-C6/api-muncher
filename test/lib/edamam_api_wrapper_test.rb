@@ -29,6 +29,11 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     end
   end
 
+  test "search should return nil if search doesn't match anything" do
+    skip
+    # TODO
+  end
+
   test "find gets back a single recipe" do
     VCR.use_cassette("recipes") do
       id = "4b4dc08187822cb49fb12c1e6ded859f"
