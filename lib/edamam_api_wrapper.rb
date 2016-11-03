@@ -49,14 +49,14 @@ class EdamamApiWrapper
 
     data = HTTParty.get(url)
 
-    # If identifier looks valid, but doesn't return anything, also return nil. 
+    # If identifier looks valid, but doesn't return anything, also return nil.
     if data == "[]"
       return nil
     end
 
       wrapper = Recipe.new(data[0]["label"],
       data[0]["source"],
-      data[0]["uri"],
+      data[0]["uri"].split(/[_]/).last,
       image: data[0]["image"],
       source_url: data[0]["url"],
       source_icon: data[0]["sourceIcon"],

@@ -21,9 +21,14 @@ class Recipe
 
   # Return a memoized collection of recipes
   def self.all(term)
-    #TODO: If term is the same, then can use memoized version, but if term isn't, need to make the request again.
-    # @recipes ||= EdamamApiWrapper.search(term)
-    @recipes = EdamamApiWrapper.search(term)
+
+    #If term is the same, use memoized search.
+    if term == @search_term
+      return @recipes
+    else
+      @recipes = EdamamApiWrapper.search(term)
+      @search_term = term
+    end
   end
 
   def self.find_recipe(identifier)
