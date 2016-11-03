@@ -1,3 +1,17 @@
 <article>
-<h2><%=@recipe.name%></h2>
+  <h2><%=@recipe.name%></h2>
+  <section>
+    <%=image_tag("#{@recipe.image}")%>
+    <p><%=link_to @recipe.uri, @recipe.url, :target => "_blank"%></p>
+    <h3><strong>Ingredients:</strong></h3>
+    <%@recipe.ingredients.each do |pieces|%>
+    <p><%= pieces%></p>
+    <%end%>
+  </section>
+  <aside class="Diet-info">
+    <h3>Diet Information:</h3>
+    <%@recipe.diet_info.each do |diet|%>
+    <p><%= diet %></p>
+    <%end%>
+  </aside>
 </article>

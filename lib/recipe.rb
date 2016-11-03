@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :name, :uri, :image, :ingredients, :dietary_information
+  attr_reader :name, :uri, :image, :ingredients, :diet_info, :url
 
   def initialize(label, uri, options ={})
     @name = label
@@ -7,6 +7,7 @@ class Recipe
     @image = options[:image]
     @ingredients = options[:ingredients]
     @diet_info = options[:dietary_information]
+    @url = options[:url]
   end
 
   def self.recipe_look_up(recipe)
