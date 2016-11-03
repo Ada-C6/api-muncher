@@ -6,14 +6,16 @@ class RecipeTest < ActiveSupport::TestCase
   end
 
   test "recipe can be created with label, photo, and uri" do
-    label = "test label"
-    photo = "test photo"
-    uri = "test uri"
+    VCR.use_cassette("recipes") do
+      label = "test label"
+      photo = "test photo"
+      uri = "test uri"
 
-    r = Recipe.new(label, photo, uri)
-    assert_equal r.label, label
-    assert_equal r.photo, photo
-    assert_equal r.uri, uri
+      r = Recipe.new(label, photo, uri)
+      assert_equal r.label, label
+      assert_equal r.photo, photo
+      assert_equal r.uri, uri
+    end
   end
 
   test "self.all returns a list of recipes" do
@@ -26,5 +28,5 @@ class RecipeTest < ActiveSupport::TestCase
       assert_kind_of Recipe, recipe.first
     end
   end
-  
+
 end
