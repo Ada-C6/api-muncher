@@ -9,17 +9,19 @@
 
 
 <body>
-  <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search for Munchables Here" %>
-      <%= submit_tag "Search", :name => nil %>
-  <% end %>
+  <nav class="row">
+    <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for Munchables Here" %>
+    <%= submit_tag "Search", :name => nil %>
+    <% end %>
+  </nav>
 
 
-<%= yield %>
+  <%= yield %>
 
-<footer>
-  Powered by Edamam.
-</footer>
+  <footer>
+    Powered by Edamam.
+  </footer>
 
 </body>
 </html>
