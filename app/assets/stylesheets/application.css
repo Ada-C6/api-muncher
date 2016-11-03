@@ -24,3 +24,11 @@ header img{
 header h1{
 	display: inline;
 }
+body {
+	 background: none;
+}
+
+form p {
+	margin: 50px;
+}
+

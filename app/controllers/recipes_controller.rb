@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
     session[:term]=@term
   	results = MuncherApiWrapper.search(@term)
     @num_results=results.count
-    flash[:notice]= "No recipes matched your search term. Search again"
+    flash[:notice]= "No recipes matched your search term. Search again" if @num_results ==0 
     
   	@paginated_results=results.paginate(:page => params[:page], :per_page => 10)
   	@recipes=Recipe.make_recipes_from_api(@paginated_results)
