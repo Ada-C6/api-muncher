@@ -8,5 +8,6 @@
   </article>
   <% end %>
 </div>
-
-<%= link_to "More Results", more_results_path(params[:search_term], params[:from])%>
+<div class="center-text">
+  <%= button_to("More Results", more_results_path(params[:search_term], params[:from]), method: :get, :class => "button")%>
+</div>

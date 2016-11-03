@@ -27,9 +27,9 @@ class EdamamApiWrapper
   def self.show_recipe(r)
     url = BASE_URL + "?r=#{URI.encode(r)}" + "&app_id=#{ID}" + "&app_key=#{TOKEN}"
     data = HTTParty.get(url)
-    recipe = RecipeList.new(data[0]["label"], data[0]["image"], data[0]["uri"], data[0]["url"], data[0]["ingredientLines"])
+    recipe = RecipeList.new(data[0]["label"], data[0]["image"], data[0]["uri"], data[0]["url"], data[0]["ingredientLines"], data[0]["yield"])
     return recipe
-    
+
   end
 
 end
