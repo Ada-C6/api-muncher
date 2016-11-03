@@ -21,13 +21,12 @@ class RecipeTest < ActiveSupport::TestCase
 
   test ".find returns correct Recipe object" do
     VCR.use_cassette("recipes") do
-      id = "http://www.edamam.com/ontologies/edamam.owl#recipe_637913ec61d9da69eb451818c3293df2"
+      id = "recipe_637913ec61d9da69eb451818c3293df2"
       find_recipe = Recipe.find(id)
 
       assert_kind_of Recipe, find_recipe
       assert_not_nil find_recipe
       assert_equal "Dijon and Tarragon Grilled Chicken", find_recipe.name
-      assert_equal id, find_recipe.uri
     end
   end
 
