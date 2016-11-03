@@ -1,44 +1,77 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
+
+// Default font colors are grey and black
+body, a {
   color: #666;
 }
 
+a:hover {
+  color: #000;
+}
+
+// TOP BAR
+
+// styles the search bar so the button is inline
 li {
   list-style: none;
 }
 
+form li {
+  display: inline-block;
+}
+
+.button {
+  // will need to style colors to make this match
+}
+
+
+.prev-link:after {
+  // navigate with left arrow
+  font-family: FontAwesome;
+  content: "\f060";
+}
+
+.next-link:after {
+  // navigate with right arrow
+  font-family: FontAwesome;
+  content: "\f061";
+}
+
+
+// BODY - INDEX page
+
+// recipe images are styled like tiles; opacity changes for hover and soft feel
 .recipe-picture {
   opacity: 0.4;
+  border-radius: 5px;
 }
 
-.recipe-tile:hover  .recipe-picture {
+.recipe-tile:hover  .recipe-picture{
   opacity: 0.7;
-
 }
 
+// default styling for images everywhere!
+img {
+  opacity: 0.7;
+  border-radius: 15px;
+}
+
+// recipes labels only visible on hover
 .recipe-label {
   visibility: hidden;
   font-size: 1rem;
-  // transition-timing-function: ease-in;
-  // transition: .25s;
-  // transition: 0.2s all ease-in-out;
-  color: grey;
   text-align: center;
-
 }
 
 .recipe-tile:hover .recipe-label {
   visibility: visible;
-
 }
 
-.recipe-tile  {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+// BODY - SHOW page
 
+// make the details look nice
 article {
   padding: 2rem;
 }
@@ -57,12 +90,11 @@ article {
 	padding: .2em 0 .2em .5em;
 	color: #666;
 }
-
+  // make little cutlery appear like magic!
 .check-list > li:hover {
 	cursor: pointer;
 	background-color: #f2f2f2;
 	color: #000;
-
 }
 
 .check-list > li:hover:before {
