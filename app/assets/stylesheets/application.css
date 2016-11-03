@@ -14,7 +14,22 @@
  *= require_self
  */
 
- .flash-notice {
-   color: red;
-   text-align: center;
- }
+.flash-notice {
+ color: red;
+ text-align: center;
+}
+
+footer {
+ display: block;
+ width: 100%;
+ border-top: 1px solid black;
+ margin-top: 5vh;
+ background-color: white;
+ color: black;
+ vertical-align: middle;
+ font-weight: 200;
+ text-align: center;
+ position: fixed;
+ bottom: 0;
+ clear: both;
+}

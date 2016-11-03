@@ -1,9 +1,14 @@
 <h3 class="small-12 columns"><%= @recipe.recipe_name %></h3>
-<%= image_tag(@recipe.image, class:"image") %>
-<%= link_to(@recipe.url, :target => "_blank") %>
+<p class="small-12 columns">
+  <%= link_to("Original",@recipe.url, :target => "_blank") %>
+</p>
+<p class="image small-12 medium-6 large-3 columns">
+  <%= image_tag(@recipe.image, class:"image") %>
+</p>
+
 
 <% @recipe.ingredients.each do |ingredient| %>
-  <p>
+  <p class="small-12 medium-5 large-8 columns">
     <%= ingredient %>
   </p>
 <% end %>
