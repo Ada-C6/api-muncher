@@ -9,7 +9,7 @@ class Recipe
     @dietary_labels = recipe_info[:dietary_labels]
   end
 
-  def self.search(searched_term)
+  def self.search(searched_term) #finds results for one search
     EdamamApiWrapper.search(searched_term)
   end
 end

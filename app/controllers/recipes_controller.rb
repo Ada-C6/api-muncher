@@ -5,10 +5,10 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.search(params[:search])
   end
-#
-#   private
-#
-#   def recipe_params
-#   params.require(:recipe).permit(:name)
-# end
+
+  def show
+    # params
+    # raise
+    @recipe = Recipe.search(params[:id]).first
+  end
 end

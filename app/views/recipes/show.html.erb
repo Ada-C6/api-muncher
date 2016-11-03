@@ -1,1 +1,17 @@
-<h1> Recipe for <%# "#{@recipe}" %> </h1>
+<article>
+<h1> Recipe for <%= "#{@recipe.name}" %> </h1>
+<section>
+  <%= image_tag "#{ @recipe.photo}" %>
+<ul>
+  <li><h4>Ingredients: </h4></li>
+  <% @recipe.ingredients.each do |ingredient| %>
+  <li><%= ingredient %> </li>
+
+
+<% end %>
+<li>Dietary notes: <%= @recipe.dietary_labels %></li>
+</ul>
+
+</section>
+
+</article>
