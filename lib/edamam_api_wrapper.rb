@@ -24,12 +24,20 @@ class EdamamApiWrapper
    def self.recipe_from_uri(uri)
      url = BASE_URL + "search?r=#{ uri.gsub('#', '%23') }" + "&app_id=#{ TOKEN_ID }" + "&app_key=#{ TOKEN_KEYS }"
      data = HTTParty.get(url)
+     puts url
+     puts data.count
      recipe_list = []
      if data.count > 0
-       data.first do |d|
-         wrapper = Recipe.new(d["label"], d["image"], d["uri"], link: d["url"], ingredients: d["ingredients"], dietary_info: d["dietLabels"])
-         recipe_list << wrapper
-       end
+       recipe = data[0]
+       wrapper = Recipe.new(recipe["label"], recipe["image"], recipe["uri"], link: recipe["url"], ingredients: recipe["ingredients"], dietary_info: recipe["dietLabels"])
+       recipe_list << wrapper
+      #
+      #  puts data[0]["label"]
+      #  data.first do |d|
+      #   #  puts d["label"]
+      #    wrapper = Recipe.new(d["label"], d["image"], d["uri"], link: d["url"], ingredients: d["ingredients"], dietary_info: d["dietLabels"])
+      #    recipe_list << wrapper
+      #  end
      else
        # TODO
      end

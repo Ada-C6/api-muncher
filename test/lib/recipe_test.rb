@@ -5,14 +5,14 @@ class RecipeTest < ActiveSupport::TestCase
     assert true
   end
 
-  test "recipe can be created with name, photo, and link" do
-    name = "test name"
+  test "recipe can be created with label, photo, and uri" do
+    label = "test label"
     photo = "test photo"
-    link = "test link"
+    uri = "test uri"
 
-    r = Recipe.new(name, photo, link)
-    assert_equal r.name, name
+    r = Recipe.new(label, photo, uri)
+    assert_equal r.label, label
     assert_equal r.photo, photo
-    assert_equal r.link, link
+    assert_equal r.uri, uri
   end
 end
