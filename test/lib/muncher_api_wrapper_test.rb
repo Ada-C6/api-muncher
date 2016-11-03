@@ -8,8 +8,7 @@ class MuncherApiTest < ActionController::TestCase
 		assert true
 	end
 
-
-	test "Can retrieve a list of recipes" do 
+	test "Can retrieve a list of recipes that matches a search term" do 
 		VCR.use_cassette("cheese_recipes") do 
 			recipes=MuncherApiWrapper.search("cheese")
 			assert recipes.is_a? Array
@@ -19,6 +18,15 @@ class MuncherApiTest < ActionController::TestCase
 			end
 		end
 	end
+
+	test "If there are no hits, then you are told to search again" do 
+		VCR.use_cassette("not_there") do 
+			recipes=MuncherApiWrapper.search("xyzzy")
+			assert recipes.is_a? Array
+			assert_empty recipes
+		end
+	end
+
 
 	# test "retrieves nil when the token is wrong" do
 	# 	VCR.use_cassette("bad-token") do 

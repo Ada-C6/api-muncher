@@ -1,8 +1,9 @@
+
 <p>search results for: "<%= @term %>" (<%=@num_results%> hits) </p>
 <% @recipes.each do |recipe| %>
 	<h3> <%= link_to(recipe.name, recipe_path(recipe.id)) %> </h3>
 	<%= image_tag(recipe.photo_url) %>
 <%end%>
 <%= will_paginate @paginated_results %>
-
+<%= flash[:notice] %>
 

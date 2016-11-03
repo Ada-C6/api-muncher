@@ -55,9 +55,11 @@ group :development, :test do
   gem 'dotenv-rails'
   #adds simple cov for test coverage
   gem 'simplecov'
+
   #vcr testing gems
   gem 'minitest-vcr'
   gem 'webmock'
+  
   #testing
   gem 'minitest-reporters'
 end

@@ -3,8 +3,7 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require 'simplecov'
 SimpleCov.start
-Dir["lib/*.rb"].each {|file| puts file; puts load(file); }
-
+ 
 require 'vcr'
 require 'webmock/minitest'
 
