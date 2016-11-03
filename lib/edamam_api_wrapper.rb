@@ -5,9 +5,9 @@ class EdamamApiWrapper
 BASE_URL = "https://api.edamam.com/search?q=" #this is always used, so you can keep it constant
   TOKEN = ENV["EDAMAM_TOKEN"]
   APP_KEY = ENV["APP_KEY"]
-
+  COUNT = 40 #number limit of results
   def self.search(search_term)
-    url = BASE_URL + search_term + "&app_id=#{APP_KEY}&app_key=#{TOKEN}"
+    url = BASE_URL + search_term + "&app_id=#{APP_KEY}&app_key=#{TOKEN}" + "&to=#{COUNT}"
 
     data = HTTParty.get(url) #returns all the results
 
