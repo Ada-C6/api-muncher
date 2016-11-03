@@ -14,3 +14,28 @@
  *= require_tree .
  *= require_self
  */
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1em;
+}
+
+.image {
+  border: solid 2px black;
+  border-radius: 5px;
+}
+
+header {
+  margin-top: 2em;
+}
+
+header .search {
+  padding-top: .5em;
+}
+
+footer {
+  padding: 2em;
+  float: right;
+}

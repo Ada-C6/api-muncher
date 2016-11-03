@@ -1,8 +1,15 @@
-<h1>Results for <%= "#{params[:search]}:" %></h1>
+<article class="row small-up-4">
+  <h1>Results for <%= "#{params[:search]}:" %></h1>
 
-<% @recipes.each do |recipe| %>
+  <% @recipes.each do |recipe| %>
+  <section class="column">
+    <p><%= image_tag(recipe.photo, alt: "photo of #{ recipe.name }", class: "image") %></p>
+    <p><%= link_to "#{ recipe.name }", recipe_path(recipe.uri[44..-1]) %></p>
+  </section>
+  <% end %>
+</article>
 
-  <%= image_tag(recipe.photo, alt: "photo of #{ recipe.name }") %>
-  <p><%= link_to "#{ recipe.name }", recipe_path(recipe.uri[44..-1]) %></p>
-
-<% end %>
+<!-- <nav>
+  <%= link_to 'Previous 10 Recipes', previous_path %>
+  <%= link_to "Next 10 Recipes", next_path %>
+</nav> -->
