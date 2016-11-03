@@ -31,6 +31,8 @@ class EdamamApiWrapper
 
   def self.find_recipe(identifier)
     # identifier is the uri that I've chopped up in the search.
+    # NOTE: The way that I've chopped up the identifier for the recipe and am reconstructing the uri to send in my request is pretty brittle. If edamam changes their API or the structure of their URLs, this will break.
+
     #For some reason, my .env is not getting loaded, so this is the ugly workaround.
     Dotenv.load
 

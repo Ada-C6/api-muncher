@@ -19,8 +19,8 @@
 # This has all the secrets.
 .env
 
-# Our VCR test helper thing is going to save our request URLs which have our secrets in them!
+# Our VCR test helper thing is going to save our request URLs which have our secrets in them! This may change after the addition of the filter_sensitive_data bit in the test helper. We'll see. 
 test/cassettes/
 
-# If I decide to use simplecov, don't want to check these in. 
+# If I decide to use simplecov, don't want to check these in.
 /coverage
