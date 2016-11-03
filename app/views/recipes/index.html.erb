@@ -4,8 +4,9 @@
 
 <h1>Results for <%= "#{params[:search]}" %> </h1>
  <% @recipes.each do |recipe| %>
+  <% uri_id = recipe.uri.split("_").last %>
 <ul>
-  <li> Name: <%= link_to "#{ recipe.name}", recipe_path(recipe.name)%></li>
+  <li> Name: <%= link_to "#{ recipe.name}", recipe_path(uri_id)%></li>
   <li> <%= image_tag "#{ recipe.photo}" %> </li>
 </ul>
 <% end  %>

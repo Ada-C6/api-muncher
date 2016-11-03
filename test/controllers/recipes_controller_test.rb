@@ -7,7 +7,7 @@ class RecipesControllerTest < ActionController::TestCase
   # end
 
 
-  
+
   # test "should get the index page when submitting a search term" do
   #   # search_term = "bye"
   #   # search_for_recipe
@@ -15,10 +15,14 @@ class RecipesControllerTest < ActionController::TestCase
   #   assert_response :success
   #   assert_template :index
   # end
-    test "should get the index page when submitting a search term" do
+  test "should get the index page when submitting a search term" do
 
+#Return to this
   VCR.use_cassette("results") do
-    get :index #, {params: search_term}
+    search_term = "eggs"
+    results = EdamamApiWrapper.search(search_term)
+
+    assert_kind_of Array, results
     assert_response :success
     assert_template :index
   end
