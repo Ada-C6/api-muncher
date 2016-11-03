@@ -9,7 +9,8 @@ class EdamamAPIWrapperTest < ActiveSupport::TestCase
   test "Can receive information from Edamam API" do
     VCR.use_cassette("recipes") do
       search_term = "Chicken"
-      recipes = EdamamApiWrapper.recipe_search(search_term)
+      page = 1
+      recipes = EdamamApiWrapper.recipe_search(search_term, page)
 
       name = "Grilled Deviled Chickens Under a Brick"
 
@@ -32,11 +33,14 @@ class EdamamAPIWrapperTest < ActiveSupport::TestCase
   test "search_recipe will return an array of Recipes" do
     VCR.use_cassette("recipes") do
       search_term = "Chicken"
-      recipes = EdamamApiWrapper.recipe_search(search_term)
+      page = 1
+      recipes = EdamamApiWrapper.recipe_search(search_term, page)
       assert_not recipes.empty?
       assert_kind_of Array, recipes
       recipes.each do |recipe|
-        assert_kind_of Recipe, recipe
+        unless recipes.last
+          assert_kind_of Recipe, recipe
+        end
       end
     end
   end

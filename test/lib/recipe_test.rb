@@ -6,22 +6,23 @@ class RecipeTest < ActiveSupport::TestCase
     assert true
   end
 
-  test "Recipe can be created with name and api_hash" do
-    name = "test name"
-    api_hash = {yield: 3}
-    recipe = Recipe.new(name, api_hash)
-    assert_equal name, recipe.name
+  test "Recipe can be created with api_hash" do
+    api_hash = {name: "Test Recipe", yield: 3}
+    recipe = Recipe.new(api_hash)
+    assert_equal api_hash[:name], recipe.name
     assert_equal api_hash[:yield], recipe.yield
   end
 
-  test "Recipe.all should return an array of recipes" do
+  test "Recipe.all should return an array of recipes and one fixnum" do
     search_term = "chicken"
+    page = 1
     VCR.use_cassette("recipes") do
-      recipes = EdamamApiWrapper.recipe_search(search_term)
+      recipes = EdamamApiWrapper.recipe_search(search_term, page)
       assert_not recipes.empty?
-      assert_kind_of Array, recipes
       recipes.each do |recipe|
-        assert_kind_of Recipe, recipe
+        unless recipes.last
+          assert_kind_of Recipe, recipe
+        end
       end
     end
   end
