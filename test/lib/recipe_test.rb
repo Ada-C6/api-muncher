@@ -67,7 +67,7 @@ class RecipeTest < ActiveSupport::TestCase
     end
   end
 
-  test "Recipe.by_name should return nil if no match" do
+  test "Recipe.by_id should return nil if no match" do
     VCR.use_cassette("recipes") do
       recipes = Recipe.all('chicken', 1)
       recipe = Recipe.by_id("these-are-not-the-ids-youre-looking-for")
@@ -75,7 +75,7 @@ class RecipeTest < ActiveSupport::TestCase
     end
   end
 
-  test "Recipe.by_name should return the only match" do
+  test "Recipe.by_id should return the only match" do
     VCR.use_cassette("recipes") do
       recipes = Recipe.all('chicken', 1)
 
