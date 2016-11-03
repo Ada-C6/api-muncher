@@ -5,3 +5,5 @@
 <% @recipes.each do |recipe| %>
   <p><img src="<%= recipe.image %>" alt="food picture"> <%= link_to recipe.name, show_path(recipe.id) %></p>
 <% end %>
+
+<%= paginate @recipes %>

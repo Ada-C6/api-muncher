@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    api-pagination (4.4.0)
     arel (6.0.3)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -78,6 +79,9 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -173,6 +177,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  api-pagination
   better_errors
   byebug
   coffee-rails (~> 4.1.0)
@@ -180,6 +185,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   minitest-vcr
   rails (= 4.2.7)
   sass-rails (~> 5.0)

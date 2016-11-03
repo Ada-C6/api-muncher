@@ -11,9 +11,9 @@ class EdamamApiWrapper
     @q = q
   end
 
-  def self.list_recipes(q)
+  def self.list_recipes(q, to = 100)
 
-    url = BASE_URL + "?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{q}"
+    url = BASE_URL + "?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{q}" + "&to=#{to}"
     data = HTTParty.get(url)
     recipes = []
     if data["hits"]
@@ -25,8 +25,8 @@ class EdamamApiWrapper
     end
   end
 
-  def self.find_recipe(id)
-    url = BASE_URL + "?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{id}"
+  def self.find_recipe(id, to = 100)
+    url = BASE_URL + "?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{id}" + "&to=#{to}"
     data = HTTParty.get(url)
     data["hits"].each do |hit|
       if hit["recipe"]["label"] == id
