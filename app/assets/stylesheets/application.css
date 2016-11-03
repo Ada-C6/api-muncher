@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+header img{
+	height: auto;
+	width: 10vmax;
+}
+
+header h1{
+	display: inline;
+}

@@ -1,9 +1,4 @@
 class RecipesController < ApplicationController
-  
-
-  def index
-
-  end
 
   def show
     #I think this is not dry but I'm not sure how to improve it. A before action would
@@ -19,6 +14,7 @@ class RecipesController < ApplicationController
     session[:term]=@term
   	results = MuncherApiWrapper.search(@term)
     @num_results=results.count
+    flash[:notice]= "No recipes matched your search term. Search again"
     
   	@paginated_results=results.paginate(:page => params[:page], :per_page => 10)
   	@recipes=Recipe.make_recipes_from_api(@paginated_results)
