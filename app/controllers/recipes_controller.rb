@@ -4,7 +4,6 @@ class RecipesController < ApplicationController
     @page = params[:page].to_i
     Recipe.reset
     @recipes = Recipe.all(@searchterm, @page)
-    puts params
   end
 
   def show

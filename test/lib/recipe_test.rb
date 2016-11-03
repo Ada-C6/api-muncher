@@ -9,10 +9,12 @@ class RecipeTest < ActiveSupport::TestCase
   # INSTANCE METHODS
   #
 
-  test "Recipe can be created with a label" do
+  test "Recipe can be created with a label and id" do
     label = "chicken"
-    r = Recipe.new(label)
+    id = 5
+    r = Recipe.new(label, id)
     assert_equal r.label, label
+    assert_equal r.id, id
   end
 
   #
@@ -21,7 +23,8 @@ class RecipeTest < ActiveSupport::TestCase
 
   test "Recipe will be set to nil if reset" do
     label = "chicken"
-    r = Recipe.new(label)
+    id = 5
+    r = Recipe.new(label, id)
     assert_not_nil r
     r = Recipe.reset
     assert_nil r

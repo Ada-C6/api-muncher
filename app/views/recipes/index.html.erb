@@ -1,10 +1,16 @@
-<h1>Please search for an ingredient!</h1>
+<section class="main-text">
+  <% if @searchterm.nil? %>
+    <h1>Please search for an ingredient!</h1>
+  <% else %>
+    <h1>Here are your results for "<%= @searchterm %>"</h1>
+  <% end %>
+</section>
 
 <section class="row small-up-1 medium-up-2 large-up-3">
   <% @recipes.each do |recipe| %>
     <section class="column">
       <%= image_tag recipe.image, alt: "Picture of dish" %>
-      <p><%= link_to "#{ recipe.label }", recipe_path(recipe.label) %></p>
+      <p class="recipe-name"><%= link_to "#{ recipe.label }", recipe_path(recipe.id) %></p>
     </section>
   <% end %>
 </section>
@@ -15,11 +21,13 @@
       <%= link_to "Previous page", next_page_path( { :searchterm => @searchterm, :page => @page, :page_num => -1 }) %>
     <% end %>
   </section>
-  <section class="column small-4">
-    <div class="page-num">
-      <%= "Page #{ @page }" %>
-    </div>
-  </section>
+  <% if !@searchterm.nil? %>
+    <section class="column small-4">
+      <div class="page-num">
+        <%= "Page #{ @page }" %>
+      </div>
+    </section>
+  <% end %>
   <section class="column small-4">
     <% unless @recipes.count < 10 %>
       <%= link_to "Next page", next_page_path( { :searchterm => @searchterm, :page => @page, :page_num => 1}) %>

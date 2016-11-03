@@ -25,6 +25,7 @@ class RecipesControllerTest < ActionController::TestCase
   # There is a recipe - #<Recipe:0x007fab5e6f6678>.
   # It has a label - Grilled Deviled Chickens Under a Brick
   # But I get ActionView::Template::Error: undefined method `label' for nil:NilClass
+  # And now (the next day), I'm getting this error: expecting <"show"> but rendering with <[]>
   # I think it's somehow getting to 'show.html.erb' and breaking, but I don't know why or how
   test "should show the show page for a specific recipe" do
     # label = "Grilled Deviled Chickens Under a Brick" # - tried hard coding it - fail.

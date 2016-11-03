@@ -1,10 +1,11 @@
 class Recipe
-  attr_reader :label, :image, :url, :ingredients, :calories, :difficultylevel, :healthlabels, :dietlabels, :servings
+  attr_reader :label, :id, :image, :url, :ingredients, :calories, :difficultylevel, :healthlabels, :dietlabels, :servings
 
-  def initialize(label, options = {} )
-    raise ArgumentError if label == nil || label == ""
+  def initialize(label, id, options = {} )
+    raise ArgumentError if label == nil || label == "" || id == nil || id == ""
 
     @label = label
+    @id = id
 
     @image = options[:image]
     @url = options[:url]
@@ -30,7 +31,7 @@ class Recipe
     @recipes = nil
   end
 
-  def self.by_label(label)
-    self.all.select{ |r| r.label == label }.first
+  def self.by_label(id)
+    self.all.select{ |r| r.id == id }.first
   end
 end
