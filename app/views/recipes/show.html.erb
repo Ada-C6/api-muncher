@@ -1,23 +1,55 @@
 <h1><%= @recipe.label %></h1>
 
+<div class="row small-up-1">
+<p class="column">
 <%=image_tag(@recipe.image, :alt => "#{@recipe.label}") %>
-<p><%= link_to "Go see the original recipe", @recipe.url, :target => "_blank"%></p>
-<div>
-  <h4>You'll need:</h4>
-  <% @recipe.ingredients.each do |ingredient|%>
-  <p><%= ingredient %></p>
-  <% end %>
+</p>
+<p class="column text-center">
+<%= link_to "Link to original recipe", @recipe.url, :target => "_blank", class: "external-link"%>
+</p>
 </div>
 
-<div>
-  <h4>This recipe is a fit for the following diet plans:</h4>
-  <% labels = @recipe.diet_labels + @recipe.health_labels %>
-  <% unless labels.empty? %>
-    <% labels.each do |diet| %>
-    <p><%= diet %></p>
+
+<ul class="row small-up-1 medium-up-2">
+  <li class="column">
+    <h4>You'll need:</h4>
+    <% @recipe.ingredients.each do |ingredient|%>
+    <p><%= ingredient %></p>
     <% end %>
-  <% else %>
-    We apologize, but this recipe does not include information on matching diet plans.
-  <% end %>
 
-</div>
+    <h4>This recipe is a fit for the following diet plans:</h4>
+    <% labels = @recipe.diet_labels + @recipe.health_labels %>
+    <% unless labels.empty? %>
+      <% labels.each do |diet| %>
+      <p><%= diet %></p>
+      <% end %>
+    <% else %>
+      We apologize, but this recipe does not include information on matching diet plans.
+    <% end %>
+  </li>
+
+  <li class="column text-center">
+    <h4>Nutritional information</h4>
+    <p>
+      <%= @recipe.return_calories["label"] %> =
+      <%= @recipe.return_calories["quantity"] %>
+      <%= @recipe.return_calories["unit"]%>
+    </p>
+
+    <ul class="row small-up-2">
+    <% @recipe.all_other_nutrients.each do |info| %>
+
+        <li class="column">
+          <%= info["label"] %>
+        </li>
+        <li class="column">
+          <%= info["quantity"] %>
+          <%= info["unit"] %>
+        </li>
+
+    <% end %>
+  </ul>
+
+</li>
+
+</ul>

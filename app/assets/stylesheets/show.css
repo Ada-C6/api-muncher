@@ -1,0 +1,20 @@
+img {
+    display:block;
+    margin: 0 auto;
+}
+
+p {
+  background-color: lightgreen;
+}
+
+h1 {
+  text-align: center;
+}
+
+li {
+  list-style: none
+}
+
+.external-link {
+  font-size: 1.8em;
+}

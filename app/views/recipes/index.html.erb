@@ -18,7 +18,6 @@
 
     <% @recipes.each do |recipe| %>
     <p><%=image_tag(recipe.image) %></p>
-    <%= link_to "External link", recipe.url, :target => "_blank"%>
     <% id = recipe.uri.split("edamam.owl#").last %>
     <%= link_to "#{recipe.label}", recipes_show_path(id) %>
     <% end %>

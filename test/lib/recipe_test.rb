@@ -30,7 +30,6 @@ class RecipeTest < ActiveSupport::TestCase
       assert_not recipes.empty?
       recipes.each do |recipe|
         assert_kind_of Recipe, recipe
-        assert recipe.label.downcase.include?("chicken")
       end
     end
   end

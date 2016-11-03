@@ -27,5 +27,21 @@ class Recipe
     EdamamApiWrapper.find(id)
   end
 
+  def return_calories
+    self.nutrients["ENERC_KCAL"]
+  end
+
+  def all_other_nutrients
+    return_array = []
+    self.nutrients.each do |key, val|
+      unless key == "ENERC_KCAL"
+        return_array << val
+      end
+    end
+    return return_array
+
+  end
+
+
 
 end
