@@ -1,33 +1,36 @@
 <h1>This should be the homepage.</h1>
 
-<%= form_tag(recipes_index_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, "" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
-
 <% if @recipes %>
-  <%= link_to "Next ten pages", "#{URI.encode(@query_string)}" %>
-<% end %>
-<% if params[:startindex].to_i >= 10%>
-<p>
-  <%= link_to "Previous ten pages", "#{URI.encode(@back_query_string)}" %>
-</p>
-<% end %>
+  <h3>You searched for "<%= params[:search] %>". Here are your results:</h3>
+  <p><%= link_to "New search", recipes_index_path(0) %></p>
 
-<% if @recipes %>
   <% if @recipes.empty? %>
-    <p>Sorry, no such recipes were found.</p>
+    <% if params[:startindex] == "0" %>
+      <p>Sorry, no such recipes were found.</p>
+    <% else %>
+      <p>No more recipes for "<%= params[:search] %>" exist.</p>
+    <% end %>
   <% else %>
+    <p><%= link_to "Next ten pages", "#{URI.encode(@query_string)}" %></p>
+    <% if params[:startindex].to_i >= 10 %>
+    <p><%= link_to "Previous ten pages", "#{URI.encode(@back_query_string)}" %></p>
+    <% end %>
+
     <% @recipes.each do |recipe| %>
-    <p>Here is a recipe:</p>
-    <p><%= recipe.label %></p>
+    <p><%=image_tag(recipe.image) %></p>
     <%= link_to "External link", recipe.url, :target => "_blank"%>
     <% id = recipe.uri.split("edamam.owl#").last %>
-    <%= link_to "Internal Link", recipes_show_path(id) %>
+    <%= link_to "#{recipe.label}", recipes_show_path(id) %>
     <% end %>
   <% end %>
 
 <% else %>
+  <p>
+  <%= form_tag(recipes_index_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, "" %>
+      <%= submit_tag "Search", :name => nil %>
+  <% end %>
+  </p>
   <p>
     Here will appear your delicious, delicious recipes. Yum. Recipes.
   </p>

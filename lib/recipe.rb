@@ -15,11 +15,6 @@ class Recipe
 
   end
 
-  # yeah so it turns out "all" does not do what I think it does. Haha.
-  # def self.all
-  #   EdamamApiWrapper.findrecipes("all")
-  # end
-
   def self.search(keyword, startindex = 0) #gives possibility of looking at the next ten hits.
     startindex = startindex.to_i
     EdamamApiWrapper.searchrecipes(keyword, startindex, (startindex+10))

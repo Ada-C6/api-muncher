@@ -19,7 +19,7 @@ class EdamamApiWrapper
         wrapper = Recipe.new hit["recipe"]["label"],
           uri: hit["recipe"]["uri"],
           label: hit["recipe"]["label"],
-          ingredients: hit["recipe"]["ingredients"],
+          ingredients: hit["recipe"]["ingredientLines"],
           diet_labels: hit["recipe"]["dietLabels"],
           image: hit["recipe"]["image"],
           url: hit["recipe"]["shareAs"]
@@ -35,9 +35,10 @@ class EdamamApiWrapper
     data = HTTParty.get(url)
     wrapper = Recipe.new data[0]["label"],
       uri: data[0]["uri"],
-      ingredients: data[0]["ingredients"],
+      ingredients: data[0]["ingredientLines"],
       diet_labels: data[0]["dietLabels"],
-      image: data[0]["image"]
+      image: data[0]["image"],
+      url: data[0]["shareAs"]
     return wrapper
   end
 

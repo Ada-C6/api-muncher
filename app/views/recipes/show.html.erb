@@ -1,11 +1,21 @@
-<h1>This is the search results page.</h1>
+<h1><%= @recipe.label %></h1>
 
-<%= @recipe.label %>
-<%=image_tag(@recipe.image) %>
+<%=image_tag(@recipe.image, :alt => "#{@recipe.label}") %>
+<p><%= link_to "External link", @recipe.url, :target => "_blank"%></p>
 <p>
-  PUT INGREDIENTS HERE
+  <h4>You'll need:</h4>
+  <% @recipe.ingredients.each do |ingredient|%>
+  <%= ingredient %><br>
+  <% end %>
 </p>
 
 <p>
-  ALSO PUT HEALTH OPTIONS.
+  <h4>This recipe is a fit for the following diet plans:</h4>
+  <% unless @recipe.diet_labels.empty? %>
+    <% @recipe.diet_labels.each do |diet| %>
+    <%= diet %>
+    <% end %>
+  <% else %>
+    We apologize, but this recipe does not include information on matching diet plans.
+  <% end %>
 </p>
