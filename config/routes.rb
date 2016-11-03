@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'pages/index'
+
+  get 'pages/show'
+
+  get 'pages/new'
+
+  get 'pages/udpate'
+
+  get 'pages/create'
+
+  get 'pages/edit'
+
+  get 'pages/destroy'
+
   root to: 'recipes#index'
 
   resources :routes, :sessions
