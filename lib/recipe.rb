@@ -9,12 +9,4 @@ class Recipe
     @diet_labels = recipe_hash[:diet_labels] #array
     @uri = recipe_hash[:uri]
   end
-
-  def self.search(input)
-    EdamamApiWrapper.search(input)
-  end
-
-  def self.find(id) #takes in a Recipe object
-    EdamamApiWrapper.find(id)
-  end
 end
