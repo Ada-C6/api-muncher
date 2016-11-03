@@ -3,7 +3,6 @@
 <% @recipes.each do |recipe| %>
 
   <%= image_tag(recipe.photo, alt: "photo of #{ recipe.name }") %>
-  <p><%= "#{ recipe.name }" %></p>
-  <p><%= link_to "Go to recipe", recipe_path(recipe.uri[44..-1]) %></p>
+  <p><%= link_to "#{ recipe.name }", recipe_path(recipe.uri[44..-1]) %></p>
 
 <% end %>
