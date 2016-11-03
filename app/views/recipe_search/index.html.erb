@@ -4,6 +4,11 @@
 <h3>Search Results</h3>
   <ol>
     <% @data.each do |result| %>
-      <li><%= link_to "#{result}", recipe_search_show_path(result)%></li>
+      <li>
+        <%= link_to result.label, recipe_search_show_path(result) %>
+        <%= link_to recipe_search_show_path(result) do %>
+          <%= image_tag "#{ result.image }"%>
+        <% end %>
+      </li>
     <% end %>
   </ol>
