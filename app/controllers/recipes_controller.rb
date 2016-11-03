@@ -10,17 +10,10 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.by_url(params[:data][:url])
-
+    @recipe = Recipe.by_uri(params[:data][:uri])
+    # raise
 
     # CONSIDER WHEN VISITING PAGE DIRECTLY VS FROM SEARCH METHOD
-
-    # recipe = params["recipe"]
-    # @name = recipe["label"]
-    # @photo = recipe["image"]
-    # @link = recipe["url"]
-    # @ingredients = recipe["ingredients"]
-    # @dietary_info = recipe["dietLabels"]
   end
 
   def search

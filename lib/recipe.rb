@@ -1,12 +1,13 @@
 class Recipe
-  attr_reader :label, :photo, :link, :ingredients, :dietary_info
+  attr_reader :label, :uri, :photo, :link, :ingredients, :dietary_info
 
-  def initialize(label, photo, link, options = {})
-    raise ArgumentError if label == nil || label == "" || photo == nil || photo == "" || link == nil || link == ""
+  def initialize(label, photo, uri, options = {})
+    raise ArgumentError if label == nil || label == "" || photo == nil || photo == "" || uri == nil || uri == ""
 
     @label = label
     @photo = photo
-    @link = link
+    @uri = uri
+    @link = options[:link]
     @ingredients = options[:ingredients]
     @dietary_info = options[:dietary_info]
   end
@@ -16,7 +17,7 @@ class Recipe
   end
 
   def self.all(keyword = nil, page = 0)
-    @recipes = EdamamApiWrapper.listrecipes(keyword, page)
+    @recipes ||= EdamamApiWrapper.listrecipes(keyword, page)
     return @recipes
   end
 
@@ -24,10 +25,11 @@ class Recipe
     @recipes = nil
   end
 
-  def self.by_url(url)
+  def self.by_uri(uri)
     # USE URI TO SEARCH
     matches = all.select do |recipe|
-      recipe.link == url
+      recipe.uri == uri
+      # raise
     end
     return matches.first
   end

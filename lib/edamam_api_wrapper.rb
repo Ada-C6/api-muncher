@@ -12,7 +12,7 @@ class EdamamApiWrapper
      recipe_list = []
      if data["count"] > 0
        data["hits"].each do |hit|
-         wrapper = Recipe.new(hit["recipe"]["label"], hit["recipe"]["image"], hit["recipe"]["url"], ingredients: hit["recipe"]["ingredients"], dietary_info: hit["recipe"]["dietLabels"])
+         wrapper = Recipe.new(hit["recipe"]["label"], hit["recipe"]["image"], hit["recipe"]["uri"], link: hit["recipe"]["url"], ingredients: hit["recipe"]["ingredients"], dietary_info: hit["recipe"]["dietLabels"])
          recipe_list << wrapper
        end
      end
