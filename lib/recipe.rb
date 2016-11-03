@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :label, :source, :identifier, :image, :source_url, :source_icon
+  attr_reader :label, :source, :identifier, :image, :source_url, :source_icon, :ingredients, :from
 
   def initialize(label, source_site, identifier, options = {} )
     @label = label
@@ -9,6 +9,7 @@ class Recipe
     @source_url = options[:source_url]
     @source_icon = options[:source_icon]
     @ingredients = options[:ingredients]
+    @from = options[:from]
   end
 
   # Create a class-level instance variable.
@@ -25,10 +26,20 @@ class Recipe
     @recipes = EdamamApiWrapper.search(term)
   end
 
-  def self.recipe(identifier)
+  def self.find_recipe(identifier)
     # Should check and see if this idenfitier already exists in my @recipes and if it doesn't then, call this.
-    # if @recipes.include? (Recipe)
-    @recipe = EdamamApiWrapper.recipe(identifier)
+
+    if @recipes != nil
+      @recipes.each do |recipe|
+        if recipe.identifier == identifier
+          @recipe = recipe
+          return @recipe
+        end
+      end
+    end
+
+    # Otherwise, do this.
+    @recipe = EdamamApiWrapper.find_recipe(identifier)
     # if @recipes.include?(Recipe)
   end
 end

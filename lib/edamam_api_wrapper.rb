@@ -20,14 +20,16 @@ class EdamamApiWrapper
         wrapper = Recipe.new( item["recipe"]["label"], item["recipe"]["source"], item["recipe"]["uri"].split(/[_]/).last,
         image: item["recipe"]["image"],
         source_url: item["recipe"]["url"],
-        source_icon: item["recipe"]["sourceIcon"])
+        source_icon: item["recipe"]["sourceIcon"],
+        ingredients: item["recipe"]["ingredients"],
+        from: "search")
         search_results_list << wrapper
       end
     end
     return search_results_list
   end
 
-  def self.recipe(identifier)
+  def self.find_recipe(identifier)
     # identifier is the uri that I've chopped up in the search.
     #For some reason, my .env is not getting loaded, so this is the ugly workaround.
     Dotenv.load
@@ -38,11 +40,15 @@ class EdamamApiWrapper
 
     data = HTTParty.get(url)
 
-      wrapper = Recipe.new(data[0]["label"], data[0]["source"], data[0]["uri"],
+      wrapper = Recipe.new(data[0]["label"],
+      data[0]["source"],
+      data[0]["uri"],
       image: data[0]["image"],
       source_url: data[0]["url"],
       source_icon: data[0]["sourceIcon"],
-      ingredients: data[0]["ingredients"])
+      ingredients: data[0]["ingredients"],
+      from: "find_recipe"
+      )
 
     return wrapper
   end

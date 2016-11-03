@@ -10,6 +10,6 @@ class RecipesController < ApplicationController
 
   def show
     #this displays an individual recipe (need to figure out if going to use an ID or use a combo of recipe name/source or the URI?)
-    @recipe = Recipe.recipe(params[:identifier])
+    @recipe = Recipe.find_recipe(params[:identifier])
   end
 end
