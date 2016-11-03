@@ -1,6 +1,11 @@
 <h1>This is the search results page.</h1>
 
-<% @recipes.each do |recipe| %>
-<p>Here is a recipe:</p>
-<p><%= recipe.label %></p>
-<% end %>
+<%= @recipe.label %>
+<%=image_tag(@recipe.image) %>
+<p>
+  PUT INGREDIENTS HERE
+</p>
+
+<p>
+  ALSO PUT HEALTH OPTIONS.
+</p>

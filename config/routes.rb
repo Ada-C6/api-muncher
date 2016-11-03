@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'recipes/index'
+  get 'recipes/index/:startindex', to: "recipes#index", as: "recipes_index"
+
 
   get 'recipes/new'
 
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
 
   post 'recipes/create'
 
-  get 'recipes/show'
+  get 'recipes/show/:id', to: "recipes#show", as: "recipes_show"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -23,9 +23,9 @@ class RecipeTest < ActiveSupport::TestCase
   #   end
   # end
 
-  test "Recipe.find should return an array of recipes" do
+  test "Recipe.search should return an array of recipes" do
     VCR.use_cassette("recipes") do
-      recipes = Recipe.find("chicken")
+      recipes = Recipe.search("chicken")
       assert_kind_of Array, recipes
       assert_not recipes.empty?
       recipes.each do |recipe|
@@ -35,9 +35,9 @@ class RecipeTest < ActiveSupport::TestCase
     end
   end
 
-  test "Recipe.find should return an empty array if no match" do
+  test "Recipe.search should return an empty array if no match" do
     VCR.use_cassette("recipes") do
-      recipes = Recipe.find("this-recipe-is-a-savoflange-for-testing-only")
+      recipes = Recipe.search("this-recipe-is-a-savoflange-for-testing-only")
       assert recipes.empty?
       assert_kind_of Array, recipes
     end

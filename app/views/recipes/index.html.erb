@@ -6,12 +6,24 @@
 <% end %>
 
 <% if @recipes %>
+  <%= link_to "Next ten pages", "#{URI.encode(@query_string)}" %>
+<% end %>
+<% if params[:startindex].to_i >= 10%>
+<p>
+  <%= link_to "Previous ten pages", "#{URI.encode(@back_query_string)}" %>
+</p>
+<% end %>
+
+<% if @recipes %>
   <% if @recipes.empty? %>
     <p>Sorry, no such recipes were found.</p>
   <% else %>
     <% @recipes.each do |recipe| %>
     <p>Here is a recipe:</p>
     <p><%= recipe.label %></p>
+    <%= link_to "External link", recipe.url, :target => "_blank"%>
+    <% id = recipe.uri.split("edamam.owl#").last %>
+    <%= link_to "Internal Link", recipes_show_path(id) %>
     <% end %>
   <% end %>
 
