@@ -7,6 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <nav>
+      <section>
+        <h1>Recipe Searcher</h1>
+        <h2>Search:</h2>
+        <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+          <%= hidden_field_tag :page, 1 %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
+      </section>
+    </nav>
+  </header>
 
 <%= yield %>
 

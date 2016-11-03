@@ -5,9 +5,9 @@ class EdamamApiWrapper
   ID = ENV["EDAMAM_RECIPE_SEARCH_ID"]
   KEY = ENV["EDAMAM_RECIPE_SEARCH_AUTH_KEY"]
 
-  def self.recipe_search(search_term, page)
+  def self.recipe_search(search_term = "", page = 1)
 
-    url = BASE_URL + "search?q=" + search_term  + "&app_id=" + ID + "&app_key=" + KEY + "&from=" + ((page.to_i - 1) * 10).to_s
+    url = BASE_URL + "search?q=" + search_term.to_s  + "&app_id=" + ID + "&app_key=" + KEY + "&from=" + ((page.to_i - 1) * 10).to_s
 
     data = HTTParty.get(url)
 
