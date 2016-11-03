@@ -42,6 +42,9 @@ gem 'jquery-turbolinks'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'google-api-client'
 
 # For production database
 # gem 'pg'
