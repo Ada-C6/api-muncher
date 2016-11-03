@@ -13,9 +13,7 @@ class Recipe
   end
 
   def self.by_label(label)
-    matches = EdamamApiWrapper.search_recipes(label).select do |c|
-      c.label == label
-    end
+    matches = EdamamApiWrapper.search_recipes(label)
     return matches.first
   end
 
