@@ -1,5 +1,8 @@
 class RecipesController < ApplicationController
   def index
+    # raise
+    # puts params[:q]
+    EdamamApiWrapper.search_results(params[:q])
   end
 
   def show

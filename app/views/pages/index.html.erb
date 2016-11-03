@@ -1,2 +1,10 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<%= form_tag :recipes, method: :get do %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+<a href="/auth/github">Login with Github</a>
+<a href="/auth/twitter">Login with Twitter</a>
+<a href="/auth/facebook">Login with Facebook</a>
+<a href="/auth/google_oauth2">Login with Google</a>
