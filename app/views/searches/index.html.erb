@@ -1,6 +1,6 @@
 <h2>Search results from <%= @search_index %> to <%= @search_index.to_i + 10 %> for <%= @search_word %></h2>
 
-<%= link_to "next page", next_path(search_index: @search_index, search_word: @search_word) %>
+<%= link_to "previous page", previous_path(search_index: @search_index, search_word: @search_word) %> | <%= link_to "next page", next_path(search_index: @search_index, search_word: @search_word) %>
 
 <ul>
 <% @results.each do |result| %>

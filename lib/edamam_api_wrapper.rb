@@ -34,7 +34,7 @@ class EdamamApiWrapper
     end
   end
 
-  def self.nextpage(index, search_word)
+  def self.page(index, search_word)
     url = "#{BASE_URL}" + "?q=" + "#{search_word}" + "&app_id=#{ID}" + "&app_key=#{KEY}" + "#{SUFFIX}" + "#{index}"
     data = HTTParty.get(url)
 
@@ -49,6 +49,6 @@ class EdamamApiWrapper
 
     return recipes_list
   end
-  
+
 
 end
