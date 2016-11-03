@@ -1,10 +1,11 @@
 class Recipe
   attr_reader :name, :recipe_image, :source_url, :ingredients, :calories,  :yield, :source, :source_icon, :dietary_info
 
-  def initialize(name, options = {})
-    raise ArgumentError if name == nil || name == ""
+  def initialize(options = {})
 
-    @name = name
+    @name = options[:name]
+    raise ArgumentError if @name == nil || @name == ""
+
     @recipe_image = options[:recipe_image]
     @source_url = options[:source_url]
     @ingredients = options[:ingredients]
@@ -19,8 +20,8 @@ class Recipe
     attr_reader :recipes
   end
 
-  def self.all(search_term = nil)
-    @recipes ||= EdamamApiWrapper.recipe_search(search_term)
+  def self.all(search_term = nil, page = 0)
+    @recipes ||= EdamamApiWrapper.recipe_search(search_term, page)
   end
 
   def self.reset
@@ -30,5 +31,4 @@ class Recipe
   def self.by_name(name)
     self.all.select{|r| r.name == name }.first
   end
-
 end

@@ -1,8 +1,18 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.all(params[:search])
-    # Figure out how to save results to app and/or get it to be in show.
+    @search_term = params[:search]
+    @page = params[:page].to_i
+    Recipe.reset
+    @recipes = Recipe.all(@search_term, @page)
+  end
+
+  def next
+    @search_term = params[:search]
+    @page = params[:page].to_i + params[:page_num].to_i
+    Recipe.reset
+    @recipes = Recipe.all(@search_term, @page)
+    render :index
   end
 
   def show

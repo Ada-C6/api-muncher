@@ -8,3 +8,21 @@
   <% end %>
 
 </section>
+
+<section class="row">
+ <section class="column small-4">
+   <% if @page.to_i > 1 %>
+     <%= link_to "Previous page", next_page_path( { :search => @search_term, :page => @page, :page_num => -1 }) %>
+   <% end %>
+ </section>
+ <section class="column small-4">
+   <div class="page-num">
+     <%= "Page #{ @page }" %>
+   </div>
+ </section>
+ <section class="column small-4">
+   <% unless @recipes.count < 10 %>
+     <%= link_to "Next page", next_page_path( { :search => @search_term, :page => @page, :page_num => 1}) %>
+   <% end %>
+ </section>
+</section>
