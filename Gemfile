@@ -53,6 +53,7 @@ group :development, :test do
   # user VCR for mocking HTTP requests
   gem 'minitest-vcr'
   gem 'webmock'
+  gem 'simplecov'
 end
 
 group :development do
