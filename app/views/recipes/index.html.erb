@@ -9,7 +9,7 @@
   <% end %>
 </article>
 
-<!-- <nav>
-  <%= link_to 'Previous 10 Recipes', previous_path %>
-  <%= link_to "Next 10 Recipes", next_path %>
-</nav> -->
+<nav>
+  <%= link_to 'Previous 10 Recipes', recipes_path(page: @page - 1, search: params[:search]) %>
+  <%= link_to "Next 10 Recipes", recipes_path(page: @page + 1, search: params[:search]) %>
+</nav>
