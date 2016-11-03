@@ -16,8 +16,4 @@ class Recipe
     @url = options[:url]
   end
 
-  # def self.all(search_word)
-  #   EdamamApiWrapper.listrecipes(search_word)
-  # end
-
 end
