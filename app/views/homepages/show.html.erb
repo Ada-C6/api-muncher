@@ -14,16 +14,25 @@
     <hr>
     <h5>Nutritional Information</h5>
     <p>Total Calories Per Serving: <%= @recipe.calories.to_i / @recipe.total_yield.to_i %> </p>
-    <p>Fat: </p>
-    <p>Protein: </p>
-    <p>Carbohydrates: </p>
+    <section>
+      <tr><strong>Nutrients in Recipe:</strong></tr>
+      <% @recipe.totalNutrients.each_value do |nutrient| %>
+        <div>
+          <tr>
+            <% nutrient.each_value do |item| %>
+              <td><%= item %></td>
+            <% end %>
+          </tr>
+        </div>
+      <% end %>
+  </section>
     <hr>
   </aside>
   <section class="small-6 columns">
     <br>
     <h3>Ingredients</h3>
-    <% @recipe.ingredientLines.each do |recipe| %>
-        <p><%= recipe %></p>
+    <% @recipe.ingredientLines.each do |item| %>
+        <p><%= item %></p>
     <% end %>
   </section>
 </div>

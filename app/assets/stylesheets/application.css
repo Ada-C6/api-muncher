@@ -18,6 +18,11 @@
  /************************************/
  /* GENERAL STYLING  */
  /************************************/
+hr {
+  width: 70%;
+  margin-left: 0;
+}
+
  body {
    font-family: 'Josefin Sans', sans-serif;
    /*color: white;*/
@@ -117,8 +122,8 @@
   line-height: 250%;
 }
 
-.line-height h2, h3 {
-  line-height: 150%;
+.line-height h2, h3, h5 {
+  line-height: 200%;
 }
 
 .margin {
