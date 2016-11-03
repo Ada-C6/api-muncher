@@ -13,16 +13,14 @@ class RecipeTest < ActiveSupport::TestCase
     assert_equal api_hash[:yield], recipe.yield
   end
 
-  test "Recipe.all should return an array of recipes and one fixnum" do
+  test "Recipe.all should return an array of recipes" do
     search_term = "chicken"
     page = 1
     VCR.use_cassette("recipes") do
       recipes = EdamamApiWrapper.recipe_search(search_term, page)
       assert_not recipes.empty?
       recipes.each do |recipe|
-        unless recipes.last
-          assert_kind_of Recipe, recipe
-        end
+        assert_kind_of Recipe, recipe
       end
     end
   end
