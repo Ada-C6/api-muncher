@@ -13,3 +13,65 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('foundation.css');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Bungee+Hairline|Covered+By+Your+Grace|Gloria+Hallelujah|Lato|Muli|Poiret+One');
+
+h1 {
+  font-family: 'Covered By Your Grace';
+}
+
+body {
+  font-family: 'Muli';
+}
+
+body.homepage {
+  background-image: url('landingpicture.jpeg');
+  background-size: cover;
+  background-position: center top;
+}
+
+.non-footer {
+  min-height: 90%;
+}
+
+.tagline {
+  color: white;
+}
+
+.tagline li {
+  display: inline-block;
+  padding: 1.5%;
+  font-weight: bold;
+}
+
+section {
+  width: 60%;
+  margin: 5% 20% 5% 20%;
+  text-align: center;
+}
+
+header {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+footer.homepage {
+  position: absolute;
+  bottom: 0
+}
+
+footer {
+  position: relative;
+}
+
+.image-source {
+  position: fixed;
+  bottom: 0px;
+  text-align: right;
+  padding-right: 3%;
+}
+
+.centered-item {
+  text-align: center;
+}
