@@ -1,11 +1,12 @@
+require 'will_paginate/array'
+
 class RecipesController < ApplicationController
   # def index
   #     @data = Recipe.search(params[:recipe_params])
   # end
   def index #can we store all recipes in another variable?
-    @recipes = Recipe.search(params[:search])
+    @recipes = Recipe.search(params[:search]).paginate(:page => params[:page], :per_page => 12)
     # render :json => @recipes.to_json(:methods => [:image_url])
-    raise
   end
 
   def show
