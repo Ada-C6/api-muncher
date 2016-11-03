@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-
+# Foundation Rails Gem
+gem 'foundation-rails'
+# Required due to an incompatibility between TurboLinks and Foundation.
+gem 'jquery-turbolinks'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
 # Use sqlite3 as the database for Active Record
@@ -34,6 +37,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # API GEMS
 gem 'httparty'
+# Pagination gem
+gem 'kaminari'
+# Needed for pagination because kaminari is incompatible with api data
+gem 'api-pagination'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,9 +1,12 @@
 class RecipesController < ApplicationController
   def index
-    @data = EdamamApiWrapper.search(params[:q]) if params[:q].present?
+    if params[:q].present?
+      @data = paginate EdamamApiWrapper.search(params[:q]), per_page: 10
+    end
   end
 
   def show
+    @recipe = EdamamApiWrapper.find_recipe(params[:uri])
 
   end
 

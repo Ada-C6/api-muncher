@@ -6,7 +6,10 @@
   <%= submit_tag("Search", name: nil) %>
 <% end %>
 
-<% @data.each do |recipe| %>
-  <h3><%= link_to recipe.name, recipe_path(recipe.name) %></h3>
-  <img src="<%= recipe.image %>"/>
+<% if @data %>
+  <% @data.each do |recipe| %>
+    <h3><%= link_to recipe.name, recipe_path(recipe.name, request.parameters.merge({:uri => recipe.uri})) %></h3>
+    <img src="<%= recipe.image %>"/>
+  <% end %>
+  <%= paginate @data %>
 <% end %>
