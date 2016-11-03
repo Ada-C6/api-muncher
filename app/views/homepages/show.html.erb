@@ -4,7 +4,7 @@
   </section>
   <section class="small-8 columns line-height">
     <h3><%= @recipe.label %></h3>
-    <h5>Yield: <%= @recipe.yield %></h5>
+    <h5>Yield: <%= @recipe.total_yield.to_i %></h5>
     <p>Powered by <%= link_to(image_tag('edamam.png', :alt => "edamam logo"), 'https://www.edamam.com/') %></p>
   </section>
 </div>
@@ -13,7 +13,7 @@
   <aside class="small-6 columns">
     <hr>
     <h5>Nutritional Information</h5>
-    <p>Total Calories: </p>
+    <p>Total Calories Per Serving: <%= @recipe.calories.to_i / @recipe.total_yield.to_i %> </p>
     <p>Fat: </p>
     <p>Protein: </p>
     <p>Carbohydrates: </p>
