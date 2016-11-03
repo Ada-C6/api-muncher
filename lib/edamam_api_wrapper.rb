@@ -6,11 +6,9 @@ class EdamamApiWrapper
   KEY = ENV["EDAMAM_APP_KEY"]
 
   def self.search(term)
-    # @todo - remove? unclear purpose
-    # id = ID # if id == nil
-    # key = KEY # if key == nil
+    # this method returns entire response from API call
 
-    url = BASE_URL + term + "&app_id=#{ID}&app_key=#{KEY}"
+    url = BASE_URL + term.split(" ").join("+") + "&app_id=#{ID}&app_key=#{KEY}"
 
     puts "Searching for #{term} with url: #{url}"
 
@@ -24,7 +22,11 @@ class EdamamApiWrapper
     # else
     #   return []
     # end # if block
-
   end # self.search
+
+  def self.search_results(term)
+    # this method shall call search & return just the results (rather than the whole response)
+
+  end
 
 end # class

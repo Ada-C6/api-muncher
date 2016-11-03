@@ -4,12 +4,25 @@ class SearchesController < ApplicationController
   end
 
   def create
-    result = EdamamApiWrapper.search(params[:search_term])
-    if result["ok"]
-      flash[:notice] = "Successfully sent search for #{params[:search_term]}"
-    else
-      flash[:notice] = "Failed to send search for #{params[:search_term]}: #{result["error"]}"
+    # @todo - refactor this input check to somewhere else -- maybe edamam_api_wrapper?
+    @search_term = params[:search_term].strip
+
+    if @search_term.empty?
+      flash[:error] = "No search terms entered. Please enter a new search."
+
+      render :new and return
     end
-    redirect_to new_search_path
+
+    @result = EdamamApiWrapper.search(@search_term)
+
+    if @result["ok"]
+      flash[:notice] = "Successfully sent search for #{@search_term}."
+    else
+      flash[:notice] = "Failed to send search for #{@search_term}: #{@result["error"]}"
+    end
+
+    redirect_to recipes_path
   end
+
+  # @todo in recipes controller - handle no-responses case (try searching "3453.4")
 end
