@@ -19,3 +19,6 @@
 # Ignore my secrets
 .env
 /test/cassettes
+
+# Ignore test coverage
+/coverage
