@@ -21,6 +21,7 @@ class Recipe
 
   def self.all(search_term)
     #reset_all #TO-DO: clear the previous search all session, but this make my 'back to index' page not working anymore
+    #reset_all now will go to the 'home' method in controller.
     @recipes ||= EdamamApiWrapper.list_recipes(search_term)
   end
 

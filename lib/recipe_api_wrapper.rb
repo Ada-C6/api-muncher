@@ -33,8 +33,9 @@ class EdamamApiWrapper
   end
 
   def self.list_a_recipe(id)
-    # how to add uri to the current http uri
+    # how to add a new uri to the current http uri?
     url = BASE_URL + "r=" + "http://www.edamam.com/ontologies/edamam.owl%23" + "#{id}"
+
     data ||= HTTParty.get(url).parsed_response
 
     label = data[0]["label"]
