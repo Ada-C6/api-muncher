@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.by_label(params[:id])
+    @recipe = Recipe.by_id(params[:id])
   end
 
   def next

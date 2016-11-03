@@ -31,7 +31,7 @@ class Recipe
     @recipes = nil
   end
 
-  def self.by_label(id)
+  def self.by_id(id)
     self.all.select{ |r| r.id == id }.first
   end
 end
