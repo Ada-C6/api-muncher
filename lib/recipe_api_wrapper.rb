@@ -1,4 +1,5 @@
 require 'httparty'
+require_relative 'recipe'
 
 class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search"
@@ -8,15 +9,18 @@ class EdamamApiWrapper
     data ||= HTTParty.get(url).parsed_response
 
     all_recipes = []
+
     data["hits"].each do |hit|
-      # puts hit
-      recipe = {
-        label: hit["recipe"]["label"],
-        calories: hit["recipe"]["calories"],
-        url: hit["recipe"]["url"]
-      }
+      label = hit["recipe"]["label"]
+      photo = hit["recipe"]["image"]
+      url = hit["recipe"]["url"]
+      ingredients = hit["recipe"]["ingredientLines"]
+      diet = hit["recipe"]["dietLabels"]
+
+      recipe = Recipe.new(label, photo, url, ingredients, diet)
       all_recipes << recipe
     end
+
     return all_recipes
   end
 end
