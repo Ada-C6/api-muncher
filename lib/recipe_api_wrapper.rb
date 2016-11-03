@@ -5,10 +5,10 @@ require_relative 'recipe'
 class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search?"
 
-  def self.list_recipes(search_term)
-    # index = (page_number - 1)*10
-    # url = BASE_URL + "q=#{search_term}" + "&from=#{index}"
-    url = BASE_URL + "q=#{search_term}"
+  def self.list_recipes(search_term, page_number)
+    index = (page_number - 1)*10
+    url = BASE_URL + "q=#{search_term}" + "&from=#{index}"
+    # url = BASE_URL + "q=#{search_term}"
     data ||= HTTParty.get(url).parsed_response
 
     all_recipes = []
