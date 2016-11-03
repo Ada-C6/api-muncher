@@ -2,7 +2,7 @@ class EdamamApiWrapper
 # Documentation: https://developer.edamam.com/edamam-docs-recipe-api
 
   BASE_URL = "https://api.edamam.com/"
-  RECIPE_URI_PREFIX = 'http://www.edamam.com/ontologies/edamam.owl#'
+  RECIPE_URI_PREFIX = 'http://www.edamam.com/ontologies/edamam.owl#recipe_'
   KEY = ENV["EDAMAM_KEY"]
   ID  = ENV["EDAMAM_ID"]
 
