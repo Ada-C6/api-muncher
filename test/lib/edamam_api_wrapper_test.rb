@@ -10,11 +10,9 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
       term = "gummy"
       response = EdamamApiWrapper.search(term)
 
-      # @todo - fix these tests; all failing because url isn't populating id & key
-      # assert response["ok"]
-
       assert_not_nil response
-      assert_match /gum/, response.first["recipe"]["shareAs"]
+      # the "shareAs" url includes original search term, pre-normalization (in this case: "gummies")
+      assert_match /gummy/, response["hits"].first["recipe"]["shareAs"]
     end # VCR
   end
 

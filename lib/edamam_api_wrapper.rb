@@ -16,11 +16,14 @@ class EdamamApiWrapper
 
     data = HTTParty.get(url)
 
-    if data["hits"]
-      return data["hits"]
-    else
-      return []
-    end # if block
+    return data
+
+    # @todo - use this in a search_results method
+    # if data["hits"]
+    #   return data["hits"]
+    # else
+    #   return []
+    # end # if block
 
   end # self.search
 

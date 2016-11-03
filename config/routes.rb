@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'search#new'
+  root 'searches#new'
 
-  resources :search, only: [:index, :new, :create]
+  resources :searches, only: [:index, :new, :create]
 
   resources :recipes, only: [:index, :show]
 
