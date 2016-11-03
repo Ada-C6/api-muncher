@@ -1,5 +1,7 @@
+
 <h2>Recipe for <%= @recipe.name %></h2>
 
+<p><img src="<%= @recipe.image %>" alt="food picture"></p>
 <h3><%= link_to( "Original recipe", @recipe.url ) %></h3>
 <h3>Ingredients</h3>
 <% @recipe.ingredients.each do |ingredient| %>
