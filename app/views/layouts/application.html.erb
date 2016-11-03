@@ -1,22 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-    <%= csrf_meta_tags %>
-  </head>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
+<body>
+  
+  <header>
 
-    <%= yield %>
+    <div class="title-bar" data-responsive-toggle="site-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-toggle></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
 
-  </body>
+    <div class="top-bar" id="site-menu">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">API MUNCHER</li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <div class="menu">
+          <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
+          <%# use an unordered list to make the search button inline %>
+          <ul>
+            <li> <%= label_tag :keyword, "" %> </li>
+            <li> <%= text_field_tag :keyword, params[:keyword], placeholder: "Search Recipes" %> </li>
+            <li> <%= hidden_field_tag :page, 1 %> </li>
+            <li> <%= submit_tag "Search", name: nil, class: 'button' %> </li>
+          </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <%= yield %>
+
+  <footer>
+    <%= link_to 'https://developer.edamam.com/' do %>
+    <%= image_tag 'edamam.png' %>
+    <% end %>
+  </footer>
+</body>
 </html>
