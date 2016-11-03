@@ -1,9 +1,9 @@
 <h1>INDEX</h1>
 
 <% @recipes.each do |recipe| %>
-  <h4><%= link_to "#{recipe.label}", show_page_path %></h4>
+  <h4><%= link_to "#{recipe.label}", show_page_path(recipe.id) %></h4>
   <p><%= image_tag recipe.photo, size: "40x40", alt: "Photo" %></p>
-  <p><%= link_to "#{recipe.ingredients.length} Ingredients", show_page_path %></p>
+  <p><%= link_to "#{recipe.ingredients.length} Ingredients", show_page_path(recipe.id) %></p>
 <% end %>
 
 <%= link_to "Previous", index_page_path %>

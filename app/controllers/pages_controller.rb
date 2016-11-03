@@ -1,13 +1,17 @@
 class PagesController < ApplicationController
   def home
+    reset = Recipe.reset_all
+    # This is to clear previous search_all result
   end
 
   def index
-    @page_number = 1
-    @recipes = Recipe.all(params[:q], @page_number)
+    # @page_number = 1
+    # @recipe = nil
+    @recipes ||= Recipe.all(params[:q])
   end
 
   def show
+    @recipe = Recipe.search_by(params[:id])
   end
 
   private

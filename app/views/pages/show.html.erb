@@ -1,2 +1,29 @@
-<h1>Pages#show</h1>
-<p>Find me in app/views/pages/show.html.erb</p>
+<h1>SHOW</h1>
+<%= button_to "Back to Index", index_page_path, method: :get %>
+<!-- TO-DO: keep the previous index search all session -->
+<!-- This is now solved with the reset_all in 'home' controller method -->
+
+<p>
+  Name: <%= @recipe.label %>
+</p>
+<p>
+  <%= link_to "Original recipe", @recipe.url %>
+</p>
+<p>
+  Ingredients:
+  <ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient %></li>
+  <% end %>
+  </ul>
+</p>
+<p>
+  Dietary information:
+  <% @recipe.diet.each_with_index do |d, i| %>
+    <% if i != (@recipe.diet.length - 1) %>
+      <%= d %>,
+    <% else %>
+      <%= d %>.
+    <% end %>
+  <% end %>
+</p>
