@@ -1,13 +1,14 @@
 require 'httparty'
 
 class EdamamApiWrapper
-  BASE_URL = "https://api.edamam.com/"
-  SEARCH = "search?q="
+  BASE_URL = "https://api.edamam.com/search?q="
   APP_ID = ENV["EDAMAM_APP_ID"]
   APP_KEY = ENV["EDAMAM_APP_KEY"]
+  START = 1
+  LAST = 1000
 
   def self.find_recipes(food)
-    url = BASE_URL + SEARCH + "#{food}" + "&app_id=" + APP_ID + "&app_key=" + APP_KEY
+    url = BASE_URL  + "#{food}" + "&app_id=" + APP_ID + "&app_key=" + APP_KEY + "&from=" + "#{START }"+ "&to=" + "#{LAST}"
     recipe = HTTParty.get(url)
     foods = []
     if recipe["hits"]

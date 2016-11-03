@@ -2,9 +2,12 @@
 <h1>Top hits for <%= "#{@ingredient}"%></h1>
 <table>
   <% @recipes.each do |recipe| %>
+  <%uniq_code = recipe.uri.split("_").last%>
   <tr>
     <td><%=image_tag("#{recipe.image}")%></td>
-    <td><%= link_to "#{recipe.name}", recipes_show_path(@ingredient, recipe.name)%></td>
+    <td><%= link_to "#{recipe.name}", recipes_show_path(@ingredient, uniq_code)%></td>
   </tr>
   <% end %>
+
+<%= will_paginate @recipes , :page_links => false %>
 </table>
