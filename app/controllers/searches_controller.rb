@@ -7,15 +7,25 @@ class SearchesController < ApplicationController
 
   def show
     @recipe ||= EdamamApiWrapper.listrecipe(params[:id])
+    if @recipe.nil?
+      flash[:error] = "No results found, please try another search term."
+      redirect_to root_path
+    end
   end
 
   def new; end
 
   def create
     @results ||= EdamamApiWrapper.listrecipes(params[:search_word])
-    @search_word = params[:search_word]
-    @search_index = 0
-    render :index
+
+    if @results.nil?
+      flash[:error] = "No results found, please try another search term."
+      redirect_to root_path
+    else
+      @search_word = params[:search_word]
+      @search_index = 0
+      render :index
+    end
   end
 
   def page

@@ -5,33 +5,61 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     assert true
   end
 
-  test "Can send valid message to real channel" do
-    VCR.use_cassette("channels") do
-      message = "test message, yo"
-      response = SlackApiWrapper.sendmsg("test-api-brackets", message)
-      assert response["ok"]
-      assert_equal response["message"]["text"], message
-    end
-  end
+  test "listrecipes returns an array of Recipe objects" do
+    VCR.use_cassette("recipes") do
+      recipes = EdamamApiWrapper.listrecipes("beef")
 
-  test "Can't send message to fake channel" do
-    VCR.use_cassette("channels") do
-      response = SlackApiWrapper.sendmsg("this-channel-does-not-exist", "test message")
-      assert_not response["ok"]
-      assert_not_nil response["error"]
-    end
-  end
+      assert_kind_of Array, recipes
+      assert_not recipes.empty?
 
-  test "listchannels returns an array of Channel objects" do
-    VCR.use_cassette("channels") do
-      channels = SlackApiWrapper.listchannels
-
-      assert_kind_of Array, channels
-      assert_not channels.empty?
-
-      channels.each do |channel|
-        assert_kind_of Channel, channel
+      recipes.each do |recipe|
+        assert_kind_of Recipe, recipe
       end
+    end
+  end
+
+  test "listrecipes returns nil if search word pulls up no results" do
+    VCR.use_cassette("recipes") do
+      recipes = EdamamApiWrapper.listrecipes("xxxxxxxxxxx")
+
+      assert_nil recipes
+    end
+  end
+
+  test "listrecipes returns nil if search word is nil" do
+    VCR.use_cassette("recipes") do
+      recipes = EdamamApiWrapper.listrecipes(nil)
+
+      assert_nil recipes
+    end
+  end
+
+  test "listrecipe returns a single Recipe object with correct recipe ID" do
+    VCR.use_cassette("recipes") do
+      recipe = EdamamApiWrapper.listrecipe("e74a63af2c01078b3a6cc34fbb06f061")
+
+      assert_kind_of Recipe, recipe
+      assert_not_nil recipe.name
+    end
+  end
+
+  test "listrecipe returns nil if given a bad recipe ID" do
+    VCR.use_cassette("bad-recipe-id") do
+      recipe = EdamamApiWrapper.listrecipe("bad-id")
+
+      assert_nil recipe
+    end
+  end
+
+  test "page should return two different arrays for two different calls for the same term" do
+    VCR.use_cassette("pages") do
+      page_one = EdamamApiWrapper.page("10","chicken")
+      page_two = EdamamApiWrapper.page("20","chicken")
+
+      assert_kind_of Array, page_one
+      assert_kind_of Array, page_two
+
+      assert_not_equal page_one, page_two
     end
   end
 end
