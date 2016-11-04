@@ -22,6 +22,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
       count, nonsense_search = EdamamApiWrapper.search("sadklfjalsjf", 1)
       assert_kind_of Array, nonsense_search
       assert_kind_of Integer, count
+      assert_equal 0, count
       assert nonsense_search.empty?
     end
   end
