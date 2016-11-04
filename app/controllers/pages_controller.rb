@@ -1,14 +1,15 @@
 class PagesController < ApplicationController
   def home
-    reset = Recipe.reset_all
     # This is to clear previous search_all result
+    reset = Recipe.reset_all
   end
 
   def index
-    @page_number = 1
-    # @recipe = nil
-    @recipes ||= Recipe.all(params[:q], @page_number)
-    #
+    # @page_number = 1
+
+    # @recipes ||= Recipe.all(params[:q], @page_number)
+    @recipes ||= Recipe.all(params[:q])
+
     # len = @recipes.length # wrong because len will always return 10 due to from - to default at 10.
     # if len % 10 == 0
     #   total_pages = len / 10
