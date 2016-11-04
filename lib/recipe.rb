@@ -1,4 +1,4 @@
-class RecipeList
+class Recipe
   attr_reader :label, :image, :uri, :url, :ingredientLines, :total_yield, :calories, :totalNutrients
 
   def initialize(label, image, uri, url, ingredientLines = nil, total_yield = nil, calories = nil, totalNutrients = nil)

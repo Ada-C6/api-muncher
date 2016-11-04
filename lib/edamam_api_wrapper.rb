@@ -20,7 +20,7 @@ class EdamamApiWrapper
       image = recipe["recipe"]["image"]
       uri = recipe["recipe"]["uri"]
       health_labels = recipe["recipe"]["healthLabels"]
-      recipes << RecipeList.new(label, image, uri, health_labels)
+      recipes << Recipe.new(label, image, uri, health_labels)
       end
       return recipes
     else
@@ -31,7 +31,7 @@ class EdamamApiWrapper
   def self.show_recipe(r)
     url = BASE_URL + "?r=#{URI.encode(r)}" + "&app_id=#{ID}" + "&app_key=#{TOKEN}"
     data = HTTParty.get(url)
-    recipe = RecipeList.new(data[0]["label"], data[0]["image"], data[0]["uri"], data[0]["url"], data[0]["ingredientLines"], @total_yield = data[0]["yield"], data[0]["calories"], data[0]["totalNutrients"])
+    recipe = Recipe.new(data[0]["label"], data[0]["image"], data[0]["uri"], data[0]["url"], data[0]["ingredientLines"], @total_yield = data[0]["yield"], data[0]["calories"], data[0]["totalNutrients"])
     return recipe
 
   end

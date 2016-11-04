@@ -1,5 +1,5 @@
 require "#{Rails.root}/lib/edamam_api_wrapper.rb"
-require "#{Rails.root}/lib/recipe_list.rb"
+require "#{Rails.root}/lib/recipe.rb"
 
 class HomepagesController < ApplicationController
   def index

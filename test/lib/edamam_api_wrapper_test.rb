@@ -1,6 +1,6 @@
 require 'test_helper'
 require 'edamam_api_wrapper'
-require 'recipe_list'
+require 'recipe'
 
 
 class EdamamApiTest < ActionController::TestCase
@@ -16,7 +16,7 @@ class EdamamApiTest < ActionController::TestCase
       assert recipes.is_a? Array
       assert recipes.length > 0
       recipes.each do |r|
-        assert r.is_a? RecipeList
+        assert r.is_a? Recipe
     end
   end
 end
@@ -27,17 +27,13 @@ end
         assert_empty(recipes)
       end
     end
-  #
-  # test "can retrieve a single recipe" do
-  #   VCR.use_cassette(data[0]) do
-  #     recipe = EdamamApiWrapper.show_recipe("http://www.edamam.com/ontologies/edamam.owl%23recipe_4a97965157df17841696bbbcc8a27935")
-  #     assert recipe.is_a? Array
-  #     assert recipe.length == 1
-  #     recipe.each do |r|
-  #       assert r.is_a? RecipeList
-  #   end
-  # end
-  # end
+
+  test "can retrieve a single recipe" do
+    VCR.use_cassette('show_one') do
+      recipe = EdamamApiWrapper.show_recipe("http://www.edamam.com/ontologies/edamam.owl%23recipe_4a97965157df17841696bbbcc8a27935")
+      assert recipe.is_a? Recipe
+    end
+  end
 
 
 end
