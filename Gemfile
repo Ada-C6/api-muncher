@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'will_paginate', '~> 3.1.1'
+
 gem 'httparty'
 
 gem 'faker'

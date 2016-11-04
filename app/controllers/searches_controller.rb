@@ -16,7 +16,7 @@ class SearchesController < ApplicationController
     if !@response.parsed_response.nil?
 
       # flash[:notice] = "Successfully sent search for #{@search_term}."
-      @recipe_results = Recipe.search_results(@response)
+      @recipe_results = Recipe.search_results(@response).paginate(page: params[:page], per_page: 10)
     else
       flash[:notice] = "Failed to send search for #{@search_term}: #{@response["error"]}"
 

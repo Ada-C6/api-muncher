@@ -4,11 +4,13 @@ class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search?q="
   ID = ENV["EDAMAM_APP_ID"]
   KEY = ENV["EDAMAM_APP_KEY"]
+  MAX_RESULTS = 1000
+  # @todo - refactor to prevent slow load times from huge calls? or leave as is to prevent excess quantity of calls?
 
   def self.search(term)
     # this method returns entire response from API call
 
-    url = BASE_URL + term.split(" ").join("+") + "&app_id=#{ID}&app_key=#{KEY}"
+    url = BASE_URL + term.split(" ").join("+") + "&app_id=#{ID}&app_key=#{KEY}&from=0&to=#{MAX_RESULTS}"
 
     puts "Searching for #{term} with url: #{url}"
 

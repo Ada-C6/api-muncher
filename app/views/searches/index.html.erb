@@ -5,3 +5,6 @@
   <%= image_tag recipe.image_url %>
   <%= link_to "See More", search_path(recipe.uri_id) %>
 <% end %>
+
+<%= page_entries_info @recipe_results %>
+<%= will_paginate @recipe_results %>
