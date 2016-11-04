@@ -10,5 +10,10 @@
 
 <%= yield %>
 
+<footer class = "footer">
+  <% Time.zone = "Pacific Time (US & Canada)" %>
+  <h5>Recipe Search API Powered by <%= link_to (image_tag 'https://www.edamam.com/images/logo-site-header.png'), 'http://developer.edamam.com' %></h5>
+  <h6>&copy; <%= year_range(2016) %> Kate Shaffer</h6>
+</footer>
 </body>
 </html>
