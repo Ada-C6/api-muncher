@@ -21,7 +21,7 @@ class EdamamApiWrapper
   end
 
   def self.listresults(search)
-    url = BASE_URL + "search?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{search}"
+    url = BASE_URL + "search?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{search}" + "&to=100"
     data = HTTParty.get(url)
     @recipes_array = []
     if data["hits"]

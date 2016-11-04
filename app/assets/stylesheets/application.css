@@ -26,10 +26,22 @@ header {
 }
 
 body {margin: 1%;}
+.needs-a-margin {margin-top: 70px;}
+.logo {margin: 0 auto; display: flex; width: 80%;}
+.pagination {
+  margin: 0 auto 50px auto;
+  width: 100%;
+  display: flex;}
+.limit-image-size {}
+table {width: 95%; margin: 0 auto;}
 
-.needs-a-margin {
-  margin-top: 70px;
-}
+.first-font {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.3rem;}
+.second-font{
+  font-family: 'Amatic SC', cursive;
+  font-size: 2em;}
+.third-font{font-family: 'Rock Salt', cursive;}
 
 footer {
  display: block;
@@ -46,3 +58,5 @@ footer {
  clear: both;
 }
 footer p {padding-top: 1%;}
+.button {background-color: #dae5e8; color: black;}
+.button:hover {background-color: black; color: #dae5e8;}

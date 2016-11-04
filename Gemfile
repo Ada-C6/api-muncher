@@ -40,11 +40,9 @@ gem 'httparty'
 gem 'foundation-rails'
 
 #for pagination
-gem 'rails-api'
-gem 'grape', '>= 0.10.0'
-gem 'kaminari'
-gem 'will_paginate'
+# gem 'will_paginate'
 gem 'api-pagination'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

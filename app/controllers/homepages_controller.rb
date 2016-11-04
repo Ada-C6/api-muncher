@@ -1,5 +1,7 @@
 require "#{Rails.root}/lib/edamam_api_wrapper.rb"
 require "#{Rails.root}/lib/results.rb"
+# require 'will_paginate/array'
+require 'kaminari'
 
 
 class HomepagesController < ApplicationController
@@ -15,7 +17,10 @@ class HomepagesController < ApplicationController
   end
 
   def list
-    @recipes = EdamamApiWrapper.listresults(params["search"])
+    @recipes_array = EdamamApiWrapper.listresults(params["search"])
+
+    @recipes = paginate(@recipes_array, per_page: 10)
+
     if @recipes != nil && @recipes != []
       render status: :list
     else
