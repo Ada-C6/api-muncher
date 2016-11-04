@@ -1,17 +1,44 @@
 @import url('foundation.min.css');
 
+body {
+  background-color: #7c9bf1;
+}
 .pagination, a {
   color: rgb(189, 109, 109);
 }
 
+#search-form {
+  padding: 2%;
+  width: 50%;
+}
+
+#search-form input, .form_submit{
+    border-radius: 100px;
+    background-color: white;
+}
 
 li {
   list-style-type: none;
 }
 
-h1, h2{
-  text-align: center;
+h1, h2 {
+    font-family: 'Corben', Georgia, Arial, sans-serif;
+
 }
+
+p, ul, li{
+  font-family: 'Nobile', Arial, sans-serif;
+}
+h1, h2 {
+  text-align: center;
+  background-color: rgb(164, 164, 164);
+ }
+
+.intro {
+  padding: 5%;
+}
+
+
 
 
 

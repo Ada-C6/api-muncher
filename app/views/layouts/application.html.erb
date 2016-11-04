@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%=stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Corben:bold' %>
+  <%=stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Nobile' %>
+
 </head>
 
 
@@ -12,7 +15,7 @@
   <nav class="row">
     <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search for Munchables Here" %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag "Search", :name => nil, class: "form_submit" %>
     <% end %>
   </nav>
 
