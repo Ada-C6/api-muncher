@@ -9,4 +9,11 @@
       <%= ingredient %>
     </li>
   <% end %>
+  </ul>
+  <ul><h5>Nutrition profile</h5>
+  <% @recipe.health_and_diet_labels.each do |label| %>
+    <li>
+      <%= label %>
+    </li>
+  <% end %>
 </ul>

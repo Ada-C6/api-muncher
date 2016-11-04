@@ -39,8 +39,7 @@ class EdamamApiWrapper
   #         recipe["uri"],
   #         recipe["url"],
   #         recipe["calories"],
-  #         recipe["ingredients"], # array of JSON ingredient objects
-  #         recipe["totalNutrients"] )
+  #         recipe["ingredients"] # array of JSON ingredient objects )
   #
   #       recipe_results << recipe_object
   #     end
