@@ -42,7 +42,5 @@ class RecipeTest < ActiveSupport::TestCase
     assert_includes r, r1
     assert_includes r, r2
     assert_not_includes r, r3
-
   end
-
 end

@@ -1,5 +1,6 @@
 class Recipe
-  attr_reader :label, :id, :image, :url, :ingredients, :calories, :difficultylevel, :healthlabels, :dietlabels, :servings
+  attr_reader :label, :id, :image, :url, :ingredients, :calories, :difficultylevel, :healthlabels, :dietlabels, :servings, :fat,
+  :satfat, :trfat, :carb, :fiber, :protein
 
   def initialize(label, id, options = {} )
     raise ArgumentError if label == nil || label == "" || id == nil || id == ""
@@ -15,6 +16,12 @@ class Recipe
     @healthlabels = options[:healthlabels]
     @dietlabels = options[:dietlabels]
     @servings = options[:servings]
+    @fat = options[:fat]
+    @satfat = options[:satfat]
+    @trfat = options[:trfat]
+    @carb = options[:carb]
+    @fiber = options[:fiber]
+    @protein = options[:protein]
   end
 
   # Create a class-level instance variable.
@@ -34,7 +41,6 @@ class Recipe
   def self.by_id(id)
     self.search.select{ |r| r.id == id }.first
   end
-
 
   def self.search_label(labels, recipes)
     recipes.select! do |recipe|

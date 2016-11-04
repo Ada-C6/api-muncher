@@ -8,6 +8,10 @@
 
 <%= render partial: "dietlabelsearch" %>
 
+<% if !params[:dietlabels].nil? %>
+  <h4 class="main-text">Here are your results for <%= params[:dietlabels].to_s.delete!('[]') %></h4>
+<% end %>
+
 <article class="row small-up-1 medium-up-2 large-up-3">
   <% @recipes.each do |recipe| %>
     <section class="column">
