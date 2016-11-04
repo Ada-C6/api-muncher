@@ -1,10 +1,14 @@
 <h1>Edamam Recipes</h1>
 
-<p>homepages#index</p>
+<section>
+    <h5 class="flash"><%= flash[:notice] %></h5>
+</section>
 
-<%= form_tag(search_recipes_path, method: :get) do %>
-  <p>
-    <%= text_field_tag :search, params[:search]%>
-    <%= submit_tag "Search", :name => nil%>
-  </p>
-<% end %>
+<section>
+  <%= form_tag(search_recipes_path, method: :get) do %>
+    <p>
+      <%= text_field_tag :search, params[:search]%>
+      <%= submit_tag "Search", :name => nil%>
+    </p>
+  <% end %>
+</section>

@@ -10,7 +10,7 @@ class EdamamApiWrapper
     start = 10 * (page - 1)
     finish = 10 * page
 
-    url = BASE_URL + "?q= #{string}" + "&app_id=#{ID}" + "&app_key=#{KEYS}" + "&from=" + "#{start}" "&to=" "#{finish}"
+    url = BASE_URL + "?q=#{string}" + "&app_id=#{ID}" + "&app_key=#{KEYS}" + "&from=" + "#{start}" "&to=" "#{finish}"
     data = HTTParty.get(url)
     recipe_list = []
     if data["hits"]
@@ -35,7 +35,7 @@ class EdamamApiWrapper
   #TO DRY UP and combine with self.search_recipes
   def self.one_recipe(string)
 
-    url = BASE_URL + "?q= #{string}" + "&app_id=#{ID}" + "&app_key=#{KEYS}" #+ "&from=" + "#{@start}" "&to=" "#{@finish}"
+    url = BASE_URL + "?q= #{string}" + "&app_id=#{ID}" + "&app_key=#{KEYS}"
     data = HTTParty.get(url)
     recipe_list = []
     if data["hits"]

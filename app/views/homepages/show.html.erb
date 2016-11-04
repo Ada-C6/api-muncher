@@ -1,5 +1,9 @@
 <h1><%= @recipe.label %></h1>
 
+<section>
+    <h5 class="flash"><%= flash[:notice] %></h5>
+</section>
+
 <%= image_tag(@recipe.photo) %>
 <p><%= @recipe.link %></p>
 <p><%= @recipe.health %></p>

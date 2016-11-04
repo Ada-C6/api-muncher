@@ -8,8 +8,12 @@
 </section>
 
 <section>
+  <% if @page > 1%>
     <h5><%= link_to "Previous", search_recipes_path(search: params[:search], page: @page - 1) %></h5>
+  <% end %>
+  <% if @page < @last_page %>
     <h5><%= link_to "Next", search_recipes_path(search: params[:search], page: @page + 1) %></h5>
+  <% end %>
 </section>
 
 <section>
