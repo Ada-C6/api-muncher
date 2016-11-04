@@ -3,11 +3,22 @@
 nav {
   padding: 2%;
 }
-body {
-  /*background-color: #7c9bf1;*/
-}
+/*body {
+  background-color: #7c9bf1;
+  }*/
+
 .pagination, a {
   color: rgb(189, 109, 109);
+}
+
+.page-bar {
+  margin-top: 30px;
+  /*margin-left: 30px;*/
+}
+.page-bar em.current {
+  padding: 10px;
+  border-radius: 3px;
+  background-color: rgb(245, 233, 82);
 }
 
 #search-form {
@@ -37,7 +48,7 @@ h1, h2 {
   text-align: center;
   background-color: rgb(245, 233, 82);
   border-radius: 5px 30px 5px;
-  width: 70%;
+  width: 75%;
 
  }
 
@@ -47,6 +58,17 @@ h1, h2 {
 
 .recipe-info {
   padding: 20px;
+}
+
+.home-image {
+  margin-top: 20px;
+}
+
+footer {
+  margin-top: 8%;
+  margin-bottom: 2%;
+  border-top: 5px solid rgb(245, 233, 82);
+  padding: 2%;
 }
 
 
