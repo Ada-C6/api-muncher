@@ -1,7 +1,7 @@
 <%= form_tag recipes_path, method: :get do %>
   <%= label_tag :search, "What's cooking?" %>
-  <%= text_field_tag :search %>
+  <%= text_field_tag :search, "", class: "search" %>
   <%= hidden_field_tag "page", "1" %>
   <%# hidden_field_tag "reset", true %>
-  <%= submit_tag "Search", class: "button" %>
+  <%= submit_tag "Search", class: "success button" %>
 <% end %>

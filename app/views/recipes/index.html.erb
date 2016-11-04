@@ -1,33 +1,37 @@
-<section class="page-name row">
-  <h1 class="column">Recipe Results</h1>
-</section>
-<section class="search-query row">
-  <h3 class="column"><%= "#{@count} recipes matching '#{@search_term}'" %>:</h3>
-</section>
+<main class="index">
+  <section class="page-name row">
+    <h1 class="column">Recipe Results</h1>
+  </section>
+  <section class="search-query row">
+    <h3 class="column"><%= "#{@count} recipes matching '#{@search_term}'" %>:</h3>
+  </section>
 
-<ul class="row small-up-1 medium-up-3 large-up-4">
-  <% @results.each do |recipe| %>
+  <ul class="row small-up-1 medium-up-3 large-up-4">
+    <% @results.each do |recipe| %>
     <li class="column">
-      <%= link_to recipe_path(recipe.uri) do %>
-        <%= image_tag "#{recipe.image_url}", alt: "#{recipe.label} Image" %>
-      <% end %>
-      <%= link_to recipe.label, recipe_path(recipe.uri) %>
+      <section class="recipe row">
+        <%= link_to recipe_path(recipe.uri), class: "recipe-image small-12 columns" do %>
+        <%= image_tag "#{recipe.image_url}", alt: "#{recipe.label} Image", class: "recipe-label small-12 columns" %>
+        <% end %>
+        <%= link_to recipe.label, recipe_path(recipe.uri) %>
+      </section>
     </li>
-  <% end %>
-</ul>
+    <% end %>
+  </ul>
 
-<section class="page-nav small-up-1 medium-up-3 large-up-3 row">
-  <section class="column">
-    <% unless @page == 1 %>
+  <section class="page-nav small-up-1 medium-up-3 large-up-3 row">
+    <section class="column">
+      <% unless @page == 1 %>
       <%= link_to "Previous", recipes_path(page: @page.to_i - 1, search: @search_term )%>
-    <% end %>
-  </section>
-  <section class="column">
-    <%= @page.to_s + " of " + @pages.to_s + " page(s)" %>
-  </section>
-  <section class="column">
-    <% if @page.to_i < @pages.to_i %>
+      <% end %>
+    </section>
+    <section class="column">
+      <%= @page.to_s + " of " + @pages.to_s + " page(s)" %>
+    </section>
+    <section class="column">
+      <% if @page.to_i < @pages.to_i %>
       <%= link_to "Next", recipes_path(page: @page.to_i + 1, search: @search_term )%>
-    <% end %>
+      <% end %>
+    </section>
   </section>
-</section>
+</main>

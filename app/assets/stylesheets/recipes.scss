@@ -8,7 +8,7 @@ main.search {
   width: 100vw;
   background-size: cover;
   margin: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   overflow: hidden;
   text-align: center;
@@ -25,4 +25,20 @@ section.search-form {
   color: white;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
+}
+
+.tags li {
+  display: inline;
+  background-color: lightgrey;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: right;
+}
+
+span.link-original {
+  margin-bottom: 3vh;
+}
+
+main.show, main.index {
+  margin-top: 3vh;
 }

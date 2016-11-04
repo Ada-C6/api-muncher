@@ -13,11 +13,16 @@
   </head>
 
   <body>
-
+    <header class="top-bar">
+      <h1 class="title"><%= link_to "Recipe Search", root_path %></h1>
+    </header>
     <%= yield %>
 
-    <footer>
-      <a href="http://developer.edamam.com"><%= image_tag "Edamam.png", alt: "Powered By Edamam" %></a>
+    <footer class="row">
+      <!-- <section class="search-bar small-8 medium-8 large- 6 columns">
+        <%= render partial: "search", class: "right" %>
+      </section> -->
+      <a href="http://developer.edamam.com", class="small-4 medium-3 large-2 column float-right" ><%= image_tag "Edamam.png", alt: "Powered By Edamam"%></a>
     </footer>
   </body>
 </html>

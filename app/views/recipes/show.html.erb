@@ -1,21 +1,58 @@
-<section class="recipe-label">
-  <h1 class=""><%= @recipe.label %></h1>
-</section>
-<section class="link-original">
-  <p class=""><%= link_to "View Full Recipe", @recipe.url, target: "_blank" %></p>
-</section>
+<main class="show">
+  <section class="recipe-label row">
+    <h1 class="column"><%= @recipe.label %></h1>
+  </section>
+  <section class="link-original row">
+    <span class="link-original large-3 medium-5 small-12 columns"><%= link_to "View Full Recipe", @recipe.url, target: "_blank" %></span>
+    <ul class="tags large-3 medium-5 small-12 columns right">
+      <% @recipe.tags.each do |tag| %>
+      <li><%= tag %></li>
+      <% end %>
+    </ul>
+  </section>
 
-<%= image_tag @recipe.image_url, alt: "#{@recipe} Image" %>
+  <section class="image-dietary row">
+    <section class="recipe-image small-12 medium-6 large-6 columns">
+      <%= image_tag @recipe.image_url, alt: "#{@recipe} Image" %>
+    </section>
+    <section class="dietary-info small-12 medium-6 large-6 columns">
+      <table>
+        <thead>
+          <tr>
+            <td>
+              NUTRITIONAL INFO
+            </td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @dietary_info.each do |i| %>
+          <tr>
+            <td>
+              <%= i["label"] %>
+            </td>
+            <td>
+              <%= i["quantity"].to_i.to_s + i["unit"] %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  </section>
 
-<section class="ingredients">
-  <h4 class="">Ingredients:</h4>
-  <ul class="ingredients ">
-    <% @recipe.ingredients.each do |i| %>
-      <li><%= i %></li>
-    <% end %>
-  </ul>
-</section>
+  <section class="ingredients row">
+    <section class="ingredients column">
+      <h4>Ingredients:</h4>
+      <ul class="ingredients ">
+        <% @recipe.ingredients.each do |i| %>
+        <li><%= i %></li>
+        <% end %>
+      </ul>
+    </section>
+    <section class="summary column">
+      <%= @recipe.summary %>
+    </section>
+  </section>
 
-<section class="dietary-info">
-  <%# @recipes.dietary_info %>
-</section>
+</main>

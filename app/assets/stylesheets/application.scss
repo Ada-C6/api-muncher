@@ -22,18 +22,56 @@ body {
   // margin: 10vh auto;
 }
 
+header {
+  background-image: url(logo.png);
+  background-size: cover;
+  height: 20vh;
+}
+
 h1 {
   font-family: 'Abril Fatface', cursive;
   font-size: 8vh;
 }
-footer {
-  position: absolute;
-  bottom: 0;
-  right: 5vw;
+
+h1.title {
+  text-align: center;
+  color: #c2ed82;
+  // float: left;
 }
 
+h1.title a {
+  color: #c2ed82;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 6vh;
+}
+
+textarea.search {
+  text-align: center;
+}
+
+input.search {
+  text-align: center;
+}
+
+.search-bar input.search, .search-bar .button {
+  display: inline-block;
+}
+// .column a {
+//   white-space: nowrap;
+// }
+// footer {
+//   position: relative;
+//   bottom: 0;
+// }
+
+
 // footer img {
-//   position: right;
+//   z-index: 99;
+//   position: relative;
+//   // top: 90vh;
 // }
 
 ul {
@@ -45,7 +83,15 @@ ul {
 }
 
 img {
-  margin-bottom: 5vh;
+  margin: 2vh auto;
+}
+
+table {
+  margin: 2vh auto;
+}
+
+.recipe {
+  text-align: center;
 }
 
 .page-nav {

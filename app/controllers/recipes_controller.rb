@@ -19,20 +19,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @dietary_info = @recipe.dietary_info
   end
-  #
-  # def page
-  #   # raise
-  #   page = params["page"]
-  #   @search_term = params["search"]
-  #
-  #   Recipe.search(@search_term, page)
-  #   @results = Recipe.results
-  #   # until to >= Recipe.count
-  #   #   from += 10
-  #   #   to += 10
-  #   #   Recipe.search(@search_term, from, to)
-  #   #   @results = Recipe.results
-  #   # end
-  # end
+
 end
