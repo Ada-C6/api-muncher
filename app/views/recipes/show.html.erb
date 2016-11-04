@@ -6,12 +6,8 @@
   </section>
 
   <aside>
-    <ul class='labels-list'>
-        <%= render partial: "list", locals: {list: @recipe.health_labels} %>
-    </ul>
-    <ul class='labels-list'>
-      <%= render partial: "list", locals: {list: @recipe.diet_labels} %>
-    </ul>
+    <%= render partial: "list", locals: {list: @recipe.health_labels} %>
+    <%= render partial: "list", locals: {list: @recipe.diet_labels} %>
   </aside>
 
   <article class='row'>
@@ -19,9 +15,7 @@
       <%= image_tag @recipe.image %>
     </div>
     <div class='column small-12 medium-6 large-8'>
-      <ul class='check-list'>
-        <%= render partial: "list", locals: {list: @recipe.ingredients} %>
-      </ul>
+      <%= render partial: "check_list", locals: {list: @recipe.ingredients} %>
     </div>
     <div class='columns small-12 off-site-link'>
       <small>Source: <%= link_to @recipe.original_site, @recipe.original_url, target: "_blank" %></small>

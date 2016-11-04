@@ -43,11 +43,13 @@
         </div>
       </div>
     </div>
+
+    <%# display past searches only if something has been searched... %>
+    <% if !params[:keyword].nil? %>
     <section>
-      <ul class='labels-list'>
-        <%= render partial: "link_list", locals: {list: @searches} %>
-      </ul>
+      <%= render partial: "link_list", locals: {list: @searches} %>
     </section>
+    <% end %>
   </header>
 
   <%= yield %>
