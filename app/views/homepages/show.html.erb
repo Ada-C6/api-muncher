@@ -1,0 +1,23 @@
+
+<section>
+
+<h1> Recipe Details</h1>
+
+<%= image_tag @recipe.image %>
+<p>
+  <% @recipe.label %>
+</p>
+<p>
+  <% link_to @recipe.source, url: @recipe.url %>
+</p>
+<p>
+  <% @recipe.yield %>
+</p>
+<p>
+  <% @recipe.ingredientLines %>
+</p>
+<p>
+  <% @recipe.healthLabels %>
+</p>
+
+</section>

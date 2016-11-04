@@ -2,7 +2,7 @@
 <p>Finding all the food you love.</p>
 
 <section>
-  <%= form_tag homepages_path, method: "get" do %>
+  <%= form_tag homepages_new_path, method: "get" do %>
   <%= text_field_tag :search_term %>
   <%= submit_tag "Find Recipes", class: "Button" %>
 <% end %>
