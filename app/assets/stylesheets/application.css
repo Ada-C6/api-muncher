@@ -45,9 +45,30 @@ hr {
 
 }
 
+/************************************/
+/* HEADER NAV   */
+/************************************/
+
  .button:hover {
   color: #FFF;
   background-color: #57544B;
+}
+
+.logo-font {
+  color: #971c13;
+}
+
+.logo-font:hover {
+  color: #57544B;
+}
+
+nav {
+  background-color: #000;
+  color: #FFF;
+  margin: 0;
+  opacity: .8;
+  text-align: left;
+  z-index: 100;
 }
 
 
@@ -97,12 +118,9 @@ hr {
 }
 
 
-
  /************************************/
  /* RESULTS PAGES   */
  /************************************/
-
-
 
 .center-text {
   text-align: center;
@@ -112,7 +130,6 @@ hr {
    margin: 3em 0 3em 0;
    padding: 0 3em 0 3em;
  }
-
 
   /************************************/
   /* SHOW PAGES   */

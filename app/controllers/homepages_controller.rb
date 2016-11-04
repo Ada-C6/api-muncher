@@ -10,15 +10,18 @@ class HomepagesController < ApplicationController
       @recipes = EdamamApiWrapper.list_recipes(params[:search_term], 0)
       params[:from] = 10
       params[:to] = params[:from] + 10
+      render :layout => "results"
     else
       params[:from] = params[:from].to_i
       @recipes = EdamamApiWrapper.list_recipes(params[:search_term], params[:from])
       params[:from] += 10
       params[:to] = params[:from]+10
+      render :layout => "results"
     end
   end
 
   def show
     @recipe = EdamamApiWrapper.show_recipe(params[:uri])
+    render :layout => "results"
   end
 end
