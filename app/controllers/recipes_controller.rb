@@ -6,11 +6,11 @@ class RecipesController < ApplicationController
     @query = params["q"]
     @page = params["page"]
 
-    if @query == ""
-      flash[:error] = "Please enter a search term."
-      redirect_to recipes_path
-    else
-      @recipes = Recipe.all(@query, @page)
+    @recipes = Recipe.all(@query, @page)
+
+    if @recipes == []
+      flash[:error] = "No results match your search. Please enter a valid search term."
+      redirect_to root_path
     end
   end
 
@@ -18,10 +18,16 @@ class RecipesController < ApplicationController
     @recipe = Recipe.by_uri(params[:data][:uri])
   end
 
+  def search; end
+
   def next_page
-    @page = params["data"]["page"].to_i + params["data"]["page_num"].to_i
-    @query = params["data"]["query"]
-    @recipes = Recipe.all(@query, @page)
+     @page = params["data"]["page"].to_i + params["data"]["page_num"].to_i
+     @query = params["data"]["query"]
+     @recipes = Recipe.all(@query, @page)
+     if @recipes == []
+       flash[:error] = "No more results match your search. Please enter a valid search term."
+       redirect_to root_path
+     end
   end
 
 end

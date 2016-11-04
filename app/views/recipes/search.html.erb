@@ -1,3 +1,7 @@
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
+
 <h1>welcome! search recipes</h1>
 
 <%= render partial: "form" %>
