@@ -32,3 +32,25 @@ form p {
 	margin: 50px;
 }
 
+.recipe-card h3{
+	font-size: 1em;
+}
+
+.recipe-card img{
+	height:70%;
+	width: auto;
+}
+
+.recipe-card{
+	height: 30vmax;
+	border: 1px solid black;
+}
+
+.pagination {
+	margin-top: 10px;
+}
+
+
+.pagination a{
+	display: inline;
+}

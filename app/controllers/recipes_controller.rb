@@ -10,7 +10,9 @@ class RecipesController < ApplicationController
   end
 
   def search
-  	@term=params[:term]
+    flash[:notice]=nil
+  	
+    @term=params[:term]
     session[:term]=@term
   	results = MuncherApiWrapper.search(@term)
     @num_results=results.count
