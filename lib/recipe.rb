@@ -1,6 +1,6 @@
 
 class Recipe
-  attr_reader :label, :uri, :ingredients, :diet_labels, :health_labels, :image, :url, :nutrients
+  attr_reader :label, :uri, :ingredients, :diet_labels, :health_labels, :image, :url, :nutrients, :servings
 
   def initialize(label, options = {})
     raise ArgumentError if label == nil || label == ""
@@ -14,6 +14,7 @@ class Recipe
     @image = options[:image]
     @url = options[:url]
     @nutrients = options[:nutrients]
+    @servings = options[:servings]
 
 
   end
@@ -29,6 +30,10 @@ class Recipe
 
   def return_calories
     self.nutrients["ENERC_KCAL"]
+  end
+
+  def kcal_per_serving
+    self.return_calories["quantity"].to_i / @servings
   end
 
   def all_other_nutrients

@@ -31,9 +31,9 @@
   <li class="column text-center">
     <h4>Nutritional information</h4>
     <p>
-      <%= @recipe.return_calories["label"] %> =
-      <%= @recipe.return_calories["quantity"] %>
+      <%= @recipe.kcal_per_serving %>
       <%= @recipe.return_calories["unit"]%>
+      per serving
     </p>
 
     <ul class="row small-up-2">
@@ -43,7 +43,7 @@
           <%= info["label"] %>
         </li>
         <li class="column">
-          <%= info["quantity"] %>
+          <%= info["quantity"].round(2) %>
           <%= info["unit"] %>
         </li>
 
