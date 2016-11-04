@@ -36,7 +36,7 @@
           <%# use an unordered list to make the search button inline %>
           <ul>
             <li> <%= label_tag :keyword, "" %> </li>
-            <li> <%= text_field_tag :keyword, params[:keyword], placeholder: "Search Recipes" %> </li>
+            <li> <%= text_field_tag :keyword, params[:keyword], placeholder: "Recipes" %> </li>
             <li> <%= hidden_field_tag :page, 1 %> </li>
             <li> <%= submit_tag "Search", name: nil, class: 'button' %> </li>
           </ul>

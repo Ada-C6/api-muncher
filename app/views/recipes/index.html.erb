@@ -6,7 +6,7 @@
     </ul>
   </section>
 
-  <ul class='small-up-5'>
+  <ul class='recipe-collection small-up-5'>
     <% @recipes.each do |recipe|  %>
     <li class='column recipe-tile'><%= link_to recipe_path(recipe.id) do %>
       <ul>

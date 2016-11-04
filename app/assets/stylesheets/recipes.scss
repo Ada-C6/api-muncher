@@ -5,6 +5,7 @@
 
 // Default font colors are grey and black
 body, a {
+  font-family: 'Homemade Apple', cursive;
   color: #666;
 }
 
@@ -12,20 +13,19 @@ a:hover {
   color: #000;
 }
 
-
 // TOP BAR
 
 // styles the search bar so the button is inline
 
 .top-bar {
-  box-shadow: 0px 30px 40px rgba(0,0,0,.1);
-  font-family: 'Homemade Apple', cursive;
+  box-shadow: 0px 1.5rem 3rem rgba(0, 0, 0, .1);
   padding-top: 2rem;
 }
 
 .menu-text {
   font-size: 2rem;
   color: rgb(120, 195, 16);
+  text-shadow: 1px 1px 2px #666;
 }
 
 li {
@@ -37,7 +37,13 @@ form li {
 }
 
 .button {
-  // will need to style colors to make this match
+  background-color: rgba(120, 195, 16, .7);
+  height: 2rem;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: rgba(120, 195, 16, 1);
 }
 
 // styles list of recent searches
@@ -47,6 +53,7 @@ form li {
 
 .link-list > li:not(:first-child):before {
   // cute cutlery for spacers
+  color: rgb(120, 195, 16);
   font-family: FontAwesome;
   content: " \f0f5 ";
 }
@@ -72,13 +79,19 @@ form li {
 // BODY - INDEX page
 
 // recipe images are styled like tiles; opacity changes for hover and soft feel
-.recipe-picture {
-  opacity: 0.4;
-  border-radius: 5px;
+
+// "lift" parent opacity off hovered tile
+.recipe-collection:hover > .recipe-tile {
+  opacity: 0.6;
 }
 
-.recipe-tile:hover  .recipe-picture{
-  opacity: 0.7;
+.recipe-collection:hover > .recipe-tile:hover {
+  transition-timing-function: ease-in-out;
+  opacity: 1;
+}
+
+.recipe-picture {
+  border-radius: 5px;
 }
 
 // default styling for images everywhere!
@@ -89,6 +102,8 @@ img {
 
 // recipes labels only visible on hover
 .recipe-label {
+  font-family: 'Homemade Apple', cursive;
+  padding-top: .5rem;
   visibility: hidden;
   font-size: 1rem;
   text-align: center;
@@ -101,6 +116,11 @@ img {
 // BODY - SHOW page
 
 // make the details look nice
+
+.recipe-title {
+  font-family: 'Homemade Apple', cursive;
+}
+
 article {
   padding: 2rem;
 }
