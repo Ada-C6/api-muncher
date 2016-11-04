@@ -16,20 +16,6 @@ module RecipesHelper
     item + 1
   end
 
-  def make_pagination_links(recipes, keyword, page)
-    return "" unless recipes > 10
-
-    if page > 0
-      link_to 'PREVIOUS PAGE', next_path(keyword: keyword, page: decrement(page))
-    end
-      link_to 'NEXT PAGE', next_path(keyword: keyword, page: increment(page))
-
-  end
-
-  def increment(item)
-    item + 1
-  end
-
   def decrement(item)
     item - 1
   end
