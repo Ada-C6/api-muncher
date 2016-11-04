@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
 
 header img{
@@ -21,4 +23,66 @@ header img{
 
 header h1{
 	display: inline;
+}
+body {
+
+	background: none;
+	padding-bottom: 6rem;
+}
+
+form p{
+	margin: 50px;
+}
+
+.recipe-card h3{
+	font-size: 1em;
+}
+
+.recipe-card img{
+	height:60%;
+	width: auto;
+}
+
+.recipe-card{
+	height: 50vmax;
+	/*border: 1px solid black;*/
+}
+
+.pagination {
+	margin-top: 10px;
+}
+
+
+.pagination a{
+	display: inline;
+}
+
+footer{
+	border-top: 1px solid black;
+	/*position: absolute;*/
+	right: 0;
+  	bottom: 0;
+  	left: 0;
+	width: 100%;
+	padding: 1rem;
+}
+
+/*.footer {
+  
+  right: 0;
+  bottom: 0;
+  left: 0;
+  
+  background-color: #efefef;
+  text-align: center;
+}*/
+
+footer img {
+
+	height: 50px;
+	width: auto;
+}
+
+.search-blurb {
+	margin-left: 50px;
 }
