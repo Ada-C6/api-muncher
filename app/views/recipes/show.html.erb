@@ -28,16 +28,18 @@
             </tr>
         </table>
       </section>
-      <section>
-        <h3>Health Labels</h3>
-        <table class="health-labels-show">
-          <% @recipe.health_labels.each do |label| %>
-          <tr>
-            <td> <%= label %> </td>
-          </tr>
-          <% end %>
-        </table>
-      </section>
+      <% if !@recipe.health_labels.empty? %>
+        <section>
+          <h3>Health Labels</h3>
+          <table class="health-labels-show">
+            <% @recipe.health_labels.each do |label| %>
+            <tr>
+              <td> <%= label %> </td>
+            </tr>
+            <% end %>
+          </table>
+        </section>
+      <% end %>
     </div>
 
 
