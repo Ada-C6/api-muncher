@@ -19,10 +19,15 @@ class Recipe
 
   class << self
     attr_reader :recipes
+    attr_reader :recipes_hash
   end
 
   def self.all(search_term = nil, page = 1)
     @recipes = EdamamApiWrapper.recipe_search(search_term, page)
+    @recipes_hash ||= {}
+    @recipes.each do |recipe|
+      @recipes_hash[recipe.id] = recipe
+    end
   end
 
   def self.reset
@@ -30,6 +35,10 @@ class Recipe
   end
 
   def self.by_id(id, page = 1)
-    @recipe = EdamamApiWrapper.recipe_search(id, page).first
+    if @recipes_hash[id].nil?
+      EdamamApiWrapper.recipe_search(id, page)
+    else
+      return @recipes_hash[id]
+    end
   end
 end
