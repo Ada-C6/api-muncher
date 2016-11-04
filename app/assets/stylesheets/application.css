@@ -23,10 +23,11 @@ h1 {
 
 h2.recipeheader {
   text-align: center;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  margin-top: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   font-family: 'Sacramento';
-  background: lightgray;
+  background: ;
 }
 
 
@@ -133,6 +134,16 @@ a.page {
 
 a.current {
   border: 1px lightgray solid;
+}
+
+.main-picture {
+  border: 1px lightgray solid;
+  padding: 2%;
+}
+
+.recipepanel {
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 /*
