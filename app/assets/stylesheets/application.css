@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-color: lightgray;
+}
+
+nav {
+  background-color: gray;
+}
+
+nav h2 {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: left;
+}
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+}
+
+section h2, h3, p {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+section h3 {
+  font-size: 25px;
+}
+
+nav a {
+  color: black;
+}
+
+nav a:hover {
+  color: white;
+}
+
+li {
+  display: inline;
+}
+
+
+section img {
+  border-radius: 5px;
+}
+
+footer {
+  background-color: white;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+#search-form {
+  font-family: 'Source Sans Pro', sans-serif;
+}

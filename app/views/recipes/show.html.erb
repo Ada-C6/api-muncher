@@ -1,15 +1,19 @@
 <section>
 
-  <h1><%= @recipe.name %></h1>
+  <h1 class="centered-text"><%= @recipe.name %> <%= link_to 'Original Recipe', @recipe.source_url, :target => "_blank", class: "secondary button"%></h1>
 
-  <h4>Ingredients</h4>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <p><%= ingredient %></p>
-    <% end %>
+  <div class="row">
+    <div class= "large-6 columns">
+      <h4>Ingredients</h4>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <p><%= ingredient %></p>
+      <% end %>
+    </div>
 
-  <h4>Nutrition Info</h4>
-    <% @recipe.dietary_info.each do |nutrient| %>
-      <p><%= nutrient %></p>
-    <% end %>
-    <a href="<%= @recipe.source_url%>" target="_blank">Original Recipe</a>
+    <div class="large-6 columns">
+      <h4>Nutrition Info</h4>
+      <% @recipe.dietary_info.each do |nutrient| %>
+        <p><%= nutrient %></p>
+        <% end %>
+  </div>
 </section>
