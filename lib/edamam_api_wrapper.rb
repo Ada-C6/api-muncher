@@ -17,14 +17,28 @@ class EdamamApiWrapper
     return data
   end # self.search
 
-  def self.search_results(term)
-    # this method shall call search & return just the results (rather than the whole response)
-
-    if search(term)["hits"]
-      return search(term)["hits"]
-    else
-      return []
-    end # if
-  end # self.search_results
+  # def self.search_results(term)
+  #   # this method shall call search & return just the results (rather than the whole response)
+  #
+  #   search_response = search(term)
+  #   recipe_results = []
+  #
+  #   if search_response["hits"]
+  #     search_response["hits"].each do |hit|
+  #       recipe = hit["recipe"]
+  #       recipe_object = Recipe.new(
+  #         recipe["label"],
+  #         recipe["image"],
+  #         recipe["uri"],
+  #         recipe["url"],
+  #         recipe["calories"],
+  #         recipe["ingredients"], # array of JSON ingredient objects
+  #         recipe["totalNutrients"] )
+  #
+  #       recipe_results << recipe_object
+  #     end
+  #   end # if
+  #   return recipe_results
+  # end # self.search_results
 
 end # class
