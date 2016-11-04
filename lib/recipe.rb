@@ -34,4 +34,9 @@ class Recipe
   def self.by_id(id)
     self.all.select{ |r| r.id == id }.first
   end
+
+  def self.search(params)
+    @recipe = order('created_at DESC')
+    @recipe = @recipe.where('dietlabels LIKE?', "%#{params[:search]}%").order('created_at DESC') if params[:search].present?
+  end
 end
