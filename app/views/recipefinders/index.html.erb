@@ -1,0 +1,13 @@
+
+<div class='row'>
+  <div class='column'>
+    <section>
+      <p><%= flash[:notice] %>
+
+      <%= form_tag recipefinders_show_path(0), method: "get" do %>
+        <%= text_field_tag :query %>
+        <%= submit_tag "Find recipes", class: "Button" %>
+      <% end %>
+    </section>
+  </div>
+</div>
