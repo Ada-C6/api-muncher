@@ -1,3 +1,28 @@
 // Place all the styles related to the recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+main.search {
+  background-image: url(search.jpeg);
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+}
+
+section.search-form {
+  width: 60vw;
+  margin: 30vh auto;
+}
+
+.search-form label {
+  font-size: 5vmin;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
