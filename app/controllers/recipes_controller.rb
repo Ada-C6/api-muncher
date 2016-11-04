@@ -4,6 +4,14 @@ class RecipesController < ApplicationController
     @page = params[:page].to_i
     Recipe.reset
     @recipes = Recipe.all(@keyword, @page)
+
+    # save the user's recent searches.
+    # Hash prevents duplicates
+    session[:searches] ||= {}
+    session[:searches][@keyword] ||= true
+
+    @searches = session[:searches]
+
   end
 
   def show

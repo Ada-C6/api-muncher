@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  
+
   <header>
 
     <div class="title-bar" data-responsive-toggle="site-menu" data-hide-for="medium">
@@ -43,6 +43,11 @@
         </div>
       </div>
     </div>
+    <section>
+      <ul class='labels-list'>
+        <%= render partial: "link_list", locals: {list: @searches} %>
+      </ul>
+    </section>
   </header>
 
   <%= yield %>
