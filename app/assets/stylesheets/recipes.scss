@@ -22,7 +22,7 @@ a:hover {
   padding-top: 2rem;
 }
 
-.menu-text {
+.menu-text > a {
   font-size: 2rem;
   color: rgb(120, 195, 16);
   text-shadow: 1px 1px 2px #666;
@@ -81,7 +81,7 @@ form li {
 // recipe images are styled like tiles; opacity changes for hover and soft feel
 
 // "lift" parent opacity off hovered tile
-.recipe-collection:hover > .recipe-tile {
+html:hover  .recipe-tile {
   opacity: 0.6;
 }
 
