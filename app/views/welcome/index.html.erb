@@ -5,9 +5,9 @@
   </header>
   <%= form_tag recipes_path, method: :get do %>
     <%= label_tag :keyword, "Key Word:" %>
-    <%= text_field_tag :search_term, params[:search_term] %>
+    <%= text_field_tag :search_term, params[:search_term], class: "rounded-edges" %>
 
-    <%= submit_tag "Find Recipe", class: "button" %>
+    <%= submit_tag "Find Recipe", class: "button rounded-edges" %>
   <% end %>
 </section>
 

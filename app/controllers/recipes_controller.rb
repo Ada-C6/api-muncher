@@ -11,5 +11,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.by_uri(params[:uri])
     @Page = params[:page]
+    @all_indgredients = @recipe.ingredientLines
+    @yield = @recipe.yield.to_i
   end
 end

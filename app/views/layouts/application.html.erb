@@ -11,17 +11,21 @@
     <section class="top-bar" id="main-header">
       <nav class="top-bar-section">
         <ul class="menu top-bar-left">
-          <h1><%= link_to("Sky Sky Binks Food Eats", root_path) %></h1>
+          <li><h1><%= link_to("Sky Sky Binks Food Eats", root_path, class: "") %></h1></li>
         </ul>
-        <ul class="menu top-bar-right">
-          <li>
-            <%= form_tag recipes_path, method: :get do %>
+        <%= form_tag recipes_path, class: "header-form", method: :get do %>
+          <ul class="menu top-bar-right">
+            <li>
               <%= label_tag :keyword, "Key Word:" %>
-              <%= text_field_tag :search_term, params[:search_term] %>
-              <%= submit_tag "Find Recipe", class: "button" %>
-            <% end %>
-          </li>
-        </ul>
+            </li>
+            <li>
+              <%= text_field_tag :search_term, params[:search_term], class: "rounded-edges" %>
+            </li>
+            <li>
+              <%= submit_tag "Find Recipe", class: "button rounded-edges" %>
+            </li>
+          </ul>
+        <% end %>
       </nav>
     </section>
   </header>
@@ -29,7 +33,17 @@
   <%= yield %>
 
   <footer>
-    <span>Powered by:</span><%= image_tag("edamam-logo.png", class: "logo") %>
+    <div class="row">
+      <p
+        class="small-9 columns">&copy; <%= Time.now.year %> SkySkyBinksFoodEats
+      </p>
+      <p class="small-3 columns">
+        Powered by: <%= image_tag("edamam-logo.png", class: "logo") %>
+      </p>
+    </ul>
+
+
+    </p>
   </footer>
 </body>
 </html>

@@ -15,9 +15,9 @@ class RecipesControllerTest < ActionController::TestCase
   end
 
   test "should show recipe" do
-    label = "Grilled Deviled Chickens Under a Brick"
+    uri = "3f10dadc9f8dbe253c076927204cea50"
     VCR.use_cassette("recipes") do
-      get :show, { id: label }
+      get :show, { uri: uri }
 
       assert_response :success
       assert_template :show

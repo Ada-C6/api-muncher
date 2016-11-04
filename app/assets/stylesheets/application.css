@@ -3,19 +3,27 @@
 
 /*HEADER*/
 section.top-bar#main-header {
-  background-color: #D9D7E5;
+  background-color: #5FB49C;
+  border: 1px black solid;
+
 }
 
 header h1 {
   font-family: 'Port Lligat Sans', sans-serif;
+
 }
 
 header a {
-  color: #2F2D2E;
+  color: #302F33;
 }
 
 .search-me {
-  background-color: #BECE9F;
+  background-color: #FFBA08;
+}
+
+.rounded-edges {
+  border-radius: 15px;
+
 }
 
 ul.top-bar-right {
@@ -30,10 +38,12 @@ ul.menu {
    float:left;
 }
 
-.page-title {
-  font-family: 'Port Lligat Sans', sans-serif;
-  padding: 2% 0 0 2%;
-  width: auto;
+ul.top-bar-right {
+  padding-top: 1%;
+}
+
+ul.top-bar-right li {
+  padding-left: 1%;
 }
 
 #homepage-title {
@@ -47,6 +57,37 @@ ul p.centered {
   margin-right: auto;
 }
 
+.page-title {
+  font-family: 'Port Lligat Sans', sans-serif;
+  width: auto;
+  margin: 4% 3% 3% 3%;
+  border: 1px black solid;
+}
+
+.img-titles {
+  text-align: center;
+}
+
+.centered {
+  text-align: center;
+  margin: 1%;
+}
+
+.bkgrnd-color-white {
+  background-color: white;
+  border-radius: 15px;
+}
+
+.backgrnd-color-yellow {
+  background-color: #FFBA08;
+  border-radius: 15px;
+}
+
+.bkgrnd-color-teal {
+  background-color: #5FB49C;
+  border-radius: 15px;
+}
+
 .no-bullet {
   list-style: none;
 }
@@ -54,15 +95,73 @@ ul p.centered {
   padding: 2% 6% 2% 6%;
 }
 
-left-indent {
+.left-indent {
   padding-left: 2%
 }
 
+.incr-padding {
+  padding: 1%;
+}
+
+.margin {
+  margin: 2%;
+}
+
+.add-padding {
+  padding: 1% 2% 1% 2%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.change-font {
+  font-family: 'Port Lligat Sans', sans-serif;
+}
+
+.padding-bot {
+  padding-bottom: 2%;
+}
+
+.show-img-size {
+  width: 90%;
+  border: black solid 10px;
+}
+
+.show-info {
+  margin: 0%;
+  border: black solid 3px;
+}
+
+.underline {
+  border-bottom: black solid 1px;
+}
+
+.dash-underline {
+  border-bottom: black dashed 1px;
+}
+
+.increase-font {
+  font-size: 150%;
+}
+
+.add-border {
+  border: 1px black solid;
+  border-radius: 15px;
+}
+
+.add-padding {
+  padding: 1%;
+}
+
+
 /*FOOTER*/
 footer {
-  background-color: #D9D7E5;
+  background-color: #5FB49C;
+  padding: 1%;
+  border: 1px black solid;
 }
 
 .logo {
-  width:10%;
+  width:40%;
 }
