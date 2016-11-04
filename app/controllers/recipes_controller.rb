@@ -16,6 +16,10 @@ class RecipesController < ApplicationController
     render :index
   end
 
+  # Lead on a possible bug fix.
+  # .../index
+  # .../index?search=chocolate
+
   def show
     @recipe = Recipe.by_name(params[:id])
   end

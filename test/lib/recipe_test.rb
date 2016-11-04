@@ -14,14 +14,37 @@ class RecipeTest < ActiveSupport::TestCase
   end
 
   test "Recipe.all should return an array of recipes" do
-    search_term = "chicken"
-    page = 1
     VCR.use_cassette("recipes") do
-      recipes = EdamamApiWrapper.recipe_search(search_term, page)
-      assert_not recipes.empty?
+      search_term = "chicken"
+      page = 1
+      recipes = Recipe.all(search_term, page)
+      assert_not_empty recipes
       recipes.each do |recipe|
         assert_kind_of Recipe, recipe
       end
     end
   end
+
+  test "Recipe.reset should return nil" do
+    VCR.use_cassette("recipes") do
+      search_term = "chicken"
+      page = 1
+      recipes = Recipe.all(search_term, page)
+      recipes = Recipe.reset
+      assert_nil recipes
+    end
+  end
+
+  test "Recipe.by_name should return the specific recipe" do
+    VCR.use_cassette("recipes") do
+      search_term = "chicken"
+      page = 1
+      recipes = Recipe.all(search_term, page)
+
+      recipes.each do |recipe|
+        assert Recipe.by_name(recipe.name), recipe.name
+      end
+    end
+  end
+
 end
