@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 gem 'will_paginate', '~> 3.1.1'
 
 gem 'httparty'
@@ -39,13 +40,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'dotenv-rails'
   gem 'byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'minitest-vcr'
   gem 'webmock'
-  gem 'dotenv-rails'
 end
 
 group :test do
