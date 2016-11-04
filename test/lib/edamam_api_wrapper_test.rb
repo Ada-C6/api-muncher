@@ -5,14 +5,24 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     assert true
   end
 
-  test ".search returns an array of channel objects" do
-    VCR.use_cassette("recipes") do
-      chicken_search = EdamamApiWrapper.search("chicken")
+  test ".search returns an array of recipe objects and a total count" do
+    VCR.use_cassette("new_recipes") do
+      count, chicken_search = EdamamApiWrapper.search("chicken", 1)
       assert_kind_of Array, chicken_search
+      assert_kind_of Integer, count
       assert_not chicken_search.empty?
       chicken_search.each do |item|
         assert_kind_of Recipe, item
       end
+    end
+  end
+
+  test ".search will return an empty array if no recipes are found" do
+    VCR.use_cassette("recipes") do
+      count, nonsense_search = EdamamApiWrapper.search("sadklfjalsjf", 1)
+      assert_kind_of Array, nonsense_search
+      assert_kind_of Integer, count
+      assert nonsense_search.empty?
     end
   end
 
