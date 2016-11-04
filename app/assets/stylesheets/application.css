@@ -40,9 +40,21 @@
    padding-top: 10px;
  }
 
+.header-img-show {
+  margin-top: 10px;
+}
+
 .img-show {
   border-radius: 50%;
   width: 70%;
+  max-height: 250px;
+  max-width: 250px;
+  display: block;
+  margin: 15px auto;
+}
+
+.recipe-header-show {
+  text-align: center;
 }
 
 .health-labels-show li {
@@ -52,3 +64,11 @@
 .instructions-show-button {
   text-align: right;
 }
+
+/*.row{
+  border: solid blue medium;
+}*/
+
+/*.column{
+  border: solid red thin;
+}*/

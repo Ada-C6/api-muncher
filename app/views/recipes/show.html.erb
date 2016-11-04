@@ -1,12 +1,16 @@
 <article>
-  <section class="row">
-    <%= image_tag(@recipe.image, :class => "small-12 column img-show") %>
-    <article>
-      <section class="small-12 column">
-        <h1><%= @recipe.label %></h1>
-        <h4>From <%=link_to @recipe.source, @recipe.source_url %> </h4>
-      </section>
-      <section class="small-12 column ingredients-show">
+  <section class="header-img-show row">
+    <div class= "small-12 columns">
+      <%= image_tag(@recipe.image, :class => "img-show") %>
+    </div>
+  </section>
+  <article class="row">
+    <section class="recipe-header-show small-12 column">
+      <h1><%= @recipe.label %></h1>
+      <h4>From <%=link_to @recipe.source, @recipe.source_url %> </h4>
+    </section>
+    <div class="small-12 large-8 column">
+      <section>
         <h2>Ingredients</h2>
         <table>
           <% @recipe.ingredients.each do |ingredient| %>
@@ -15,14 +19,16 @@
               </td>
             </tr>
           <% end %>
-          <tr>
-            <td class="instructions-show-button">
-              <%= button_to("See Instructions", @recipe.source_url, method: :get)%>
-            </td>
-            <td> on <%=link_to @recipe.source, @recipe.source_url %>
-            </td>
-          </tr>
+            <tr>
+              <td class="instructions-show-button">
+                <%= button_to("See Instructions", @recipe.source_url, method: :get)%>
+              </td>
+              <td> on <%=link_to @recipe.source, @recipe.source_url %>
+              </td>
+            </tr>
         </table>
+      </section>
+      <section>
         <h3>Health Labels</h3>
         <table class="health-labels-show">
           <% @recipe.health_labels.each do |label| %>
@@ -32,14 +38,14 @@
           <% end %>
         </table>
       </section>
-    </article>
-  </section>
+    </div>
 
-  <% if @recipe.dietary_info != nil %>
-  <section class="row small-up-1">
-    <div class="column">
-      <h3>Dietary Info (per serving)</h3>
-      <table>
+
+    <% if @recipe.dietary_info != nil %>
+      <section class="small-12 large-4 column">
+        <div>
+          <h3>Dietary Info (per serving)</h3>
+          <table>
         <% @recipe.dietary_info.each do |nutrient, value| %>
           <tr>
             <td> <%= value["label"] %>
@@ -51,8 +57,8 @@
           </tr>
         <% end %>
       </table>
-    </div>
-  </section>
-  <% end %>
-
+        </div>
+      </section>
+    <% end %>
+  </article>
 </article>
