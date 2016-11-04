@@ -32,8 +32,8 @@ class Nutrient
 
 	def self.calc_percent_dv(quantity,the_rec)
 		return "no recommendation" unless the_rec.class==Float
-		puts "quantity: #{quantity}"
-		puts "the rec: #{the_rec}"
+		# puts "quantity: #{quantity}"
+		# puts "the rec: #{the_rec}"
 		begin
 			a=((quantity/the_rec)*100)
 			puts "the percent dv: #{a}"

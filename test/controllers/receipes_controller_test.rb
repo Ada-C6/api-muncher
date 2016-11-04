@@ -12,9 +12,10 @@ class RecipesControllerTest < ActionController::TestCase
 
 	test "if the id does not exist it should render a 404 page" do
 		VCR.use_cassette("bad_id") do 	
-			session[:term]= "cheese"
-			get :show , id: 80000
-			assert_raises(ActionController::RoutingError)
+			assert_raises(ActionController::RoutingError) do
+				session[:term]= "cheese"
+				get :show , id: 80000
+			end
 		end
 	end
 
