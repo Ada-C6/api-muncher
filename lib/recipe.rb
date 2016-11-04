@@ -11,8 +11,12 @@ class Recipe
     @ingredients = options[:ingredients]
   end
 
-  def self.search(string)
-    EdamamApiWrapper.search_recipes(string)
+  def self.search(string, page)
+    EdamamApiWrapper.search_recipes(string, page)
+  end
+
+  def self.hit_counts(string)
+    EdamamApiWrapper.count(string)
   end
 
   def self.by_uri(uri)

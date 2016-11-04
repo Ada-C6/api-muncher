@@ -1,8 +1,24 @@
-<h1>YOUR RESULTS</h1>
-<h4> based on your search of <%= @keyword %></h4>
+<section>
+  <h1>YOUR RESULTS</h1>
+  <h4> based on your search of <%= @keyword %></h4>
+<section>
 
-<% @searched.each do |recipe| %>
-  <% uri = recipe.uri.split("_").last %>
-  <%= link_to "#{image_tag(recipe.photo)}".html_safe, show_recipe_path(uri), class: "category-img" %>
-  <p><%= link_to recipe.label, show_recipe_path(uri) %></p>
-<% end %>
+<section>
+  <% if @page >= 2 %>
+    <h5><%= link_to "Previous", search_recipes_path(search: params[:search], page: @page - 1) %></h5>
+  <% end %>
+  <% if @page >= 1 && @page <= (@last_page - 1) %>
+    <h5><%= link_to "Next", search_recipes_path(search: params[:search], page: @page + 1) %></h5>
+  <% end %>
+</section>
+
+<section>
+  <ul class="row small-up-1 medium-up-2 large-up-3 no-bullets" >
+    <% @searched.each do |recipe| %>
+      <% uri = recipe.uri.split("_").last %>
+      <li class="column"><%= link_to "#{image_tag(recipe.photo)}".html_safe, show_recipe_path(uri)%>
+      <p><%= link_to recipe.label, show_recipe_path(uri) %></p><li>
+    <% end %>
+
+  </ul>
+</section>
