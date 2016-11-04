@@ -17,6 +17,7 @@ class EdamamApiWrapper
     return data
   end # self.search
 
+  # @todo - remove if unused
   # def self.search_results(term)
   #   # this method shall call search & return just the results (rather than the whole response)
   #

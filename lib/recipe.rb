@@ -1,10 +1,11 @@
 class Recipe
-  attr_reader :title, :image_url, :uri, :recipe_url, :calories, :ingredient_objects, :nutrients_object
+  attr_reader :title, :image_url, :uri, :source_name, :recipe_url, :calories, :ingredient_objects, :nutrients_object
 
-  def initialize(title, image_url, uri, recipe_url, calories, ingredient_objects, nutrients_object)
+  def initialize(title, image_url, uri, source_name, recipe_url, calories, ingredient_objects, nutrients_object)
     @title = title
     @image_url = image_url
     @uri = uri
+    @source_name = source_name
     @recipe_url = recipe_url
     @calories = calories
     @ingredient_objects = ingredient_objects
@@ -24,6 +25,7 @@ class Recipe
           recipe["label"],
           recipe["image"],
           recipe["uri"],
+          recipe["source"],
           recipe["url"],
           recipe["calories"],
           recipe["ingredients"], # array of JSON ingredient objects
@@ -34,4 +36,8 @@ class Recipe
     end # if
     return recipe_results
   end # self.search_results
+
+  def uri_id
+    self.uri.split("_").last
+  end
 end

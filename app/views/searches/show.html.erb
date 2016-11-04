@@ -1,0 +1,12 @@
+  <h1><%= @recipe.title %></h1>
+  <%= image_tag @recipe.image_url %>
+  <p>
+    <%= link_to "See it on #{@recipe.source_name}", @recipe.recipe_url %>
+  </p>
+  <ul><h5>Ingredients</h5>
+  <% @ingredients.each do |ingredient| %>
+    <li>
+      <%= ingredient %>
+    </li>
+  <% end %>
+</ul>

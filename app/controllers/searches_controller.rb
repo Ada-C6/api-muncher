@@ -18,8 +18,6 @@ class SearchesController < ApplicationController
       # flash[:notice] = "Successfully sent search for #{@search_term}."
       @recipe_results = Recipe.search_results(@response)
     else
-      raise
-
       flash[:notice] = "Failed to send search for #{@search_term}: #{@response["error"]}"
 
       render :new and return
@@ -27,6 +25,14 @@ class SearchesController < ApplicationController
 
     # render :index
     # redirect_to recipes_path
+  end
+
+  def show
+    @search = EdamamApiWrapper.search(params[:id])
+
+    @recipe = Recipe.search_results(@search).first
+
+    @ingredients = @recipe.ingredient_objects.map { |ing_object| ing_object["text"] }
   end
 
   def create
