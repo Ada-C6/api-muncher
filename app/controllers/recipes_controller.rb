@@ -6,7 +6,6 @@ class RecipesController < ApplicationController
   end
 
   def results
-    #this displays the results of the search?
   @recipes = Recipe.all(params[:search]).paginate(:page => params[:page], :per_page => 10)
     if @recipes == []
       flash[:no_results] = "Sorry! Your search term did not find any results."
