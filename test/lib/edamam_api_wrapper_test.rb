@@ -13,7 +13,9 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
       recipes.each do |recipe|
         assert_kind_of Recipe, recipe
       end
-      # assert recipes.length =< 100
+      assert recipes.length <= 100
     end
   end
+
+  # test for nil result, parameter search_term = nil, seach for empty string
 end

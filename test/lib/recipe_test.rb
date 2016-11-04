@@ -21,6 +21,8 @@ class RecipeTest < ActiveSupport::TestCase
     assert_equal recipe.diet, diet
   end
 
+  # test for negative case of constructor
+
   test "Recipe.all(search_term) should return an array of recipes that match the search term in parameter" do
     VCR.use_cassette("recipes") do
       recipes = Recipe.all("beef")
@@ -40,6 +42,16 @@ class RecipeTest < ActiveSupport::TestCase
       assert_kind_of Recipe, recipe
       assert_equal recipe.id, id
       # assert_equal recipe.label, label : this test is not passing
+    end
+  end
+
+  test "Search results are preserved without reset" do
+    VCR.use_cassette("recipes") do
+      recipes = Recipe.all("beef")
+      # check that results are as expected
+
+      recipes = Recipe.all("crab")
+      # check that results haven't changed
     end
   end
 end
