@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <% if !flash.empty? %>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      <% end %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
