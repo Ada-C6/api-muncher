@@ -1,2 +1,11 @@
-<h1>RecipeSearch#show</h1>
+<h1><%= @recipe[0].label %></h1>
 <p>Find me in app/views/recipe_search/show.html.erb</p>
+
+
+<ul>
+  <li><%= image_tag @recipe[0].image %></li>
+  <li><%= @recipe[0].ingredients %></li>
+  <li><%= @recipe[0].diet_labels %></li>
+  <li><%= @recipe[0].health_labels %></li>
+  <li><%= link_to @recipe[0].url, @recipe[0].url, target: :_blank %></li>
+</ul>

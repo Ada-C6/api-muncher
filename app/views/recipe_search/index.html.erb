@@ -1,13 +1,10 @@
-<h1>RecipeSearch#index</h1>
-<p>Find me in app/views/recipe_search/index.html.erb</p>
-
 <h3>Search Results</h3>
   <ol>
     <% @data.each do |result| %>
       <li>
-        <%= link_to result.label, recipe_search_show_path(result) %>
-        <%= link_to recipe_search_show_path(result) do %>
-          <%= image_tag "#{ result.image }"%>
+        <%= link_to result.label, recipe_search_show_path(result.id) %>
+        <%= link_to recipe_search_show_path(result.id) do %>
+          <%= image_tag result.image %>
         <% end %>
       </li>
     <% end %>

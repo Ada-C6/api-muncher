@@ -1,7 +1,8 @@
 class SearchResult
-  attr_reader :label, :image, :url, :diet_labels, :health_labels, :ingredients
+  attr_reader :id, :label, :image, :url, :diet_labels, :health_labels, :ingredients
 
-  def initialize(label, image, url, diet_labels, health_labels, ingredients)
+  def initialize(id, label, image, url, diet_labels, health_labels, ingredients)
+    @id = id
     @label = label
     @image = image
     @url = url
