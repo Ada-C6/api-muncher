@@ -21,8 +21,11 @@ class EdamamApiWrapper
         image: item["recipe"]["image"],
         source_url: item["recipe"]["url"],
         source_icon: item["recipe"]["sourceIcon"],
-        ingredients: item["recipe"]["ingredients"],
-        from: "search")
+        ingredients: item["recipe"]["ingredientLines"],
+        from: "search",
+        health_labels: item["recipe"]["healthLabels"],
+        dietary_info: item["recipe"]["totalNutrients"]
+        )
         search_results_list << wrapper
       end
     else
@@ -61,7 +64,10 @@ class EdamamApiWrapper
       source_url: data[0]["url"],
       source_icon: data[0]["sourceIcon"],
       ingredients: data[0]["ingredients"],
-      from: "find_recipe"
+      from: "find_recipe",
+      health_labels: data[0]["healthLabels"],
+      dietary_info: data[0]["totalNutrients"]
+
       )
 
       return wrapper

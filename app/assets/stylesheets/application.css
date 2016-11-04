@@ -29,13 +29,26 @@
    width: 50%;
  }
 
- .baked-searches ul li {
+ .baked-searches li, .health-labels-show li{
    display: inline-block;
    /*padding: 20px;*/
  }
 
- .baked-searches ul {
+ .baked-searches, .health-labels-show {
    list-style: none;
    /*border-style: solid;*/
    padding-top: 10px;
  }
+
+.img-show {
+  border-radius: 50%;
+  width: 70%;
+}
+
+.health-labels-show li {
+  font-size: .75em;
+}
+
+.instructions-show-button {
+  text-align: right;
+}

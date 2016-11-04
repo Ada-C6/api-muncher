@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :label, :source, :identifier, :image, :source_url, :source_icon, :ingredients, :from
+  attr_reader :label, :source, :identifier, :image, :source_url, :source_icon, :ingredients, :from, :health_labels, :dietary_info
 
   def initialize(label, source_site, identifier, options = {} )
     @label = label
@@ -10,6 +10,8 @@ class Recipe
     @source_icon = options[:source_icon]
     @ingredients = options[:ingredients]
     @from = options[:from]
+    @health_labels = options[:health_labels]
+    @dietary_info = options[:dietary_info]
   end
 
   # Create a class-level instance variable.
