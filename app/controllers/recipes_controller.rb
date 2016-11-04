@@ -4,9 +4,10 @@ class RecipesController < ApplicationController
     #I think this is not dry but I'm not sure how to improve it. A before action would
     #still use the api
     #can VCR be used outside tests? maybe I'll try that...
+    
     results = MuncherApiWrapper.search(session[:term])
     recipes=Recipe.make_recipes_from_api(results)
-    @this_recipe=recipes[params[:id].to_i-1]
+    @this_recipe=recipes[params[:id].to_i-1] or not_found
   end
 
   def search
