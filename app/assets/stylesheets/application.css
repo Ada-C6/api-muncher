@@ -15,6 +15,9 @@ nav {
   margin-top: 30px;
   /*margin-left: 30px;*/
 }
+.page-bar a {
+
+}
 .page-bar em.current {
   padding: 10px;
   border-radius: 3px;
@@ -24,11 +27,22 @@ nav {
 #search-form {
   padding: 2%;
   width: 50%;
+  font-family: 'Nobile', arial;
 }
 
 #search-form input, .form_submit{
     border-radius: 100px;
     background-color: white;
+    border: 2px solid rgb(30, 132, 215
+    );
+}
+
+#search-form .form_submit{
+  background-color: rgb(30, 132, 215
+  );
+  color:  white;
+  border: 2px solid white;
+  padding: 10px;
 }
 
 li {
@@ -40,7 +54,7 @@ h1, h2 {
     padding-top: 15px;
 }
 
-p, ul, li{
+p, ul, li, a{
   font-family: 'Nobile', Arial, sans-serif;
 }
 
