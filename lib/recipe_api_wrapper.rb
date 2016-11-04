@@ -5,10 +5,7 @@ require_relative 'recipe'
 class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search?"
 
-  # def self.list_recipes(search_term, page_number)
   def self.list_recipes(search_term)
-    # index = (page_number - 1)*10
-    # url = BASE_URL + "q=#{search_term}" + "&from=#{index}"
 
     # I'm making an executive decision to limit the search results being shown to 100
     url = BASE_URL + "q=#{search_term}" + "&to=100"
@@ -35,20 +32,4 @@ class EdamamApiWrapper
     return all_recipes
   end
 
-  # I don't need this method anymore because I don't want to call API again.
-  # def self.list_a_recipe(id)
-    # how to add a new uri to the current http uri?
-    # url = BASE_URL + "r=" + "http://www.edamam.com/ontologies/edamam.owl%23" + "#{id}"
-    #
-    # data ||= HTTParty.get(url).parsed_response
-    #
-    # label = data[0]["label"]
-    # photo = data[0]["image"]
-    # url = data[0]["url"]
-    # ingredients = data[0]["ingredientLines"]
-    # diet = data[0]["dietLabels"]
-    #
-    # recipe = Recipe.new(id, label, photo, url, ingredients, diet)
-    # return recipe
-  # end
 end

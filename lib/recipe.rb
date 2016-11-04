@@ -19,18 +19,12 @@ class Recipe
     attr_reader :recipes
   end
 
-  # def self.all(search_term, page_number)
+
   def self.all(search_term)
-    #reset_all #TO-DO: clear the previous search all session, but this make my 'back to index' page not working anymore
-    #reset_all now will go to the 'home' method in controller.
-    # @recipes ||= EdamamApiWrapper.list_recipes(search_term, page_number)
     @recipes ||= EdamamApiWrapper.list_recipes(search_term)
   end
 
   def self.search_by(id)
-    #reset_one #clear the previous show one session
-    # @recipe ||= EdamamApiWrapper.list_a_recipe(id)
-
     @recipe = @recipes.select{ |r| r.id == id }.first
   end
 
@@ -38,7 +32,4 @@ class Recipe
     @recipes = nil
   end
 
-  # def self.reset_one
-  #   @recipe = nil
-  # end
 end
