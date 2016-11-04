@@ -22,7 +22,7 @@
 		<tr>
 			<td> <%=nutrient.name%></td>
 			<td> <%=(nutrient.quantity/@this_recipe.servings).round(2)%><%=nutrient.unit%></td>
-			<%if nutrient.percent_dv.class==String %> 
+			<%unless nutrient.percent_dv.class==Float %> 
 				<td> <%=nutrient.percent_dv%></td>
 			<%else%>
 				<td> <%=(nutrient.percent_dv/@this_recipe.servings).round(1) %>%</td>

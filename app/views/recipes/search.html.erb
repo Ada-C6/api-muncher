@@ -1,5 +1,5 @@
 
-<p>search results for: "<%= @term %>" (<%=@num_results%> hits) </p>
+<p class="search-blurb">search results for: "<%= @term %>" (<%=@num_results%> hits) </p>
 <div class="row small-up-1 medium-up-3 large-up-4">
 <% @recipes.each do |recipe| %>
 	<div class="column recipe-card">
@@ -9,5 +9,5 @@
 <%end%>
 </div>
 <%= will_paginate @paginated_results %>
-<%= flash[:notice] %>
+<p class="search-blurb"><%= flash[:notice]%></p>
 
