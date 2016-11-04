@@ -3,6 +3,7 @@
   <section class="Food-Summary">
     <%=image_tag("#{@recipe.image}")%>
     <p><%=link_to @recipe.uri, @recipe.url, :target => "_blank"%></p>
+
     <h3><strong>Ingredients:</strong></h3>
     <%@recipe.ingredients.each do |pieces|%>
     <p><%= pieces%></p>
