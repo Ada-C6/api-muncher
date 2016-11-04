@@ -8,13 +8,8 @@ class Recipe
     @uri = uri.split(/[_]/).last
     @url = options[:url]
     @image_url = options[:image_url]
-    if options[:ingredients]
-      @ingredients = options[:ingredients].map do |i|
-        i["text"]
-      end
-    end
+    @ingredients = options[:ingredients]
     @tags = options[:tags]
-    @summary = options[:summary]
     if options[:dietary_info]
       i = options[:dietary_info]
       dietary_info = [i["ENERC_KCAL"], i["FAT"], i["CHOCODF"], i["FIBTG"], i["SUGAR"], i["PROCNT"], i["CHOLE"], i["NA"]]
@@ -35,7 +30,7 @@ class Recipe
 
   def self.find(id)
     unless self.results.nil?
-      recipe = results.find do |result|
+      recipe = self.results.find do |result|
         result.uri == id
       end
       return recipe unless recipe.nil?

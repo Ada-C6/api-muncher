@@ -32,6 +32,11 @@ section.search-form {
   background-color: lightgrey;
   border-radius: 3px;
   padding: 5px;
+  white-space: nowrap;
+  line-height: 2em;
+}
+
+.tags ul {
   text-align: right;
 }
 

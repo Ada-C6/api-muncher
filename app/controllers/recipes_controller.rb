@@ -10,8 +10,11 @@ class RecipesController < ApplicationController
     if Recipe.count == 0
       @pages = 1
       @count = 0
+    elsif Recipe.count > 100
+      @count = 100
+      @pages = 10
     else
-      @count = Recipe.count - 1
+      @count = Recipe.count
       @pages = (@count/10.0).ceil
     end
     # raise

@@ -6,27 +6,31 @@
     <h3 class="column"><%= "#{@count} recipes matching '#{@search_term}'" %>:</h3>
   </section>
 
-  <ul class="row small-up-1 medium-up-3 large-up-4">
-    <% @results.each do |recipe| %>
-    <li class="column">
-      <section class="recipe row">
-        <%= link_to recipe_path(recipe.uri), class: "recipe-image small-12 columns" do %>
-        <%= image_tag "#{recipe.image_url}", alt: "#{recipe.label} Image", class: "recipe-label small-12 columns" %>
-        <% end %>
-        <%= link_to recipe.label, recipe_path(recipe.uri) %>
-      </section>
-    </li>
-    <% end %>
-  </ul>
+  <section class="search-results">
+    <ul class="row small-up-1 medium-up-3 large-up-4">
+      <% @results.each do |recipe| %>
+      <li class="column">
+        <section class="recipe row">
+          <%= link_to recipe_path(recipe.uri), class: "recipe-image small-12 columns" do %>
+          <%= image_tag "#{recipe.image_url}", alt: "#{recipe.label} Image", class: "recipe-label small-12 columns" %>
+          <% end %>
+          <%= link_to recipe.label, recipe_path(recipe.uri) %>
+        </section>
+      </li>
+      <% end %>
+    </ul>
+  </section>
 
   <section class="page-nav small-up-1 medium-up-3 large-up-3 row">
     <section class="column">
-      <% unless @page == 1 %>
+      <% unless @page == 1 || @pages == 1 %>
       <%= link_to "Previous", recipes_path(page: @page.to_i - 1, search: @search_term )%>
       <% end %>
     </section>
     <section class="column">
-      <%= @page.to_s + " of " + @pages.to_s + " page(s)" %>
+      <% unless @pages == 1 %>
+        <%= @page.to_s + " of " + @pages.to_s + " pages" %>
+      <% end %>
     </section>
     <section class="column">
       <% if @page.to_i < @pages.to_i %>

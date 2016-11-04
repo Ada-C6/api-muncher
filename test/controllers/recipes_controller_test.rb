@@ -8,14 +8,27 @@ class RecipesControllerTest < ActionController::TestCase
 
   test "should get index page with search results" do
     VCR.use_cassette("recipes") do
+      search = "matsutake"
+      page = "1"
+      get :index, { :search => search, "page" => page}
+      assert_response :success
+      assert_equal assigns[:search_term], search
+      assert_equal assigns[:page], page
+      assert_equal assigns[:count], 17
+      assert_equal assigns[:pages], (assigns[:count]/10.0).ceil
+      assert_equal assigns[:results].length, 10
+    end
+  end
+  test "should get limit results to 100 max" do
+    VCR.use_cassette("recipes") do
       search = "ham"
       page = "1"
       get :index, { :search => search, "page" => page}
       assert_response :success
       assert_equal assigns[:search_term], search
       assert_equal assigns[:page], page
-      assert_equal assigns[:count], Recipe.count - 1
-      assert_equal assigns[:pages], (assigns[:count]/10.0).ceil
+      assert_equal assigns[:count], 100
+      assert_equal assigns[:pages], 10
       assert_equal assigns[:results].length, 10
     end
   end

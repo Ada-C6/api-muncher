@@ -16,7 +16,9 @@ class EdamamApiWrapper
     if data["hits"]
       count = data["count"]
       data["hits"].each do |hit|
-        wrapper = Recipe.new hit["recipe"]["label"], hit["recipe"]["uri"], url: hit["recipe"]["url"], image_url: hit["recipe"]["image"], ingredients: hit["recipe"]["ingredients"], tags: hit["recipe"]["dietLabels"], summary: hit["recipe"]["summary"], dietary_info:  hit["recipe"]["totalNutrients"]
+        tags = hit["recipe"]["dietLabels"]
+        tags += hit["recipe"]["healthLabels"]
+        wrapper = Recipe.new hit["recipe"]["label"], hit["recipe"]["uri"], url: hit["recipe"]["url"], image_url: hit["recipe"]["image"], ingredients: hit["recipe"]["ingredientLines"], tags: tags.compact, dietary_info:  hit["recipe"]["totalNutrients"]
         # need to add more dietary info above
         results << wrapper
       end
@@ -31,7 +33,9 @@ class EdamamApiWrapper
 
     # return url
     data = HTTParty.get(url)
-    recipe = Recipe.new data[0]["label"], data[0]["uri"], url: data[0]["url"], image_url: data[0]["image"], ingredients: data[0]["ingredients"], tags: data[0]["dietLabels"], summary: data[0]["summary"], dietary_info:  data[0]["totalNutrients"]
+    tags = data[0]["dietLabels"]
+    tags += data[0]["healthLabels"]
+    recipe = Recipe.new data[0]["label"], data[0]["uri"], url: data[0]["url"], image_url: data[0]["image"], ingredients: data[0]["ingredientLines"], tags: tags, summary: data[0]["summary"], dietary_info:  data[0]["totalNutrients"]
     return recipe
   end
 end
