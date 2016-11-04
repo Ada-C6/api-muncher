@@ -15,9 +15,7 @@ class Recipe
     EdamamApiWrapper.search_recipes(string)
   end
 
-  # def self.by_label(uri)
-  #   matches = EdamamApiWrapper.search_one(uri)
-  #   return matches.first
-  # end
-
+  def self.by_uri(uri)
+    return EdamamApiWrapper.one_recipe(uri).first
+  end
 end
