@@ -23,7 +23,7 @@ class Recipe
     attr_reader :recipes
   end
 
-  def self.all(keyword = nil, page = 0)
+  def self.search(keyword = nil, page = 0)
     @recipes ||= EdamamApiWrapper.listrecipes(keyword, page)
   end
 
@@ -32,21 +32,14 @@ class Recipe
   end
 
   def self.by_id(id)
-    self.all.select{ |r| r.id == id }.first
+    self.search.select{ |r| r.id == id }.first
   end
 
 
-  def self.search(params)
-    # Because the Stack Overflow method below wasn't working, I tried to just iterate through the recipes array
-    # and return anything that included the search term
-    @filtered_recipes = []
-    @recipes.each do |recipe|
-      if recipe.dietlabels.includes?(params[:search])
-        @filtered_recipes << recipe
-      end
+  def self.search_label(labels, recipes)
+    recipes.select! do |recipe|
+      (recipe.dietlabels & labels).present?
     end
-    return @filtered_recipes
-    # Based on googling and stack overflow, I think this is the correct way to write this method???
-    # @recipes = @recipes.includes?('dietlabels LIKE?', "%#{params[:search]}%").order('created_at DESC') if params[:search].present?
+    return recipes
   end
 end

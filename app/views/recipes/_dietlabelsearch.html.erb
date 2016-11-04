@@ -1,20 +1,18 @@
 <section class="diet-labels-search">
   <% if !@searchterm.nil? %>
     <p>Would you like to further refine your search? Please check which categories you'd like:</p>
-    <!-- I'm pretty sure it needs to be "search[]" rather than :search, because I want to generate an array
-    of search terms, and without this, only the last term would be searched -->
     <%= form_tag root_path, method: :get do %>
-      <%= check_box_tag "search[]", "Balanced" %>
+      <%= check_box_tag "dietlabels[]", "Balanced" %>
       <%= label_tag(:dietlabels, "Balanced") %>
-      <%= check_box_tag "search[]", "High-Fiber" %>
+      <%= check_box_tag "dietlabels[]", "High-Fiber" %>
       <%= label_tag(:dietlabels, "High Fiber") %>
-      <%= check_box_tag "search[]", "High-Protein" %>
+      <%= check_box_tag "dietlabels[]", "High-Protein" %>
       <%= label_tag(:dietlabels, "High Protein") %>
-      <%= check_box_tag "search[]", "Low-Carb" %>
+      <%= check_box_tag "dietlabels[]", "Low-Carb" %>
       <%= label_tag(:dietlabels, "Low Carb") %>
-      <%= check_box_tag "search[]", "Low-Fat" %>
+      <%= check_box_tag "dietlabels[]", "Low-Fat" %>
       <%= label_tag(:dietlabels, "Low Fat") %>
-      <%= check_box_tag "search[]", "Low-Sodium" %>
+      <%= check_box_tag "dietlabels[]", "Low-Sodium" %>
       <%= label_tag(:dietlabels, "Low Sodium") %>
       <%= hidden_field_tag(:searchterm, @searchterm) %>
       <%= hidden_field_tag :page, @page %>
