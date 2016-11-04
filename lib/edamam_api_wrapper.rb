@@ -26,6 +26,7 @@ class EdamamApiWrapper
   end
 
   def self.find_recipe(id, to = 100)
+
     url = BASE_URL + "?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{id}" + "&to=#{to}"
     data = HTTParty.get(url)
     data["hits"].each do |hit|
@@ -36,17 +37,17 @@ class EdamamApiWrapper
     return @recipe
   end
 
-  def self.get_recipes(q, app_id = nil, app_key = nil)
-    app_id = APP_ID if app_id == nil
-    app_key = APP_KEY if app_key == nil
-
-    url = BASE_URL + "?app_id=#{app_id}" + "&app_key=#{app_key}"
-    puts url
-    data = HTTParty.post(url,
-               body:  {
-                  "q" => "#{q}"
-                },
-                :headers => { 'Content-Type' => 'application/x-www-form-urlencoded' })
-  end
+  # def self.get_recipes(q, app_id = nil, app_key = nil)
+  #   app_id = APP_ID if app_id == nil
+  #   app_key = APP_KEY if app_key == nil
+  #
+  #   url = BASE_URL + "?app_id=#{app_id}" + "&app_key=#{app_key}"
+  #   puts url
+  #   data = HTTParty.post(url,
+  #              body:  {
+  #                 "q" => "#{q}"
+  #               },
+  #               :headers => { 'Content-Type' => 'application/x-www-form-urlencoded' })
+  # end
 
 end

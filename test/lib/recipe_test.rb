@@ -8,9 +8,12 @@ class RecipeTest < ActionController::TestCase
     assert true
   end
 
-  test "must provide a query for Recipe" do
+  test "must provide a name for Recipe" do
     assert_raises ArgumentError do
-      Recipe.new nil
+      Recipe.new nil, "url", "image", "id", "ingredients", "diet_labels", "health_labels"
+    end
+    assert_raises ArgumentError do
+      Recipe.new "", "url", "image", "id", "ingredients", "diet_labels", "health_labels"
     end
   end
 end
