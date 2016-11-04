@@ -4,9 +4,27 @@ class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search?"
   TOKEN = ENV["EDAMAM_CLIENT_ID"]
 
-  def self.search_results(search_term, from, to)
-    url = BASE_URL + "token=#{TOKEN}" + "&q=#{search_term}" + "&from=#{from}" + "&to=#{to}"
+  def self.search_results(search_term, from = 0, to = 10, health1 = nil, health2 = nil, diet1 = nil)
+    url = BASE_URL + "token=#{TOKEN}" + "&q=#{search_term}"
+
+    if health1 != nil
+      url += "&health=#{health1}"
+    end
+
+    if health2 != nil
+      url += "&health=#{health2}"
+    end
+
+    if diet1 != nil
+      url += "&diet=#{diet1}"
+    end
+
+    url += "&from=#{from}" + "&to=#{to}"
+
+    # raise
+
     results = HTTParty.get(url)["hits"]
+
     recipe_array = []
     results.each do |recipe|
       recipe_name = recipe["recipe"]["label"]
