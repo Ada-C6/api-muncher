@@ -15,9 +15,13 @@ class EdamamApiWrapper
 
     if !data["hits"].nil?
       data["hits"].each do |hit|
-        name = hit["recipe"]["label"]
         dietary_info = []
+        descriptive_labels = []
+
+        name = hit["recipe"]["label"]
         id = hit["recipe"]["uri"][51..82]
+        descriptive_labels.push(hit["recipe"]["dietLabels"])
+        descriptive_labels.push(hit["recipe"]["healthLabels"])
 
         hit["recipe"]["digest"].map do |nutrient|
           if nutrient["sub"].nil?
@@ -29,10 +33,11 @@ class EdamamApiWrapper
             end
           end
         end
-        api_hash = {name: name, id: id, recipe_image: hit["recipe"]["image"], source_url: hit["recipe"]["url"], ingredients: hit["recipe"]["ingredientLines"], calories: hit["recipe"]["calories"].to_i, dietary_info: dietary_info, yield: hit["recipe"]["yield"].to_i, source: hit["recipe"]["source"], source_icon: hit["recipe"]["souceIcon"]}
+        api_hash = {name: name, id: id, recipe_image: hit["recipe"]["image"], source_url: hit["recipe"]["url"], ingredients: hit["recipe"]["ingredientLines"], calories: hit["recipe"]["calories"].to_i, dietary_info: dietary_info, descriptive_labels: descriptive_labels, yield: hit["recipe"]["yield"].to_i}
 
         recipe = Recipe.new(api_hash)
         recipe_list.push(recipe)
+        puts "!!!!!: #{api_hash[:descriptive_labels].first}"
       end
       return recipe_list
     else

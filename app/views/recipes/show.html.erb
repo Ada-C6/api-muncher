@@ -2,20 +2,32 @@
 
   <h1 class="centered-text"><%= @recipe.name %> <%= link_to 'Original Recipe', @recipe.source_url, :target => "_blank", class: "secondary button"%></h1>
 
+  <div>
+    <img src="<%= @recipe.recipe_image %>">
+  </div>
+
   <div class="row">
-    <div class= "large-6 columns">
+    <div class= "large-4 columns">
       <h4>Ingredients</h4>
       <% @recipe.ingredients.each do |ingredient| %>
         <p><%= ingredient %></p>
       <% end %>
     </div>
 
-    <div class="large-6 columns">
+    <div class="large-4 columns">
+      <h4>Dietary Info</h4>
+      <% @recipe.descriptive_labels.each do |sets| %>
+        <% sets.each do |label| %>
+          <p><%= label %></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="large-4 columns">
       <h4>Nutrition Info</h4>
       <% @recipe.dietary_info.each do |nutrient| %>
         <p><%= nutrient %></p>
-        <% end %>
+      <% end %>
+    </div>
   </div>
-
-
 </section>

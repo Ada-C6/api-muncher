@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :name, :id, :recipe_image, :source_url, :ingredients, :calories,  :yield, :source, :source_icon, :dietary_info
+  attr_reader :name, :id, :recipe_image, :source_url, :ingredients, :calories, :dietary_info, :descriptive_labels, :yield
 
   def initialize(options = {})
 
@@ -12,9 +12,8 @@ class Recipe
     @ingredients = options[:ingredients]
     @calories = options[:calories]
     @dietary_info = options[:dietary_info]
+    @descriptive_labels = options[:descriptive_labels]
     @yield = options[:yield]
-    @source = options[:source]
-    @source_icon = options[:source_icon]
   end
 
   class << self
