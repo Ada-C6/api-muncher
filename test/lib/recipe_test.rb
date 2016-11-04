@@ -48,11 +48,11 @@ class RecipeTest < ActiveSupport::TestCase
       recipe = Recipe.find('recipe_637913ec61d9da69eb451818c3293df2')
       assert recipe
       assert_kind_of Recipe, recipe
+      assert_equal recipe.label, "Dijon and Tarragon Grilled Chicken"
     end
   end
 
   test "kcal_per_serving should return a Float of the correct value" do
-    # recipe = Recipe.new("Test", calories: {"quantity" => 100.0}, servings: 8)
     cals = @recipe.kcal_per_serving
     assert_equal cals, 12.5
     assert_kind_of Float, cals

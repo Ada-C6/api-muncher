@@ -19,6 +19,10 @@
 //     font-size: 6em;
 // }
 
+body {
+  background-color: beige;
+}
+
 .site-header {
   background: image-url('spices.jpg');
   text-align: center;
@@ -34,9 +38,21 @@ h1 {
 .header-sub {
   text-align: center;
   font-family: 'Architects Daughter', cursive;
-
+  padding-top: 5px;
 }
 
 h2, h3, h4, a {
   font-family: 'Architects Daughter', cursive;
+}
+
+.button {
+  background-color: green;
+  font-family: 'Architects Daughter', cursive;
+  border-radius: 10px;
+}
+
+.light-green {
+  background-color: lightgreen;
+  padding-bottom: 30px;
+  border-radius: 15px;
 }

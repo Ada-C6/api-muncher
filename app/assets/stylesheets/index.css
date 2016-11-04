@@ -3,5 +3,18 @@
 }
 
 a {
-  color: blue;
+  color: black;
+}
+
+.left-space-needed {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/*.search-button {
+  font-family: 'Architects Daughter', cursive;
+}*/
+
+#search-box {
+  padding-top: 20px;
 }

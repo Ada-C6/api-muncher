@@ -1,6 +1,7 @@
+<section class="light-green">
 <% if @recipes %>
-  <h3>You searched for "<%= params[:search] %>". Here are your results:</h3>
-  <p><%= link_to "New search", recipes_index_path(0), class: "button" %></p>
+  <ul class='row small-up-3 medium-up-6'>
+  <li class="column"><%= link_to "New search", recipes_index_path(0), class: "button" %></li>
 
   <% if @recipes.empty? %>
     <% if params[:startindex] == "0" %>
@@ -9,12 +10,18 @@
       <p>No more recipes for "<%= params[:search] %>" exist.</p>
     <% end %>
   <% else %>
-    <p><%= link_to "Next ten pages", "#{URI.encode(@query_string)}", class: "button" %></p>
     <% if params[:startindex].to_i >= 10 %>
-    <p><%= link_to "Previous ten pages", "#{URI.encode(@back_query_string)}", class: "button" %></p>
+      <li class="column">
+        <%= link_to "Previous ten results", "#{URI.encode(@back_query_string)}", class: "button" %>
+      </li>
     <% end %>
+    <li class="column">
+      <%= link_to "Next ten results", "#{URI.encode(@query_string)}", class: "button" %>
+    </li>
+  </ul>
+  <h3 class="left-space-needed">You searched for "<%= params[:search] %>". Here are your results:</h3>
 
-    <ul class='row small-up-3' >
+    <ul class='row small-up-3'>
       <% @recipes.each do |recipe| %>
         <li class="column" >
           <ul class="row small-up-1 recipe-row">
@@ -34,12 +41,13 @@
 
 <% else %>
   <p>
-  <%= form_tag(recipes_index_path, :method => "get", id: "search-form") do %>
+  <%= form_tag(recipes_index_path, :method => "get", id: "search-form", class: "left-space-needed", id: "search-box") do %>
   <%= text_field_tag :search, "" %>
-      <%= submit_tag "Search", :name => nil %>
+      <%= submit_tag "Search", :name => "nil", class: "button" %>
   <% end %>
   </p>
-  <p>
-    Here will appear your delicious, delicious recipes. Yum. Recipes.
+  <p class="left-space-needed">
+    Enter a search term above to start looking at recipes!
   </p>
 <% end %>
+</section>
