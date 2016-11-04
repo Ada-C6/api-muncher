@@ -9,8 +9,8 @@ class EdamamApiWrapper
     start_index = (page - 1) * 10
     url = BASE_URL + "?q=" + search_term + "&from=#{ start_index }&app_id=#{ APP_ID }&app_key=#{ APP_KEY }"
     data = HTTParty.get(url)
-    results = []
     count = data["count"]
+    results = []
     if data["hits"]
       data["hits"].each do |hit|
         recipe_hash = {
@@ -25,7 +25,7 @@ class EdamamApiWrapper
         results << wrapper
       end
     end
-    return results
+    return count, results
   end
 
   def self.find(id)
