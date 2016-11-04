@@ -2,7 +2,7 @@ class Recipe
   # Create a class-level instance variable.
   # Much more likely to work as expected than a class variable
   # See http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/
-  class << self; attr_accessor :recipes_hash end
+  class << self; attr_accessor :recipes, :recipes_hash end
 
   attr_reader :label, :id, :image, :original_site, :original_url, :ingredients,
       :diet_labels, :health_labels
