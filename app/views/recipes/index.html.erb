@@ -1,15 +1,25 @@
-<article class="row small-up-4">
-  <h1>Results for <%= "#{params[:search]}:" %></h1>
+<% if !@recipes.empty? %>
+  <article class="row small-up-4">
+    <h1>Results for <%= "#{params[:search]}:" %></h1>
 
-  <% @recipes.each do |recipe| %>
-  <section class="column">
-    <p><%= image_tag(recipe.photo, alt: "photo of #{ recipe.name }", class: "image") %></p>
-    <p><%= link_to "#{ recipe.name }", recipe_path(recipe.uri[44..-1]) %></p>
-  </section>
-  <% end %>
-</article>
+    <% @recipes.each do |recipe| %>
+    <section class="column">
+      <p><%= image_tag(recipe.photo, alt: "photo of #{ recipe.name }", class: "image") %></p>
+      <p><%= link_to "#{ recipe.name }", recipe_path(recipe.uri[44..-1]) %></p>
+    </section>
+    <% end %>
+  </article>
 
-<nav>
-  <%= link_to 'Previous 10 Recipes', recipes_path(page: @page - 1, search: params[:search]) %>
-  <%= link_to "Next 10 Recipes", recipes_path(page: @page + 1, search: params[:search]) %>
-</nav>
+  <nav>
+    <% if @page > 1 %>
+      <%= link_to 'Previous 10 Recipes', recipes_path(page: @page - 1, search: params[:search]) %>
+    <% end %>
+
+    <% if @page != @total_pages %>
+      <%= link_to "Next 10 Recipes", recipes_path(page: @page + 1, search: params[:search]) %>
+    <% end %>
+  </nav>
+<% else %>
+  <h3>There are no recipes for <%= "#{params[:search]}" %></h3>
+  <h4>Please try a different search</h2>
+<% end %>
