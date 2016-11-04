@@ -1,12 +1,50 @@
   @import url('foundation.css');
 
+  .recipe-name, .page-nav {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .column {
+    border: 1px grey solid;
+    margin: 5px;
+    padding: 0;
+    max-width: 24%;
+  }
+
+  .column:hover {
+    border-right: 3px grey inset;
+    border-bottom: 3px grey inset;
+    border-left: 3px grey outset;
+    border-top: 3px grey outset;
+  }
+
+  .page-nav {
+    border: none;
+  }
+
+  .recipe-name {
+    /*display: block;
+    width:100%;
+  height:100%;*/
+
+  }
+
+  .recipe-image {
+    max-height: 40%;
+  }
+
+  li {
+    list-style: none;
+  }
+
   .error {
     color: red;
   }
 
-  .page-nav {
+  /*.page-nav {
     text-align: center;
-  }
+  }*/
 
 
   /*
