@@ -7,17 +7,16 @@ class EdamamApiWrapper
   APP_ID = ENV["app_id"]
   APP_KEY = ENV["app_key"]
 
-  attr_reader :recipe_name, :recipe_uri, :image, :recipes_array, :ingredients, :url #, :purpose, :is_archived, :members
+  attr_reader :recipe_name, :recipe_uri, :image, :recipes_array, :ingredients, :url, :diet_labels, :health_labels
 
-  def initialize( recipe_name, recipe_uri, image, ingredientLines, url, options = {} )
+  def initialize( recipe_name, recipe_uri, image, ingredientLines, url, diet_labels, health_labels )
     @recipe_name = recipe_name
     @recipe_uri = recipe_uri
     @image = image
     @ingredients = ingredientLines
     @url = url
-    # @is_archived = options[:is_archived]
-    # @is_general = options[:is_archived]
-    # @members = options[:members]
+    @diet_labels = diet_labels
+    @health_labels = health_labels
   end
 
   def self.listresults(search)
@@ -28,7 +27,9 @@ class EdamamApiWrapper
       data["hits"].each do |hit|
         wrapper = Recipe_Results.new( hit["recipe"]["label"], hit["recipe"]["uri"], hit["recipe"]["image"],
         hit["recipe"]["ingredientLines"],
-        hit["recipe"]["url"] )
+        hit["recipe"]["url"],
+        hit["recipe"]["dietLabels"],
+        hit["recipe"]["healthLabels"] )
         @recipes_array << wrapper
       end
       return @recipes_array

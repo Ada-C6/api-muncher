@@ -17,9 +17,10 @@
     <% end %>
   </tbody>
 </table>
-<div class="pagination small-12 columns first-font">
-  <p>
-    <%= paginate @recipes %>
-  </p>
+<div class="pagination-div">
+  <ul class="pagination">
+    <li class="pagination"><%= paginate @recipes %></li><li>
+    </li>
+  </ul>
 </div>
 </section>

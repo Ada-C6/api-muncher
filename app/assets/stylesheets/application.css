@@ -28,11 +28,13 @@ header {
 body {margin: 1%;}
 .needs-a-margin {margin-top: 70px;}
 .logo {margin: 0 auto; display: flex; width: 80%;}
-.pagination {
+
+.pagination-div {
   margin: 0 auto 50px auto;
   width: 100%;
-  display: flex;}
-.limit-image-size {}
+  text-align:center}
+
+.limit-image-size {max-height: 200px; max-width:100%;}
 table {width: 95%; margin: 0 auto;}
 
 .first-font {

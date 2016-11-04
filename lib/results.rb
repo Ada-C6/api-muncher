@@ -1,8 +1,8 @@
 
 class Recipe_Results
-  attr_reader :recipe_name, :recipe_uri, :image, :url, :ingredients #, :purpose, :is_saved, :members
+  attr_reader :recipe_name, :recipe_uri, :image, :url, :ingredients, :diet_labels, :health_labels
 
-  def initialize(recipe_name, recipe_uri, image, ingredientLines, url )
+  def initialize(recipe_name, recipe_uri, image, ingredientLines, url, diet_labels, health_labels )
 
     if recipe_name == nil || recipe_uri == nil || recipe_name == "" || recipe_uri == ""
       raise ArgumentError
@@ -12,6 +12,8 @@ class Recipe_Results
     @image = image
     @ingredients = ingredientLines
     @url = url
+    @diet_labels = diet_labels
+    @health_labels = health_labels
   end
 
 end
