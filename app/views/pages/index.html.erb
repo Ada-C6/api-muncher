@@ -1,5 +1,6 @@
 <h1>INDEX</h1>
 
+<div class="small-12 medium-4 large-4 columns">
 <%= paginate @recipes_array %>
 
 <% @recipes_array.each do |recipe| %>
@@ -7,3 +8,4 @@
   <p><%= image_tag recipe.photo, size: "40x40", alt: "Photo" %></p>
   <p><%= link_to "#{recipe.ingredients.length} Ingredients", show_page_path(recipe.id) %></p>
 <% end %>
+</div>
