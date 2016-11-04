@@ -1,3 +1,5 @@
-<% list.each do |key, value|  %>
-  <li><%= link_to key, recipes_path(keyword: key, page: 1) %></li>
-<% end %>
+<ul class='link-list'>
+  <% list.each do |key, value|  %>
+    <li><%= link_to key, recipes_path(keyword: key, page: 1) %></li>
+  <% end %>
+</ul>
