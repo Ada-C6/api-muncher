@@ -15,6 +15,11 @@ class Recipe
   end
 
   def self.make_recipes_from_api(recipe_array)
+    #puts recipe_array.first.class
+    # puts recipe_array.class==Array 
+    raise ArgumentError unless recipe_array.class == Array || recipe_array.class == WillPaginate::Collection
+    raise ArgumentError unless recipe_array.all? { |item|item.class==Hash   }
+
     recipes=[]
 
     recipe_array.each_with_index do |recipe_hash, index|

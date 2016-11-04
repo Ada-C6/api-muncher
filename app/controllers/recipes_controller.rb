@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
     
     results = MuncherApiWrapper.search(session[:term])
     recipes=Recipe.make_recipes_from_api(results)
+    not_found if params[:id].to_i<=0 #prevents ids of 0 or negative numbers from using fancy array indexing to show recipes
     @this_recipe=recipes[params[:id].to_i-1] or not_found
   end
 

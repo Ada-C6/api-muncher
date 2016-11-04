@@ -6,6 +6,7 @@ class MuncherApiWrapper
   APP_KEY = ENV["APP_KEY"]
 
   def self.search(app_id=nil, app_key=nil, search_term)
+    raise ArgumentError if search_term==""
   	app_id ||= APP_ID
   	app_key ||= APP_KEY
   	url = BASE_URL + "search?" + "&app_id=#{app_id}" + "&app_key=#{app_key}"  +"&q=#{search_term}&from=0&to=1000"
