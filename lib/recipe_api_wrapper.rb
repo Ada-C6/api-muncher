@@ -10,7 +10,8 @@ class EdamamApiWrapper
     # index = (page_number - 1)*10
     # url = BASE_URL + "q=#{search_term}" + "&from=#{index}"
 
-    url = BASE_URL + "q=#{search_term}"
+    # I'm making an executive decision to limit the search results being shown to 100
+    url = BASE_URL + "q=#{search_term}" + "&to=100"
     data ||= HTTParty.get(url).parsed_response
 
     all_recipes = []
@@ -34,19 +35,20 @@ class EdamamApiWrapper
     return all_recipes
   end
 
-  def self.list_a_recipe(id)
+  # I don't need this method anymore because I don't want to call API again.
+  # def self.list_a_recipe(id)
     # how to add a new uri to the current http uri?
-    url = BASE_URL + "r=" + "http://www.edamam.com/ontologies/edamam.owl%23" + "#{id}"
-
-    data ||= HTTParty.get(url).parsed_response
-
-    label = data[0]["label"]
-    photo = data[0]["image"]
-    url = data[0]["url"]
-    ingredients = data[0]["ingredientLines"]
-    diet = data[0]["dietLabels"]
-
-    recipe = Recipe.new(id, label, photo, url, ingredients, diet)
-    return recipe
-  end
+    # url = BASE_URL + "r=" + "http://www.edamam.com/ontologies/edamam.owl%23" + "#{id}"
+    #
+    # data ||= HTTParty.get(url).parsed_response
+    #
+    # label = data[0]["label"]
+    # photo = data[0]["image"]
+    # url = data[0]["url"]
+    # ingredients = data[0]["ingredientLines"]
+    # diet = data[0]["dietLabels"]
+    #
+    # recipe = Recipe.new(id, label, photo, url, ingredients, diet)
+    # return recipe
+  # end
 end

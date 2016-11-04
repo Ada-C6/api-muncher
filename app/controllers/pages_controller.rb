@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class PagesController < ApplicationController
   def home
     # This is to clear previous search_all result
@@ -6,9 +8,11 @@ class PagesController < ApplicationController
 
   def index
     # @page_number = 1
-
     # @recipes ||= Recipe.all(params[:q], @page_number)
+
     @recipes ||= Recipe.all(params[:q])
+
+    # paginate json: @recipes, per_page: 10
 
     # len = @recipes.length # wrong because len will always return 10 due to from - to default at 10.
     # if len % 10 == 0
@@ -21,7 +25,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.search_by(params[:id])
+    @recipe ||= Recipe.search_by(params[:id])
   end
 
   private
