@@ -1,17 +1,20 @@
 class Recipe
-  attr_reader :label, :image, :source_url, :diet_labels, :health_labels, :cautions, :ingredients
+  attr_reader :label, :uri, :image, :url, :dietLabels, :healthLabels, :cautions, :ingredientLines, :id, :yield
 
-  def initialize(label)
+  def initialize(label, uri, options = {})
     raise ArgumentError if label == nil || label == ""
 
     @label = label
-    @image = image
+    @uri = uri
+    @id = @uri.split("_").last
+    @image = options[:image]
 
-    @source_url = source_url
-    @diet_labels = diet_labels
-    @health_labels = health_labels
-    @cautions = cautions
-    @ingredients = ingredients
+    @url = options[:url]
+    @dietLabels = options[:dietLabels]
+    @healthLabels = options[:healthLabels]
+    @cautions = options[:cautions]
+    @ingredientLines = options[:ingredientLines]
+    @yield = options[:yield]
   end
 
   def self.search(search_term)
@@ -22,4 +25,9 @@ class Recipe
   #   @@recipes = nil
   # end
 
+  # def self.by_id(uri)
+  #   a = EdamamApiWrapper.listrecipes(uri)
+  #   b = a.split("_")
+  #   return b.last
+  # end
 end

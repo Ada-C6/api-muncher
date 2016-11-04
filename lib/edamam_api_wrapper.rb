@@ -12,7 +12,9 @@ class EdamamApiWrapper
     puts "#{url}"
     if data["hits"]
       data["hits"].each do |hit|
-        wrapper = Recipe.new(name: hit["recipe"]["label"], image: hit["recipe"]["image"], source_url: hit["recipe"]["url"], diet_labels: hit["recipe"]["dietLabels"], health_labels: hit["recipe"]["healthLabels"], cautions: hit["recipe"]["cautions"], ingredients: hit["recipe"]["ingredients"])
+        info = { yield: hit["recipe"]["yield"], image: hit["recipe"]["image"], url: hit["recipe"]["url"], dietLabels: hit["recipe"]["dietLabels"], healthLabels: hit["recipe"]["healthLabels"], cautions: hit["recipe"]["cautions"], ingredientLines: hit["recipe"]["ingredientLines"] }
+
+        wrapper = Recipe.new(hit["recipe"]["label"], hit["recipe"]["uri"], info)
         recipe_list << wrapper
       end
     end
