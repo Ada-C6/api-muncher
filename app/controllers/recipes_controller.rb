@@ -5,7 +5,13 @@ class RecipesController < ApplicationController
     # Recipe.reset
     @query = params["q"]
     @page = params["page"]
-    @recipes = Recipe.all(@query, @page)
+
+    if @query == ""
+      flash[:error] = "Please enter a search term."
+      redirect_to recipes_path
+    else
+      @recipes = Recipe.all(@query, @page)
+    end
   end
 
   def show

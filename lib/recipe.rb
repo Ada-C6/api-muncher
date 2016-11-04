@@ -19,9 +19,9 @@ class Recipe
     return @recipes
   end
 
-  def self.reset
-    @recipes = nil
-  end
+  # def self.reset
+  #   @recipes = nil
+  # end
 
   def self.by_uri(uri)
     unique_recipe = EdamamApiWrapper.recipe_from_uri(uri)

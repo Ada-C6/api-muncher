@@ -1,3 +1,9 @@
+<div class="error">
+  <% if flash[:error] %>
+  <%= flash[:error] %>
+  <% end %>
+</div>
+
 <%= render partial: "form" %>
 
 <%= "Recipes containing '#{ @query }'" %>

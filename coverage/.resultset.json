@@ -1,6 +1,41 @@
 {
   "MiniTest": {
     "coverage": {
+      "/Users/DS/ada/class-exercises/project-forks/api-muncher/lib/recipe.rb": [
+        1,
+        1,
+        null,
+        1,
+        23,
+        null,
+        23,
+        23,
+        23,
+        23,
+        23,
+        23,
+        null,
+        null,
+        1,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
       "/Users/DS/ada/class-exercises/project-forks/api-muncher/lib/edamam_api_wrapper.rb": [
         1,
         null,
@@ -37,41 +72,6 @@
         null,
         null,
         2,
-        null,
-        null
-      ],
-      "/Users/DS/ada/class-exercises/project-forks/api-muncher/lib/recipe.rb": [
-        1,
-        1,
-        null,
-        1,
-        23,
-        null,
-        23,
-        23,
-        23,
-        23,
-        23,
-        23,
-        null,
-        null,
-        1,
-        null,
-        1,
-        2,
-        2,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
         null,
         null
       ],
@@ -114,6 +114,6 @@
         null
       ]
     },
-    "timestamp": 1478278746
+    "timestamp": 1478279104
   }
 }
