@@ -1,0 +1,27 @@
+<%=image_tag @recipe.photo %>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        <h1><%=@recipe.name %></h1>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <h3>Ingredients</h3>
+      </td>
+    </tr>
+    <%@recipe.ingredientLines.each do |line| %>
+    <tr>
+      <td>
+          <%=line%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<a href="<%=@recipe.url%> "> <%= @recipe.url %></a>

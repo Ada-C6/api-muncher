@@ -1,0 +1,35 @@
+<h1>These are the Recipes you seek!</h1>
+
+  <div class="callout primary">
+    <div class="row column">
+      <h1></h1>
+      <p class="lead">YOU Searched for <span class="colorful_text"><%= @search_term%></span>, and we found<span class="colorful_text"> <%= @search_results.length%></span> recipe(s) that match your query. </p>
+    </div>
+  </div>
+  <hr>
+    <center>
+
+    <div class="row small-up-1 medium-up-3 large-up-4">
+
+      <%@search_results.each do |search| %>
+        <div class="column">
+        <%= form_tag show_recipes_path(search.uri), method: :get do %>
+          <%= hidden_field_tag('url', 'search.url') %>
+          <%= hidden_field_tag('name', 'search.name')%>
+          <%= hidden_field_tag('photo', 'search.photo')%>
+          <%= hidden_field_tag('uri', 'search.uri')%>
+          <%= hidden_field_tag('ingredientLines', 'search.ingredientLines')%>
+          <%=image_submit_tag search.photo %>
+        </div>
+
+        <% end %>
+      <% end %>
+    </div>
+
+    </center>
+
+
+<div class="pagination-centered">
+
+<div class="arrow"><%= will_paginate @search_results %></div>
+</div>
