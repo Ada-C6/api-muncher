@@ -1,0 +1,9 @@
+<p>
+  <%= form_tag(recipes_index_path, :method => "get", id: "search-form", class: "left-space-needed", id: "search-box") do %>
+  <%= text_field_tag :search, "" %>
+      <%= submit_tag "Search", :name => "nil", class: "button" %>
+  <% end %>
+</p>
+<p class="left-space-needed">
+  Enter a search term above to start looking at recipes!
+</p>

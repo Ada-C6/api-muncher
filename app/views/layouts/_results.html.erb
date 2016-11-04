@@ -1,0 +1,31 @@
+<ul class='row small-up-3 medium-up-6'>
+  <li class="column">
+    <%= link_to "New search", recipes_index_path(0), class: "button" %>
+  </li>
+  <% if params[:startindex].to_i >= 10 %>
+    <li class="column">
+      <%= link_to "Previous ten results", "#{URI.encode(@back_query_string)}", class: "button" %>
+    </li>
+    <% end %>
+  <% unless @recipes.empty? %>
+    <li class="column">
+      <%= link_to "Next ten results", "#{URI.encode(@query_string)}", class: "button" %>
+    </li>
+  <% end %>
+</ul>
+<h3 class="left-space-needed">You searched for "<%= params[:search] %>". Here are your results:</h3>
+<ul class='row small-up-3'>
+  <% @recipes.each do |recipe| %>
+    <li class="column" >
+      <ul class="row small-up-1 recipe-row">
+        <% id = recipe.uri.split("edamam.owl#").last %>
+        <li class="column">
+          <%=link_to image_tag(recipe.image), recipes_show_path(id)%>
+        </li>
+        <li class="column text-center">
+          <%= link_to "#{recipe.label}", recipes_show_path(id) %>
+        </li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
