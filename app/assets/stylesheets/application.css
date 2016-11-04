@@ -1,5 +1,13 @@
  @import url('foundation.css');
 
+ body, h1, h2, h3, h4, h5 {
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ .top-bar h1 {
+   color: white;
+ }
+
  .attribution {
    float: right;
  }
@@ -10,4 +18,24 @@
 
  footer {
    padding-top: 5px;
+   color: white;
+ }
+
+ .header-home, .search-bar {
+   width: 70%;
+ }
+
+ .baked-searches {
+   width: 50%;
+ }
+
+ .baked-searches ul li {
+   display: inline-block;
+   /*padding: 20px;*/
+ }
+
+ .baked-searches ul {
+   list-style: none;
+   /*border-style: solid;*/
+   padding-top: 10px;
  }

@@ -1,23 +1,26 @@
 <article>
-  <header>
-    <h1>Welcome to Muncher</h1>
-    <h2>Can't think of what to make? Search for recipes here!</h2>
+  <header class="header-home row small-up-1">
+    <h3 class="column">Enter an Ingredient, get Recipes</h3>
   </header>
 
-  <section>
-    <%= form_tag(recipes_results_path, :method => "get", id: "search-form") do %>
+  <section class="search-bar row small-up-1">
+    <div class="column">
+      <%= form_tag(recipes_results_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
         <%= submit_tag "Search", :name => nil %>
-    <% end %>
-
+      <% end %>
+    </div>
   </section>
 
-  <section>
-    <h3> Some baked searches here </h3>
-    <ul>
-      <li><a href="#">Chicken</a></li>
-      <li><a href="#">Couscous</a></li>
-      <li><a href="#">Potatoes</a></li>
-    </ul>
+  <section class="baked-searches row small-up-1">
+    <!-- <h4>Pre-baked Searches</h4> -->
+    <div class="column">
+      <ul class="row medium-up-1 large-up-4">
+        <li class="column">Pre-baked:</li>
+        <li class="column"><a href="#">Chicken</a></li>
+        <li class="column"><a href="#">Couscous</a></li>
+        <li class="column"><a href="#">Potatoes</a></li>
+      </ul>
+    </div>
   </section>
 <article>
