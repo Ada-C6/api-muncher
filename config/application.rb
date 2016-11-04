@@ -13,7 +13,7 @@ module ApiMuncher
     # -- all .rb files in that directory are automatically loaded.
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
 
     # Automatically load all code from <rails_root>/lib
     config.autoload_paths << Rails.root.join('lib')
