@@ -1,15 +1,15 @@
 <section>
   <h1>YOUR RESULTS</h1>
-  <h4> based on your search of <%= @keyword %></h4>
+  <h4> based on your search of: <%= @keyword %></section</h4>
 <section>
 
 <section>
-  <% if @page >= 2 %>
+    <h5 class="flash"><%= flash[:error] %></h5>
+</section>
+
+<section>
     <h5><%= link_to "Previous", search_recipes_path(search: params[:search], page: @page - 1) %></h5>
-  <% end %>
-  <% if @page >= 1 && @page <= (@last_page - 1) %>
     <h5><%= link_to "Next", search_recipes_path(search: params[:search], page: @page + 1) %></h5>
-  <% end %>
 </section>
 
 <section>
