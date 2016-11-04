@@ -3,21 +3,17 @@
   <ul class='row small-up-3 medium-up-6'>
   <li class="column"><%= link_to "New search", recipes_index_path(0), class: "button" %></li>
 
-  <% if @recipes.empty? %>
-    <% if params[:startindex] == "0" %>
-      <p>Sorry, no such recipes were found.</p>
-    <% else %>
-      <p>No more recipes for "<%= params[:search] %>" exist.</p>
+
+  <% if params[:startindex].to_i >= 10 %>
+    <li class="column">
+      <%= link_to "Previous ten results", "#{URI.encode(@back_query_string)}", class: "button" %>
+    </li>
     <% end %>
-  <% else %>
-    <% if params[:startindex].to_i >= 10 %>
-      <li class="column">
-        <%= link_to "Previous ten results", "#{URI.encode(@back_query_string)}", class: "button" %>
-      </li>
-    <% end %>
+  <% unless @recipes.empty? %>
     <li class="column">
       <%= link_to "Next ten results", "#{URI.encode(@query_string)}", class: "button" %>
     </li>
+  <% end %>
   </ul>
   <h3 class="left-space-needed">You searched for "<%= params[:search] %>". Here are your results:</h3>
 
@@ -37,8 +33,6 @@
         </li>
       <% end %>
     </ul>
-  <% end %>
-
 <% else %>
   <p>
   <%= form_tag(recipes_index_path, :method => "get", id: "search-form", class: "left-space-needed", id: "search-box") do %>
@@ -50,4 +44,13 @@
     Enter a search term above to start looking at recipes!
   </p>
 <% end %>
+
+<% if @recipes && @recipes.empty? %>
+  <% if params[:startindex] == "0" %>
+    <p class="left-space-needed">Sorry, no such recipes were found.</p>
+  <% else %>
+    <p class="left-space-needed">No more recipes for "<%= params[:search] %>" exist.</p>
+  <% end %>
+<% end %>
+
 </section>
