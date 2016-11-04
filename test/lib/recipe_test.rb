@@ -6,8 +6,8 @@ class RecipeTest < ActiveSupport::TestCase
   end
 
   test "initialize will create a Recipe object" do
-    name = "name"
-    test_id = "test_id"
+    name = "Foodstuffs"
+    test_id = "87654345676543456765434567"
     recipe = Recipe.new(name,test_id)
 
     assert_equal name, recipe.name
@@ -15,32 +15,25 @@ class RecipeTest < ActiveSupport::TestCase
     assert_kind_of Recipe, recipe
   end
 
-  test "Recipe.all returns an array of Recipe objects" do
-    VCR.use_cassette("recipes") do
-      recipes = Recipe.all
+  test "initialize will raise Argument Error if name and id are nil" do
+    name = nil
+    test_id = nil
 
-      assert_kind_of Array, recipes
-      assert_not recipes.empty?
-
-      recipes.each do |recipe|
-        assert_kind_of Recipe, recipe
-      end
+    assert_raises(ArgumentError) do
+      Recipe.new(name,test_id)
     end
   end
 
-  test "Recipe.by_name should return nil if no match" do
-    VCR.use_cassette("recipes") do
-      recipe = Recipe.by_name("non-existant_recipe")
-      assert_nil recipe
-    end
-  end
-
-  test "Recipe.by_name should return matching recipe" do
-    VCR.use_cassette("recipes") do
-      recipe = Recipe.by_name("test-api-brackets")
-      name = "test-api-brackets"
-      assert_kind_of Recipe, recipe
-      assert_equal name, recipe.name
-    end
-  end
+  # test "Recipe.all returns an array of Recipe objects" do
+  #   VCR.use_cassette("recipes") do
+  #     recipes = Recipe.all
+  #
+  #     assert_kind_of Array, recipes
+  #     assert_not recipes.empty?
+  #
+  #     recipes.each do |recipe|
+  #       assert_kind_of Recipe, recipe
+  #     end
+  #   end
+  # end
 end

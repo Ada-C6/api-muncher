@@ -8,7 +8,12 @@ class Recipe
     raise ArgumentError if name == nil || name == "" || id == nil || id == ""
 
     @name = name
-    @id = id.split("_")[1]
+
+    if id.include?("_")
+      @id = id.split("_")[1]
+    else
+      @id = id
+    end
 
     @image = options[:image]
     @source = options[:source]
