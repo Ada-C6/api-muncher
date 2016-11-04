@@ -1,9 +1,15 @@
 <% if @recipes.blank? %>
   <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
 <% end %>
+<p></p>
 
-<% @recipes.each do |recipe| %>
-  <p><img src="<%= recipe.image %>" alt="food picture"> <%= link_to recipe.name, show_path(recipe.id) %></p>
-<% end %>
+<ul class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="small-6 medium-4 large-3 columns">
+      <p><img src="<%= recipe.image %>" alt="food picture"> </p>
+      <p><%= link_to recipe.name, show_path(recipe.id) %></p>
+    </div>
+  <% end %>
+</ul>
 
-<%= paginate @recipes %>
+<p><%= paginate @recipes %></p>
