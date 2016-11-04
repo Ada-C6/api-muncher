@@ -6,6 +6,8 @@ class RecipesController < ApplicationController
       Recipe.reset
       @recipes = Recipe.all(@searchterm, @page)
     else
+      # If there is a :searchterm, I want to use this search to narrow down the results by
+      # diet label
       @recipes = Recipe.search(params[:dietlabels])
     end
   end

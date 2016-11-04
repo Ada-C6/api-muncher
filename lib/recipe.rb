@@ -35,7 +35,18 @@ class Recipe
     self.all.select{ |r| r.id == id }.first
   end
 
+
   def self.search(params)
-    @recipes = @recipes.where('dietlabels LIKE?', "%#{params[:search]}%").order('created_at DESC') if params[:search].present?
+    # Because the Stack Overflow method below wasn't working, I tried to just iterate through the recipes array
+    # and return anything that included the search term
+    @filtered_recipes = []
+    @recipes.each do |recipe|
+      if recipe.dietlabels.includes?(params[:search])
+        @filtered_recipes << recipe
+      end
+    end
+    return @filtered_recipes
+    # Based on googling and stack overflow, I think this is the correct way to write this method???
+    # @recipes = @recipes.includes?('dietlabels LIKE?', "%#{params[:search]}%").order('created_at DESC') if params[:search].present?
   end
 end
