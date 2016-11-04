@@ -2,7 +2,6 @@ class RecipesController < ApplicationController
   def index
     @keyword = params[:keyword]
     @page = params[:page].to_i
-    Recipe.reset
     @recipes = Recipe.all(@keyword, @page)
 
     # save the user's recent searches.
@@ -21,8 +20,8 @@ class RecipesController < ApplicationController
   def next
     @keyword = params[:keyword]
     @page = params[:page].to_i
-    Recipe.reset
     @recipes = Recipe.all(@keyword, @page)
+    @searches = session[:searches]
     render :index
   end
 
