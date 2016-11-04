@@ -50,7 +50,7 @@ class RecipesControllerTest < ActionController::TestCase
       # View helpers prevent navigation from occuring below page 0.
       starting_page = 2
       #
-      # Test for next
+      # Test for next results
       #
       get :next, keyword: 'chicken', page: starting_page + 1
       assert_response :success
@@ -68,7 +68,7 @@ class RecipesControllerTest < ActionController::TestCase
       assert_operator 10, :>=, recipes.length
 
       #
-      # Test for previous
+      # Test for previous results
       #
       get :next, keyword: 'chicken', page: starting_page - 1
       assert_response :success
