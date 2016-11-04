@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>ApiMuncher</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "Recipes" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <!-- This weird section was how I got the background image to work the best -->
+    <section class="bg-image"></section>
+    <main>
+    <header>
+        <div class="logo">
+          <h1><%= link_to("RECIPE", root_path)%></h1>
+          <h2><%= link_to("finder", root_path)%></h2>
+        </div>
+
+        <div class="search-bar">
+          <%= form_tag index_homepage_path, method: "get" do %>
+          <div class="search-field">
+            <%= label_tag :search, "Enter an ingredient", class: "hidden-label"%>
+            <%= text_field_tag :search_term %>
+            <%# hidden_field_tag :search, :search_term %>
+          </div>
+            <%= submit_tag "SEARCH", class: "button header-button" %>
+          <% end %>
+        </div>
+    </header>
+
+
+      <div class="large-12 columns all-pages">
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer>
+      <div class="left"> &copy 2016 <%= link_to("BJ Hunnicutt", "https://github.com/BJHunnicutt", :target => "_blank", class: "link") %> </div>
+      <div class="right"> <%= link_to("Recipes coutesy of the Edamam.com API", "https://www.edamam.com/", :target => "_blank", class: "link") %></div>
+    </footer>
+  </body>
 </html>

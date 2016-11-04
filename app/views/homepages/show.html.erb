@@ -1,2 +1,77 @@
-<h1>Homepages#show</h1>
-<p>Find me in app/views/homepages/show.html.erb</p>
+<h2><%=@recipe.name%></h2>
+
+<div class="row small-up-1 medium-up-2 large-up-2" data-equalizer data-equalize-on="true">
+
+  <!-- Image -->
+  <div class="small-10 medium-4 large-4 medium-centered large-centered columns">
+    <div class="column">
+    <div class="callout">
+      <div class="show-callout">
+        <image><%= image_tag(@recipe.image)%></image>
+        <h5> <%= "#{@calories} calories | #{@servings} servings" %> </h5>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="column">
+    <div class="callout">
+      <div class="recipe-callout">
+        <h4> Ingredients </h4>
+        <hr/>
+        <ul>
+          <% @recipe.instructions.each do | line | %>
+          <li>
+            <h5> <%= line %></h5>
+          </li>
+          <% end %>
+        </ul>
+        <%= link_to("View Full Recipe @ #{@recipe.source}", @recipe.url, :target => "_blank", class: "link") %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Nutrician information -->
+<h2> Nutrition Information </h2>
+<div class="row small-up-1 medium-up-2 large-up-2" data-equalizer data-equalize-on="true">
+  <div class="column">
+    <table class="nutrient-data">
+      <tr>
+        <th> Label </th>
+        <th> Amount </th>
+        <th> Daily value </th>
+      </tr>
+      <% @nutrition_info.each do | nutrient | %>
+        <tr>
+          <td><%= nutrient["label"] %></td>
+          <% if nutrient["hasRDI"] == true %>
+            <td><%= "#{nutrient["total"].round/@servings} #{nutrient["unit"]}" %></td>
+            <td><%= "#{nutrient["daily"].round/@servings}%" %></td>
+          <% else %>
+            <td> N/A </td>
+            <td> N/A </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+<!-- Allergy information -->
+  <div class="column">
+    <table class="nutrient-data">
+      <tr>
+        <th> Allergy Information </th>
+      </tr>
+      <% @recipe.health_labels.each do | allergy | %>
+        <tr>
+          <td> <%= allergy %> </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<%= params %>

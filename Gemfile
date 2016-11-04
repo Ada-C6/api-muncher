@@ -8,7 +8,9 @@ gem 'jquery-turbolinks'
 gem 'httparty'
 gem 'foundation-rails'
 
+# Pretty Printing & Fake words
 gem 'awesome_print'
+gem 'faker'
 
 # Simplecov gem
 gem 'simplecov', :require => false, :group => :test

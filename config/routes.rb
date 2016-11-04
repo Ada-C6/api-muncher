@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root to: "homepages#index"
 
-  get 'homepages/index'
+  get '/index' => 'homepages#index', as: 'index_homepage'
 
-  get 'homepages/show/:search' => 'homepages#show', as: 'show_homepage'
+  get '/*name' => 'homepages#show', as: 'show_homepage'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
