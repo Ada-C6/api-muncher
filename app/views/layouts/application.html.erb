@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ApiMuncher</title>
+    <title>Food</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,12 +9,22 @@
   </head>
 
   <body>
-    <% if !flash.empty? %>
-      <% flash.each do |key, value| %>
-        <%= content_tag :div, value, class: "flash #{key}" %>
-      <% end %>
-    <% end %>
+    <header>
 
-    <%= yield %>
+    </header>
+
+    <section id="error">
+      <% if !flash.empty? %>
+        <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+        <% end %>
+      <% end %>
+    </section>
+    
+    <section id="main">
+      <%= yield %>
+    </section>
+
+    <footer></footer>
   </body>
 </html>
