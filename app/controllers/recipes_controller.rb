@@ -8,7 +8,9 @@ class RecipesController < ApplicationController
   end
 
   def show
+    #old search uses name
     @recipe = Recipe.search(params[:id]).first
+    # @recipe = Recipe.search(params[:uri])
   end
 end
 
