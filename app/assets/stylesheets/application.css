@@ -4,8 +4,12 @@
    font-family: 'Ubuntu', sans-serif;
  }
 
- .top-bar h1 {
+ .top-bar h1 a {
    color: white;
+ }
+
+ .top-bar h1 a:hover {
+   color: #2dce93;
  }
 
  .attribution {
