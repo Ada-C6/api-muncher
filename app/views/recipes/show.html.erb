@@ -1,2 +1,17 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h1><%= link_to @recipe[:name], @recipe[:link], target: '_blank' %></h1>
+<%= image_tag @recipe[:image] %>
+
+<ul>
+  <h3>Ingredients</h3>
+  <% @recipe[:ingredients].each do |ingredient| %>
+    <li><%= ingredient %></li>
+  <% end %>
+</ul>
+
+
+<ul>
+  <h3>Diet Labels</h3>
+  <% @recipe[:diet].each do |diet| %>
+    <li><%= diet %></li>
+  <% end %>
+</ul>

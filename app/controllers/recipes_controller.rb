@@ -1,11 +1,13 @@
 class RecipesController < ApplicationController
   def index
     # raise
-    # puts params[:q]
-    EdamamApiWrapper.search_results(params[:q])
+    @recipes = EdamamApiWrapper.search_results(params[:q], params[:from], params[:to])
+    @next_recipes = EdamamApiWrapper.search_results(params[:q], params[:from].to_i + 10, params[:to].to_i + 10)
   end
 
   def show
+    @recipe = EdamamApiWrapper.specific_search(params[:uri])
+    # raise
   end
 
   def create
