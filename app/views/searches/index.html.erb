@@ -1,9 +1,11 @@
 <h1>We found you these recipes...</h1>
 
 <% @recipe_results.each do |recipe| %>
-  <h4><%= recipe.title %></h4>
-  <%= image_tag recipe.image_url %>
-  <%= link_to "See More", search_path(recipe.uri_id) %>
+<h3><%= link_to recipe.title, search_path(recipe.uri_id) %></h3>
+  <%= link_to (image_tag "#{recipe.image_url}"), search_path(recipe.uri_id) %>
+  <%# image_tag recipe.image_url %>
+  <h3><%# recipe.title %></h4>
+  <h4><%# link_to "See More", search_path(recipe.uri_id) %></h4>
 <% end %>
 
 <%= page_entries_info @recipe_results %>
