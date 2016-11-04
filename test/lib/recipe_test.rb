@@ -50,28 +50,26 @@ class RecipeTest < ActiveSupport::TestCase
     end
   end
 
-  test "Recipe.all should retun the same array until it is reset" do
+  test "Recipe.add_to_hash adds searched results to a hash (through the all call)" do
     VCR.use_cassette("recipes") do
-      initial_recipes = Recipe.all('chicken', 1)
+      recipe_bunch1 = Recipe.all('chicken', 1)
+      recipe_bunch2 = Recipe.all('beef', 1)
 
-      # calls Recipe.all again with a new parameter
-      Recipe.all('beef', 1)
+      recipe_bunch1.each do |recipe|
+        assert_equal recipe, Recipe.recipes_hash[recipe.id]
+      end
 
-      assert_equal initial_recipes, Recipe.recipes
-
-      Recipe.reset
-      # calls Recipe.all again with a new parameter
-      Recipe.all('beef', 1)
-
-      assert_not_equal initial_recipes, Recipe.recipes
+      recipe_bunch2.each do |recipe|
+        assert_equal recipe, Recipe.recipes_hash[recipe.id]
+      end
     end
   end
 
-  test "Recipe.by_id should return nil if no match" do
+  test "Recipe.by_id should return an empty array if no match" do
     VCR.use_cassette("recipes") do
       recipes = Recipe.all('chicken', 1)
       recipe = Recipe.by_id("these-are-not-the-ids-youre-looking-for")
-      assert_nil recipe
+      assert recipe.empty?
     end
   end
 
