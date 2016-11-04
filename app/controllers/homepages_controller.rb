@@ -1,11 +1,42 @@
 require 'faker'
+require 'awesome_print'
 
 class HomepagesController < ApplicationController
-  def search
-
-  end
 
   def index
+    paginate #helper method at bottom
+    if params[:search_term]
+      @recipes = EdamamApiWrapper.list_recipes(params[:search_term], params[:from], params[:to])
+      @total = get_total(@recipes)
+    else
+      @word = random_food_search_term
+      @recipe = EdamamApiWrapper.list_recipes(@word, 0, 1)
+    end
+  end
+
+  def show
+    @recipe = EdamamApiWrapper.get_recipe(params[:id])
+    @servings = @recipe.servings
+    @calories = @recipe.calories/@servings
+    @nutrition_info = @recipe.nutrition_info
+  end
+
+  def get_total(recipes)
+    total = EdamamApiWrapper.total_recipes(params[:search_term])
+    total = total - total.to_i/10 #Change if I request a different number each page. Total is off by 1 yeach request?
+    if total > (params[:from] + recipes.length) && (params[:from] + recipes.length) < params[:to] # there is a problem with at the end occasionally too
+      total = (params[:from] + recipes.length)
+    end
+    return total
+  end
+
+  def random_food_search_term
+    word = Faker::SlackEmoji.food_and_drink #This is the only food faker, but it returns slack formatted words, i.e. :pot_pie:
+    word = word.gsub(/[:_]/, ':' => '', '_' => ' ')
+    return word
+  end
+
+  def paginate
     if params[:next]
       params[:from] = params[:next].to_i + 12
       params[:to] = params[:next].to_i + 24
@@ -16,24 +47,5 @@ class HomepagesController < ApplicationController
       params[:from] = 0
       params[:to] = 12
     end
-
-    if params[:search_term]
-      @recipes = EdamamApiWrapper.list_recipes(params[:search_term], params[:from], params[:to])
-      # @recipes[0].ingredients
-      @total = EdamamApiWrapper.total_recipes(params[:search_term])
-    else
-      @word = Faker::SlackEmoji.food_and_drink #This is the only food faker, but it returns slack formatted words, i.e. :pot_pie:
-      @word = @word.gsub(/[:_]/, ':' => '', '_' => ' ')
-      # @word = @word.tr("_", ' ')
-      # @word = @word.tr(":", ''); @word.strip!
-      @recipe = EdamamApiWrapper.list_recipes(@word, 0, 1)
-    end
-  end
-
-  def show
-    @recipe = EdamamApiWrapper.get_recipe(params[:id])
-    @servings = @recipe.servings.round
-    @calories = @recipe.calories.round/@servings
-    @nutrition_info = @recipe.nutrition_info
   end
 end

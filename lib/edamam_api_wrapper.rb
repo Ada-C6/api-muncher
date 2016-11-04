@@ -4,8 +4,8 @@ require 'uri'
 require 'awesome_print'
 
 class EdamamApiWrapper
-  ID = ENV["EDAMAM_ID"]
-  KEY = ENV["EDAMAM_KEY"]
+  EDAMAM_ID = ENV["EDAMAM_ID"]
+  EDAMAM_KEY = ENV["EDAMAM_KEY"]
   BASE_URL = "https://api.edamam.com/"
 
 
@@ -14,7 +14,7 @@ class EdamamApiWrapper
       search_term = URI.encode(search_term) # add %20 to spaces
     end
 
-    url = BASE_URL + "search?app_id=#{ID}" + "&app_key=#{KEY}" + "&q=#{search_term}" + "&from=#{from}" + "&to=#{to}"
+    url = BASE_URL + "search?app_id=#{EDAMAM_ID}" + "&app_key=#{EDAMAM_KEY}" + "&q=#{search_term}" + "&from=#{from}" + "&to=#{to}"
 
     data = HTTParty.get(url)
 
@@ -35,7 +35,8 @@ class EdamamApiWrapper
                       edamam_url: recipe["recipe"]["shareAs"],
                       servings: recipe["recipe"]["yield"],
                       calories: recipe["recipe"]["calories"],
-                      source: recipe["recipe"]["source"]
+                      source: recipe["recipe"]["source"],
+                      count: data["count"] #Only getting this for list_recipes
                       })
         recipes << wrapper
       end
@@ -47,10 +48,10 @@ class EdamamApiWrapper
   end
 
   def self.get_recipe(recipe_id)
-    url = BASE_URL + "search?app_id=#{ID}" + "&app_key=#{KEY}" + "&r=#{recipe_id}"
+    url = BASE_URL + "search?app_id=#{EDAMAM_ID}" + "&app_key=#{EDAMAM_KEY}" + "&r=#{recipe_id}"
     recipe = HTTParty.get(url)
 
-    ap recipe
+    # ap recipe
 
     return Recipe.new(recipe[0]["label"], URI.encode(recipe[0]["uri"].to_s), {
                   url: recipe[0]["url"],
@@ -64,7 +65,7 @@ class EdamamApiWrapper
                   servings: recipe[0]["yield"],
                   calories: recipe[0]["calories"],
                   source: recipe[0]["source"],
-                  nutrition_info: recipe[0]["digest"]  # Currently only getting this for the individual recipes
+                  nutrition_info: recipe[0]["digest"],  # Currently only getting this for the individual recipes
                   })
   end
 
@@ -73,12 +74,13 @@ class EdamamApiWrapper
       search_term = URI.encode(search_term) # add %20 to spaces
     end
 
-    url = BASE_URL + "search?app_id=#{ID}" + "&app_key=#{KEY}" + "&q=#{search_term}"
+    url = BASE_URL + "search?app_id=#{EDAMAM_ID}" + "&app_key=#{EDAMAM_KEY}" + "&q=#{search_term}"
 
     data = HTTParty.get(url)
 
     if data["count"]  # if the request was successful
-      return data["count"]
+      total = data["count"]
+      return total
     else
      return nil
     end

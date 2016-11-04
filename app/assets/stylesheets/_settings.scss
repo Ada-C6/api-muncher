@@ -528,7 +528,7 @@ $show-header-for-stacked: false;
 // SETTING OVERRIDE ****************************************************************** //
 
 // These control the background color for the table and even rows
-$table-background: rgba(255,255,255,0.25) ;
+$table-background: rgba(255,255,255,0.45) ;
 $table-color-scale: 5%;
 $table-striped-background: smart-scale($table-background, $table-color-scale);
 

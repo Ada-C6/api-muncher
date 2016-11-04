@@ -7,13 +7,13 @@
       <div class="column">
         <div class="callout">
           <image><%= link_to(image_tag(recipe.image, alt: "Image of #{recipe.name}"), show_homepage_path(recipe.name, params: {id: recipe.id}))%></image>
-          <h6><%= link_to recipe.name, show_homepage_path(recipe.name, params: {id: recipe.id}) %></h6>
+          <h5><%= link_to recipe.name, show_homepage_path(recipe.name, params: {id: recipe.id}) %></h5>
         </div>
       </div>
     <% end %>
   </div>
 
-      <div class: "page-nav"> <%= "Showing #{params[:from]} - #{params[:from] + @recipes.length} of #{@total}" %> </div>
+      <div class: "page-nav"> <%= "Showing #{params[:from]+1} - #{params[:from] + @recipes.length} of #{@total}" %> </div>
 
       <div class="nav-buttons">
         <!-- BACK Button -->
@@ -26,7 +26,7 @@
         <%= form_tag index_homepage_path, method: "get", class: "page-nav" do %>
           <%= hidden_field_tag :next, params[:from] %>
           <%= hidden_field_tag :search_term, params[:search_term] %>
-          <%= submit_tag "Next", class: "button", :disabled => @total < params[:to] %>
+          <%= submit_tag "Next", class: "button", :disabled => @total <= params[:to] %>
         <% end %>
       </div>
 <% else %>
@@ -39,7 +39,7 @@
         <div class="callout">
           <div class="show-callout">
             <image><%= link_to(image_tag(recipe.image, alt: "Image of #{recipe.name}"), show_homepage_path(recipe.name, params: {id: recipe.id}))%></image>
-            <h6><%= link_to recipe.name, show_homepage_path(recipe.name, params: {id: recipe.id}) %></h6>
+            <h5><%= link_to recipe.name, show_homepage_path(recipe.name, params: {id: recipe.id}) %></h5>
           </div>
         </div>
 
