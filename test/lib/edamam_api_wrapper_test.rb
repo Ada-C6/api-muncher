@@ -50,6 +50,14 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
       assert_nil recipe
     end
   end
+  
+  test "listrecipe returns nil if given nil" do
+    VCR.use_cassette("bad-recipe-id") do
+      recipe = EdamamApiWrapper.listrecipe("bad-id")
+
+      assert_nil recipe
+    end
+  end
 
   test "page should return two different arrays for two different calls for the same term" do
     VCR.use_cassette("pages") do
