@@ -10,6 +10,8 @@ class Ingredient
   	end       
          
     def self.make_ingredients_from_api(ingredient_array)
+	    raise ArgumentError unless ingredient_array.class == Array 
+	    raise ArgumentError unless ingredient_array.all? { |item|item.class==Hash && !(item.empty?)}
 	    ingredients=[]
 
 	    ingredient_array.each_with_index do |ingredient_hash, index|

@@ -3,6 +3,11 @@
 
 <article>
 <section>
+	<ul>
+	<% @this_recipe.health_labels.each do |label| %>
+		<li> <%=label%></li>
+	<%end%>
+	</ul>
 	<h3>Ingredients</h3>
 	<p>(yields: <%=@this_recipe.servings.to_i%>)</p>
 	<ul>

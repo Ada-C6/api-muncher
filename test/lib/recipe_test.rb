@@ -35,6 +35,21 @@ class RecipeTest < ActionController::TestCase
 		end
 	end 
 
+	test "Recipe data-types are correct" do
+		VCR.use_cassette("cheese_recipes") do 
+			recipes=MuncherApiWrapper.search("cheese")
+			cheesy=Recipe.make_recipes_from_api(recipes)
+			assert cheesy.all?{|c| c.name.class == String}
+			assert cheesy.all?{|c| c.id.class == String}
+			assert cheesy.all?{|c| c.health_labels.class == Array}
+			assert cheesy.all?{|c| c.ingredients.class == Array}
+			assert cheesy.all?{|c| c.url.class == String}
+			assert cheesy.all?{|c| c.servings.class == Float}
+			assert cheesy.all?{|c| c.nutrients.class == Array}
+			assert cheesy.all?{|c| c.photo_url.class == String}
+		end
+	end
+
 	# test "Name attribution is set correctly" do
 	# 	test_me = Slack_Channel.new("my_name", "my_id")
 	# 	assert test_me.name == "my_name"

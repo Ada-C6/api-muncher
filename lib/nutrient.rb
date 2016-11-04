@@ -29,6 +29,8 @@ class Nutrient
 	end     
          
     def self.make_nutrients_from_api(api_data_hash)
+	    raise ArgumentError unless api_data_hash.class == Hash and !(api_data_hash.keys.empty?)
+
 	    nutrients=[]
 
 	    api_data_hash.keys.each do |key|

@@ -26,7 +26,7 @@ class Recipe
       recipes<<Recipe.new({
         name: recipe_hash['recipe']['label'],
         id: (index+1).to_s,
-        health_lables: recipe_hash['recipe']['healthLabels'],
+        health_labels: recipe_hash['recipe']['healthLabels'],
         ingredients: Ingredient.make_ingredients_from_api(recipe_hash['recipe']['ingredients']),
         url: recipe_hash['recipe']['url'],
         servings: recipe_hash['recipe']['yield'],
