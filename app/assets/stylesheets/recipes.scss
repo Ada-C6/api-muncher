@@ -26,6 +26,21 @@ form li {
   // will need to style colors to make this match
 }
 
+// styles list of recent searches
+.link-list > li {
+  display: inline;
+}
+
+.link-list > li:not(:first-child):before {
+  // cute cutlery for spacers
+  font-family: FontAwesome;
+  content: " \f0f5 ";
+}
+
+.link-list a {
+  // prevent the images from smushing the text
+  padding: 5px;
+}
 
 .prev-link:after {
   // navigate with left arrow
@@ -85,23 +100,16 @@ article {
 }
 
 .check-list > li {
-	list-style-image: url(uncheck.gif);
 	border-bottom: 1px solid #ccc;
 	padding: .2em 0 .2em .5em;
 	color: #666;
 }
-  // make little cutlery appear like magic!
-.check-list > li:hover {
-	cursor: pointer;
-	background-color: #f2f2f2;
-	color: #000;
+
+.check-list i {
+  margin-right: 5px;
+  visibility: hidden;
 }
 
-.check-list > li:hover:before {
-  color: #666;
-  font-family: FontAwesome;
-  content: "\f0f5";
-  display: inline-block;
-  padding-right: 3px;
-  vertical-align: middle;
+.check-list > li:hover i {
+  visibility: visible;
 }
