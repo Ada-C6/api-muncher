@@ -1,12 +1,10 @@
 require 'will_paginate/array'
 
 class RecipesController < ApplicationController
-  # def index
-  #     @data = Recipe.search(params[:recipe_params])
-  # end
-  def index #can we store all recipes in another variable?
+
+  def index
     @recipes = Recipe.search(params[:search]).paginate(:page => params[:page], :per_page => 12)
-    # render :json => @recipes.to_json(:methods => [:image_url])
+
   end
 
   def show
@@ -16,5 +14,4 @@ end
 
 # def index #will paginate?
 # @posts =  Post.all.paginate(:page => params[:page], :per_page => 4)
-#  render :json => @posts.to_json(:methods => [:image_url])
 #  end
