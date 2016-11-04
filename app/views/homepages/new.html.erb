@@ -1,0 +1,18 @@
+
+
+<section>
+
+
+<h1> <%= "#{@search_term.capitalize} Search Results" %> </h1>
+
+<% @search_results.each do |recipe| %>
+  <p>
+    <%= image_tag recipe.image %>
+  </p>
+  <p>
+    <%= link_to recipe.label, homepages_show_path %>
+  </p>
+
+<% end %>
+
+</section>

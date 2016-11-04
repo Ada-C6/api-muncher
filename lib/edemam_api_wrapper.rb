@@ -5,15 +5,8 @@ class EdemamApiWrapper
   TOKEN = ENV["TOKEN"]
   APP_ID = ENV["APP_ID"]
 
-  # def initialize(label, image, rec_source, url)
-  #   @label = label
-  #   @image = image
-  #   @source = rec_source
-  #   @url = url
-  # end
-
   # Need to request a list of recipes given a specified search term
-  def self.request_recipes(search_term)
+  def self.list_recipes(search_term)
     url = BASE_URL + "search?" + "q=#{search_term}" + "&app_id=#{APP_ID}" + "&app_key=#{TOKEN}"
 
     data = HTTParty.get(url)
@@ -21,7 +14,7 @@ class EdemamApiWrapper
     if data["hits"] # if the request was successful we should have recieved "hits" from the api
       # puts = "success"
       data["hits"].each do |hit|
-        wrapper = Recipe.new(hit["recipe"]["label"], hit["recipe"]["image"], hit["recipe"]["source"], hit["recipe"]["url"])
+        wrapper = Recipe.new(hit["recipe"]["uri"], label: hit["recipe"]["label"], image: hit["recipe"]["image"])
         recipes << wrapper
       end
       return recipes
@@ -31,6 +24,16 @@ class EdemamApiWrapper
 
   end
 
+  def self.get_a_recipe(uri)
+    url = BASE_URL + "search?" + "r=#{uri}" + "&app_id=#{APP_ID}" + "&app_key=#{TOKEN}"
+
+    data = HTTParty.get(url)
+    if data["uri"]
+      recipe = Recipe.new(["uri"], label: ["label"], image: ["image"], source: ["source"], url: ["url"], yield: ["yield"], ingredientLines: ["ingredientLines"], healthLabels: ["healthLabels"])
+    else
+      return nil
+    end
+  end
 
 end
 
