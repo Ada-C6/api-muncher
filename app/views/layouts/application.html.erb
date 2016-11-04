@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header id="main-header">
-    <h1><%= link_to("Sky Sky Binks Food Eats", root_path) %></h1>
+  <header>
+    <section class="top-bar" id="main-header">
+      <nav class="top-bar-section">
+        <ul class="menu top-bar-left">
+          <h1><%= link_to("Sky Sky Binks Food Eats", root_path) %></h1>
+        </ul>
+        <ul class="menu top-bar-right">
+          <li>
+            <%= form_tag recipes_path, method: :get do %>
+              <%= label_tag :keyword, "Key Word:" %>
+              <%= text_field_tag :search_term, params[:search_term] %>
+              <%= submit_tag "Find Recipe", class: "button" %>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </section>
   </header>
 
   <%= yield %>

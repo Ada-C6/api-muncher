@@ -3,19 +3,26 @@
     <h2 class="page-title"><%= "Recipes that include #{ @ingredient }." %> </h2>
   </header>
 
-  <ul class="row small-up-3 no-bullet">
-    <% @recipes.each do | recipe | %>
-      <% uri_section = recipe.uri.split("_").last %>
-      <li class="column">
-        <p><%= link_to(image_tag(recipe.image), recipes_show_path(uri_section)) %></p>
-        <p><%= link_to recipe.label, recipes_show_path(uri_section) %></p>
+  <ul class="row small-up-2 medium-up-3 no-bullet">
+    <% if @recipes.empty? %>
+      <%= "Sorry, there are no recipes that match that." %>
+    <% else %>
+      <% @recipes.each do | recipe | %>
+        <% uri_section = recipe.uri.split("_").last %>
+        <li class="column">
+          <p><%= link_to(image_tag(recipe.image), recipes_show_path(uri_section)) %></p>
+          <p class="centered"><%= link_to recipe.label, recipes_show_path(uri_section) %></p>
+        </li>
       <% end %>
-      </li>
   </ul>
 
-<%= will_paginate @recipes, :page_links => true%>
+  <ul class="row small-up-1 centered">
+    <li class="column">
+      <%= will_paginate @recipes, :page_links => true %>
+    </li>
+  </ul>
+    <% end %>
 
-<%# "Page #{ @page }" %>
 <%# next_page = @page += 1 %>
 <%# previous_page = @page -= 1 %>
 
