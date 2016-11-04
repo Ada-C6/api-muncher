@@ -11,6 +11,8 @@ class RecipeTest <ActiveSupport::TestCase
     photo: "www.photo.com/pannito"
     }
     pannito = Recipe.new(recipe_hash)
+    assert_not_nil pannito
+    assert_kind_of Recipe, pannito
     assert_equal pannito.name, recipe_hash[:name]
   end
 
