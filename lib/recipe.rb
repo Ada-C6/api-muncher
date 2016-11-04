@@ -36,7 +36,6 @@ class Recipe
   end
 
   def self.search(params)
-    @recipe = order('created_at DESC')
-    @recipe = @recipe.where('dietlabels LIKE?', "%#{params[:search]}%").order('created_at DESC') if params[:search].present?
+    @recipes = @recipes.where('dietlabels LIKE?', "%#{params[:search]}%").order('created_at DESC') if params[:search].present?
   end
 end

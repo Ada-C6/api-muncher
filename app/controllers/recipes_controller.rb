@@ -1,9 +1,13 @@
 class RecipesController < ApplicationController
   def index
-    @searchterm = params[:searchterm]
-    @page = params[:page].to_i
-    Recipe.reset
-    @recipes = Recipe.all(@searchterm, @page)
+    if @searchterm.nil?
+      @searchterm = params[:searchterm]
+      @page = params[:page].to_i
+      Recipe.reset
+      @recipes = Recipe.all(@searchterm, @page)
+    else
+      @recipes = Recipe.search(params[:dietlabels])
+    end
   end
 
   def show

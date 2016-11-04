@@ -21,6 +21,20 @@ class RecipesControllerTest < ActionController::TestCase
     end
   end
 
+  test "should search for a specific term and return at most those 10 recipes" do
+    VCR.use_cassette("recipes") do
+      get :index, searchterm: "chicken", page: 1
+      recipes = assigns(:recipes)
+      assert_kind_of Array, recipes
+      verify = Recipe.all("chicken", 1)
+      recipes.each_with_index do |recipe, index|
+        assert_equal verify[index], recipe
+      end
+
+      assert_operator 10, :<=, recipes.length
+    end
+  end
+
   test "should show the show page for a specific recipe" do
     VCR.use_cassette("recipes") do
       recipes = Recipe.all("chicken", 1)
@@ -44,9 +58,15 @@ class RecipesControllerTest < ActionController::TestCase
 
   test "next should show the next page of 10 recipes" do
     VCR.use_cassette("recipes") do
-      recipes = EdamamApiWrapper.listrecipes("chicken", 1)
-      get :next
-      assert_equal recipes.count, 10
+      get :next, searchterm: "chicken", page: 2
+      recipes = assigns(:recipes)
+      assert_kind_of Array, recipes
+      verify = Recipe.all("chicken", 2)
+      recipes.each_with_index do |recipe, index|
+        assert_equal verify[index], recipe
+      end
+
+      assert_operator 10, :<=, recipes.length
     end
   end
 end
