@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Oswald" rel="stylesheet">
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Hanger Haven" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -12,8 +13,17 @@
   </head>
 
   <body>
+    <header>
+      <h1 id="title"><%= link_to "Hanger Haven", root_path %></h1>
+    </header>
 
     <%= yield %>
+
+
+    <footer>
+      <p>&copy Jessica Chung 2016</p>
+      <p>powered by <img id="logo" src="http://ww1.prweb.com/prfiles/2014/01/29/11570463/Logo%201024x500.png"/></p>
+    </footer>
 
   </body>
 </html>

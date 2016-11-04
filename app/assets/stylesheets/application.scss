@@ -15,3 +15,50 @@
  *= require foundation_and_overrides
 
  */
+
+body{
+  padding: 1% 1% 1% 1%;
+}
+
+span.page, span.first, span.prev, span.next, span.last {
+  display: inline-block;
+}
+
+.return{
+  border: 1px solid black;
+  margin: auto;
+  margin-bottom: 1%;
+  padding: 1% 1% 1% 1%;
+  width: 35%;
+  text-align: center;
+}
+
+input#q{
+  width: 50%;
+}
+
+form input, input#q{
+  display: inline-block;
+}
+
+nav.pagination{
+  text-align: center;
+}
+
+#title{
+  font-family: 'Lobster', cursive;
+  font-size: 4em;
+  text-align: center;
+}
+
+footer{
+  text-align: center;
+}
+
+#logo{
+  width: 10%;
+}
+
+h1{
+  font-family: 'Oswald', sans-serif;
+}
