@@ -1,7 +1,10 @@
 @import url('foundation.min.css');
 
+nav {
+  padding: 2%;
+}
 body {
-  background-color: #7c9bf1;
+  /*background-color: #7c9bf1;*/
 }
 .pagination, a {
   color: rgb(189, 109, 109);
@@ -23,19 +26,27 @@ li {
 
 h1, h2 {
     font-family: 'Corben', Georgia, Arial, sans-serif;
-
+    padding-top: 15px;
 }
 
 p, ul, li{
   font-family: 'Nobile', Arial, sans-serif;
 }
+
 h1, h2 {
   text-align: center;
-  background-color: rgb(164, 164, 164);
+  background-color: rgb(245, 233, 82);
+  border-radius: 5px 30px 5px;
+  width: 70%;
+
  }
 
 .intro {
   padding: 5%;
+}
+
+.recipe-info {
+  padding: 20px;
 }
 
 

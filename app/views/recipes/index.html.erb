@@ -1,7 +1,7 @@
 <% if @recipes.blank? %>
   <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
 <% else %>
-<h1>Results for <%= "#{params[:search]}"  %> </h1>
+<h1 class="large-11 small-centered columns">Results for <%= "#{params[:search]}"  %> </h1>
 <p class = "row"><%= will_paginate @recipes,  :container => false %></p>
 <section class="row small-up-1 medium-up-2 large-up-4">
  <% @recipes.each do |recipe| %>
