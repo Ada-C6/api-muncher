@@ -39,6 +39,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    ansi (1.5.0)
     arel (7.1.4)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -95,6 +96,11 @@ GEM
     minispec-metadata (2.0.0)
       minitest
     minitest (5.9.1)
+    minitest-reporters (1.1.12)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     minitest-vcr (1.4.0)
       minispec-metadata (~> 2.0)
       minitest (>= 4.7.5)
@@ -135,6 +141,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    ruby-progressbar (1.8.1)
     safe_yaml (1.0.4)
     sass (3.4.22)
     sass-rails (5.0.6)
@@ -193,6 +200,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  minitest-reporters
   minitest-vcr
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
