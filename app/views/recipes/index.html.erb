@@ -4,11 +4,11 @@
     <div class="column">
       <h3><%= recipe.name %></h3>
     <img src="<%= recipe.recipe_image %>">
-    <h4><%= link_to("Details", recipe_path(recipe.name), class: "secondary button") %></h4>
+    <h4><%= link_to("Details", recipe_path(recipe.id), class: "secondary button") %></h4>
     </div>
   <% end %>
   <% if @recipes == [] && !params[:search].nil? %>
-    <p>There are no results for "<%= @search_term %>".</p>
+    <p>There are no results for that term.</p>
   <% end %>
   </div>
 </section>
