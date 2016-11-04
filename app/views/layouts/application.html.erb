@@ -5,8 +5,18 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Sonsie+One" rel="stylesheet">
 </head>
 <body>
+  <header>
+    <div class="site-header">
+      <h1>Cooking with Guin</h1>
+    </div>
+    <p class="header-sub">
+      We'll find the right recipe for you.
+    </p>
+  </header>
 
 <%= yield %>
 

@@ -1,8 +1,6 @@
-<h1>This should be the homepage.</h1>
-
 <% if @recipes %>
   <h3>You searched for "<%= params[:search] %>". Here are your results:</h3>
-  <p><%= link_to "New search", recipes_index_path(0) %></p>
+  <p><%= link_to "New search", recipes_index_path(0), class: "button" %></p>
 
   <% if @recipes.empty? %>
     <% if params[:startindex] == "0" %>
@@ -11,16 +9,27 @@
       <p>No more recipes for "<%= params[:search] %>" exist.</p>
     <% end %>
   <% else %>
-    <p><%= link_to "Next ten pages", "#{URI.encode(@query_string)}" %></p>
+    <p><%= link_to "Next ten pages", "#{URI.encode(@query_string)}", class: "button" %></p>
     <% if params[:startindex].to_i >= 10 %>
-    <p><%= link_to "Previous ten pages", "#{URI.encode(@back_query_string)}" %></p>
+    <p><%= link_to "Previous ten pages", "#{URI.encode(@back_query_string)}", class: "button" %></p>
     <% end %>
 
-    <% @recipes.each do |recipe| %>
-    <p><%=image_tag(recipe.image) %></p>
-    <% id = recipe.uri.split("edamam.owl#").last %>
-    <%= link_to "#{recipe.label}", recipes_show_path(id) %>
-    <% end %>
+    <ul class='row small-up-3' >
+      <% @recipes.each do |recipe| %>
+        <li class="column" >
+          <ul class="row small-up-1 recipe-row">
+            <% id = recipe.uri.split("edamam.owl#").last %>
+            <li class="column">
+              <%=link_to image_tag(recipe.image), recipes_show_path(id)%>
+            </li>
+
+            <li class="column text-center">
+              <%= link_to "#{recipe.label}", recipes_show_path(id) %>
+            </li>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
 
 <% else %>

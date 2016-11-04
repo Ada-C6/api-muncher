@@ -24,8 +24,10 @@ class EdamamApiWrapper
           health_labels: hit["recipe"]["healthLabels"],
           image: hit["recipe"]["image"],
           url: hit["recipe"]["shareAs"],
-          nutrients: hit["recipe"]["totalNutrients"],
-          servings: hit["recipe"]["yield"]
+          calories: hit["recipe"]["totalNutrients"]["ENERC_KCAL"],
+          servings: hit["recipe"]["yield"],
+          nutrients: hit["recipe"]["digest"],
+          daily: hit["recipe"]["totalDaily"]
 
         recipes << wrapper
       end
@@ -44,8 +46,11 @@ class EdamamApiWrapper
       health_labels: data[0]["healthLabels"],
       image: data[0]["image"],
       url: data[0]["shareAs"],
-      nutrients: data[0]["totalNutrients"],
-      servings: data[0]["yield"]
+      calories: data[0]["totalNutrients"]["ENERC_KCAL"],
+      servings: data[0]["yield"],
+      nutrients: data[0]["digest"],
+      daily: data[0]["totalDaily"]
+
     return wrapper
   end
 

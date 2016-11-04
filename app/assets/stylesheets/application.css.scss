@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+// h1 {
+//   font-family: 'Architects Daughter', cursive;
+//     font-size: 6em;
+// }
+
+.site-header {
+  background: image-url('spices.jpg');
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Sonsie One', cursive;
+  font-size: 5em;
+  color: white;
+
+}
+
+.header-sub {
+  text-align: center;
+  font-family: 'Architects Daughter', cursive;
+
+}
+
+h2, h3, h4, a {
+  font-family: 'Architects Daughter', cursive;
+}

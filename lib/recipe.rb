@@ -1,6 +1,6 @@
 
 class Recipe
-  attr_reader :label, :uri, :ingredients, :diet_labels, :health_labels, :image, :url, :nutrients, :servings
+  attr_reader :label, :uri, :ingredients, :diet_labels, :health_labels, :image, :url, :calories, :servings, :nutrients, :daily
 
   def initialize(label, options = {})
     raise ArgumentError if label == nil || label == ""
@@ -15,7 +15,8 @@ class Recipe
     @url = options[:url]
     @nutrients = options[:nutrients]
     @servings = options[:servings]
-
+    @calories = options[:calories]
+    @daily = options[:daily]
 
   end
 
@@ -28,25 +29,21 @@ class Recipe
     EdamamApiWrapper.find(id)
   end
 
-  def return_calories
-    self.nutrients["ENERC_KCAL"]
-  end
-
   def kcal_per_serving
-    self.return_calories["quantity"].to_i / @servings
+    @calories["quantity"].to_i / @servings
   end
 
-  def all_other_nutrients
-    return_array = []
-    self.nutrients.each do |key, val|
-      unless key == "ENERC_KCAL"
-        return_array << val
+  def get_daily(label)
+    @daily.each do |item|
+      if item[1]["label"] == label
+        return (item[1]["quantity"]/@servings).round(2)
       end
     end
-    return return_array
-
+    return nil
   end
 
-
+  def diet_info
+    return @health_labels + @diet_labels
+  end
 
 end

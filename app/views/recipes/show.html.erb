@@ -1,11 +1,11 @@
-<h1><%= @recipe.label %></h1>
+<h2><%= @recipe.label %></h2>
 
 <div class="row small-up-1">
 <p class="column">
 <%=image_tag(@recipe.image, :alt => "#{@recipe.label}") %>
 </p>
 <p class="column text-center">
-<%= link_to "Link to original recipe", @recipe.url, :target => "_blank", class: "external-link"%>
+<%= link_to "Click me for detailed instructions", @recipe.url, :target => "_blank", class: "external-link"%>
 </p>
 </div>
 
@@ -18,9 +18,8 @@
     <% end %>
 
     <h4>This recipe is a fit for the following diet plans:</h4>
-    <% labels = @recipe.diet_labels + @recipe.health_labels %>
-    <% unless labels.empty? %>
-      <% labels.each do |diet| %>
+    <% unless @recipe.diet_info.empty? %>
+      <% @recipe.diet_info.each do |diet| %>
       <p><%= diet %></p>
       <% end %>
     <% else %>
@@ -32,20 +31,55 @@
     <h4>Nutritional information</h4>
     <p>
       <%= @recipe.kcal_per_serving %>
-      <%= @recipe.return_calories["unit"]%>
-      per serving
+      <%= @recipe.calories["unit"]%>
+      per serving,
+      <%= @recipe.get_daily("Energy")%>%
+      daily value
     </p>
+    <ul class="row small-up-3">
+      <li class="column">
+        Nutrient
+      </li>
+      <li class="column">
+        Total per serving
+      </li>
+      <li class="column">
+        % daily value
+      </li>
+    </ul>
 
-    <ul class="row small-up-2">
-    <% @recipe.all_other_nutrients.each do |info| %>
+    <ul class="row small-up-3">
+    <% @recipe.nutrients.each do |info| %>
 
         <li class="column">
           <%= info["label"] %>
         </li>
         <li class="column">
-          <%= info["quantity"].round(2) %>
-          <%= info["unit"] %>
+          <%= (info["total"] / @recipe.servings).round(2) %>
+          <%= info["unit"]%>
         </li>
+        <li class="column">
+          <%= @recipe.get_daily(info['label']) %> %
+        </li>
+        <% if info["sub"] %>
+          <% info["sub"].each do |item| %>
+            <li class="column">
+              <%= item["label"] %>
+            </li>
+            <li class="column">
+              <%= (item["total"] / @recipe.servings).round(2) %>
+              <%= item["unit"]%>
+            </li>
+            <li class="column">
+              <% percentage = @recipe.get_daily(item["label"]) %>
+              <% if percentage %>
+                <%= percentage %> %
+              <% else %>
+                -
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
 
     <% end %>
   </ul>

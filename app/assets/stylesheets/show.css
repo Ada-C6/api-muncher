@@ -7,7 +7,7 @@ p {
   background-color: lightgreen;
 }
 
-h1 {
+h2 {
   text-align: center;
 }
 
@@ -16,5 +16,5 @@ li {
 }
 
 .external-link {
-  font-size: 1.8em;
+  font-size: 1.5em;
 }
