@@ -4,7 +4,6 @@ class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search"
   APP_ID = ENV["EDAMAM_APP_ID"]
   APP_KEY = ENV["EDAMAM_APP_KEY"]
-  START = 1
   LAST = 1000
 
   def self.find_recipes(food)
