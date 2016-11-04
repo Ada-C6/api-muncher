@@ -13,7 +13,7 @@
     <% end %>
   </div>
 
-      <div class: "page-nav"> <%= "Showing #{params[:from]+1} - #{params[:from] + @recipes.length} of #{@total}" %> </div>
+      <div class: "page-nav"> <%= "Showing #{params[:first_recipe]} - #{params[:last_recipe]} of #{@total}" %> </div>
 
       <div class="nav-buttons">
         <!-- BACK Button -->

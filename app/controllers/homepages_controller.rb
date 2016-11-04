@@ -8,6 +8,7 @@ class HomepagesController < ApplicationController
     if params[:search_term]
       @recipes = EdamamApiWrapper.list_recipes(params[:search_term], params[:from], params[:to])
       @total = get_total(@recipes)
+      page_number_display_helper(@recipes)
     else
       @word = random_food_search_term
       @recipe = EdamamApiWrapper.list_recipes(@word, 0, 1)
@@ -47,5 +48,14 @@ class HomepagesController < ApplicationController
       params[:from] = 0
       params[:to] = 12
     end
+  end
+
+  def page_number_display_helper(recipes)
+    if recipes.length == 0
+      params[:first_recipe] = params[:from]
+    else
+      params[:first_recipe] = params[:from]+1
+    end
+    params[:last_recipe] = params[:from] + @recipes.length
   end
 end
