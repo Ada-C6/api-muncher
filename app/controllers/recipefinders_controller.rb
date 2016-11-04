@@ -1,10 +1,12 @@
 class RecipefindersController < ApplicationController
   def index
-    @homepage = true
+    @page = 'homepage' # Display variable
   end
 
   def show
-    @recipes, @count = Edamam_Api_Wrapper.search(params[:query], params[:from])
+    @page = 'nonhomepage'
+    @recipes = Edamam_Api_Wrapper.search(params[:query], params[:from])
+    @count = Edamam_Api_Wrapper.getnumhits(params[:query])
 
     if @recipes == false
       redirect_to recipefinders_index_path

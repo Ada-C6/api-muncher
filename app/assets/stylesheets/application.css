@@ -15,14 +15,31 @@
  */
 
 @import url('foundation.css');
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Bungee+Hairline|Covered+By+Your+Grace|Gloria+Hallelujah|Lato|Muli|Poiret+One');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Sacramento|Satisfy|Bungee+Hairline|Covered+By+Your+Grace|Gloria+Hallelujah|Lato|Muli|Poiret+One');
 
 h1 {
-  font-family: 'Covered By Your Grace';
+  font-family: 'Sacramento';
 }
+
+h2.recipeheader {
+  text-align: center;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-family: 'Sacramento';
+  background: lightgray;
+}
+
+
+html {
+  height: 100%;
+}
+
 
 body {
   font-family: 'Muli';
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 body.homepage {
@@ -32,7 +49,7 @@ body.homepage {
 }
 
 .non-footer {
-  min-height: 90%;
+  flex: 1;
 }
 
 .tagline {
@@ -56,13 +73,14 @@ header {
   padding-bottom: 2%;
 }
 
-footer.homepage {
-  position: absolute;
-  bottom: 0
+footer {
+
 }
 
-footer {
-  position: relative;
+footer.homepage, .push.homepage {
+  height: 50px;
+  position: absolute;
+  bottom: 0px;
 }
 
 .image-source {
@@ -75,3 +93,54 @@ footer {
 .centered-item {
   text-align: center;
 }
+
+li.tile {
+  list-style-type: none;
+  padding: 1%;
+  text-align:center
+}
+
+header.nonhomepage {
+  background-image: url('landingpicture.jpeg');
+  background-size: cover;
+  background-position: center top;
+  padding-bottom: 1%;
+}
+
+.thumbnail {
+  max-height: 200px;
+  margin-bottom: 0;
+}
+
+.wide {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+div.page {
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+a.page {
+  margin: 0.5%;
+  padding: 0.5%;
+  height: 35px;
+  width: 35px;
+  display: inline-block;
+}
+
+a.current {
+  border: 1px lightgray solid;
+}
+
+/*
+.recipes {
+  padding: 3%;
+}
+
+.name {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}*/

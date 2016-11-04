@@ -8,7 +8,6 @@ class Edamam_Api_Wrapper
 
   def self.search(search_term, start_index)
 
-
     url = "#{BASE_URL}search?q=#{search_term}&from=#{start_index}&app_id=#{CLIENT_ID}&app_key=#{CLIENT_SECRET}"
     response = HTTParty.get(url)
 
@@ -22,7 +21,23 @@ class Edamam_Api_Wrapper
       my_recipes << Recipe.new(response_item['recipe'])
     end
 
-    return [my_recipes, response['count']]
+    return my_recipes
+
+  end
+
+  def self.getnumhits(search_term)
+
+    # This part should NOT be necessary, but the count returned by the API often does not accurately reflect
+    # the number of hits actually returned - e.g., says 84 when there are actually 77.
+
+    url_for_count = "#{BASE_URL}search?q=#{search_term}&from=0&to=100&app_id=#{CLIENT_ID}&app_key=#{CLIENT_SECRET}"
+    count = HTTParty.get(url_for_count)
+
+    if count.code != 200
+      return false
+    end
+
+    return count["hits"].length
 
   end
 

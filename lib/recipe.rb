@@ -1,7 +1,7 @@
 
 class Recipe
 
-  attr_reader :name, :uri, :url, :image, :source, :source_icon, :servings, :diet_labels, :health_labels, :ingredients_block, :ingredients, :calories, :total_nutrients, :total_daily, :digest
+  attr_reader :name, :uri, :url, :image, :description, :source, :source_icon, :servings, :diet_labels, :health_labels, :ingredients_block, :ingredients, :calories, :total_nutrients, :total_daily, :digest
 
   def initialize(recipe_hash)
 
@@ -37,6 +37,9 @@ class Recipe
     @total_nutrients = recipe_hash['totalNutrients']
     @total_daily = recipe_hash['totalDaily']
     @digest = recipe_hash['digest']
+    @description = CopyWriter.get_description(@ingredients, @source)
+
+
 
   end
 
