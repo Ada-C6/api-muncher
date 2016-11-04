@@ -46,11 +46,6 @@ ul.top-bar-right li {
   padding-left: 1%;
 }
 
-#homepage-title {
-  font-family: 'Port Lligat Sans', sans-serif;
-  padding: 2% 0 0 2%;
-}
-
 /*INDEX PAGE*/
 ul p.centered {
   margin-left: auto;
@@ -83,6 +78,10 @@ ul p.centered {
   border-radius: 15px;
 }
 
+.bkgrnd-color-yellow-sqr {
+  background-color: #FFBA08;
+}
+
 .bkgrnd-color-teal {
   background-color: #5FB49C;
   border-radius: 15px;
@@ -107,20 +106,36 @@ ul p.centered {
   margin: 2%;
 }
 
-.add-padding {
-  padding: 1% 2% 1% 2%;
+.add-margin-bot {
+  margin-bottom: 5%
 }
+
+/*.add-padding {
+  padding: 1% 2% 1% 2%;
+}*/
 
 .text-center {
   text-align: center;
+}
+
+.show-box {
+  margin: 1% 1% 1% 1%;
 }
 
 .change-font {
   font-family: 'Port Lligat Sans', sans-serif;
 }
 
+.no-padding {
+  padding: 1% 0 0 1%;
+}
+
 .padding-bot {
   padding-bottom: 2%;
+}
+
+.padding-top {
+  padding-top: 2%;
 }
 
 .show-img-size {
@@ -151,7 +166,11 @@ ul p.centered {
 }
 
 .add-padding {
-  padding: 1%;
+  padding: 2%;
+}
+
+.ingredient-show {
+  margin: 0
 }
 
 
@@ -162,6 +181,13 @@ footer {
   border: 1px black solid;
 }
 
+footer div p.small-9 {
+  padding-top: 2%;
+}
+
 .logo {
-  width:40%;
+  width:120px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2%;
 }

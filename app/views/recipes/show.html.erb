@@ -4,26 +4,28 @@
   </header>
 
   <section>
-    <div class="row add-padding margin bkgrnd-color-teal add-border">
+    <div class="row add-padding add-margin-bot bkgrnd-color-teal add-border">
       <p class="small-12 medium-6 columns"><%= image_tag(@recipe.image, class: "show-img-size rounded-edges") %></p>
 
       <div class="small-12 medium-6 columns bkgrnd-color-white show-info">
 
-        <ul class="row small-up-12 no-bullet">
-          <li class="column increase-font change-font padding-bot underline"><%= @recipe.label %></li>
-          <li class="column padding-bot">See Full Recipe on: <%= link_to( @recipe.source_name, @recipe.sourceUrl, target: '_blank') %></li>
-          <li class="column padding-bot dash-underline"><%= "Serves: #{ @yield }" %></li>
-
-          <li class="column padding-bot">
+        <ul class="row small-up-12 no-bullet padding-top">
+          <li class="column increase-font padding-bot">
+            <ul class="row small-up-2 no-bullet">
+              <li class="column change-font underline padding-top"><%= @recipe.label %></li>
+              <li class="column"><%= link_to( "See Full Recipe at: #{ @recipe.source_name }", @recipe.sourceUrl, target: '_blank',class: "button rounded-edges") %></li>
+            </ul>
+          </li>
+          <li class="column bkgrnd-color-yellow-sqr"><%= "Serves: #{ @yield }" %></li>
+          <li class="column padding-bot dash-underline padding-top">
             <% if @recipe.healthLabels != [] %>
-              <p>Health Labels:</p>
-              <%= @recipe.healthLabels %>
+              <p><strong>Health Labels: </strong><%= @recipe.healthLabels %></p>
             <% end %>
           </li>
 
-          <li class="column padding-bot add-padding">
-            <p>Ingredients:</p>
-            <ul class="no-bullet">
+          <li class="column">
+            <p class="add-padding ingredient-show"><strong>Ingredients:</strong></p>
+            <ul class="no-bullet add-padding">
               <% @all_indgredients.each do | indgredient | %>
                 <li><%= indgredient %></li>
               <% end %>
