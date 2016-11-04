@@ -21,3 +21,9 @@
 
 # Ignore coverage
 /coverage
+
+
+# Ignore DS_Store file
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
