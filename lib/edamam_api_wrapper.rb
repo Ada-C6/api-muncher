@@ -5,11 +5,15 @@ class EdamamApiWrapper
   # APP = ENV["EDAMAM_APP_ID"]
   # KEY = ENV["EDAMAM_APP_KEY"]
 
+  # Grabbing first 500 the results, don't think anyone will page further than 50 pages.
+  TOTAL = "500"
+
+
   def self.search(term)
     #For some reason, my .env is not getting loaded, so this is the ugly workaround.
     Dotenv.load
 
-    url = BASE_URL + "q=#{term}" + "&app_id=#{ENV["EDAMAM_APP_ID"]}" + "&app_key=#{ENV["EDAMAM_APP_KEY"]}"
+    url = BASE_URL + "q=#{term}" + "&app_id=#{ENV["EDAMAM_APP_ID"]}" + "&app_key=#{ENV["EDAMAM_APP_KEY"]}&to=#{TOTAL}"
 
     # right now, I'm only getting the first 10 back.
     data = HTTParty.get(url)

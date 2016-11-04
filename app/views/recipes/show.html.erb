@@ -1,4 +1,5 @@
 <article>
+  <% if @recipe != nil %>
   <section class="header-img-show row">
     <div class= "small-12 columns">
       <%= image_tag(@recipe.image, :class => "img-show") %>
@@ -7,7 +8,7 @@
   <article class="row">
     <section class="recipe-header-show small-12 column">
       <h1><%= @recipe.label %></h1>
-      <h4>From <%=link_to @recipe.source, @recipe.source_url %> </h4>
+      <h4>From <%=link_to @recipe.source, @recipe.source_url, :target => '_blank' %> </h4>
     </section>
     <div class="small-12 large-8 column">
       <section>
@@ -21,9 +22,9 @@
           <% end %>
             <tr>
               <td class="instructions-show-button">
-                <%= button_to("See Instructions", @recipe.source_url, method: :get)%>
+                <%= button_to("See Instructions", @recipe.source_url, method: :get, form: {target: '_blank'})%>
               </td>
-              <td> on <%=link_to @recipe.source, @recipe.source_url %>
+              <td> on <%=link_to @recipe.source, @recipe.source_url, :target => '_blank' %>
               </td>
             </tr>
         </table>
@@ -63,4 +64,7 @@
       </section>
     <% end %>
   </article>
+  <% else %>
+    <h4><%= flash[:no_results] %></h4> 
+  <% end %>
 </article>
