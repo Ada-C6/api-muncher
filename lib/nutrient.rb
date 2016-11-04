@@ -8,11 +8,11 @@ class Nutrient
 		@quantity = nutrient_hash[:quantity].to_f
 		@unit = nutrient_hash[:unit]
 		@percent_dv= nutrient_hash[:percent_dv]
-		begin
-			@percent_dv=@percent_dv.to_i 
-		rescue
-			@percent_dv
-		end
+		# begin
+		# 	@percent_dv=@percent_dv.to_i 
+		# rescue
+		# 	@percent_dv
+		# end
   	end 
 
 
@@ -21,7 +21,7 @@ class Nutrient
 		puts "quantity: #{quantity}"
 		puts "the rec: #{the_rec}"
 		begin
-			a=((quantity/the_rec)*100) 
+			a=((quantity/the_rec)*100)
 			puts "the percent dv: #{a}"
 		rescue
 			a="no recommendation"
