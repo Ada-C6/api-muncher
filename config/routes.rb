@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root to: 'recipes#index'
+  root to: 'pages#index'
 
-  resources :routes, :sessions
+  resources :recipes, :sessions, :pages
 
   get '/auth/:provider/callback', to: 'sessions#create'
 

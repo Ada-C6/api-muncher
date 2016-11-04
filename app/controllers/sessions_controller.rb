@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 
   def create
     # auth_hash = request.env['omniauth.auth']
+    session[:search_terms] = []
 
     auth_hash = request.env['omniauth.auth']
     unless @auth = Authorization.find_from_hash(auth_hash)
