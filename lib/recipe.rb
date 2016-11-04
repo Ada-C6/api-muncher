@@ -1,4 +1,3 @@
-
 class Recipe
   attr_reader :label, :uri, :ingredients, :diet_labels, :health_labels, :image, :url, :calories, :servings, :nutrients, :daily
 
@@ -30,7 +29,7 @@ class Recipe
   end
 
   def kcal_per_serving
-    @calories["quantity"].to_i / @servings
+    return (@calories["quantity"] / @servings).round(2)
   end
 
   def get_daily(label)

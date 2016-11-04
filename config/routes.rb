@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
   get 'recipes/index/:startindex', to: "recipes#index", as: "recipes_index"
-
-
-  get 'recipes/new'
-
-
-
-  post 'recipes/create'
-
   get 'recipes/show/:id', to: "recipes#show", as: "recipes_show"
 
   # The priority is based upon order of creation: first created -> highest priority.

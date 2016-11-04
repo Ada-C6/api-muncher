@@ -49,29 +49,29 @@
     </ul>
 
     <ul class="row small-up-3">
-    <% @recipe.nutrients.each do |info| %>
+    <% @recipe.nutrients.each do |nutrient| %>
 
         <li class="column">
-          <%= info["label"] %>
+          <%= nutrient["label"] %>
         </li>
         <li class="column">
-          <%= (info["total"] / @recipe.servings).round(2) %>
-          <%= info["unit"]%>
+          <%= (nutrient["total"] / @recipe.servings).round(2) %>
+          <%= nutrient["unit"]%>
         </li>
         <li class="column">
-          <%= @recipe.get_daily(info['label']) %> %
+          <%= @recipe.get_daily(nutrient['label']) %> %
         </li>
-        <% if info["sub"] %>
-          <% info["sub"].each do |item| %>
+        <% if nutrient["sub"] %>
+          <% nutrient["sub"].each do |subnutrient| %>
             <li class="column">
-              <%= item["label"] %>
+              <%= subnutrient["label"] %>
             </li>
             <li class="column">
-              <%= (item["total"] / @recipe.servings).round(2) %>
-              <%= item["unit"]%>
+              <%= (subnutrient["total"] / @recipe.servings).round(2) %>
+              <%= subnutrient["unit"]%>
             </li>
             <li class="column">
-              <% percentage = @recipe.get_daily(item["label"]) %>
+              <% percentage = @recipe.get_daily(subnutrient["label"]) %>
               <% if percentage %>
                 <%= percentage %> %
               <% else %>
