@@ -17979,4 +17979,63 @@ http_interactions:
         }
     http_version: 
   recorded_at: Fri, 04 Nov 2016 01:13:53 GMT
+- request:
+    method: get
+    uri: https://api.edamam.com/search?app_id=f833eb30&app_key=48c974d340fd9e96720ec5fff867370f&from=0&q=fshjlfksdfjklahsflkjsdhflkjasdhf
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ngx_openresty
+      Date:
+      - Fri, 04 Nov 2016 02:27:35 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 UTC
+      X-Served-By:
+      - ip-10-150-1-224/10.150.1.224
+      Set-Cookie:
+      - JSESSIONID=C605BD13BDA7DCCA35BCF623FA053039; Path=/
+      - JSESSIONID=C605BD13BDA7DCCA35BCF623FA053039; Path=/; Secure; HttpOnly
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "q" : "fshjlfksdfjklahsflkjsdhflkjasdhf",
+          "from" : 0,
+          "to" : 10,
+          "params" : {
+            "sane" : [ ],
+            "q" : [ "fshjlfksdfjklahsflkjsdhflkjasdhf" ],
+            "app_id" : [ "f833eb30" ],
+            "app_key" : [ "48c974d340fd9e96720ec5fff867370f" ],
+            "from" : [ "0" ]
+          },
+          "more" : false,
+          "count" : 0,
+          "hits" : [ ]
+        }
+    http_version: 
+  recorded_at: Fri, 04 Nov 2016 02:28:42 GMT
 recorded_with: VCR 3.0.3

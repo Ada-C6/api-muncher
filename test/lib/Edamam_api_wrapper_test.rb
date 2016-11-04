@@ -30,7 +30,7 @@ class EdamamAPIWrapperTest < ActiveSupport::TestCase
     end
   end
 
-  test "search_recipe will return an array of Recipes" do
+  test "search_recipe will return an array of Recipes with present search term" do
     VCR.use_cassette("recipes") do
       search_term = "Chicken"
       page = 1
@@ -38,10 +38,17 @@ class EdamamAPIWrapperTest < ActiveSupport::TestCase
       assert_not recipes.empty?
       assert_kind_of Array, recipes
       recipes.each do |recipe|
-        unless recipes.last
-          assert_kind_of Recipe, recipe
-        end
+        assert_kind_of Recipe, recipe
       end
+    end
+  end
+
+  test "search should return empty array if invalid search term" do
+    VCR.use_cassette("recipes") do
+      search_term = "fshjlfksdfjklahsflkjsdhflkjasdhf"
+      page = 1
+      recipes = EdamamApiWrapper.recipe_search(search_term, page)
+      assert_equal [], recipes
     end
   end
 end
