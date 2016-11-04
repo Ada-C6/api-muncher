@@ -25,7 +25,7 @@ class EdamamApiWrapper
      recipe_list = []
      if data.count > 0
        recipe = data[0]
-       wrapper = Recipe.new(recipe["label"], recipe["image"], recipe["uri"], link: recipe["url"], ingredients: recipe["ingredients"], dietary_info: recipe["dietLabels"])
+       wrapper = Recipe.new(recipe["label"], recipe["image"], recipe["uri"], link: recipe["url"], ingredients: recipe["ingredients"], dietary_info: recipe["dietLabels"], count: 1)
        recipe_list << wrapper
      end
      return recipe_list
