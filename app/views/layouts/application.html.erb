@@ -12,31 +12,28 @@
     <nav>
       <section>
         <div class="row">
-          <ul class="menu large-4 columns">
             <h1><%= link_to "nom noms hunt", root_path%></h1>
-                <h2>Search</h2>
-                    <li><%= form_tag(recipes_path, :method => "get", id: "search-form") do %></li>
-                      <li><%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %></li>
-                      <li><%= hidden_field_tag :page, 1 %></li>
-                      <li><%= submit_tag "Search", :name => nil, class: "button" %></li>
-                    <% end %>
-                      </div>
-                  </div>
-              </div>
-          </ul>
-        </div>
-      </section>
-    </nav>
-  </header>
-  <main>
+            <h2>Search</h2>
+            <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
+            <ul class="menu small-4 columns end">
+              <li><%= hidden_field_tag :page, 1 %></li>
+                <li><%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %></li>
+                <li><%= submit_tag "Search", :name => nil, class: "button" %></li>
+              </ul>
+              <% end %>
+            </div>
+          </section>
+        </nav>
+      </header>
+      <main>
 
   <%= yield %>
-  </main>
-  <footer>
-    <div class ="row">
-      <div class="small-6">
-        <li>&copy; Jennifer Owens <%= Time.now.year %></li>
-        <li><%= link_to image_tag('edamamattribution.png', alt: "Edamam logo"),'http://developer.edamam.com'%></li>
-      </footer>
-    </body>
-    </html>
+</main>
+<footer>
+  <div class ="row">
+    <p class="small-10 columns">&copy; Jennifer Owens <%= Time.now.year %></p>
+    <%= link_to image_tag('edamamattribution.png', alt: "Edamam logo", class: "small-2 columns"),'http://developer.edamam.com'%>
+  </div>
+    </footer>
+  </body>
+  </html>
