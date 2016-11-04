@@ -1,4 +1,4 @@
-require_relative 'recipe_api_wrapper'
+require_relative 'edamam_api_wrapper'
 
 class Recipe
 
