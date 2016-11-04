@@ -1,0 +1,6 @@
+<% @recipe_results.each do |recipe| %>
+  <%= recipe.title %>
+  <%= recipe.image_url %>
+  <%# link_to recipe_path(recipe) %>
+  <%= recipe.uri %>
+<% end %>

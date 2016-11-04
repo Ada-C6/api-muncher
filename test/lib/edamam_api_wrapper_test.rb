@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class EdamamApiWrapperTest < ActiveSupport::TestCase
-  test "should be able to create an instance of EdamamApiWrapper" do
+  test "1. should be able to create an instance of EdamamApiWrapper" do
     assert EdamamApiWrapper.new
   end
 
-  test "should be able to send search with one word" do
+  test "2. should be able to send search with one word" do
     VCR.use_cassette("search") do
       term = "gummy"
       response = EdamamApiWrapper.search(term)
@@ -20,7 +20,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     end # VCR
   end # test
 
-  test "should be able to send search with two words" do
+  test "3. should be able to send search with two words" do
     VCR.use_cassette("search") do
       term = "gummy worms"
       response = EdamamApiWrapper.search(term)
@@ -37,7 +37,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
   end # test
 
   # NOTE: I'm not testing or handling non-string-input cases because search form will allow only string input
-  test "should receive an ArgumentError message for a search with no input" do
+  test "4. should receive an ArgumentError message for a search with no input" do
     VCR.use_cassette("search") do
 
       assert_raises ArgumentError do
@@ -46,15 +46,16 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     end # VCR
   end # test
 
-  test "search_results should return only recipe hits" do
-    VCR.use_cassette("search") do
-      term = "jello"
-      results = EdamamApiWrapper.search_results(term)
-
-      results.each do |result|
-        assert_not_nil result["recipe"]
-      end # each
-    end # VCR
-  end
+  # # @todo - remove this test; search_results method has been moved to the Recipe class
+  # test "5. search_results should return only recipe hits" do
+  #   VCR.use_cassette("search") do
+  #     term = "jello"
+  #     results = EdamamApiWrapper.search_results(term)
+  #
+  #     results.each do |result|
+  #       assert_instance_of Recipe, result
+  #     end # each
+  #   end # VCR
+  # end
 
 end # class
