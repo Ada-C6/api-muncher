@@ -20,7 +20,7 @@
 // }
 
 body {
-  background-color: beige;
+  background-color: #f7e7b4;
 }
 
 .site-header {
@@ -49,6 +49,10 @@ h2, h3, h4, a {
   background-color: green;
   font-family: 'Architects Daughter', cursive;
   border-radius: 10px;
+}
+
+.button:hover {
+  background-color: #f47742;
 }
 
 .light-green {

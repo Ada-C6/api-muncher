@@ -3,12 +3,18 @@ img {
     margin: 0 auto;
 }
 
-/*p {
-  background-color: lightgreen;
-}*/
+.rounded-border {
+  border: 2px solid darkgreen;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  background-color: #f7e7b4;
+}
 
 h2 {
   text-align: center;
+  color: darkgreen;
 }
 
 li {
@@ -17,5 +23,4 @@ li {
 
 .external-link {
   font-size: 1.5em;
-  color: black;
 }

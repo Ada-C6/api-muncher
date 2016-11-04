@@ -2,34 +2,43 @@
 
 <h2><%= @recipe.label %></h2>
 
-<div class="row small-up-1">
+<section class="row small-up-1">
 <p class="column">
 <%=link_to image_tag(@recipe.image, :alt => "#{@recipe.label}"), @recipe.url %>
 </p>
 <p class="column text-center">
-<%= link_to "Click me for detailed instructions", @recipe.url, :target => "_blank", class: "external-link"%>
+<%= link_to "Click me for detailed instructions", @recipe.url, :target => "_blank", class: "button external-link"%>
 </p>
-</div>
+<p class="column text-center">
+<%= link_to "New Search", recipes_index_path(0), class: "button" %>
+</p>
+</section>
 
-
+<section>
 <ul class="row small-up-1 medium-up-2">
   <li class="column">
-    <h4>You'll need:</h4>
-    <% @recipe.ingredients.each do |ingredient|%>
-    <p><%= ingredient %></p>
+    <div class="rounded-border">
+      <h4>You'll need:</h4>
+      <% @recipe.ingredients.each do |ingredient|%>
+      <p><%= ingredient %></p>
     <% end %>
+    </div>
 
+    <div class="rounded-border">
     <h4>This recipe is a fit for the following diet plans:</h4>
-    <% unless @recipe.diet_info.empty? %>
-      <% @recipe.diet_info.each do |diet| %>
-      <p><%= diet %></p>
-      <% end %>
-    <% else %>
-      We apologize, but this recipe does not include information on matching diet plans.
-    <% end %>
+      <% unless @recipe.diet_info.empty? %>
+        <% @recipe.diet_info.each do |diet| %>
+        <%= diet %><br>
+        <% end %>
+        <% else %>
+          <p>
+            We apologize, but this recipe does not include information on matching diet plans.
+          </p>
+        <% end %>
+    </div>
   </li>
 
-  <li class="column text-center">
+  <li class="column text-center rounded-border">
     <h4>Nutritional information</h4>
     <p>
       <%= @recipe.kcal_per_serving %>
@@ -89,5 +98,6 @@
 </li>
 
 </ul>
+</section>
 
 </main>
