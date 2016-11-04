@@ -1,0 +1,32 @@
+
+
+<section>
+
+<h3> <%= @recipe.label %></h3>
+
+<%= image_tag @recipe.image %>
+
+<h4>Recipe Source: <%= link_to @recipe.source, url_for(@recipe.url) %> </h4>
+
+<p>
+  <%= "Recipe Yields: #{@recipe.yield}" %>
+</p>
+
+<h4> Ingredients </h4>
+<ul>
+  <% @recipe.ingredientLines.each do |ingredient| %>
+  <li>
+    <%= ingredient %>
+  </li>
+  <% end %>
+</ul>
+<h4> Dietary Categories </h4>
+<ul>
+  <% @recipe.healthLabels.each do|label| %>
+  <li>
+    <%= label %>
+  </li>
+  <% end %>
+</ul>
+
+</section>

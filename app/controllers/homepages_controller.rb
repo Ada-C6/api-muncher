@@ -8,15 +8,5 @@ class HomepagesController < ApplicationController
 
   end
 
-  # new list of recipes
-  def new
-    @search_term = params[:search_term]
-    @search_results = EdemamApiWrapper.list_recipes(params[:search_term])
-  end
-
-  # show the individual recipe(use uri as the id):
-  def show
-    @recipe = EdemamApiWrapper.get_a_recipe(params[:uri])
-  end
 
 end
