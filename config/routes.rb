@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-
   root to: 'homepages#index'
 
-  get 'homepages/new' => 'homepages#new'
+  get 'recipes/index' => 'recipes#index'
 
-  get 'homepages/show' => 'homepages#show'
+  get 'recipes/:uri/show' => 'recipes#show', as: 'recipe_show'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

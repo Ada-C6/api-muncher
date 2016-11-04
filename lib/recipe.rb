@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :label, :image, :rec_source, :url
+  attr_reader :uri, :label, :image, :source, :url, :yield, :ingredientLines, :healthLabels
 
   def initialize(uri, options = {})
     if uri ==  nil || uri == ""
@@ -10,7 +10,7 @@ class Recipe
 
     @label = options[:label]
     @image = options[:image]
-    @source = options[:rec_source]
+    @source = options[:source]
     @url = options[:url]
     @yield = options[:yield]
     @ingredientLines = options[:ingredientLines]

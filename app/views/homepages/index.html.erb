@@ -1,8 +1,8 @@
-<h1>Food Love</h1>
+<h1>For The Love of Food</h1>
 <p>Finding all the food you love.</p>
 
 <section>
-  <%= form_tag homepages_new_path, method: "get" do %>
+  <%= form_tag recipes_index_path, method: "get" do %>
   <%= text_field_tag :search_term %>
   <%= submit_tag "Find Recipes", class: "Button" %>
 <% end %>
