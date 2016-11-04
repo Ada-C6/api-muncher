@@ -1,5 +1,5 @@
 
-<h1>Top hits for <%= "#{@ingredient}"%></h1>
+<h2>Top Hits For: <%= "#{@ingredient}".capitalize%></h2>
 <table>
   <% @recipes.each do |recipe| %>
   <%uniq_code = recipe.uri.split("_").last%>

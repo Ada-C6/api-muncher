@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ApiMuncher</title>
+  <title>YumCalories</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <nav id="nav">
+    <div id="page_nav">
+      <%= link_to "Home", recipes_index_path %>
+    </div>
+  </nav>
+  <header>
+    <h1>Yumcalories' Yummy Train</h1>
+  </header>
+  <div id="main_wrap">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
