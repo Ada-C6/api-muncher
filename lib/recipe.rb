@@ -5,7 +5,7 @@ class Recipe
   attr_reader :id, :label, :photo, :url, :ingredients, :diet
 
   def initialize(id, label, photo, url, ingredients, diet)
-    raise ArgumentError if id == nil || label == nil || photo == nil || url == nil || ingredients == nil || diet == nil
+    raise ArgumentError if id == nil || label == nil || url == nil || ingredients == nil
 
     @id = id
     @label = label
