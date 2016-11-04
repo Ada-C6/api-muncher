@@ -16,7 +16,7 @@ class Recipe
   end
 
   class << self
-    attr_reader :recipes
+    attr_reader :recipes, :current_page
   end
 
 
@@ -30,6 +30,11 @@ class Recipe
 
   def self.reset_all
     @recipes = nil
+    @current_page = 0
+  end
+
+  def self.set_page(page_number)
+    @current_page = page_number
   end
 
 end

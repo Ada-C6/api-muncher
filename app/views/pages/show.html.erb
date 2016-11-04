@@ -1,7 +1,7 @@
 <h1>SHOW</h1>
-<%= button_to "Back to Index", index_page_path, method: :get %>
-<!-- TO-DO: keep the previous index search all session -->
-<!-- This is now solved with the reset_all in 'home' controller method -->
+<%= link_to "Back to Index", index_page_path(page: Recipe.current_page) %>
+
+<%# button_to "Back to Index", index_page_path, params: {page: Recipe.current_page}, method: :get %>
 
 <p>
   Name: <%= @recipe.label %>
