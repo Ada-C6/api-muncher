@@ -14,5 +14,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
         assert_kind_of Recipe, recipe
       end
     end
+
+    
   end
 end

@@ -19,6 +19,14 @@
 
  }
 
+ .edamam {
+   color: #a1a1a1;
+   float: right;
+   font: .625rem "Gotham SSm 5r", sans-serif;
+   margin: 1.875rem 0 0;
+   text-decoration: none;
+ }
+
  body {
    font-family: 'Proza Libre', sans-serif;
  }
