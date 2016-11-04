@@ -10,6 +10,7 @@
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
 
   <%= csrf_meta_tags %>
 </head>
@@ -54,10 +55,12 @@
 
   <%= yield %>
 
-  <footer>
-    <%= link_to 'https://developer.edamam.com/' do %>
-    <%= image_tag 'edamam.png' %>
-    <% end %>
+  <footer class='row'>
+    <div class='columns small-12 end'>
+      <%= link_to 'https://developer.edamam.com/' do %>
+      <%= image_tag 'edamam.png' %>
+      <% end %>
+  </div>
   </footer>
 </body>
 </html>
