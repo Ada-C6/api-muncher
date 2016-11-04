@@ -24,8 +24,6 @@ class EdamamApiWrapper
    def self.recipe_from_uri(uri)
      url = BASE_URL + "search?r=#{ uri.gsub('#', '%23') }" + "&app_id=#{ TOKEN_ID }" + "&app_key=#{ TOKEN_KEYS }"
      data = HTTParty.get(url)
-     puts url
-     puts data.count
      recipe_list = []
      if data.count > 0
        recipe = data[0]

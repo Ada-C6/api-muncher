@@ -12,9 +12,7 @@ class Recipe
     @dietary_info = options[:dietary_info]
   end
 
-  class << self
-    attr_reader :recipes
-  end
+  @recipes = nil
 
   def self.all(keyword = nil, page = 0)
     @recipes = EdamamApiWrapper.listrecipes(keyword, page)
@@ -26,8 +24,8 @@ class Recipe
   end
 
   def self.by_uri(uri)
-    self.recipes ||= EdamamApiWrapper.recipe_from_uri(uri)
-    matches = self.recipes.select do |recipe|
+    unique_recipe = EdamamApiWrapper.recipe_from_uri(uri)
+    matches = unique_recipe.select do |recipe|
       recipe.uri == uri
     end
     return matches.first

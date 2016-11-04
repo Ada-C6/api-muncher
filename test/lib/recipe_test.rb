@@ -29,4 +29,12 @@ class RecipeTest < ActiveSupport::TestCase
     end
   end
 
+  test "self.by_uri returns one recipe" do
+    VCR.use_cassette("recipes") do
+      uri = "http://www.edamam.com/ontologies/edamam.owl#recipe_637913ec61d9da69eb451818c3293df2"
+      recipe = Recipe.by_uri(uri)
+
+      assert_kind_of Recipe, recipe
+    end
+  end
 end
