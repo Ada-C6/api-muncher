@@ -36,8 +36,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # API GEMS
 gem 'httparty'
 
+#foundation
 gem 'foundation-rails'
 
+#for pagination
+gem 'rails-api'
+gem 'grape', '>= 0.10.0'
+gem 'kaminari'
+gem 'will_paginate'
+gem 'api-pagination'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
