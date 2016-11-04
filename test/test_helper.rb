@@ -7,4 +7,11 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  VCR.configure do |config|
+  config.cassette_library_dir = 'test/cassettes' #folder where casettes will be located
+  config.hook_into :webmock #tie into this other tool called webmock
+  config.default_cassette_options = {
+    :record => :new_episodes, #record new data whem we don't have it yet
+    :match_requests_on => [:method, :uri, :body] # the http method, URI and body of a request all need to match
+  }
 end
