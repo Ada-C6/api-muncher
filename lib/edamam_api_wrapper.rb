@@ -63,7 +63,7 @@ class EdamamApiWrapper
       image: data[0]["image"],
       source_url: data[0]["url"],
       source_icon: data[0]["sourceIcon"],
-      ingredients: data[0]["ingredients"],
+      ingredients: data[0]["ingredientLines"],
       from: "find_recipe",
       health_labels: data[0]["healthLabels"],
       dietary_info: data[0]["totalNutrients"]

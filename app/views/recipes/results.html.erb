@@ -1,15 +1,28 @@
-<article>
-  <section>
-    <table>
+<article class="small-1-up row">
+  <section class="column">
+    <div "table-results">
       <% @recipes.each do |recipe| %>
-      <tr>
-        <td>
-          <%= link_to "#{image_tag(recipe.image)}".html_safe, recipe_path(identifier:recipe.identifier) %>
-          <%= recipe.label %>
+      <div class="search-results row">
+        <div class="large-3 medium-3 small-3 column">
+          <%= link_to "#{image_tag(recipe.image, :class =>"img-results")}".html_safe, recipe_path(identifier:recipe.identifier) %>
+        </div>
+        <div class="large-6 medium-7 small-9 column search-results-label">
+          <h4>
+            <%= link_to recipe.label, recipe_path(identifier:recipe.identifier) %>
+          </h4>
           From: <%= recipe.source %>
-        </td>
-      </tr>
+        </div>
+        <div class="show-for-large labels-results large-3 column">
+          <p class="large-1-up row">
+            <% recipe.health_labels.each do |label| %>
+              <div class="column">
+                <%= label %>
+              </div>
+            <% end %>
+          </p>
+        </div>
+      </div>
       <% end %>
-    </table>
+    </div>
   </section>
 </article>

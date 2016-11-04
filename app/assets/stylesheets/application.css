@@ -1,4 +1,5 @@
  @import url('foundation.css');
+ @import "foundation/components/visibility";
 
  body, h1, h2, h3, h4, h5 {
    font-family: 'Ubuntu', sans-serif;
@@ -32,6 +33,25 @@
  .baked-searches {
    width: 50%;
  }
+
+ .img-results {
+   border-radius: 50%;
+   /*max-height: 250px;*/
+   /*min-width: 100px;*/
+   /*max-width: 250px;*/
+   /*min-height: 100px;*/
+   margin: 15px auto;
+ }
+
+ .table-results {
+  width: 70%;
+ }
+
+ .labels-results {
+   text-align: right;
+   font-size: .75em;
+ }
+
 
  .baked-searches li, .health-labels-show li{
    display: inline-block;
@@ -67,6 +87,17 @@
 
 .instructions-show-button {
   text-align: right;
+}
+
+.search-results {
+  border: solid lightgrey thin;
+}
+
+.search-results-label {
+  margin-top: 10%;
+}
+.labels-results {
+  margin-top: 8.5%;
 }
 
 /*.row{
