@@ -37,7 +37,6 @@ class EdamamApiWrapper
 
         recipe = Recipe.new(api_hash)
         recipe_list.push(recipe)
-        puts "!!!!!: #{api_hash[:descriptive_labels].first}"
       end
       return recipe_list
     else
