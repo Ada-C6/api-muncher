@@ -17,7 +17,7 @@
   <section class="row">
     <section class="column small-4">
       <% if @page.to_i > 1 %>
-      <%= link_to "Previous page", pagination_path( { :search => @search_term, :page => @page, :page_num => -1   }), class: "button" %>
+      <%= link_to "Previous page", pagination_path( { :search => @search_term, :page => @page, :page_num => -1   }), class: "success button" %>
       <% end %>
     </section>
     <section class="column small-4">
@@ -27,7 +27,7 @@
     </section>
     <section class="column small-4">
       <% unless @recipes.count < 10 %>
-      <%= link_to "Next page", pagination_path( { :search => @search_term, :page => @page, :page_num => 1}), class: "button" %>
+      <%= link_to "Next page", pagination_path( { :search => @search_term, :page => @page, :page_num => 1}), class: "success button" %>
       <% end %>
     </section>
   </section>
