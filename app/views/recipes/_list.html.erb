@@ -12,6 +12,7 @@
 
 <div class="page-nav">
 
+  <!-- current page -->
   <p><%= "Page #{ @page }" %><p>
 
   <p>
@@ -19,7 +20,9 @@
       <%= link_to "<< Page #{ @page.to_i - 1 }", next_page_path(:data => { :query => @query, :page => @page, :page_num => @page_num }) %>
     <% end %>
 
+    <!-- display only if there are both previous and next page buttons -->
     <%= " || " if page_navigation_previous && page_navigation_next %>
+
     <% if page_navigation_next %>
     <%= link_to "Page #{ @page.to_i + 1 } >>", next_page_path(:data => { :query => @query, :page => @page, :page_num => @page_num }) %>
     <% end %>

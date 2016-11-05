@@ -1,6 +1,8 @@
-<% if flash[:error] %>
-  <%= flash[:error] %>
-<% end %>
+<div class="error">
+  <% if flash[:error] %>
+    <%= flash[:error] %>
+  <% end %>
+</div>
 
 <article class="index-search-bar"><%= render partial: "form" %></article>
 

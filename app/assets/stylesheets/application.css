@@ -50,12 +50,19 @@
     max-height: 40%;
   }
 
+
   .recipe-image:hover {
     opacity: 0.3;
   }
 
   li {
     list-style: none;
+  }
+
+  .show-image {
+    max-height: 60%;
+    display: inline-block;
+    padding: 5% 0 0 5%;
   }
 
   .error {
