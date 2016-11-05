@@ -4,8 +4,12 @@
   <% end %>
 </div>
 
-<article class="index-search-bar"><%= render partial: "form" %></article>
+<div class="row">
+  <div class="large-12 columns">
 
-<%= "Recipes containing '#{ @query }'" %>
+    <article class="index-search-bar"><%= render partial: "form" %></article>
+
+  </div>
+</div>
 
 <%= render partial: "list" %>

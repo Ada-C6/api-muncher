@@ -1,3 +1,5 @@
+<h4><%= "We found you #{ @recipes.last.count } noms containing '#{ @query }'... Enjoy!" %></h4>
+
 <ul class="row small-up-1 medium-up-2 large-up-4">
 <% @recipes.each do |i| %>
   <li class="column">

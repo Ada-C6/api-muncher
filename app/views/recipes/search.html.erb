@@ -2,6 +2,13 @@
   <%= flash[:error] %>
 <% end %>
 
-<h1>welcome! search recipes</h1>
+<article class="index-search-bar"><%= render partial: "form" %></article>
 
-<%= render partial: "form" %>
+<h4><%= "Need some inspiration? Try some of our favorites: " %></h4>
+
+<ul class="row small-up-1 medium-up-2 large-up-4">
+  <li class="column recipe-image"><%= link_to(image_tag("http://www.eatsxm.com/uploads/1/3/8/6/13862036/3047027_orig.jpg"), recipes_path(q: 'avocado', page: 1), method: "get", html: {class: 'search'}) %></li>
+  <li class="column recipe-image"><%= link_to(image_tag("http://empoweredfit.com/wp-content/uploads/2016/03/couscous.jpg"), recipes_path(q: 'couscous', page: 1), method: "get", html: {class: 'search'}) %></li>
+  <li class="column recipe-image"><%= link_to(image_tag("http://cdn-img.health.com/sites/default/files/migration/img/web/2013/02/slides/easy-kale-recipes-400x400.jpg"), recipes_path(q: 'kale', page: 1), method: "get", html: {class: 'search'}) %></li>
+  <li class="column recipe-image"><%= link_to(image_tag("http://www.westwinddi.com/-/media/westwind/drivein/images/blog/popcorn.ashx"), recipes_path(q: 'popcorn', page: 1), method: "get", html: {class: 'search'}) %></li>
+</ul>
