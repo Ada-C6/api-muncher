@@ -11,10 +11,12 @@
       <li><%= i["text"] %></li>
       <% end %>
     </ul>
-    <p><%= "Dietary Information:" %></p>
-    <ul><% @recipe.dietary_info.each do |d| %>
-      <li><%= d %></li>
-      <% end %>
-    </ul>
+    <% if @recipe.dietary_info != [] %>
+      <p><%= "Dietary Information:" %></p>
+      <ul><% @recipe.dietary_info.each do |d| %>
+        <li><%= d %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>
