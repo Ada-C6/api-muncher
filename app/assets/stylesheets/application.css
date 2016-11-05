@@ -1,4 +1,7 @@
 @import url('foundation.min.css');
+
+@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans|Special+Elite|Proza+Libre|Lato|Open+Sans');
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -14,3 +17,112 @@
  *= require_tree .
  *= require_self
  */
+
+*, h1, h2, h3, h4, h5, h6, a, p {
+  font-family: 'Quattrocento Sans', "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
+  /*font-family: 'Proza Libre', sans-serif;*/
+  /*font-family: 'Lato', sans-serif;*/
+ }
+
+/*************************************/
+/********** .header-title ************/
+/*************************************/
+.header-title * {
+  font-family: 'Special Elite', cursive;
+  color: white;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.header-title {
+  background-color: black;
+  max-width: 100%;
+}
+
+.header-title h1 {
+  font-size: 8em;
+  text-align: left;
+}
+
+.header-title h2 {
+  font-size: 3em;
+  text-align: right;
+}
+
+/*************************************/
+/********** .recipe-results ************/
+/*************************************/
+.recipe-results h1 {
+  margin: 2vh auto 2vh auto;
+  style: bold;
+  text-align: center;
+  font-size: 2.75rem;
+  /*font-style: italic;*/
+  /*font-weight: bold;*/
+  margin-top: .75em;
+}
+
+.recipe-results {
+
+  /*background: blue;
+  @TODO - remove*/
+}
+
+.one-recipe-result {
+  padding: 10px 10px 0 10px;
+  background: black;
+  border: 3px solid white;
+}
+
+.one-recipe-result h4, .one-recipe-result img {
+  /*border-width: 10px;
+  border-color: black;
+  border-style: solid;*/
+}
+
+.one-recipe-result h4 {
+  /*background: black;*/
+  text-align: center;
+  color: white;
+  margin-top: 8px;
+  font-size: 1.5rem;
+}
+
+/*@TODO - remove*/
+.one-recipe-result a {
+}
+
+.one-recipe-result img {
+  margin: auto;
+}
+
+/*************************************/
+/********** .pagination ************/
+/*************************************/
+
+.pagination-section {
+  margin: 2vh auto 0 auto;
+  display: block;
+  text-align: center;
+  /*background: red;
+  @TODO - remove*/
+}
+
+.pagination a, .pagination button {
+  display: inline-block;
+}
+
+/*************************************/
+/********** .footer ************/
+/*************************************/
+
+.footer {
+  background: black;
+  color: white;
+  max-width: 100%;
+}
+
+.footer * {
+  text-align: center;
+}

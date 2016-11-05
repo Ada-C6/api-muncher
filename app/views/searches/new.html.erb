@@ -1,10 +1,12 @@
-<% if flash[:error] %>
-<%= flash[:error] %>
-<% end %>
+<main>
+<%= render partial: 'layouts/header' %>
+  <% if flash[:error] %>
+  <%= flash[:error] %>
+  <% end %>
 
-<% if flash[:notice] %>
-<%= flash[:notice] %>
-<% end %>
+  <% if flash[:notice] %>
+  <%= flash[:notice] %>
+  <% end %>
 
 <h1>Search</h1>
 <%= form_tag searches_path, method: :get do %>
@@ -12,3 +14,4 @@
   <%= text_field_tag :search_term %>
   <%= submit_tag "Search", class: "button" %>
 <% end %>
+</main>

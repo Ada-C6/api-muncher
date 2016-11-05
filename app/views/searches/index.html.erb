@@ -1,12 +1,20 @@
-<h1>We found you these recipes...</h1>
-
-<% @recipe_results.each do |recipe| %>
-<h3><%= link_to recipe.title, search_path(recipe.uri_id) %></h3>
-  <%= link_to (image_tag "#{recipe.image_url}"), search_path(recipe.uri_id) %>
-  <%# image_tag recipe.image_url %>
-  <h3><%# recipe.title %></h4>
-  <h4><%# link_to "See More", search_path(recipe.uri_id) %></h4>
-<% end %>
-
-<%= page_entries_info @recipe_results %>
-<%= will_paginate @recipe_results %>
+<main>
+  <%= render partial: 'layouts/header' %>
+  <section class="recipe-results row small-up-1 medium-up-2 large-up-5">
+    <h1>We foraged for <%= @search_term %> and found:</h1>
+    <% @recipe_results.each do |recipe| %>
+      <%= link_to search_path(recipe.uri_id), class: "column one-recipe-result" do %>
+      <div class="row">
+        <%= image_tag "#{recipe.image_url}", class: "column" %>
+        <h4 class="column"><%= recipe.title%></h4>
+      </div>
+      <% end %>
+    <% end %>
+  </section>
+  <div class="pagination-container">
+    <div class="pagination-section">
+    <%= page_entries_info @recipe_results %>
+    <%= will_paginate @recipe_results %>
+    </div>
+  </div>
+</main>

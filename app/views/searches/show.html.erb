@@ -1,19 +1,25 @@
+<main>
+  <%= render partial: 'layouts/header' %>
+  <article class="recipe">
+
   <h1><%= @recipe.title %></h1>
-  <%= image_tag @recipe.image_url %>
-  <p>
-    <%= link_to "See it on #{@recipe.source_name}", @recipe.recipe_url %>
-  </p>
-  <ul><h5>Ingredients</h5>
-  <% @ingredients.each do |ingredient| %>
-    <li>
-      <%= ingredient %>
-    </li>
-  <% end %>
+    <%= image_tag @recipe.image_url %>
+    <p>
+      <%= link_to "See it on #{@recipe.source_name}", @recipe.recipe_url %>
+    </p>
+    <ul><h5>Ingredients</h5>
+    <% @ingredients.each do |ingredient| %>
+      <li>
+        <%= ingredient %>
+      </li>
+    <% end %>
+    </ul>
+    <ul><h5>Dietary profile</h5>
+    <% @recipe.health_and_diet_labels.each do |label| %>
+      <li>
+        <%= label %>
+      </li>
+    <% end %>
   </ul>
-  <ul><h5>Dietary profile</h5>
-  <% @recipe.health_and_diet_labels.each do |label| %>
-    <li>
-      <%= label %>
-    </li>
-  <% end %>
-</ul>
+  </article>
+</main>
