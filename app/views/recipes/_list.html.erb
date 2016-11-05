@@ -14,12 +14,12 @@
 
     <p>
       <% if page_navigation_previous %>
-      <%= link_to "<< Page #{ @page - 1 }", next_page_path(:data => { :query => @query, :page => @page, :page_num => @page_num }) %>
+      <%= link_to "<< Page #{ @page.to_i - 1 }", next_page_path(:data => { :query => @query, :page => @page, :page_num => @page_num }) %>
       <% end %>
 
       <%= " || " if page_navigation_previous && page_navigation_next %>
       <% if page_navigation_next %>
-      <%= link_to "Page #{ @page + 1 } >>", next_page_path(:data => { :query => @query, :page => @page, :page_num => @page_num }) %>
+      <%= link_to "Page #{ @page.to_i + 1 } >>", next_page_path(:data => { :query => @query, :page => @page, :page_num => @page_num }) %>
       <% end %>
     </p>
   </div>
