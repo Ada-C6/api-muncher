@@ -1,12 +1,8 @@
 class RecipesController < ApplicationController
-  # after_action :has_recipes, only: [:next_page]
 
   def index
-    # Recipe.reset
     @query = params["q"]
     @page = params["page"]
-    # raise
-
     @recipes = Recipe.all(@query, @page)
 
     if @recipes == []
