@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "recipes#home"
+  root to: "welcome#index"
   get "recipes/no_recipe" => "recipes#no_recipe", as: "no_recipe"
   resources :recipes, only: [:home, :index, :show]
 
