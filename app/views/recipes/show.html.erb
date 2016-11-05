@@ -1,6 +1,6 @@
 <section>
 
-  <h1 class="centered-text"><img class="displayed" src="<%= @recipe.recipe_image %>"> <%= @recipe.name %> <%= link_to 'Original Recipe', @recipe.source_url, :target => "_blank", class: "secondary button"%></h1>
+  <h1 class="centered-text"><img class="displayed" src="<%= @recipe.recipe_image %>" alt="Picture of <%= @recipe.name%>"> <%= @recipe.name %> <%= link_to 'Original Recipe', @recipe.source_url, :target => "_blank", class: "secondary button"%></h1>
 
   <div class="row">
     <div class= "large-5 medium-4 small-4 columns">
@@ -30,5 +30,6 @@
         <p><%= nutrient %></p>
       <% end %>
       </div>
+    </div>
   </div>
 </section>

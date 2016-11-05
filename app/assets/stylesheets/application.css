@@ -124,10 +124,6 @@ div::-webkit-scrollbar-corner {
   border: 2px solid gray;
 }
 
-/*.overflow-hidden {
-  overflow: hidden;
-}*/
-
 .transparent-background-color {
   background-color: rgb(189, 190, 193);
   background-color: rgba(189, 190, 193, 0.5);
