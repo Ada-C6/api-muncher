@@ -42,6 +42,7 @@ class EdamamAPIWrapperTest < ActiveSupport::TestCase
     end
   end
 
+  # For some reason the test passes but does not map to relevant line 43 in simplecov's coverage report
   test "search should return empty array if invalid search term" do
     VCR.use_cassette("recipes") do
       search_term = "fshjlfksdfjklahsflkjsdhflkjasdhf"
