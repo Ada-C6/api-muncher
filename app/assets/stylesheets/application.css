@@ -73,6 +73,18 @@
   padding: 10px 10px 0 10px;
   background: black;
   border: 3px solid white;
+  /*border: 0px transparent;
+  margin: 3px;*/
+  transition: box-shadow .2s ease-out;
+
+}
+
+.one-recipe-result:focus, .one-recipe-result:hover {
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 0 6px 1px rgba(121, 186, 34, 1);
+  /*border: 0 0 6px 1px rgba(32, 232, 76, 0.5);
+  transition: border .2s ease-out;*/
 }
 
 .one-recipe-result h4, .one-recipe-result img {
@@ -96,6 +108,12 @@
 .one-recipe-result img {
   margin: auto;
 }
+
+/*.thumbnail {
+  border: none;
+  border: 3px solid white;
+  background-clip: none;
+}*/
 
 /*************************************/
 /********** .pagination ************/
