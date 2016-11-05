@@ -19,19 +19,9 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     end
   end
 
-  test "search should get back exactly 10 recipes at a time" do
-    VCR.use_cassette("recipes") do
-      term = "chicken"
-      recipes =  EdamamApiWrapper.search(term)
-
-      assert_kind_of Array, recipes
-      assert_equal recipes.length, 10
-    end
-  end
-
   test "search should return nil if search doesn't match anything" do
     skip
-    # TODO
+    
   end
 
   test "find gets back a single recipe" do

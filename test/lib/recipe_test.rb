@@ -40,7 +40,7 @@ end
       # ensuring that there's not been a search yet.
       Recipe.search_term = nil
 
-      term = "chicken"
+      term = "couscous"
       Recipe.all(term)
 
       assert_equal Recipe.api_call, true
@@ -50,7 +50,7 @@ end
   test "Recipe.all should not make API call if term is same as previous search" do
     # Not quite sure how to test memoization
     VCR.use_cassette("recipes") do
-      term = "chicken"
+      term = "beer"
       Recipe.all(term)
 
       # call the same search term again, should execute memoized part of method.

@@ -20,23 +20,38 @@ class Recipe
   class << self
     attr_accessor :search_term
 
-    attr_reader :recipes, :recipe, :api_call
+    attr_reader :recipes, :recipe, :api_call, :chicken_recipes, :potato_recipes, :ground_beef_recipes
   end
 
   # Return a memoized collection of recipes
   def self.all(term)
+    # setting these memoized searches.
+    @chicken_recipes ||= EdamamApiWrapper.search("chicken")
+    @ground_beef_recipes ||=  EdamamApiWrapper.search("ground beef")
+    @potato_recipes ||= EdamamApiWrapper.search("potato")
 
-    # If term is the same, use memoized search.
-    if term == @search_term
+    case term
+    when "chicken"
+      @api_call = false
+      @recipes = @chicken_recipes
+    when "potato"
+      @api_call = false
+      @recipes = @potato_recipes
+    when "ground beef"
+      @api_call = false
+      @recipes = @ground_beef_recipes
+    when @search_term
+      # If term is the same, use memoized search.
       @api_call = false
       return @recipes
-
     else
+      # If not any of the above, do the search and set the search_term.
       @recipes = EdamamApiWrapper.search(term)
       @search_term = term
       @api_call = true
-      return @recipes
     end
+
+    return @recipes
   end
 
   def self.find_recipe(identifier)
