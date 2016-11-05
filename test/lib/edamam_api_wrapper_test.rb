@@ -35,5 +35,13 @@ end
     end
   end
 
+  test "Returns empty array if given search term doesn't match any recipes" do
+    VCR.use_cassette("total_none_matching") do
+      total = EdamamApiWrapper.list_recipes("pecan gravy pudding")
+      assert_equal total, []
+      assert total.is_a?(Array)
+    end
+  end
+
 
 end
