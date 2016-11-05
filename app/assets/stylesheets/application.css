@@ -78,8 +78,8 @@ IMG.displayed {
   display: inline;
   margin-left: auto;
   margin-right: auto;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 div::-webkit-scrollbar {
@@ -127,6 +127,14 @@ div::-webkit-scrollbar-corner {
 .transparent-background-color {
   background-color: rgb(189, 190, 193);
   background-color: rgba(189, 190, 193, 0.5);
+}
+
+.menu input, .menu a, .menu button {
+  margin-bottom: -1px;
+}
+
+.button.success {
+  margin-bottom: 0px;
 }
 
 #search-form {
