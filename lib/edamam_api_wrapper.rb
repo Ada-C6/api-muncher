@@ -46,6 +46,10 @@ class Edamam_Api_Wrapper
     url = "#{BASE_URL}search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_#{recipe_uri}&app_id=#{CLIENT_ID}&app_key=#{CLIENT_SECRET}"
     response = HTTParty.get(url)
 
+    if !response.first || response.code != 200
+      return false
+    end
+
     recipe = Recipe.new(response.first)
 
     return recipe

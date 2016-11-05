@@ -146,6 +146,10 @@ a.current {
   padding-bottom: 2%;
 }
 
+.flexbox-container {
+	display: flex;
+}
+
 /*
 .recipes {
   padding: 3%;
@@ -154,4 +158,8 @@ a.current {
 .name {
   margin-top: 10%;
   margin-bottom: 10%;
+}*/
+
+/** {
+  border: 1px solid lightgray;
 }*/
