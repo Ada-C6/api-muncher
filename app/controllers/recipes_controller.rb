@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all(@search_term, @page)
   end
 
-  def next
+  def pagination
     @search_term = params[:search]
     @page = params[:page].to_i + params[:page_num].to_i
     Recipe.reset

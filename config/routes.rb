@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'recipes/', to: 'recipes#index', as: 'recipes'
   get 'recipe/:id', to: 'recipes#show', as: 'recipe'
 
-  get '/recipes/next', to: 'recipes#next', as: 'next_page'
+  get '/recipes/pagination', to: 'recipes#pagination', as: 'pagination'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

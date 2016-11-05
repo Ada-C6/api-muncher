@@ -14,13 +14,13 @@ class RecipesControllerTest < ActionController::TestCase
      end
   end
 
-  test "(next) should get the next page" do
+  test "(pagination) should get a paginated page" do
     VCR.use_cassette("recipes") do
       search_term = "Chicken"
       page = 1
       EdamamApiWrapper.recipe_search(search_term, page)
 
-      get :next
+      get :pagination
       assert_response :success
     end
   end
