@@ -10,10 +10,11 @@ class RecipesControllerTest < ActionController::TestCase
       assert_response :success
     end
   end
-  
+
   test "should show the show page for a specified recipe" do
     VCR.use_cassette("recipes") do
-      get :show, {data: {uri: "637913ec61d9da69eb451818c3293df2"}}
+      uri = "http://www.edamam.com/ontologies/edamam.owl#recipe_637913ec61d9da69eb451818c3293df2"
+      get :show, {id: "Dijon and Tarragon Grilled Chicken", data: {uri: uri}}
       assert_response :success
       assert_template :show
     end
