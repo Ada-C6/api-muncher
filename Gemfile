@@ -47,8 +47,8 @@ gem 'omniauth-facebook'
 gem 'google-api-client'
 
 # For production database
-# gem 'pg'
-# gem 'rails_12factor'
+gem 'pg', '~> 0.19.0', group: :production
+gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -78,7 +78,7 @@ group :development, :test do
   gem 'webmock'
 
   # For development database
-  gem 'sqlite3'
+  # gem 'sqlite3'
 
 end
 
