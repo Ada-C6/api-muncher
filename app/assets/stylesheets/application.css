@@ -73,11 +73,17 @@
     min-height: 10%;
     overflow: hidden;
     position: relative;
+    /*padding: 20px;*/
+  }
+
+  html {
+    height: 100%;
   }
 
   #footer {
-    position:absolute;
-    width:100%;
-    background:#6cf;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: #6cf;
     padding: 10px;
   }
