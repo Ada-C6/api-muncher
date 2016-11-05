@@ -1,10 +1,10 @@
 <article class="row">
   <h2><%= @recipe.name %></h2>
-  <section class="small-4 columns">
-    <p><%= image_tag(@recipe.photo, alt: "photo of #{ @recipe.name }", class: "image") %></p>
+  <section class="small-12 columns">
+    <p><%= link_to("View Recipe", @recipe.original_link) %></p>
   </section>
 
-  <section class="small-5 columns">
+  <section class="small-12 large-6 columns">
     <h3>Ingredients:</h3>
     <ul>
       <% @recipe.ingredients.each do |ingredient| %>
@@ -13,11 +13,12 @@
     </ul>
   </section>
 
-  <section class="small-2 columns">
-    <p><%= link_to("View Recipe", @recipe.original_link) %></p>
+
+  <section class="small-12 large-6 columns">
+    <p><%= image_tag(@recipe.photo, alt: "photo of #{ @recipe.name }", class: "image") %></p>
   </section>
 
-  <section class="small-12 columns">
+  <section class="small-6 columns">
     <% if @recipe.diet_labels.length > 0 %>
     <h3>Dietary information:</h3>
     <ul>
