@@ -35,14 +35,14 @@ class RecipeTest < ActiveSupport::TestCase
     end
   end
 
-  test "Recipe.by_name should return the specific recipe" do
+  test "Recipe.by_id should return the specific recipe" do
     VCR.use_cassette("recipes") do
       search_term = "chicken"
       page = 1
       recipes = Recipe.all(search_term, page)
 
       recipes.each do |recipe|
-        assert Recipe.by_name(recipe.name), recipe.name
+        assert Recipe.by_id(recipe.id), recipe.id
       end
     end
   end
