@@ -5,6 +5,10 @@ class Recipe
 
   def initialize(recipe_hash)
 
+    if recipe_hash['label'] == nil || recipe_hash['uri'] == nil || recipe_hash['label'] == "" || recipe_hash['uri'] == "" || recipe_hash['ingredients'] == nil || recipe_hash['ingredients'].length == 0 || recipe_hash['source'] == nil || recipe_hash['source'] == ""
+      raise ArgumentError
+    end
+
     @name = recipe_hash['label']
     @url = recipe_hash['url']
 
@@ -21,7 +25,7 @@ class Recipe
       end
     end
 
-    if @name == nil || @name == "" || @url == nil || @url == "" || @uri == nil || @uri == ""
+    if @uri == nil || @uri == ""
       raise ArgumentError
     end
 
@@ -38,8 +42,6 @@ class Recipe
     @total_daily = recipe_hash['totalDaily']
     @digest = recipe_hash['digest']
     @description = CopyWriter.get_description(@ingredients, @source)
-
-
 
   end
 

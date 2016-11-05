@@ -2,6 +2,10 @@ class CopyWriter
 
   def self.get_description(ingredients, source)
 
+    if ingredients == [] || ingredients == nil || source == nil || source == ""
+      raise ArgumentError
+    end
+
     option = rand(10)
 
     if option == 0
