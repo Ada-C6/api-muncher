@@ -23,13 +23,13 @@ class EdamamApiWrapper
         descriptive_labels.push(hit["recipe"]["dietLabels"])
         descriptive_labels.push(hit["recipe"]["healthLabels"])
 
-        hit["recipe"]["digest"].map do |nutrient|
+        hit["recipe"]["digest"].each do |nutrient|
           if nutrient["sub"].nil?
-            dietary_info.push(nutrient["label"] + " " + nutrient["total"].to_s + nutrient["unit"])
+            dietary_info.push(nutrient["label"] + ": " + nutrient["total"].round(2).to_s + nutrient["unit"])
           else
-            dietary_info.push(nutrient["label"] + " " + nutrient["total"].to_s + nutrient["unit"])
+            dietary_info.push(nutrient["label"] + ": " + nutrient["total"].round(2).to_s + nutrient["unit"])
             nutrient["sub"].each do |sub_nutrient|
-              dietary_info.push(sub_nutrient["label"] + " " + sub_nutrient["total"].to_s + sub_nutrient["unit"])
+              dietary_info.push(sub_nutrient["label"] + ": " + sub_nutrient["total"].round(2).to_s + sub_nutrient["unit"])
             end
           end
         end
