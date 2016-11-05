@@ -12,4 +12,137 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+ /************************************/
+ /* GENERAL STYLING  */
+ /************************************/
+hr {
+  width: 70%;
+  margin-left: 0;
+}
+
+ body {
+   font-family: 'Josefin Sans', sans-serif;
+   /*color: white;*/
+   background-color: #E4E2D8;
+ }
+
+ h1, h2, h3, h4, h5 {
+   font-family: 'Oswald', sans-serif;
+ }
+
+.button {
+  text-transform: uppercase;
+  border-radius: 0;
+  border: 1px solid black;
+  font: normal 400 1vw/1 'Lato', sans-serif;
+  letter-spacing: .15em;
+  padding: .9vw 1.75vw;
+  display: inline-block;
+  background-color: #445A16;
+
+}
+
+/************************************/
+/* HEADER NAV   */
+/************************************/
+
+ .button:hover {
+  color: #FFF;
+  background-color: #57544B;
+}
+
+.logo-font {
+  color: #971c13;
+}
+
+.logo-font:hover {
+  color: #57544B;
+}
+
+nav {
+  background-color: #000;
+  color: #FFF;
+  margin: 0;
+  opacity: .8;
+  text-align: left;
+  z-index: 100;
+}
+
+
+ /************************************/
+ /* SEARCH - INDEX PAGE   */
+ /************************************/
+ html, body{
+   height: 100%;
+ }
+.wrapper {
+ 			background-image: url('cook1.jpg') ;
+ 			background-position: center center;
+ 			background-repeat:  no-repeat;
+ 			background-attachment: fixed;
+ 			background-size:  cover;
+ 			background-color: #999;
+      height: 100%;
+      width: 100%;
+ }
+
+ div, body{
+   margin: 0;
+   padding: 0;
+ }
+
+ .message {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   width: 100%;
+   height:30%;
+   bottom: 0;
+   display: block;
+   position: absolute;
+   background-color: rgba(0,0,0,0.6);
+   color: #fff;
+   padding: 0 10em 0 10em;
+   margin-bottom: 15em;
+ }
+
+#search-form {
+  width: 60vw;
+  height: 2.75vw;
+  color: #2d2d2d;
+  font: normal normal 1.5vw/2 'Oswald', sans-serif;
+  margin: 0 0 .75vw 10vw;
+}
+
+
+ /************************************/
+ /* RESULTS PAGES   */
+ /************************************/
+
+.center-text {
+  text-align: center;
+}
+
+.column {
+   margin: 3em 0 3em 0;
+   padding: 0 3em 0 3em;
+ }
+
+  /************************************/
+  /* SHOW PAGES   */
+  /************************************/
+
+ .line-height {
+  line-height: 250%;
+}
+
+.line-height h2, h3, h5 {
+  line-height: 200%;
+}
+
+.margin {
+  margin: 7%;
+}

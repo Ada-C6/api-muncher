@@ -43,7 +43,7 @@ Once you've explored the API docs, this project:
 - This shall show the details about a given recipe. These details include:
   - Name
   - Link to the original recipe (opens in a new tab)
-  - Ingredients
+  - ingredientLines
   - Dietary information
   
 **Additional Requirements**:  

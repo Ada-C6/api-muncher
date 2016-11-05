@@ -1,0 +1,38 @@
+<div class="row margin">
+  <section class="small-4 columns">
+    <%= link_to(image_tag(@recipe.image, :alt => "recipe photo", :title => @recipe.label), @recipe.url) %>
+  </section>
+  <section class="small-8 columns line-height">
+    <h3><%= @recipe.label %></h3>
+    <h5>Yield: <%= @recipe.total_yield.to_i %></h5>
+    <p>Powered by <%= link_to(image_tag('edamam.png', :alt => "edamam logo"), 'https://www.edamam.com/') %></p>
+  </section>
+</div>
+
+<div class="row recipes-show margin">
+  <aside class="small-6 columns">
+    <hr>
+    <h5>Nutritional Information</h5>
+    <p>Total Calories Per Serving: <%= @recipe.calories.to_i / @recipe.total_yield.to_i %> </p>
+    <section>
+      <tr><strong>Nutrients in Recipe:</strong></tr>
+      <% @recipe.totalNutrients.each_value do |nutrient| %>
+        <div>
+          <tr>
+            <% nutrient.each_value do |item| %>
+              <td><%= item %></td>
+            <% end %>
+          </tr>
+        </div>
+      <% end %>
+  </section>
+    <hr>
+  </aside>
+  <section class="small-6 columns">
+    <br>
+    <h3>Ingredients</h3>
+    <% @recipe.ingredientLines.each do |item| %>
+        <p><%= item %></p>
+    <% end %>
+  </section>
+</div>
