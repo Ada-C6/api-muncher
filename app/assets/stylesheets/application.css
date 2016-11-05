@@ -19,7 +19,20 @@
     border-top: 3px grey outset;
   }
 
-  .page-nav {
+  .index-search-bar {
+    display: inline-block;
+  }
+
+  .search-bar {
+    width: 250px;
+  }
+
+  /*.search {
+    width: 250px;
+
+  }*/
+
+  .column.page-nav {
     border: none;
   }
 

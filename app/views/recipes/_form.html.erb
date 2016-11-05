@@ -1,6 +1,10 @@
-<%= form_tag(recipes_path, method: "get") do %>
+<div class="row">
+  <div class="large-12 columns">
+    <%= "D'S NOMS" %><%= form_tag(recipes_path, method: "get", html: {class: 'search'}) do %>
   <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
+  <article class="search-bar"><%= text_field_tag(:q) %></article>
   <%= hidden_field_tag :page, 1  %>
   <%= submit_tag("Search") %>
 <% end %>
+</div>
+</div>

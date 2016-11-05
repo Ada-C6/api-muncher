@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
     # Recipe.reset
     @query = params["q"]
     @page = params["page"]
+    # raise
 
     @recipes = Recipe.all(@query, @page)
 
