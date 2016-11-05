@@ -5,18 +5,15 @@
   <div class="row">
     <div class= "large-5 medium-4 small-4 columns">
       <h4>Ingredients</h4>
-        <div class="overflow-hidden wordwrap transparent-background-color">
           <div class="inner">
             <% @recipe.ingredients.each do |ingredient| %>
               <p><%= ingredient %></p>
             <% end %>
           </div>
-      </div>
     </div>
 
     <div class="large-3 medium-4 small-4 columns">
       <h4>Dietary Info</h4>
-      <div class="overflow-hidden wordwrap transparent-background-color">
       <div class="inner">
       <% @recipe.descriptive_labels.each do |sets| %>
         <% sets.each do |label| %>
@@ -24,17 +21,14 @@
         <% end %>
       <% end %>
       </div>
-      </div>
     </div>
 
     <div class="large-4 medium-4 small-4 columns">
       <h4>Nutrition Info</h4>
-      <div class="overflow-hidden wordwrap transparent-background-color">
       <div class="inner">
       <% @recipe.dietary_info.each do |nutrient| %>
         <p><%= nutrient %></p>
       <% end %>
       </div>
-    </div>
   </div>
 </section>

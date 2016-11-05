@@ -28,6 +28,7 @@ nav h2 {
   font-family: 'Source Sans Pro', sans-serif;
   text-align: left;
   font-size: 2.35em;
+
 }
 
 h1 {
@@ -81,33 +82,56 @@ IMG.displayed {
   height: 50px;
 }
 
+div::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+div::-webkit-scrollbar-button {
+  width: 10px;
+  height: 10px;
+}
+div::-webkit-scrollbar-thumb {
+  background: gray;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+div::-webkit-scrollbar-thumb:hover {
+  background: #535353;
+}
+div::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+div::-webkit-scrollbar-track {
+  background: lightgray;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+div::-webkit-scrollbar-track:hover {
+  background: lightgray;
+}
+div::-webkit-scrollbar-track:active {
+  background: lightgray;
+}
+div::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 .inner {
   width: auto;
   min-height: 20em;
   max-height: 20em;
   overflow: scroll;
-  margin:15px -300px -15px 15px;
-  padding-bottom: 15px;
+  border: 2px solid gray;
 }
 
-pre {
- white-space: pre-wrap;       /* css-3 */
- white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
- white-space: -pre-wrap;      /* Opera 4-6 */
- white-space: -o-pre-wrap;    /* Opera 7 */
- word-wrap: break-word;       /* Internet Explorer 5.5+ */
-}
-
-.overflow-hidden {
+/*.overflow-hidden {
   overflow: hidden;
-}
+}*/
 
 .transparent-background-color {
   background-color: rgb(189, 190, 193);
   background-color: rgba(189, 190, 193, 0.5);
 }
-
-
 
 #search-form {
   font-family: 'Source Sans Pro', sans-serif;
