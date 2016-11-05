@@ -1,33 +1,40 @@
 <section>
 
-  <h1 class="centered-text"><%= @recipe.name %> <%= link_to 'Original Recipe', @recipe.source_url, :target => "_blank", class: "secondary button"%></h1>
-
-  <div>
-    <img src="<%= @recipe.recipe_image %>">
-  </div>
+  <h1 class="centered-text"><img class="displayed" src="<%= @recipe.recipe_image %>"> <%= @recipe.name %> <%= link_to 'Original Recipe', @recipe.source_url, :target => "_blank", class: "secondary button"%></h1>
 
   <div class="row">
-    <div class= "large-4 columns">
+    <div class= "large-5 medium-4 small-4 columns">
       <h4>Ingredients</h4>
-      <% @recipe.ingredients.each do |ingredient| %>
-        <p><%= ingredient %></p>
-      <% end %>
+        <div class="overflow-hidden wordwrap transparent-background-color">
+          <div class="inner">
+            <% @recipe.ingredients.each do |ingredient| %>
+              <p><%= ingredient %></p>
+            <% end %>
+          </div>
+      </div>
     </div>
 
-    <div class="large-4 columns">
+    <div class="large-3 medium-4 small-4 columns">
       <h4>Dietary Info</h4>
+      <div class="overflow-hidden wordwrap transparent-background-color">
+      <div class="inner">
       <% @recipe.descriptive_labels.each do |sets| %>
         <% sets.each do |label| %>
           <p><%= label %></p>
         <% end %>
       <% end %>
+      </div>
+      </div>
     </div>
 
-    <div class="large-4 columns">
+    <div class="large-4 medium-4 small-4 columns">
       <h4>Nutrition Info</h4>
+      <div class="overflow-hidden wordwrap transparent-background-color">
+      <div class="inner">
       <% @recipe.dietary_info.each do |nutrient| %>
         <p><%= nutrient %></p>
       <% end %>
+      </div>
     </div>
   </div>
 </section>
