@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#index'
 
-  resources :recipes, :sessions, :pages
+  get '/favorites', to: 'pages#favorites', as: 'favorites'
+
+  resources :recipes, :sessions
 
   get '/auth/:provider/callback', to: 'sessions#create'
 

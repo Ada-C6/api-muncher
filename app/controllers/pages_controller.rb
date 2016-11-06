@@ -1,23 +1,10 @@
 class PagesController < ApplicationController
+  before_action :current_user
+
   def index
-    
   end
 
-  def show
+  def favorites
   end
 
-  def new
-  end
-
-  def udpate
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
 end

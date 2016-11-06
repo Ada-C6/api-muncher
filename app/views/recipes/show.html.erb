@@ -1,9 +1,9 @@
 <button onclick="history.back(1)">Back to Search Results</button>
 
 <% if !@user.nil? %>
-  <%= button_to "Save as Favorite", {controller: 'recipes', action: 'create', user_id: @user.id}, method: :post %>
+  <%= button_to "Save as Favorite", {controller: 'recipes', action: 'create', user_id: @user.id, name: @recipe[:name], link: @recipe[:link], image: @recipe[:image], ingredients: @recipe[:ingredients], diet: @recipe[:diet]}, method: :post %>
 <% else %>
-  <%= button_to "Save as Favorite", {controller: 'sessions', action: 'new'} %>
+  <%= button_to "Save as Favorite", new_session_path, method: :get %>
 <% end %>
 
 

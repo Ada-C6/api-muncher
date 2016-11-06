@@ -1,0 +1,9 @@
+<% if @user.nil? %>
+  <%= link_to "Login", new_session_path %>
+<% else %>
+  <% @user.recipes.each do |recipe| %>
+    <%= link_to @recipe[:name], @recipe[:link], target: '_blank' %>
+    <%= image_tag recipe.image %>
+    <%= button_to "Remove from favorites", {controller: 'recipes', action: 'destroy', id: recipe.id}, method: :delete %>
+  <% end %>
+<% end %>

@@ -39,6 +39,9 @@ class RecipesController < ApplicationController
   end
 
   def create
+    Recipe.create(name: params[:name], user_id: params[:user_id], link: params[:link], image: params[:image], ingredients: params[:ingredients], diet: params[:diet])
+
+    redirect_to favorites_path
   end
 
   def new
@@ -51,5 +54,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    Recipe.find(params[:id]).delete
+    redirect_to favorites_path
   end
 end

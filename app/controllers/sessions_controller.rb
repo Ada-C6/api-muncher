@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
     # Log the authorizing user in.
     self.current_user = @auth.user
 
+    # redirect_to :back
   end
 
   def edit
@@ -31,5 +32,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    redirect_to root_path
   end
 end
