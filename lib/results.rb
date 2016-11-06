@@ -4,7 +4,7 @@ class Recipe_Results
 
   def initialize(recipe_name, recipe_uri, image, ingredientLines, url, diet_labels, health_labels )
 
-    if recipe_name == nil || recipe_uri == nil || recipe_name == "" || recipe_uri == ""
+    if recipe_name == nil || recipe_uri == nil || recipe_name == "" || recipe_uri == "" 
       raise ArgumentError
     end
     @recipe_name = recipe_name
