@@ -1,25 +1,30 @@
 <%= render partial: 'layouts/header' %>
-<main class="row">
-  <article class="recipe column">
-
-  <h1><%= @recipe.title %></h1>
-    <%= image_tag @recipe.image_url %>
-    <p>
+<main class="">
+  <article class="recipe-info row small-up-1 medium-up-2 small-centered">
+    <h1><%= @recipe.title %></h1>
+    <section class="recipe-image-wrapper column">
+      <div class="recipe-image row small-1-up">
+      <%= image_tag @recipe.image_url, class: "column" %>
+    </div>
+    <h3 class="column">
       <%= link_to "See it on #{@recipe.source_name}", @recipe.recipe_url %>
-    </p>
-    <ul><h5>Ingredients</h5>
-    <% @ingredients.each do |ingredient| %>
-      <li>
-        <%= ingredient %>
-      </li>
-    <% end %>
-    </ul>
-    <ul><h5>Dietary profile</h5>
-    <% @recipe.health_and_diet_labels.each do |label| %>
-      <li>
-        <%= label %>
-      </li>
-    <% end %>
-  </ul>
+    </h3>
+    </section>
+    <section class="recipe-ingredients column">
+      <ul><h3>Ingredients</h3>
+      <% @ingredients.each do |ingredient| %>
+        <li>
+          <%= ingredient %>
+        </li>
+      <% end %>
+      </ul>
+      <ul><h3>Dietary profile</h3>
+        <% @recipe.health_and_diet_labels.each do |label| %>
+        <li>
+          <%= label %>
+        </li>
+        <% end %>
+      </ul>
+    </section>
   </article>
 </main>
