@@ -21,3 +21,7 @@ body {
 .no-bullets {
   list-style: none;
 }
+
+.search-bar {
+  width: 50%;
+}

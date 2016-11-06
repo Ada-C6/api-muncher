@@ -27,10 +27,8 @@ class HomepagesController < ApplicationController
   def show
     @recipe = Recipe.by_uri(params[:recipe])
     if @recipe == nil
-      flash[:notice] = "Flash workss!"
-      redirect_to recipes_path
-    else
-      flash[:notice] = "Flash workss!"
+      flash[:notice] = "Flash workss NOT!"
+      redirect_to root_path
     end
   end
 end
