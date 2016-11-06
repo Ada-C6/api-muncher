@@ -1,4 +1,4 @@
-<section class="light-green">
+<section class="light-green index-page">
 
 <% if @recipes %>
   <%= render "layouts/results" %>
@@ -7,7 +7,7 @@
 <% end %>
 
 <% if @recipes && @recipes.empty? %>
-  <% if params[:startindex] == "0" %>
+  <% if params[:startindex] == "0"%>
     <p class="left-space-needed">Sorry, no such recipes were found.</p>
   <% else %>
     <p class="left-space-needed">No more recipes for "<%= params[:search] %>" exist.</p>

@@ -13,7 +13,11 @@
     </li>
   <% end %>
 </ul>
-<h3 class="left-space-needed">You searched for "<%= params[:search] %>". Here are your results:</h3>
+<% if params[:search] == "" %>
+  <h3 class="left-space-needed">Oops! You entered nothing! Please try a new search.</h3>
+<% else %>
+  <h3 class="left-space-needed">You searched for "<%= params[:search] %>". Here are your results:</h3>
+<% end %>
 <ul class='row small-up-3'>
   <% @recipes.each do |recipe| %>
     <li class="column" >
