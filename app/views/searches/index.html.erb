@@ -1,9 +1,14 @@
-<h2>Search results from <%= @search_index %> to <%= @search_index.to_i + 10 %> for <%= @search_word %></h2>
+<% if @results.nil? %>
+  <h1>There was a problem with your searh.</h1>
+  <h3>Please <%= link_to "click here", root_path %> to search again</h3>
+<% else %>
+  <h2>Search results from <%= @search_index %> to <%= @search_index.to_i + 10 %> for <%= @search_word %></h2>
 
-<%= link_to "previous page", page_path(search_index: @search_index.to_i - 10, search_word: @search_word) %> | <%= link_to "next page", page_path(search_index: @search_index.to_i + 10, search_word: @search_word) %>
+  <%= link_to "previous page", page_path(search_index: @search_index.to_i - 10, search_word: @search_word) %> | <%= link_to "next page", page_path(search_index: @search_index.to_i + 10, search_word: @search_word) %>
 
-<ul>
-<% @results.each do |result| %>
-  <li><%= image_tag result.image %>
-  <p><%= link_to result.name, search_path(id: result.id), target: "_blank" %></p></li>
+  <ul>
+  <% @results.each do |result| %>
+    <li><%= image_tag result.image %>
+    <p><%= link_to result.name, search_path(id: result.id), target: "_blank" %></p></li>
+  <% end %>
 <% end %>
