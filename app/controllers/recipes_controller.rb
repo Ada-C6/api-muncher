@@ -5,6 +5,10 @@ class RecipesController < ApplicationController
     @page = params[:page].to_i
     Recipe.reset
     @recipes = Recipe.all(@search_term, @page)
+    if @recipes != []
+      @total_recipe_num = @recipes.first.total_recipe_num
+      @more_items_after = @recipes.first.more_items_after
+    end
   end
 
   def pagination
@@ -12,6 +16,10 @@ class RecipesController < ApplicationController
     @page = params[:page].to_i + params[:page_num].to_i
     Recipe.reset
     @recipes = Recipe.all(@search_term, @page)
+    if @recipes != []
+      @total_recipe_num = @recipes.first.total_recipe_num
+      @more_items_after = @recipes.first.more_items_after
+    end
     render :index
   end
 

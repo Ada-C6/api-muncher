@@ -1,8 +1,9 @@
 class Recipe
-  attr_reader :name, :id, :recipe_image, :source_url, :ingredients, :calories, :dietary_info, :descriptive_labels, :yield
+  attr_reader :more_items_after, :total_recipe_num, :name, :id, :recipe_image, :source_url, :ingredients, :calories, :dietary_info, :descriptive_labels, :yield
 
   def initialize(options = {})
-
+    @more_items_after = options[:more_items_after]
+    @total_recipe_num = options[:total_recipe_num]
     @name = options[:name]
     raise ArgumentError if @name == nil || @name == ""
 
@@ -21,7 +22,7 @@ class Recipe
     attr_reader :recipes_hash
   end
 
-  def self.all(search_term = nil, page = 1)
+  def self.all(search_term = nil, page = 0)
     @recipes = EdamamApiWrapper.recipe_search(search_term, page)
     @recipes_hash ||= {}
     @recipes.each do |recipe|
@@ -33,7 +34,7 @@ class Recipe
     @recipes = nil
   end
 
-  def self.by_id(id, page = 1)
+  def self.by_id(id, page = 0)
     if @recipes_hash[id].nil?
       EdamamApiWrapper.recipe_search(id, page)
     else

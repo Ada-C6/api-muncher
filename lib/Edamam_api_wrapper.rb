@@ -10,7 +10,8 @@ class EdamamApiWrapper
     url = BASE_URL + "search?q=" + search_term.to_s  + "&app_id=" + ID + "&app_key=" + KEY + "&from=" + ((page.to_i - 1) * 10).to_s
 
     data = HTTParty.get(url)
-
+    total_recipe_num = data["count"]
+    more_items_after = data["more"]
     recipe_list = []
 
     if !data["hits"].nil?
@@ -33,7 +34,7 @@ class EdamamApiWrapper
             end
           end
         end
-        api_hash = {name: name, id: id, recipe_image: hit["recipe"]["image"], source_url: hit["recipe"]["url"], ingredients: hit["recipe"]["ingredientLines"], calories: hit["recipe"]["calories"].to_i, dietary_info: dietary_info, descriptive_labels: descriptive_labels, yield: hit["recipe"]["yield"].to_i}
+        api_hash = {more_items_after: more_items_after, total_recipe_num: total_recipe_num, name: name, id: id, recipe_image: hit["recipe"]["image"], source_url: hit["recipe"]["url"], ingredients: hit["recipe"]["ingredientLines"], calories: hit["recipe"]["calories"].to_i, dietary_info: dietary_info, descriptive_labels: descriptive_labels, yield: hit["recipe"]["yield"].to_i}
 
         recipe = Recipe.new(api_hash)
         recipe_list.push(recipe)

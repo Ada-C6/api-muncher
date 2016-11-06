@@ -17,18 +17,18 @@
 <% if @recipes != [] %>
   <section class="row">
     <section class="column small-4">
-      <% if @page.to_i > 1 %>
-      <%= link_to "Previous page", pagination_path( { :search => @search_term, :page => @page, :page_num => -1   }), class: "success button" %>
-      <% end %>
-    </section>
-    <section class="column small-4">
       <div class="page-num">
         <%= "Page #{ @page }" %>
       </div>
     </section>
     <section class="column small-4">
-      <% unless @recipes.count < 10 %>
-      <%= link_to "Next page", pagination_path( { :search => @search_term, :page => @page, :page_num => 1}), class: "success button" %>
+      <% if @page.to_i > 1 %>
+      <%= link_to "Previous page", pagination_path( { :search => @search_term, :page => @page, :page_num => -1   }), class: "success button" %>
+      <% end %>
+    </section>
+    <section class="column small-4">
+      <% unless @recipes.count < 9 || (@more_items_after == true && @page.to_i == 10) %>
+        <%= link_to "Next page", pagination_path( { :search => @search_term, :page => @page, :page_num => 1}), class: "success button" %>
       <% end %>
     </section>
   </section>
