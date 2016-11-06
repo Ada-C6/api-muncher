@@ -1,0 +1,142 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*Will likely not have time to refactor CSS to be well organized/DRY*/
+
+body {
+  background-color: lightgray;
+}
+
+nav {
+  background-color: gray;
+}
+
+nav h2 {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: left;
+  font-size: 2.35em;
+
+}
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 3em;
+}
+
+section h2, h3, p {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+section h3 {
+  font-size: 25px;
+}
+
+nav a {
+  color: black;
+}
+
+nav a:hover {
+  color: white;
+}
+
+li {
+  display: inline;
+}
+
+section img {
+  border-radius: 5px;
+}
+
+footer {
+  background-color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.columns.nopadding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+IMG.displayed {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60px;
+  height: 60px;
+}
+
+div::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+div::-webkit-scrollbar-button {
+  width: 10px;
+  height: 10px;
+}
+div::-webkit-scrollbar-thumb {
+  background: gray;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+div::-webkit-scrollbar-thumb:hover {
+  background: #535353;
+}
+div::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+div::-webkit-scrollbar-track {
+  background: lightgray;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+div::-webkit-scrollbar-track:hover {
+  background: lightgray;
+}
+div::-webkit-scrollbar-track:active {
+  background: lightgray;
+}
+div::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.inner {
+  width: auto;
+  min-height: 20em;
+  max-height: 20em;
+  overflow: scroll;
+  border: 2px solid gray;
+}
+
+.transparent-background-color {
+  background-color: rgb(189, 190, 193);
+  background-color: rgba(189, 190, 193, 0.5);
+}
+
+.menu input, .menu a, .menu button {
+  margin-bottom: -1px;
+}
+
+.button.success {
+  margin-bottom: 0px;
+}
+
+#search-form {
+  font-family: 'Source Sans Pro', sans-serif;
+}
