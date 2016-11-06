@@ -5,7 +5,7 @@ gem 'awesome_print'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -51,7 +51,10 @@ group :development, :test do
   gem 'better_errors'
   gem 'minitest-vcr'
   gem 'webmock'
+  gem 'sqlite3'
 end
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -63,4 +66,5 @@ end
 
 group :test do
   gem 'minitest-reporters'
+  gem 'simplecov'
 end
