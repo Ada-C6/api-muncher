@@ -1,4 +1,5 @@
-/*
+ @import url('foundation.css');
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -13,3 +14,36 @@
  *= require_tree .
  *= require_self
  */
+h1, h3, h4 {
+  text-align: center;
+}
+
+h2, h4 {
+  margin-bottom: 1em;
+}
+
+.image {
+  border: solid 2px black;
+  border-radius: 5px;
+}
+
+header {
+  margin-top: 2em;
+}
+
+header .search {
+  padding-top: .5em;
+}
+
+footer {
+  padding: 2em;
+  float: right;
+}
+
+.nav_buttons {
+  text-align: center;
+}
+/*
+#home_button {
+  float: right;
+}*/

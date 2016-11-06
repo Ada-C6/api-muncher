@@ -1,0 +1,32 @@
+<article class="row">
+
+  <section class="small-12 columns">
+    <h3><%= link_to("#{ @recipe.name }", @recipe.original_link) %></h2>
+    <h4>Click name for recipe</h4>
+  </section>
+
+  <section class="small-12 medium-6 columns">
+    <h3>Ingredients:</h3>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+      <li><%=ingredient%></li>
+      <% end %>
+    </ul>
+  </section>
+
+
+  <section class="small-12 medium-6 columns">
+    <p><%= image_tag(@recipe.photo, alt: "photo of #{ @recipe.name }", class: "image") %></p>
+  </section>
+
+  <section class="small-6 columns end">
+    <% if @recipe.diet_labels.length > 0 %>
+    <h3>Dietary information:</h3>
+    <ul>
+      <% @recipe.diet_labels.each do |label| %>
+      <li><%=label%></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </section>
+</article>

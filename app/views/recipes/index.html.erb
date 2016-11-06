@@ -1,0 +1,31 @@
+<% if !@recipes.empty? %>
+<article class="row small-up-2 medium-up-3 large-up-4">
+  <h1>Results for <%= "#{params[:search]}:" %></h1>
+
+  <% @recipes.each do |recipe| %>
+    <section class="column">
+      <p><%= link_to image_tag(recipe.photo, alt: "photo of #{ recipe.name }", class: "image"), recipe_path(recipe.uri[44..-1]) %></p>
+      <p><%= link_to "#{ recipe.name }", recipe_path(recipe.uri[44..-1]) %></p>
+    </section>
+  <% end %>
+
+  <nav class="nav_buttons">
+    <section class="column">
+        <% if @page > 1 %>
+        <%# link_to("Upvote", book_upvote_path, class: "small warning button", method: :patch) %>
+        <%= link_to('Previous 10 Recipes', recipes_path(page: @page - 1, search: params[:search]), class: "secondary button") %>
+        <% end %>
+    </section>
+
+    <section class="column">
+        <% if @page != @total_pages %>
+        <%= link_to("Next 10 Recipes", recipes_path(page: @page + 1, search: params[:search]), class: "secondary button") %>
+        <% end %>
+    </section>
+  </nav>
+</article>
+
+<% else %>
+<h3>There are no recipes for <%= "#{params[:search]}" %></h3>
+<h4>Please try a different search</h2>
+  <% end %>
