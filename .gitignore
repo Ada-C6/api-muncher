@@ -23,3 +23,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore the cassette files
+/test/cassettes/*
