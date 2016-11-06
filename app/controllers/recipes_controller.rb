@@ -7,7 +7,10 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all(@search_term, @page)
     if @recipes != []
       @total_recipe_num = @recipes.first.total_recipe_num
-      @more_items_after = @recipes.first.more_items_after
+    end
+
+    if @total_recipe_num > 100
+      @more_items_after = true
     end
   end
 
@@ -18,8 +21,12 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all(@search_term, @page)
     if @recipes != []
       @total_recipe_num = @recipes.first.total_recipe_num
-      @more_items_after = @recipes.first.more_items_after
     end
+
+    if @total_recipe_num > 100
+      @more_items_after = true
+    end
+
     render :index
   end
 
