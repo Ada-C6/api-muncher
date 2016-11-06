@@ -59,7 +59,11 @@ a {
 }
 
 a:hover, a:focus, a:active {
-  color: hsl(85, 56%, 35%);
+  color: hsl(85, 52%, 46%);
+}
+
+.link-on-black {
+  color: white;
 }
  /*.button.secondary:focus, .button.secondary:hover, .button:active {
    background-color: rgba(121, 186, 34, 1);
@@ -237,8 +241,10 @@ h4.flash-display {
   border: black 1.5em solid;
 }
 
-.recipe-image-section {
+.recipe-image {
   background-color: black;
+  color: white;
+  text-align: center;
   /*margin-bottom: 2em;*/
 }
 
@@ -246,7 +252,18 @@ h4.flash-display {
   padding-bottom: 2em;
 }
 
+.recipe-diet-info {
+  margin: 2vh auto 2vh;
+  /*background-color: white;*/
+}
+
 .recipe-ingredients h3, h4 {
   text-align: center;
   /*font-weight: bold;*/
+}
+
+.secondary.label {
+  background-color: hsl(85, 52%, 46%);
+  border-radius: 3px;
+  margin: 3px;
 }
