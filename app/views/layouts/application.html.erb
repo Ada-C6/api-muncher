@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Food</title>
+    <title>Food Thingie</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'index', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica|IM+Fell+Double+Pica|IM+Fell+English+SC" rel="stylesheet">
   </head>
 
-  <body>
-    <header>
-
+  <body class="row fullWidth">
+    <header id="header" class="small-12 large-12 columns">
+      <h1>Food Thingie</h1>
+      <img src="/assets/food.jpg" alt="food picture banner" id="banner"/>
     </header>
 
-    <section id="error">
-      <% if !flash.empty? %>
-        <% flash.each do |key, value| %>
-        <%= content_tag :div, value, class: "flash #{key}" %>
+    <section id="main" class="small-12 columns large-12-columns large-centered">
+      <article id="error">
+        <% if !flash.empty? %>
+          <% flash.each do |key, value| %>
+            <%= content_tag :div, value, class: "flash #{key}" %>
+          <% end %>
         <% end %>
-      <% end %>
-    </section>
-    
-    <section id="main">
+      </article>
+
       <%= yield %>
+
     </section>
 
-    <footer></footer>
+    <footer id="footer" class="small-12 large-12 columns">
+      <div class="row footer-words fullWidth">
+        <h5 class="small-6 large-6 columns">&copy <%= Time.now.year %></h5>
+        <div class="small-6 large-6 columns text-right">
+          <%= link_to image_tag("/assets/EdamamAttribution.png"), "https://www.edamam.com/", class: "attribution-pic" %>
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>

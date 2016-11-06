@@ -41,8 +41,9 @@ class SearchesController < ApplicationController
   def page
     @search_index = params[:search_index]
     @search_word = params[:search_word]
+    @results ||= EdamamApiWrapper.page(@search_index, @search_word)
 
-    @new_page_results ||= EdamamApiWrapper.page(@search_index, @search_word)
+    # @new_page_results ||= EdamamApiWrapper.page(@search_index, @search_word)
 
     render :index
   end

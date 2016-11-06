@@ -1,0 +1,15 @@
+@import url('foundation.css');
+@import url('application.css');
+
+.recipe-results {
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+
+.single-recipe-result p {
+  text-align: center;
+}
+
+.single-recipe-result a {
+  color: #b01111;
+}
