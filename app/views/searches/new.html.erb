@@ -1,17 +1,26 @@
-<main>
 <%= render partial: 'layouts/header' %>
-  <% if flash[:error] %>
-  <%= flash[:error] %>
-  <% end %>
 
-  <% if flash[:notice] %>
-  <%= flash[:notice] %>
-  <% end %>
+<main class="row">
+  <section class="flash-display small-12 columns">
+    <% if flash[:error] %>
+    <h5>
+      <%= flash[:error] %>
+    </h5>
+    <% end %>
 
-<h1>Search</h1>
-<%= form_tag searches_path, method: :get do %>
-  <%= label_tag :search_term, "Search Terms" %>
-  <%= text_field_tag :search_term %>
-  <%= submit_tag "Search", class: "button" %>
-<% end %>
+    <% if flash[:notice] %>
+    <h5>
+      <%= flash[:notice] %>
+    </h5>
+    <% end %>
+  </section>
+
+  <section class="search-box">
+    <h1>What sounds good?</h1>
+    <%= form_tag searches_path, method: :get do %>
+      <%# label_tag :search_term, "Search Terms" %>
+      <%= text_field_tag :search_term, "", placeholder: "Search terms here" %>
+      <%= submit_tag "Forage some recipes", class: "button" %>
+    <% end %>
+  </section>
 </main>

@@ -18,6 +18,10 @@
  *= require_self
  */
 
+ /*************************************/
+ /********** general ************/
+ /*************************************/
+
 *, h1, h2, h3, h4, h5, h6, a, p {
   font-family: 'Quattrocento Sans', "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
   /*font-family: 'Open Sans', sans-serif;*/
