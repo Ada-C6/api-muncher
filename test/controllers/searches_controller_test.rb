@@ -2,6 +2,8 @@ require 'test_helper'
 
 class SearchesControllerTest < ActionController::TestCase
   test "index contains three variables with values" do
+    # Because I only render my index and never route to it directly, I have to call the create action first (I think, it wasn't working without doing this first)
+    # This is the exact test I use later to make sure the create action works as it should
     VCR.use_cassette("c_recipes") do
       post :create, params: {search_word: "pork"}
       assert_kind_of Array, assigns[:results]
@@ -12,15 +14,18 @@ class SearchesControllerTest < ActionController::TestCase
       assert_template :index
     end
 
+    # Now here I'm checking the index to make sure the variables actually are what they should be
     VCR.use_cassette("c_recipes") do
       get :index
-      assert_not_empty assigns
+
       assert_equal 0, assigns[:search_index]
       assert_equal "pork", assigns[:search_word]
+
       assert_not_empty assigns[:results]
       assigns[:results].each do |result|
         assert_kind_of Recipe, result
       end
+
       assert_response :ok
       assert_template :index
     end
