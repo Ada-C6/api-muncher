@@ -1,7 +1,8 @@
+<article class="recipe-article">
 <p><%= link_to(@this_recipe.name, @this_recipe.url)%></p>
 <%= image_tag(@this_recipe.photo_url) %>
 
-<article>
+
 <section>
 	<ul>
 	<% @this_recipe.health_labels.each do |label| %>

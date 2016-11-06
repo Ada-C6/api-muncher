@@ -30,7 +30,7 @@ body {
 	padding-bottom: 6rem;
 }
 
-form p{
+form p, .search-results, .recipe-article{
 	margin: 50px;
 }
 
@@ -67,15 +67,9 @@ footer{
 	padding: 1rem;
 }
 
-/*.footer {
-  
-  right: 0;
-  bottom: 0;
-  left: 0;
-  
-  background-color: #efefef;
-  text-align: center;
-}*/
+#separator{
+	height: 50vh;
+}
 
 footer img {
 
@@ -86,3 +80,8 @@ footer img {
 .search-blurb {
 	margin-left: 50px;
 }
+
+table td {
+	text-align: center;
+}
+

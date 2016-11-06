@@ -1,12 +1,14 @@
 
 <p class="search-blurb">search results for: "<%= @term %>" (<%=@num_results%> hits) </p>
 <div class="row small-up-1 medium-up-3 large-up-4">
+<section class="search-results">
 <% @recipes.each do |recipe| %>
 	<div class="column recipe-card">
 		<h3> <%= link_to(recipe.name, recipe_path(recipe.id)) %> </h3>
 		<%= image_tag(recipe.photo_url) %>
 	</div>
 <%end%>
+</section>
 </div>
 <%= will_paginate @paginated_results %>
 <p class="search-blurb"><%= flash[:notice]%></p>
