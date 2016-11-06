@@ -21,7 +21,9 @@
 <%= yield %>
   <footer>
     <div class="site-footer">
-      &copy; 2016 by Guinevere Saenger, with data made available by <%= link_to "Edamam.com", "www.edamam.com", id: "footer-link" %>.
+      <p> Powered by <p>
+      <%=link_to image_tag("edamam-logo.png"), "http://developer.edamam.com"%>
+
     </div>
   </footer>
 
