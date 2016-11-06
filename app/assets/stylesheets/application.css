@@ -97,6 +97,10 @@ main, main.row {
 /*************************************/
 /********** all .flash-display ************/
 /*************************************/
+h4.flash-display {
+  color: rgba(104, 105, 102, 1);
+}
+
 .flash-display h5 {
   color: rgba(121, 186, 34, 1);
   text-align: center;
@@ -134,7 +138,8 @@ main, main.row {
 }
 
 .recipe-results {
-
+  text-align: center;
+  min-height: 40vh;
   /*background: blue;
   @TODO - remove*/
 }

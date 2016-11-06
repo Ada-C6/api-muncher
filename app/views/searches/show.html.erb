@@ -1,6 +1,6 @@
-<main>
-  <%= render partial: 'layouts/header' %>
-  <article class="recipe">
+<%= render partial: 'layouts/header' %>
+<main class="row">
+  <article class="recipe column">
 
   <h1><%= @recipe.title %></h1>
     <%= image_tag @recipe.image_url %>

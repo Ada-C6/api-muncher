@@ -17,6 +17,11 @@ class SearchesController < ApplicationController
 
       # flash[:notice] = "Successfully sent search for #{@search_term}."
       @recipe_results = Recipe.search_results(@response).paginate(page: params[:page], per_page: 10)
+
+      if @recipe_results.empty?
+        flash[:no_results] = "No recipes for #{@search_term}."
+      end
+
     else
       flash[:notice] = "Failed to send search for #{@search_term}: #{@response["error"]}"
 
@@ -32,7 +37,7 @@ class SearchesController < ApplicationController
 
     @recipe = Recipe.search_results(@search).first
 
-    @ingredients = @recipe.ingredient_objects.map { |ing_object| ing_object["text"] }
+    @ingredients = @recipe.ingredient_objects.map { |ingredient_object| ingredient_object["text"] }
   end
 
   def create
