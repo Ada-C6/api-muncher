@@ -40,6 +40,7 @@ group :development, :test do
   gem 'minitest-vcr'
   gem 'webmock'
   gem 'minitest-reporters'
+  gem 'rails-controller-testing'
 end
 
 group :development do
