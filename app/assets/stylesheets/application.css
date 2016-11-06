@@ -44,7 +44,7 @@ main h1 {
 }
 
 /*************************************/
-/********** all .button ************/
+/********** all .button & a ************/
 /*************************************/
 .button {
   background-color: hsl(85, 52%, 46%);
@@ -54,6 +54,13 @@ main h1 {
   background-color: hsl(85, 56%, 35%);
 }
 
+a {
+  color: hsl(85, 52%, 46%);
+}
+
+a:hover, a:focus, a:active {
+  color: hsl(85, 56%, 35%);
+}
  /*.button.secondary:focus, .button.secondary:hover, .button:active {
    background-color: rgba(121, 186, 34, 1);
  }*/
@@ -107,6 +114,7 @@ main h1 {
 /*************************************/
 h4.flash-display {
   color: rgba(104, 105, 102, 1);
+  margin: 4vh auto 4vh;
 }
 
 .flash-display h5 {
@@ -229,7 +237,12 @@ h4.flash-display {
   border: black 1.5em solid;
 }
 
-.recipe-image-wrapper {
+.recipe-image-section {
   background-color: black;
   margin-bottom: 2em;
+}
+
+.recipe-ingredients h3, h4 {
+  text-align: center;
+  /*font-weight: bold;*/
 }
