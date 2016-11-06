@@ -18,7 +18,7 @@ class EdamamApiWrapper
     # right now, I'm only getting the first 10 back.
     data = HTTParty.get(url)
     search_results_list = []
-    if data["hits"]
+    if data["hits"] != []
       # return data["hits"]
       data["hits"].each do |item|
         wrapper = Recipe.new( item["recipe"]["label"], item["recipe"]["source"], item["recipe"]["uri"].split(/[_]/).last,

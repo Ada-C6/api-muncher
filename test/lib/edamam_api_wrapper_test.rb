@@ -20,8 +20,12 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
   end
 
   test "search should return nil if search doesn't match anything" do
-    skip
-    
+    VCR.use_cassette("recipes") do
+      term = "ththththt"
+      recipes = EdamamApiWrapper.search(term)
+
+      assert_nil recipes
+    end
   end
 
   test "find gets back a single recipe" do

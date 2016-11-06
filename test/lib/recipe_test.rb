@@ -84,15 +84,18 @@ end
 
   test "Recipe.find_recipe does make an API call if recipe is not in stored recipes variable" do
     VCR.use_cassette("recipes") do
-      term = "chicken"
-      recipes = Recipe.all(term)
+      # ensuring that there's not been a search yet.
+      Recipe.search_term = nil
+
+      chicken_term = "chicken"
+      recipes = Recipe.all(chicken_term)
       recipe = recipes.first
 
       identifier = recipe.identifier
 
       # resetting the search term and stored recipes variable
-      term = "couscous"
-      couscous_recipes = Recipe.all(term)
+      couscous_term = "couscous"
+      couscous_recipes = Recipe.all(couscous_term)
 
       found_recipe = Recipe.find_recipe(identifier)
 
