@@ -14,9 +14,9 @@ class EdemamApiWrapper
     if data["hits"] # if the request was successful we should have recieved "hits" from the api
       # puts = "success"
       data["hits"].each do |hit|
-        a = hit["recipe"]["uri"]
-        uri = a.slice!(/h.*_/)
-        wrapper = Recipe.new(a, label: hit["recipe"]["label"], image: hit["recipe"]["image"])
+        uri = hit["recipe"]["uri"]
+        a = uri.slice!(/h.*_/)
+        wrapper = Recipe.new(uri, label: hit["recipe"]["label"], image: hit["recipe"]["image"])
         recipes << wrapper
       end
       return recipes
@@ -40,4 +40,4 @@ class EdemamApiWrapper
 
 end
 
-  # curl "https://api.edamam.com/search?q=chicken&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}"
+  
