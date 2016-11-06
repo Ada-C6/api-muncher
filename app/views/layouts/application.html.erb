@@ -12,7 +12,7 @@
       <p class="small-6 large-3 columns"><%= text_field_tag :search, params[:search], placeholder: "Search Recipes", id: "search_box" %></p>
       <p class="small-1 columns end"><%= submit_tag "Search", :name => nil%></p>
     <% end %>
-    <p class="small-1 columns"><%= button_to "Recipe Seach Home", root_path, method: :get, class: "secondary button" %></p>
+    <p class="small-1 columns"><%= button_to "Recipe Seach Home", root_path, method: :get %></p>
   </header>
 <%= yield %>
   <footer>Powered by <%=link_to image_tag("edamam.png"), "https://developer.edamam.com/"%></footer>
