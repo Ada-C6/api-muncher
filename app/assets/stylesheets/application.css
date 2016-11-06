@@ -28,6 +28,15 @@
   /*font-family: 'Lato', sans-serif;*/
 }
 
+body {
+  background-color: black;
+}
+
+main, main.row {
+  background-color: white;
+  max-width: 100%;
+}
+
 .button {
   background-color: hsl(85, 52%, 46%);
 }
@@ -184,6 +193,7 @@
   margin: 2vh auto 0 auto;
   display: block;
   text-align: center;
+  padding-bottom: 1vh;
   /*background: red;
   @TODO - remove*/
 }
