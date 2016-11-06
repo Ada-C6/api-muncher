@@ -1,0 +1,22 @@
+<section class="diet-labels-search">
+  <% if !@searchterm.nil? %>
+    <p>Would you like to further refine your search? Please check which categories you'd like:</p>
+    <%= form_tag root_path, method: :get do %>
+      <%= check_box_tag "dietlabels[]", "Balanced" %>
+      <%= label_tag(:dietlabels, "Balanced") %>
+      <%= check_box_tag "dietlabels[]", "High-Fiber" %>
+      <%= label_tag(:dietlabels, "High Fiber") %>
+      <%= check_box_tag "dietlabels[]", "High-Protein" %>
+      <%= label_tag(:dietlabels, "High Protein") %>
+      <%= check_box_tag "dietlabels[]", "Low-Carb" %>
+      <%= label_tag(:dietlabels, "Low Carb") %>
+      <%= check_box_tag "dietlabels[]", "Low-Fat" %>
+      <%= label_tag(:dietlabels, "Low Fat") %>
+      <%= check_box_tag "dietlabels[]", "Low-Sodium" %>
+      <%= label_tag(:dietlabels, "Low Sodium") %>
+      <%= hidden_field_tag(:searchterm, @searchterm) %>
+      <%= hidden_field_tag :page, @page %>
+      <%= submit_tag("Search", class: "search-button") %>
+    <% end %>
+  <% end %>
+</section>

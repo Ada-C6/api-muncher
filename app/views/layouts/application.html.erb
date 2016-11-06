@@ -1,14 +1,40 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>ApiMuncher</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= favicon_link_tag 'favicon.ico' %>
 
-<%= yield %>
+    <title>Edamam API Muncher</title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header class="row">
+      <section class="column small-7">
+        <h1><%= link_to "Edamam Api Muncher", root_path %></h1>
+      </section>
+      <article class="search-form column small-5 search-form">
+        <%= form_tag root_path, method: :get do %>
+          <ul>
+            <li><%= label_tag(:searchterm, "") %></li>
+            <li><%= text_field_tag(:searchterm) %></li>
+            <li><%= hidden_field_tag :page, 1 %></li>
+            <li><%= submit_tag("Search", class: "search-button") %></li>
+          </ul>
+        <% end %>
+      </article>
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      <section class="row">
+        <p class="column small-9"> &copy; <%= Time.now.year %> <%= mail_to "redherring@gmail.com", "Heather Herrington" %></p>
+        <%= link_to image_tag('edamam.png', alt: "Edamam logo"), 'http://developer.edamam.com', class: "column small-3" %>
+      </section>
+    </footer>
+  </body>
 </html>

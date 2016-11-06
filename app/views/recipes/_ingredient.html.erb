@@ -1,0 +1,9 @@
+<section class="column small-8">
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+    <li>
+      <%= ingredient %>
+    </li>
+    <% end %>
+  </ul>
+</section>

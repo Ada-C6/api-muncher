@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  root 'recipes#index'
+  get '/recipes/next', to: 'recipes#next', as: 'next_page'
+
+  resources :recipes, only: [:show]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

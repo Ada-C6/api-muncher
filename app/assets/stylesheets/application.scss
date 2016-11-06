@@ -12,4 +12,49 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+// Want search form even with page title
+.search-form {
+  margin-top: 13px;
+}
+
+// Search button next to text field
+.search-form li {
+  display: inline-block;
+}
+
+.search-button {
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: blue;
+}
+
+// Formatting for list of diet labels beneath title of dish
+.diet-info li:not(:last-child):after {
+  content: ' // ';
+}
+
+.diet-info li {
+  display: inline;
+}
+
+footer, header {
+  margin-top: 50px;
+}
+
+.main-text, .recipe-name, .page-link, .diet-labels-search {
+  text-align: center;
+}
+
+body {
+  margin: 0 2%;
+}
+
+a {
+  color: purple;
+}
