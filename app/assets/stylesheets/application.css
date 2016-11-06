@@ -54,16 +54,24 @@ main h1 {
   background-color: hsl(85, 56%, 35%);
 }
 
+.home-button, .button-group {
+  margin-top: 5vh;
+}
+
 a {
   color: hsl(85, 52%, 46%);
 }
 
 a:hover, a:focus, a:active {
-  color: hsl(85, 52%, 46%);
+  color: hsl(85, 56%, 35%);
 }
 
 .link-on-black {
   color: white;
+}
+
+.link-on-black:hover *, .link-on-black:focus * {
+  color: hsl(85, 52%, 65%);
 }
  /*.button.secondary:focus, .button.secondary:hover, .button:active {
    background-color: rgba(121, 186, 34, 1);
@@ -172,6 +180,9 @@ h4.flash-display {
   border: 3px solid white;
   /*border: 0px transparent;
   margin: 3px;*/
+}
+
+.one-recipe-result, .recipe-image-link {
   transition: box-shadow .2s ease-out;
 
 }

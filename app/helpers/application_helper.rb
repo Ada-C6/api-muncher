@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def link_home(klass="")
+    klass += " home-button button"
+    link_to "Forage something new", root_path, class: klass
+  end
+
   def year_range(start_year)
   # In case the input was not a number (nil.to_i will return a 0)
     start_year = start_year.to_i
