@@ -37,7 +37,7 @@ end
 
   test "Recipe.all should make an API call if search hasn't been made before; not make API call if term is same as previous search" do
     VCR.use_cassette("recipes") do
-      # ensuring that there's not been a search yet.
+      # ensuring that there's not been a search yet. This seems a little sketchy, but I'm noticing that my memoized data is messing up this test depending on what order the tests have run. If I had time, I'd research how to better clear my cache/memoized data. (maybe with a before each for the tests?)
       Recipe.search_term = nil
 
       term = "couscous"
@@ -58,6 +58,36 @@ end
 
       assert_equal Recipe.search_term, term
       assert_equal Recipe.api_call, false
+    end
+  end
+
+  test "Recipe.all should not make API calls for baked searches" do
+    VCR.use_cassette("recipes") do
+      # ensuring that there's not been a search yet.
+      Recipe.search_term = nil
+
+      chicken = "chicken"
+      potato = "potato"
+      ground_beef = "ground beef"
+
+      recipes = Recipe.all(chicken)
+
+      assert_equal Recipe.chicken_recipes, recipes
+
+      assert_equal Recipe.api_call, false
+
+      recipes = Recipe.all(potato)
+
+      assert_equal Recipe.potato_recipes, recipes
+
+      assert_equal Recipe.api_call, false
+
+      recipes = Recipe.all(ground_beef)
+
+      assert_equal Recipe.ground_beef_recipes, recipes
+
+      assert_equal Recipe.api_call, false
+
     end
   end
 
@@ -124,12 +154,5 @@ end
 
     end
   end
-  #
-  # test "by_name returns nil if there is no channel of that name" do
-  #   VCR.use_cassette("channels") do
-  #     channel = Channel.by_name("this-channel-does-not-exist")
-  #     assert_nil channel
-  #   end
-  # end
 
 end

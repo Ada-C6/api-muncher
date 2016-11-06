@@ -23,12 +23,18 @@ class Recipe
     attr_reader :recipes, :recipe, :api_call, :chicken_recipes, :potato_recipes, :ground_beef_recipes
   end
 
-  # Return a memoized collection of recipes
-  def self.all(term)
+  def self.baked_searches
     # setting these memoized searches.
     @chicken_recipes ||= EdamamApiWrapper.search("chicken")
     @ground_beef_recipes ||=  EdamamApiWrapper.search("ground beef")
     @potato_recipes ||= EdamamApiWrapper.search("potato")
+
+  end
+
+  # Return a memoized collection of recipes
+  def self.all(term)
+
+    baked_searches
 
     case term
     when "chicken"
