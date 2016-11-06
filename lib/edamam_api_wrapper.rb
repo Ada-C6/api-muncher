@@ -15,7 +15,16 @@ class EdamamApiWrapper
 
     if data["hits"].length >= 1
       data["hits"].each do |entry|
-        thing = Recipe.new(entry["recipe"]["label"], entry["recipe"]["uri"], { image: entry["recipe"]["image"], source: entry["recipe"]["source"], ingredients: entry["recipe"]["ingredientLines"], url: entry["recipe"]["url"] } )
+        thing = Recipe.new(entry["recipe"]["label"], entry["recipe"]["uri"],
+        {
+          image: entry["recipe"]["image"],
+          source: entry["recipe"]["source"],
+          ingredients: entry["recipe"]["ingredientLines"],
+          diet_labels: entry["recipe"]["dietLabels"],
+          allergy_labels: entry["recipe"]["healthLabels"],
+          url: entry["recipe"]["url"]
+        } )
+
         recipes_list << thing
       end
     else
@@ -30,8 +39,15 @@ class EdamamApiWrapper
     data = HTTParty.get(url)
 
     if data.length >= 1
-      recipe = Recipe.new(data[0]["label"], data[0]["uri"], { image: data[0]["image"], source: data[0]["source"], ingredients: data[0]["ingredientLines"], url: data[0]["url"] } )
-
+      recipe = Recipe.new(data[0]["label"], data[0]["uri"],
+      {
+        image: data[0]["image"],
+        source: data[0]["source"],
+        ingredients: data[0]["ingredientLines"],
+        diet_labels: data[0]["dietLabels"],
+        allergy_labels: data[0]["healthLabels"],
+        url: data[0]["url"]
+      } )
       return recipe
     else
       return nil
@@ -46,7 +62,15 @@ class EdamamApiWrapper
 
     if data["hits"]
       data["hits"].each do |entry|
-        thing = Recipe.new(entry["recipe"]["label"], entry["recipe"]["uri"], { image: entry["recipe"]["image"], source: entry["recipe"]["source"], ingredients: entry["recipe"]["ingredientLines"], url: entry["recipe"]["url"] } )
+        thing = Recipe.new(entry["recipe"]["label"], entry["recipe"]["uri"],
+        {
+          image: entry["recipe"]["image"],
+          source: entry["recipe"]["source"],
+          ingredients: entry["recipe"]["ingredientLines"],
+          diet_labels: entry["recipe"]["dietLabels"],
+          allergy_labels: entry["recipe"]["healthLabels"],
+          url: entry["recipe"]["url"]
+        } )
         recipes_list << thing
       end
     end

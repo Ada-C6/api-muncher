@@ -12,5 +12,19 @@
     <% end %>
   </ul>
 
+<h4>Diet Labels</h4>
+  <ul>
+    <% @recipe.diet_labels.each do |label| %>
+      <li><%= label %></li>
+    <% end %>
+  </ul>
+
+<h4>Allergy Labels</h4>
+  <ul>
+    <% @recipe.allergy_labels.each do |label| %>
+      <li><%= label %></li>
+    <% end %>
+  </ul>
+
 <h4>Instructions:</h4>
 <a href="<%= @recipe.url %>"</a><%= @recipe.url %></p>
