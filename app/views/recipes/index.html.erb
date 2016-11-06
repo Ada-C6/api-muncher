@@ -10,12 +10,7 @@
 <% end %>
 
 <% if params[:from].to_i != 0 %>
-  <%= form_tag recipes_path, {method: :get} do %>
-    <%= hidden_field_tag(:q, params[:q]) %>
-    <%= hidden_field_tag(:from, params[:from].to_i - 10) %>
-    <%= hidden_field_tag(:to, params[:to].to_i - 10) %>
-    <%= submit_tag("Back") %>
-  <% end %>
+  <button onclick="history.back(1)">Back</button>
 <% end %>
 
 <% if !@next_recipes.nil? %>

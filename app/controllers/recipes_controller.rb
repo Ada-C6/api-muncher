@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :current_user
+
   def index
     if session[:search_terms].nil?
       session[:search_terms] = []

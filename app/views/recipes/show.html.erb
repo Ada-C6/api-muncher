@@ -1,3 +1,12 @@
+<button onclick="history.back(1)">Back to Search Results</button>
+
+<% if !@user.nil? %>
+  <%= button_to "Save as Favorite", {controller: 'recipes', action: 'create', user_id: @user.id}, method: :post %>
+<% else %>
+  <%= button_to "Save as Favorite", {controller: 'sessions', action: 'new'} %>
+<% end %>
+
+
 <h1><%= link_to @recipe[:name], @recipe[:link], target: '_blank' %></h1>
 <%= image_tag @recipe[:image] %>
 
