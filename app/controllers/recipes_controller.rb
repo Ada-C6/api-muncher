@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
       @total_recipe_num = @recipes.first.total_recipe_num
     end
 
-    if @total_recipe_num > 100
+    if @recipes != [] && @total_recipe_num > 100
       @more_items_after = true
     end
   end
@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
       @total_recipe_num = @recipes.first.total_recipe_num
     end
 
-    if @total_recipe_num > 100
+    if @recipes != [] && @total_recipe_num > 100
       @more_items_after = true
     end
 
