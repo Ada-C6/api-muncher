@@ -201,3 +201,7 @@ main, main.row {
 .pagination a, .pagination button {
   display: inline-block;
 }
+
+.pagination .current {
+  background-color: rgba(121, 186, 34, 1);
+}
