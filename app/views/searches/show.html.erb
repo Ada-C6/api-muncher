@@ -1,5 +1,5 @@
 <%= render partial: 'layouts/header' %>
-<main class="row">
+<main class="row recipe-page">
   <article class="recipe-info column small-10 small-centered">
     <h1><%= @recipe.title %></h1>
     <h4> recipe from: <%= link_to @recipe.source_name, @recipe.recipe_url %></h4>
@@ -12,31 +12,32 @@
     </h3>
     </section>
     <section class="recipe-ingredients small-12 medium-6 columns">
+      <h3>Ingredients</h3>
       <table>
-        <thead>
+        <!-- <thead>
           <tr>
             <th>
               <h3>Ingredients</h3>
             </th>
           </tr>
-        </thead>
+        </thead> -->
         <tbody>
           <% @ingredients.each do |ingredient| %>
-          <tr>
-            <td>
-              <li>
-                <%= ingredient %>
-              </li>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                <li>
+                  <%= ingredient %>
+                </li>
+              </td>
+            </tr>
           <% end %>
         </tbody>
       </table>
-      <ul><h3>Dietary profile</h3>
+      <h3>Dietary profile</h3>
         <% @recipe.health_and_diet_labels.each do |label| %>
-        <li>
+        <span class="secondary label" >
           <%= label %>
-        </li>
+        </span>
         <% end %>
       </ul>
     </section>

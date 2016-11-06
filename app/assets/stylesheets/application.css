@@ -239,7 +239,11 @@ h4.flash-display {
 
 .recipe-image-section {
   background-color: black;
-  margin-bottom: 2em;
+  /*margin-bottom: 2em;*/
+}
+
+.recipe-page {
+  padding-bottom: 2em;
 }
 
 .recipe-ingredients h3, h4 {
