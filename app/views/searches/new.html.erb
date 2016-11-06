@@ -3,24 +3,29 @@
 <main class="row">
   <section class="flash-display small-12 columns">
     <% if flash[:error] %>
-    <h5>
-      <%= flash[:error] %>
-    </h5>
+      <h5>
+        <%= flash[:error] %>
+      </h5>
     <% end %>
 
     <% if flash[:notice] %>
-    <h5>
-      <%= flash[:notice] %>
-    </h5>
+      <h5>
+        <%= flash[:notice] %>
+      </h5>
     <% end %>
   </section>
-
-  <section class="search-box">
+  <section class="search-box small-10 small-offset-1 medium-8 medium-offset-2 large-6 large-offset-3 end columns">
     <h1>What sounds good?</h1>
     <%= form_tag searches_path, method: :get do %>
-      <%# label_tag :search_term, "Search Terms" %>
-      <%= text_field_tag :search_term, "", placeholder: "Search terms here" %>
-      <%= submit_tag "Forage some recipes", class: "button" %>
+    <div class="input-group">
+    <%= text_field_tag :search_term, "", placeholder: "Search terms here", class: "input-group-field" %>
+    <div class="input-group-button">
+    <%= submit_tag "Forage recipes", class: "button" %>
+  </div>
     <% end %>
+    </div>
   </section>
+
+  <!-- <div class="row search-box-container"> -->
+  <!-- </div> -->
 </main>
