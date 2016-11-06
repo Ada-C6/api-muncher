@@ -14,7 +14,8 @@ a {
 
 #search-box {
   padding-top: 20px;
-  font-family: sans-serif;;
+  font-family: sans-serif;
+  padding-right: 70%;
 }
 
 section.index-page {
