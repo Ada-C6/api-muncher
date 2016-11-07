@@ -13,3 +13,54 @@
  *= require_tree .
  *= require_self
  */
+@import url('foundation.css');
+
+header h1 {
+  font-family: 'Monoton', cursive;
+  margin: 40px 0px 0px 0px;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.pagination a, .pagination button {
+  display: inline-block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img.index {
+  border-radius: 50%;
+}
+
+main.search-results {
+  margin: 50px 0px 0px 0px;
+}
+
+main li.column {
+  margin: 0px 0px 30px 0px;
+}
+
+main.recipe h3, section.ingredients {
+  text-align: center;
+}
+
+img.show {
+  max-width: 50%;
+  margin: auto;
+  display: block;
+}
+
+
+section.labels {
+  text-align: center;
+  font-style: italic;
+}
+
+.recipe p{
+  font-weight: bold;
+  text-align: center;
+}

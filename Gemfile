@@ -32,12 +32,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'httparty'
+
+gem 'will_paginate', '~> 3.1.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'dotenv-rails'
   gem 'better_errors'
   gem "binding_of_caller"
   gem "pry-rails"
+
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do

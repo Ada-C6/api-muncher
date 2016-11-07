@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  root 'recipe_search#index', as: 'recipe_search_index'
+
+  get 'recipe_search/show/:id', to: 'recipe_search#show', as: 'recipe_search_show', format: false
+
+
+  # get 'recipe_search/new'
+  #
+  # get 'recipe_search/create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
