@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  root 'home#index'
+
+  get '/recipes/more' => 'recipes#more'
+
+# Make note that all new /recipes/something routes must go above
+  get '/recipes/*uri' => 'recipes#show', as: 'recipe', constraints: {uri: /.+/}
+
+  get '/recipes' => 'recipes#search', as: 'search'
+
+  # get '/:id' => 'recipes#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
