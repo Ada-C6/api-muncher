@@ -1,0 +1,26 @@
+<main>
+  <section>
+    <ul class='navigation-arrows row'>
+      <li class='columns small-12 large-6'> <%= load_previous_recipes(@keyword, @page, class: 'prev-link') %> </li>
+      <li class='columns small-12 large-6'>  <%= load_next_recipes(@recipes, @keyword, @page, class: 'next-link') %> </li>
+    </ul>
+  </section>
+  <section>
+
+    <ul class='recipe-collection row small-up-5'>
+      <% @recipes.each do |recipe|  %>
+      <li class='column recipe-tile'><%= link_to recipe_path(recipe.id) do %>
+        <ul>
+          <li>
+            <%= image_tag recipe.image, class: 'recipe-picture' %>
+          </li>
+          <li>
+            <h2 class='recipe-label'><%= recipe.label %></h2>
+          </li>
+        </ul>
+        <% end  %>
+      </li>
+      <% end  %>
+    </ul>
+  </section>
+</main>

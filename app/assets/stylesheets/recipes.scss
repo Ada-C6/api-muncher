@@ -1,0 +1,166 @@
+// Place all the styles related to the Recipes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// Default font colors are grey and black
+body, a {
+  font-family: 'Homemade Apple', cursive;
+  color: #666;
+}
+
+a:hover {
+  color: #000;
+}
+
+// TOP BAR
+
+// styles the search bar so the button is inline
+
+.top-bar {
+  box-shadow: 0px 1.5rem 3rem rgba(0, 0, 0, .1);
+  padding-top: 2rem;
+}
+
+.menu-text > a {
+  font-size: 2rem;
+  color: rgb(120, 195, 16);
+  text-shadow: 1px 1px 2px #666;
+}
+
+li {
+  list-style: none;
+}
+
+form li {
+  display: inline-block;
+}
+
+.button {
+  background-color: rgba(120, 195, 16, .7);
+  height: 2rem;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: rgba(120, 195, 16, 1);
+}
+
+// styles list of recent searches
+.link-list > li {
+  display: inline;
+}
+
+.link-list > li:not(:first-child):before {
+  // cute cutlery for spacers
+  color: rgb(120, 195, 16);
+  font-family: FontAwesome;
+  content: " \f0f5 ";
+}
+
+.link-list a {
+  // prevent the images from smushing the text
+  padding: 5px;
+}
+
+.prev-link:after {
+  // navigate with left arrow
+  font-family: FontAwesome;
+  content: "\f060";
+}
+
+.next-link:after {
+  // navigate with right arrow
+  font-family: FontAwesome;
+  content: "\f061";
+}
+
+
+// BODY - INDEX page
+
+.navigation-arrows {
+  margin: 0;
+}
+
+.navigation-arrows > li {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+// recipe images are styled like tiles; opacity changes for hover and soft feel
+
+// "lift" parent opacity off hovered tile
+html:hover  .recipe-tile {
+  opacity: 0.6;
+}
+
+.recipe-collection:hover > .recipe-tile:hover {
+  transition-timing-function: ease-in-out;
+  opacity: 1;
+}
+
+.recipe-picture {
+  border-radius: 5px;
+}
+
+// default styling for images everywhere!
+img {
+  opacity: 0.7;
+  border-radius: 15px;
+}
+
+// recipes labels only visible on hover
+.recipe-label {
+  font-family: 'Homemade Apple', cursive;
+  padding-top: .5rem;
+  visibility: hidden;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.recipe-tile:hover .recipe-label {
+  visibility: visible;
+}
+
+// BODY - SHOW page
+
+// make the details look nice
+
+.recipe-title {
+  font-family: 'Homemade Apple', cursive;
+}
+
+article {
+  padding: 2rem;
+}
+
+.labels-list > li {
+  display: inline;
+}
+
+.labels-list > li:not(:last-child):after {
+  content:' |';
+}
+
+.check-list > li {
+	border-bottom: 1px solid #ccc;
+	padding: .2em 0 .2em .5em;
+	color: #666;
+}
+
+.check-list i {
+  margin-right: 5px;
+  visibility: hidden;
+}
+
+.check-list > li:hover i {
+  visibility: visible;
+}
+
+// put footer on the bottom!
+footer {
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
