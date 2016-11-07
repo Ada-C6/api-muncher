@@ -3,7 +3,7 @@
   <h3>Please <%= link_to "click here", root_path %> to search again</h3>
 <%else %>
 
-  <h2>Results (<%= @search_index %> - <%= @search_index.to_i + 10 %>) for "<%= @search_word %>"</h2>
+  <h2>Results (<%= @search_index %> - <%= @search_index.to_i + 10 %>) for <em><%= @search_word %></em></h2>
 
   <article class="row small-up-2 medium-up-3 large-up-5 recipe-results">
       <% @results.each do |result| %>

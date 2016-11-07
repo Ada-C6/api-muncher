@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Food Thingie</title>
+    <title>Hmm Appétit?</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica|IM+Fell+Double+Pica|IM+Fell+English+SC" rel="stylesheet">
   </head>
 
-  <body class="row fullWidth">
-    <header id="header" class="small-12 large-12 columns">
-      <h1>Food Thingie</h1>
+  <body>
+    <header id="header" class="small-12 large-12 columns fullWidth">
+      <h1>Hmm Appétit?</h1>
       <img src="/assets/food.jpg" alt="food picture banner" id="banner"/>
     </header>
 
-    <section id="main" class="small-12 columns large-12-columns large-centered">
+    <section id="main-content" class="small-12 columns large-12-columns large-centered">
       <article id="error">
         <% if !flash.empty? %>
           <% flash.each do |key, value| %>
