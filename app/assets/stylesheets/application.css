@@ -35,14 +35,11 @@
 
  .pre-baked-index  {
    padding: 20px;
-   /*text-align: center;*/
    width: 60%;
  }
 
  .baked-searches li {
-   /*border: solid blue thin;*/
    width: 60%;
-   /*padding: 5px;*/
  }
 
  .img-results {
@@ -111,8 +108,4 @@
 
 .pages-for-results {
   float: right;
-}
-
-.div{
-  border: solid red thin;
 }
