@@ -18,19 +18,11 @@ class Recipe
   end
 
   def self.all(search_term)
-    @recipes ||= EdamamApiWrapper.search_recipe(search_term)
+    @recipes = EdamamApiWrapper.search_recipe(search_term)
     return @recipes
   end
 
-  def self.reset
-    #Need to figure out how to reset between searches
-  end
-
   def self.find(id)
-    if @recipes_hash[id].nil?
-      EdamamApiWrapper.search_recipe(id)
-    else
-      return @recipes_hash[id]
-    end
+    @recipes = EdamamApiWrapper.by_id(id)
   end
 end

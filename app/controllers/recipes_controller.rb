@@ -4,8 +4,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    label = params[:search]
+    # label = params[:search]
     id = params[:id]
-    @recipe = EdamamApiWrapper.by_id(id)
+    @recipe = Recipe.find(id)
   end
 end
