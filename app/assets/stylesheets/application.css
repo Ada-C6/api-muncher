@@ -41,3 +41,9 @@ p a {
 p a:hover {
   color: #E76D83;
 }
+
+#attribution {
+  background-color: #23375c;
+  width: 80%;
+  margin-left: 10%;
+}

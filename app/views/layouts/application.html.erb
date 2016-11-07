@@ -14,7 +14,7 @@
 
   <body>
     <h1>RECIPE MUNCH</h1>
-    <%= image_tag("Attribution_v2.jpg", :alt => "Powered by Edamam") %>
+    <p id="attribution"><%= image_tag "Attribution_v2.jpg" %></p>
     <div class="row">
       <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
         <div class="small-7 small-centered medium-5 medium-centered large-4 large-centered columns">
