@@ -1,3 +1,12 @@
+## Reflection:
+
+I am starting to better understand how Foundation works - less is often more when it comes to arranging items on a page. I am also much more comfortable troubleshooting using the tools I have at hand - there were several instances where I got stuck and couldn't find a TA, so I ended up working through my terminal or raising errors purposely to see what was being handed to my browser in order to find out what was happening under the hood.
+
+I would like more practice writing tests for something like this - model and controller tests I get, lib tests much less so. I would also like to get checkboxes for things like "gluten-free" working at some point so this becomes usable for people in my family who have food sensitivities and allergies.  
+
+My chair pairs ended up putting background images on their homepages, and I felt like it made for a more professional look. Also, one person used tables on their show page and it made the lines of text much easier to read. 
+
+
 # Recipe API Consumer
 
 ## Learning Goals:
