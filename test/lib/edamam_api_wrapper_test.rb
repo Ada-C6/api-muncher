@@ -19,12 +19,13 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     end
   end
 
-  test "search should return nil if search doesn't match anything" do
+  test "search should return empty array if search doesn't match anything" do
     VCR.use_cassette("recipes") do
       term = "ththththt"
       recipes = EdamamApiWrapper.search(term)
 
-      assert_nil recipes
+      assert_kind_of Array, recipes
+      assert_empty recipes
     end
   end
 

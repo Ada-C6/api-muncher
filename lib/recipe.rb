@@ -43,14 +43,18 @@ class Recipe
       @api_call = false
       recipes = @searches_cache[term]
     else
-      # do the search, add the search to the @searches_cache cache, and add the recipes included in the search to the @recipes cache.
+      # do the search, and if you get back something, add the search to the @searches_cache cache, and add the recipes included in the search to the @recipes cache.
       # Right now, I'm just caching everything in the hashes. I would probably want to limit the size of the hashes somehow, or the lifespan of the things that are stored, in case the backend API changes.
       @api_call = true
       recipes = EdamamApiWrapper.search(term)
-      @searches_cache[term] = recipes
+      if recipes == []
+        return []
+      else
+        @searches_cache[term] = recipes
 
-      recipes.each do |recipe|
-        @recipes_cache[recipe.identifier] = recipe
+        recipes.each do |recipe|
+          @recipes_cache[recipe.identifier] = recipe
+        end
       end
     end
 

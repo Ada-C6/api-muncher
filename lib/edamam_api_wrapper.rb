@@ -33,7 +33,7 @@ class EdamamApiWrapper
         search_results_list << wrapper
       end
     else
-      return nil
+      return []
     end
     return search_results_list
   end

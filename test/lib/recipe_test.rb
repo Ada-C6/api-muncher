@@ -81,6 +81,16 @@ end
     end
   end
 
+  test "Recipe.all should return empty array if api returns no results" do
+    VCR.use_cassette("recipes") do
+      no_recipe_term = "ththththt"
+
+      no_recipes = Recipe.all(no_recipe_term)
+
+      assert_kind_of Array, no_recipes
+      assert_empty no_recipes
+    end
+  end
 
   test "Recipe.find_recipe returns single, correct recipe with valid search params" do
     VCR.use_cassette("recipes") do
@@ -102,43 +112,34 @@ end
     end
   end
 
-  test "Recipe.find_recipe does make an API call if recipe is not in stored recipes variable" do
+  test "Recipe.find_recipe makes an API call if recipe hasn't been cached yet" do
     VCR.use_cassette("recipes") do
       # ensuring that there's not been a search yet.
       Recipe.recipes_cache = nil
 
-      chicken_term = "chicken"
-      recipes = Recipe.all(chicken_term)
-      recipe = recipes.first
-
-      identifier = recipe.identifier
-
-      # resetting the search term and stored recipes variable
-      couscous_term = "couscous"
-      couscous_recipes = Recipe.all(couscous_term)
-
-      found_recipe = Recipe.find_recipe(identifier)
-
-      assert_not_includes couscous_recipes, recipe
-
-      assert_equal recipe.identifier, found_recipe.identifier
+      identifier = "4b4dc08187822cb49fb12c1e6ded859f"
+      Recipe.find_recipe(identifier)
 
       assert_equal Recipe.api_call, true
-
     end
   end
 
   test "Recipe.find_recipe doesn't make an API call if search has been done and recipe already stored" do
     VCR.use_cassette("recipes") do
-      term = "chicken"
-      recipes = Recipe.all(term)
-      recipe = recipes.first
+      #clear the cache.
+      Recipe.searches_cache = nil
+      Recipe.recipes_cache = nil
 
-      identifier = recipe.identifier
+      #prime the cache.
+      Recipe.baked_searches
 
-      found_recipe = Recipe.find_recipe(identifier)
+      chicken_brick = Recipe.all("chicken").first
+      id = chicken_brick.identifier
 
-      assert_equal recipe.identifier,found_recipe.identifier
+      #look for a recipe that should be in the
+      found_recipe = Recipe.find_recipe(id)
+
+      assert_equal id,found_recipe.identifier
 
       assert_equal Recipe.api_call, false
 

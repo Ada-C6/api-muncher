@@ -18,4 +18,11 @@ class RecipesControllerTest < ActionController::TestCase
       assert_equal assigns(:recipe).label, "Potato Cake"
     end
   end
+
+  test "results should show a flash notice for a search that has no results" do
+    VCR.use_cassette("recipes") do
+      get :results, {search: "ththththt"}
+      assert_equal flash[:no_results], "Sorry! Your search term did not find any results."
+    end
+  end
 end
