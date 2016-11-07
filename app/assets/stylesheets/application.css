@@ -10,6 +10,118 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
+
+* {
+  font-family: Gill Sans, sans-serif;
+}
+
+.indiv-recipes {
+  display: block;
+  text-align: center;
+}
+
+footer {
+  margin: 2%;
+  text-align: center;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*padding: 1rem;*/
+}
+
+.head {
+  display: block;
+  clear: left;
+  text-align: center;
+}
+
+.fake-button {
+  border:1px solid #CACC90;
+  background-color: #CACC90;
+  border-radius:5px;
+  display: inline-block;
+  padding: 3px;
+  margin: 5px;
+  display: inline-block;
+}
+
+a:link {
+  color: #8BA6A9;
+}
+
+.recipe, a:visited {
+  color: #75704E;
+}
+
+.recipe {
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+#recipes {
+  margin-bottom: 5%;
+}
+
+.main-title, #main-title {
+  font-family: Gill Sans, sans-serif;
+}
+
+.main-title {
+  color: #7EB5B0;
+  padding-left: 15%;
+}
+
+#main-title {
+font-style: italic;
+padding-left: 8px;
+color: #8BA6A9;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  right: 15%;
+  zoom: 70%;
+}
+
+img {
+  border-radius: 25px;
+}
+
+header, #search-form {
+  padding-bottom: 2.5%;
+}
+
+#search-form {
+  padding-left: 5%;
+}
+
+h2, h4 {
+  display: inline-block;
+}
+
+.color-green {
+  color: #75704E;
+  text-align: center;
+  display: block;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+li {
+  list-style-type: none;
+}
+
+#show-pg-bottom {
+  text-align: center;
+  /*display: block;
+  margin-top: 5%;*/
+}
+
+
+/*#paginate {
+  display: inline-block;
+}*/
