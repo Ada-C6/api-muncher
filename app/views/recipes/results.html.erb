@@ -25,9 +25,12 @@
       </div>
       <% end %>
     </div>
-    <div class="pages-for-results">
+    <div class="show-for-small-only pages-for-results">
+      <%= will_paginate @recipes, :page_links => false %>
+    </div>
+    <div class="hide-for-small-only pages-for-results">
       <%= will_paginate @recipes, :page_links => true %>
-    </div> 
+    </div>
   </section>
   <% else %>
     <h4 class="column"><%= flash[:no_results] %></h4>
