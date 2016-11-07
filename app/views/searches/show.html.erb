@@ -1,0 +1,51 @@
+<%= render partial: 'layouts/header' %>
+<main class="recipe-page row">
+  <article class="recipe-info column small-10 small-centered">
+    <h1><%= @recipe.title %></h1>
+    <h4>recipe from: <%= link_to @recipe.source_name, @recipe.recipe_url, target: "_blank" %></h4>
+    <section class="recipe-image-section small-12 medium-6 columns">
+      <%= link_to @recipe.recipe_url, target: "_blank", class: "link-on-black", alt: "Link to recipe: #{@recipe.title}" do %>
+        <div class="recipe-image row small-1-up">
+          <%= image_tag @recipe.image_url, alt: @recipe.title, class: "column" %>
+          <h3 class="column">
+            <%= "see it at #{@recipe.source_name}" %>
+          </h3>
+        </div>
+      <% end %>
+      <section class="recipe-diet-info">
+        <span>Diets:</span>
+        <% @recipe.health_and_diet_labels.each do |label| %>
+        <span class="secondary label">
+          <%= label %>
+        </span>
+        <% end %>
+      </section>
+    </section>
+    <section class="recipe-ingredients small-12 medium-6 columns">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <h3>Ingredients</h3>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @ingredients.each do |ingredient| %>
+            <tr>
+              <td>
+                <li>
+                  <%= ingredient %>
+                </li>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="button-group expanded">
+        <%= link_to "See Recipe at #{@recipe.source_name}", @recipe.recipe_url, class: "button", target: "_blank" %>
+        <%= link_home("secondary")%>
+      </div>
+    </section>
+  </article>
+</main>

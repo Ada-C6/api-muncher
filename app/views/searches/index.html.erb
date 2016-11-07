@@ -1,0 +1,27 @@
+<%= render partial: 'layouts/header' %>
+<main>
+  <section class="recipe-results row small-up-1 medium-up-2 large-up-5">
+    <h1>We foraged for <%= @search_term %> and found:</h1>
+    <% if !@recipe_results.empty? %>
+      <% @recipe_results.each do |recipe| %>
+        <%= link_to search_path(recipe.uri_id), class: "column one-recipe-result link-on-black", alt: "Link to view: #{recipe.title}" do %>
+          <div class="row">
+            <%= image_tag "#{recipe.image_url}", class: "column", alt: recipe.title %>
+            <h4 class="column"><%= recipe.title%></h4>
+          </div>
+        <% end # link_to %>
+      <% end # each %>
+      </section>
+      <div class="pagination-container">
+        <div class="pagination-section">
+          <%= page_entries_info @recipe_results %>
+          <%= will_paginate @recipe_results %>
+          <%= link_home("secondary") %>
+        </div>
+      </div>
+    <% else %>
+      <h4 class="flash-display"><%= flash[:no_results] %></h4>
+      <%= link_to "Try again", root_path, class: "button" %>
+    </section>
+    <% end # if %>
+</main>

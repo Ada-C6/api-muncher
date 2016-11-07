@@ -1,3 +1,7 @@
+@import url('foundation.min.css');
+
+@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans|Special+Elite');
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +17,206 @@
  *= require_tree .
  *= require_self
  */
+
+ /*************************************/
+ /********** general ************/
+ /*************************************/
+*, h1, h2, h3, h4, h5, h6, a, p {
+  font-family: 'Quattrocento Sans', "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: black;
+}
+
+main, main.row {
+  background-color: white;
+  max-width: 100%;
+}
+
+main h1 {
+  margin: 1em auto 2vh auto;
+  text-align: center;
+  font-size: 2.75rem;
+}
+
+/*************************************/
+/********** all .button & a ************/
+/*************************************/
+.button {
+  background-color: hsl(85, 52%, 46%);
+}
+
+.button:focus, .button:hover, .button:active {
+  background-color: hsl(85, 56%, 35%);
+}
+
+.home-button, .button-group {
+  margin-top: 5vh;
+}
+
+a {
+  color: hsl(85, 52%, 46%);
+}
+
+a:hover, a:focus, a:active {
+  color: hsl(85, 56%, 35%);
+}
+
+.link-on-black {
+  color: white;
+}
+
+.link-on-black:hover *, .link-on-black:focus * {
+  color: hsl(85, 52%, 65%);
+}
+
+/*************************************/
+/********** all .header-title ************/
+/*************************************/
+.header-title * {
+  font-family: 'Special Elite', cursive;
+  color: white;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.header-title {
+  background-color: black;
+  max-width: 100%;
+}
+
+.header-title h1 {
+  font-size: 8em;
+  text-align: left;
+}
+
+.header-title h2 {
+  font-size: 3em;
+  text-align: right;
+}
+
+/*************************************/
+/********** all .footer ************/
+/*************************************/
+.footer {
+  background: black;
+  color: white;
+  max-width: 100%;
+  height: 12vh;
+}
+
+.footer * {
+  text-align: center;
+  color: hsl(0, 0%, 80%);
+}
+
+.footer h5 {
+  font-size: 1rem;
+}
+
+/*************************************/
+/********** all .flash-display ************/
+/*************************************/
+h4.flash-display {
+  color: rgba(104, 105, 102, 1);
+  margin: 4vh auto 4vh;
+}
+
+.flash-display h5 {
+  color: rgba(121, 186, 34, 1);
+  text-align: center;
+  display: block;
+  margin: 2vh 0 0;
+}
+
+/*************************************/
+/********** new .search-box ************/
+/*************************************/
+.search-box {
+  text-align: center;
+  margin-top: 8vh;
+  margin-bottom: 20vh;
+}
+
+/*************************************/
+/********** index .recipe-results ************/
+/*************************************/
+.recipe-results {
+  text-align: center;
+}
+
+.one-recipe-result {
+  padding: 10px 10px 0 10px;
+  background: black;
+  border: 3px solid white;
+}
+
+.one-recipe-result, .recipe-image-link {
+  transition: box-shadow .2s ease-out;
+}
+
+.one-recipe-result:focus, .one-recipe-result:hover {
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 0 6px 1px rgba(121, 186, 34, 1);
+}
+
+.one-recipe-result h4 {
+  color: white;
+  margin-top: 8px;
+  font-size: 1.5rem;
+}
+
+.one-recipe-result img {
+  margin: auto;
+}
+
+/*************************************/
+/********** index .pagination ************/
+/*************************************/
+.pagination-section {
+  margin: 2vh auto 0 auto;
+  display: block;
+  text-align: center;
+  padding-bottom: 1vh;
+}
+
+.pagination a, .pagination button {
+  display: inline-block;
+}
+
+.pagination .current {
+  background-color: rgba(121, 186, 34, 1);
+}
+
+/*************************************/
+/********** show .recipe-info ************/
+/*************************************/
+.recipe-info img {
+  border: black 1.5em solid;
+}
+
+.recipe-image {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.recipe-page {
+  padding-bottom: 2em;
+}
+
+.recipe-diet-info {
+  margin: 2vh auto 2vh;
+}
+
+.recipe-ingredients h3, h4 {
+  text-align: center;
+}
+
+.secondary.label {
+  background-color: hsl(85, 52%, 46%);
+  border-radius: 3px;
+  margin: 3px;
+}
