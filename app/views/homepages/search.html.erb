@@ -9,10 +9,10 @@
 
 <section>
   <% if @page > 1%>
-    <h5><%= link_to "Previous", search_recipes_path(search: params[:search], page: @page - 1) %></h5>
+    <h5><%= link_to "Previous", search_recipes_path(search: params[:search], page: @page - 1), class:"search-button" %></h5>
   <% end %>
   <% if @page < @last_page %>
-    <h5><%= link_to "Next", search_recipes_path(search: params[:search], page: @page + 1) %></h5>
+    <h5><%= link_to "Next", search_recipes_path(search: params[:search], page: @page + 1), class:"search-button" %></h5>
   <% end %>
 </section>
 
@@ -21,7 +21,7 @@
     <% @searched.each do |recipe| %>
       <% uri = recipe.uri.split("_").last %>
       <li class="column"><%= link_to "#{image_tag(recipe.photo)}".html_safe, show_recipe_path(uri)%>
-      <p><%= link_to recipe.label, show_recipe_path(uri) %></p><li>
+      <p><%= link_to recipe.label, show_recipe_path(uri), class:"recipe-button" %></p><li>
     <% end %>
 
   </ul>

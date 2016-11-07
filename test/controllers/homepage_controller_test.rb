@@ -46,7 +46,7 @@ class HomepagesControllerTest < ActionController::TestCase
   test "a flash error occurs when there are no more recipes to display" do
     VCR.use_cassette("recipe") do
       get :search, {search: "durian" , page: "2"}
-      assert_equal "Pages only exist when their are recipes, there are no more recipes to display.", flash[:error]
+      assert_equal "Pages only exist when their are recipes to display.", flash[:error]
     end
   end
 

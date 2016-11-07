@@ -7,9 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <div class="row">
+      <h2 class="small-12 medium-6 columns header-heading">
+        Recipe Finder
+      </h2>
+      <ul class="menu small-12 medium-6 columns">
+        <li><%= link_to "Home", recipes_path, class:"nav-button"%><li>
+      </ul>
+    </div>
+  </header>
 
-<%= yield %>
-
+  <section class="content">
+    <%= yield %>
+  </section>
 
   <footer>
     <p>Powered by:<p><%= link_to(image_tag("edamam.png"), "https://www.edamam.com/")%>

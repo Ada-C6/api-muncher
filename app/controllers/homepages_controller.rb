@@ -17,7 +17,7 @@ class HomepagesController < ApplicationController
         flash[:error] = "Page number may not be less than 1"
         @page = 1
       elsif @page > @last_page
-        flash[:error] = "Pages only exist when their are recipes, there are no more recipes to display."
+        flash[:error] = "Pages only exist when their are recipes to display."
         @page = @last_page
       end
       @searched = Recipe.search(params[:search], @page)
@@ -27,7 +27,6 @@ class HomepagesController < ApplicationController
   def show
     @recipe = Recipe.by_uri(params[:recipe])
     if @recipe == nil
-      flash[:notice] = "Flash workss NOT!"
       redirect_to root_path
     end
   end
