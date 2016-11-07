@@ -1,11 +1,32 @@
-<h1><%= @recipe[0].label %></h1>
-<p>Find me in app/views/recipe_search/show.html.erb</p>
+<main class="recipe">
+  <h3><%= @recipe[0].label %></h3>
 
+  <%= image_tag @recipe[0].image, alt: "food image", class: "show" %>
 
-<ul>
-  <li><%= image_tag @recipe[0].image %></li>
-  <li><%= @recipe[0].ingredients %></li>
-  <li><%= @recipe[0].diet_labels %></li>
-  <li><%= @recipe[0].health_labels %></li>
-  <li><%= link_to @recipe[0].url, @recipe[0].url, target: :_blank %></li>
-</ul>
+    <section class="ingredients">
+      <p>Ingredients:</p>
+      <ul>
+        <% @recipe[0].ingredients.each do |ingredient| %>
+          <li><%= ingredient %></li>
+        <% end %>
+      </ul>
+    </section>
+
+    <section class="labels">
+      <p>Dietary Labels:</p>
+      <ul>
+        <% @recipe[0].diet_labels.each do |d_label| %>
+          <li><%= d_label %></li>
+        <% end %>
+      </ul>
+      <p>Health Labels:</p>
+      <ul>
+        <% @recipe[0].health_labels.each do |h_label| %>
+          <li><%= h_label %></li>
+        <% end %>
+      </ul>
+    </section>
+
+    <p>The original recipe: <%= link_to @recipe[0].url, @recipe[0].url, target: :_blank %></p>
+
+</main>

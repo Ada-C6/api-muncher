@@ -1,13 +1,19 @@
-<h3>Search Results</h3>
-  <ol>
+<main class="search-results">
+  <ul class ="row small-up-1 medium-up-3 large-up-5">
     <% @data.each do |result| %>
-      <li>
-        <%= link_to result.label, recipe_search_show_path(result.id) %>
+      <li class ="column">
         <%= link_to recipe_search_show_path(result.id) do %>
-          <%= image_tag result.image %>
+          <%= image_tag result.image, class: "index" %>
         <% end %>
+        <br></br>
+        <%= link_to result.label, recipe_search_show_path(result.id) %>
+        <br></br>
       </li>
     <% end %>
-  </ol>
+  </ul>
 
-<%= will_paginate @data %>
+  <div class="row small-up-4 small-offset-8">
+    <aside ="column"><%= will_paginate @data %></aside>
+  </div>
+
+</main>
