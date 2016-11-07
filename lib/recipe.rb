@@ -21,13 +21,4 @@ class Recipe
     EdamamApiWrapper.listrecipes(search_term)
   end
 
-  # def self.reset
-  #   @@recipes = nil
-  # end
-
-  # def self.by_id(uri)
-  #   a = EdamamApiWrapper.listrecipes(uri)
-  #   b = a.split("_")
-  #   return b.last
-  # end
 end
