@@ -1,30 +1,37 @@
-<h1><%= @recipe.name %></h1>
-<%= image_tag @recipe.image %>
-<h4>Source:</h4>
-  <ul>
-    <li><%= @recipe.source %></li>
-  </ul>
+<div class="recipe-header">
+  <h1><%= @recipe.name %></h1>
+  <%= image_tag @recipe.image %>
+</div>
 
-<h4>Ingredients:</h4>
-  <ul>
-    <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient %></li>
-    <% end %>
-  </ul>
+<article class="recipe-details">
+  <h4>Source:</h4>
+    <ul>
+      <li><%= @recipe.source %></li>
+    </ul>
 
-<h4>Diet Labels</h4>
-  <ul>
-    <% @recipe.diet_labels.each do |label| %>
-      <li><%= label %></li>
-    <% end %>
-  </ul>
+  <h4>Ingredients:</h4>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient %></li>
+      <% end %>
+    </ul>
 
-<h4>Allergy Labels</h4>
-  <ul>
-    <% @recipe.allergy_labels.each do |label| %>
-      <li><%= label %></li>
-    <% end %>
-  </ul>
+  <h4>Diet Labels</h4>
+    <ul>
+      <% @recipe.diet_labels.each do |label| %>
+        <li><%= label %></li>
+      <% end %>
+    </ul>
 
-<h4>Instructions:</h4>
-<a href="<%= @recipe.url %>"</a><%= @recipe.url %></p>
+  <h4>Allergy Labels</h4>
+    <ul>
+      <% @recipe.allergy_labels.each do |label| %>
+        <li><%= label %></li>
+      <% end %>
+    </ul>
+
+  <h4>Instructions:</h4>
+  <ul>
+    <li><a href="<%= @recipe.url %>"</a><%= @recipe.url %></p></li>
+  </ul>
+</article>
