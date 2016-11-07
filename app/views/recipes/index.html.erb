@@ -1,8 +1,17 @@
 
-<h1>Please Enter in an Ingredient to See some Recipes </h1>
+<h3 class="title">Find Your Dream Dish Today! </h3>
 
-<%= form_tag recipes_search_path(:name), method: "get" do %>
-  <%= label_tag :name, "Ingredients" %>
-  <%= text_field_tag :name %>
-  <%= submit_tag "Search For Yum", class: "Button" %>
-<% end %>
+<form class="search" action="/recipes/name" method="get">
+  <div class="row">
+    <div class="large-4 columns">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" name="name" id="name" placeholder='Feed Me...Information' />
+        </div>
+        <div class="small-2 columns">
+          <%= submit_tag "Search For Yum", class: 'button postfix' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

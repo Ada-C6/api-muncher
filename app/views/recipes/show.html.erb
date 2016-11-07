@@ -1,18 +1,24 @@
 <article>
   <h2><%=@recipe.name%></h2>
-  <section class="Food-Summary">
-    <%=image_tag("#{@recipe.image}")%>
-    <p><%=link_to @recipe.uri, @recipe.url, :target => "_blank"%></p>
 
-    <h3><strong>Ingredients:</strong></h3>
+  <section class="food-summary">
+    <h4>
+    <%=link_to "Original Recipe Here", @recipe.url, :target => "_blank"%> </h4>
+    <%=image_tag("#{@recipe.image}")%>
+  </section>
+
+  <section class="ingredients">
+    <h4>Ingredients:</h4>
     <%@recipe.ingredients.each do |pieces|%>
     <p><%= pieces%></p>
     <%end%>
   </section>
-  <aside class="Diet-info">
-    <h3>Diet Information:</h3>
+
+  <section class="diet">
+    <h4>Diet Information:</h4>
     <%@recipe.diet_info.each do |diet|%>
     <p><%= diet %></p>
     <%end%>
-  </aside>
+  </section>
+
 </article>

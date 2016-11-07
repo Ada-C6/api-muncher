@@ -7,21 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <header>
+    <h1>Yumcalories' Yummy Train</h1>
+  </header>
   <nav id="nav">
     <div id="page_nav">
       <%= link_to "Home", recipes_index_path %>
     </div>
+
+
   </nav>
-  <header>
-    <h1>Yumcalories' Yummy Train</h1>
-  </header>
   <div id="main_wrap">
     <%= yield %>
   </div>
   <footer>
-    <a class="edamam" href="https://www.edamam.com" target="_blank">x
-       Powered By
-    <span>Edamam</span>
+    <a class="edamam" href="https://www.edamam.com" target="_blank">
+      Powered By Edamam
     </a>
   </footer>
 
