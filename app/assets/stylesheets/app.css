@@ -1,0 +1,35 @@
+/***********GENERAL***********/
+.wrapper {
+	width: 90%;
+	margin: 0 auto;
+
+}
+
+.search {
+
+}
+/***********HERO***********/
+.pagination a {
+	display: inline-block !important ; 
+
+}
+
+.button {
+	display: inline-block;
+}
+
+/***********MAIN***********/
+.card {
+	display: inline-block;
+}
+
+ul.recipe {
+	list-style: none;
+
+}
+
+.recipe-image {
+	border: solid black;
+}
+
+/***********FOOTER***********/

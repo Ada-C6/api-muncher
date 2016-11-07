@@ -1,0 +1,35 @@
+<section class="main">
+  <div class="wrapper">
+    <div class="row">
+      <div class="small-7 columns">
+        <%= link_to(image_tag(@result.image, class: 'recipe-image'), image_path(@result.url)) %>
+      </div>
+
+      <div class="small-5 columns">
+
+        <h2><%= link_to @result.label, @result.url %></h2>
+          
+          <h4>Ingredients</h4>
+          <ul class="recipe">
+            <% @result.ingredients.each do |ingredient| %>
+                <li><%= round_to(ingredient['quantity'], 0) %> <%= ingredient['measure'] %> <%= ingredient['food'].titleize %></li>
+            <% end %>
+            </ul>
+      </div>
+      <div class= "row">
+      <div class="small-5 columns">
+            <h4>Nutritional Information</h4>
+            <ul class="recipe">            
+            <% @result.totalDaily.each do |key, value| %>
+                <li>
+              <%  value.each do |k, v| %>
+                  <%= round_to(v, 0) %>
+                  <% end %></li>
+            <% end %>
+          </ul>
+
+        <%= link_to "Back", :back, class: 'button' %>
+      </div>
+    </div>
+  </div>
+</section>

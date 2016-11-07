@@ -1,0 +1,11 @@
+<h1>Recipe Search</h1>
+
+
+  <div class="row small-up-1 medium-up-2 large-up-4">
+    <h3 class="headline">Find a Recipe</h3>
+      <%= form_tag(recipes_search_path(), :method => "get") do %>
+        <%= search_field_tag("query", nil, :placeholder => "Recipe Keyword")%>
+        <%= submit_tag "Search", :name => nil, class: 'button' %>
+      <% end %>
+  </div>
+

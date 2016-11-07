@@ -1,4 +1,14 @@
+
+
+
 # Recipe API Consumer
+
+## REFLECTION
+I can set up an app that pulls from an API.  I can navigate through the API's docs.  While I was just starting to wrap my head around working with APIs, I practiced with Google Books.  I figured that since the recipe search API throttles us after so many pulls, it'd be best to dink around with other APIs so I don't use up my quota.  
+
+I want more practice with CSS.  I didn't get done what I'd wanted to get done and my site is pretty darn ugly.
+
+My chair pair did a fabulous job styling.  
 
 ## Learning Goals:
 - Configure an API for consumption
