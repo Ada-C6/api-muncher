@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ApiMuncher</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>ApiMuncher</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body>
+  <header>
+    <h2>Ain't Nobody Got Thyme Fo' Dat</h2>
+    <h4>A place for recipes</h4>
+  </header>
+  <%= yield %>
 
-  <body>
-    <%= yield %>
-
-    <footer>&copy; Poodles are awesome!
-      <br>API thanks to: Edamam Recipe Search.</footer>
+  <footer>&copy; Poodles are awesome!
+    <br>API thanks to: Edamam Recipe Search.</footer>
   </body>
-</html>
+  </html>

@@ -1,15 +1,18 @@
 <!-- <ul><h1>RECIPES</h1>
   <li><%= Recipe.search(@recipe) %></li>
 </ul> -->
+<header>
+  <%= will_paginate @individual_recipe, :page_links => false %>
+</header>
 <section class="row">
   <section class="small-12 medium-6 large-4 columns">
-
-    <%= will_paginate @individual_recipe, :page_links => false %>
     <ul>RECIPES</ul>
     <% @individual_recipe.each do |individual_recipe| %>
       <li><%= link_to individual_recipe.label, page_path(individual_recipe.id) %><%= link_to image_tag(individual_recipe.image), page_path(individual_recipe.id) %></li>
     <% end %>
     </ul>
-    <%= will_paginate @individual_recipe, :page_links => false %>
   </section>
 </section>
+<footer>
+  <%= will_paginate @individual_recipe, :page_links => false %>
+</footer>
