@@ -1,0 +1,82 @@
+<% if @recipe.nil? %>
+  <h2>Nothing to see here!</h2>
+<% else %>
+  <header>
+    <h2>
+      <%= @recipe.name %>
+      <small>(Source: <%= link_to "#{@recipe.source}", @recipe.url, target: "_blank" %>)</small>
+    </h2>
+
+    <nav class="button-group small-text-center medium-text-center large-text-center">
+      <%= link_to "Back to Results", recipes_path, class: "secondary button" %>
+      <%= link_to "New Search", search_path, class: "success button" %>
+    </nav>
+  </header>
+
+  <section class="media-object large-offset-3">
+
+    <div class="media-object-section">
+      <%= image_tag(@recipe.image, class:"thumbnail") %>
+    </div>
+
+    <div class="media-object-section">
+      <p>
+        <strong>Servings:</strong> <%= @recipe.servings %>
+      <p>
+
+      <p>
+        <strong>Diet Labels: </strong>
+        <% if @recipe.diet_labels.empty? %>
+          none
+        <% else %>
+        <%= @recipe.diet_labels.join(", ") %>
+        <% end %>
+      </p>
+    </div>
+
+  </section>
+
+  <main class="row">
+    <section class="small-12 medium-4 large-4 columns">
+      <h3>
+        Ingredients
+      </h3>
+
+      <ul>
+        <% @recipe.ingredient_lines.each do |line| %>
+          <li>
+            <%= line %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
+    <section class="small-12 medium-8 large-8 columns">
+      <h3>
+        Nutritional Information <%= link_to image_tag("edaman-logo.png"), "http://developer.edamam.com" %>
+      </h3>
+
+      <ul class="row">
+        <% @recipe.nutrients.each do |nutrient| %>
+        <li class="small-12 large-4 columns">
+          <%= nutrient["label"] %>:
+          <%= (nutrient["total"]).round %>
+          <%= nutrient["unit"] %>
+            <% if nutrient["sub"] %>
+            <ul>
+              <% nutrient["sub"].each do |item| %>
+                <li>
+                  <%= item["label"] %>:
+                  <%= (item["total"]).round %>
+                  <%= item["unit"] %>
+                </li>
+              <% end %>
+            </ul>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  </main>
+
+<% end %>

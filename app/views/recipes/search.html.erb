@@ -1,0 +1,19 @@
+
+<h2>Recipe Search</h2>
+
+<%= form_tag recipes_path, method: :get do %>
+  <div class="row small-12 medium-12 large-10 end">
+    <div class="column">
+      <%= label_tag :search, "Search Recipes:" %>
+    </div>
+    <div class="column">
+      <%= text_field_tag :search %>
+    </div>
+    <%= hidden_field_tag :from, 0 %>
+    <div class="column">
+      <%= submit_tag "Search", class: "expanded button" %>
+    </div>
+  </div>
+
+
+<% end %>

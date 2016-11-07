@@ -1,0 +1,41 @@
+<h2>
+  You searched for <strong><%= session[:query] %></strong>!
+</h2>
+
+<section class="row small-6 large-6 small-text-center medium-text-center large-text-center">
+  <p class="column">
+    <%= link_to "Search again", search_path, class: "success button" %>
+  </p>
+</section>
+
+<% if @recipes.empty? %>
+  <p>
+    Sorry, no results!
+  </p>
+
+<% else %>
+  <p>
+    There are <%= @count %> results!
+  </p>
+  
+  <main class="row small-up-2 medium-up-3 large-up-4">
+    <% @recipes.each do |recipe| %>
+      <p class="column">
+        <%= image_tag(recipe.image, class: "thumbnail") %>
+        <%= link_to recipe.name, recipe_path(recipe.uri) %>
+      </p>
+
+    <% end %>
+  </main>
+
+  <nav class= "small-text-center medium-text-center large-text-center">
+    <% if @page > 1 %>
+      <%= link_to "previous 10", recipes_path(page: (@page - 1), search: session[:search]), class: "secondary button" %>
+    <% end %>
+
+    <% unless @page == @total_pages - 1 %>
+      <%= link_to "next 10", recipes_path(page: (@page + 1), search: session[:search]), class: "button" %>
+    <% end %>
+  </nav>
+
+<% end %>
