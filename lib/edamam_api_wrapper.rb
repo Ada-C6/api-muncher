@@ -31,6 +31,8 @@ class EdamamApiWrapper
       return nil
     end
 
+    recipes_list << data["more"]
+
     return recipes_list
   end
 
@@ -60,7 +62,7 @@ class EdamamApiWrapper
 
     recipes_list = []
 
-    if data["hits"]
+    if data["hits"].length >= 1
       data["hits"].each do |entry|
         thing = Recipe.new(entry["recipe"]["label"], entry["recipe"]["uri"],
         {
@@ -73,7 +75,11 @@ class EdamamApiWrapper
         } )
         recipes_list << thing
       end
+    else
+      return nil
     end
+
+    recipes_list << data["more"]
 
     return recipes_list
   end

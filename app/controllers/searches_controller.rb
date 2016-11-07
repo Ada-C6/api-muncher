@@ -1,12 +1,9 @@
 class SearchesController < ApplicationController
   def index
-    if @new_page_results
-      @results = @new_page_results
-    else
-      @results
-    end
+    @results
     @search_word
     @search_index
+    @more_pages
   end
 
   def show
@@ -27,6 +24,7 @@ class SearchesController < ApplicationController
 
   def create
     @results ||= EdamamApiWrapper.listrecipes(params[:search_word])
+    @more_pages = @results.pop
 
     if @results.nil?
       flash[:error] = "No results found, please try another search term."
@@ -42,9 +40,7 @@ class SearchesController < ApplicationController
     @search_index = params[:search_index]
     @search_word = params[:search_word]
     @results ||= EdamamApiWrapper.page(@search_index, @search_word)
-
-    # @new_page_results ||= EdamamApiWrapper.page(@search_index, @search_word)
-
+    @more_pages = @results.pop
     render :index
   end
 
