@@ -1,9 +1,11 @@
 class RecipesController < ApplicationController
   def index
-    #will display a list of recipes
+    @recipes = Recipe.all(params["search"])
   end
 
   def show
-    #will show details of recipe
+    label = params[:search]
+    id = params[:id]
+    @recipe = EdamamApiWrapper.by_id(id)
   end
 end
