@@ -1,5 +1,13 @@
 # Recipe API Consumer
 
+## Reflection
+### What do you understand better after doing this project?
+Obviously I have a better understanding as to what APIs are and how to use them, but that's only because I had no clue what they were a week ago. If that answer doesn't count, I feel like I understand using foundation for css a bit better than before.
+### What do you want more practice with?
+When to put something in a view vs the model vs the lib folder vs my controller. I keep taking the methodology of "well I put it here and it works now so I don't want to move it" but I'd really love to understand why it goes in a certain place.
+### What is something you saw done differently?
+My chair pair helped me A LOT last week as I rode the struggle bus. She had written her tests differently and wasn't really getting why some wouldn't pass. I struggled with that over the weekend but succeeded on a Saturday night (at my wild and crazy writing-tests-while-drinking-at-home-by-myself party). We talked about why Chris had originally written the Slack api code-along with the slack-key as a parameter to be passed into the search method (we had both taken that out of our recipe-api bc we figured no one would ever need to change the key and id), but after writing the tests it makes sense to put that back in and test for all those edge cases.
+
 ## Learning Goals:
 - Configure an API for consumption
 - Create authenticated API requests using HTTParty
