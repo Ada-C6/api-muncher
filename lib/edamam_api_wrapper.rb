@@ -1,8 +1,8 @@
 require 'httparty'
 
 # ENV variables aren't consistently loading without this manual load:
-require 'dotenv'
-Dotenv.load
+# require 'dotenv'
+# Dotenv.load
 
 class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search?q="
