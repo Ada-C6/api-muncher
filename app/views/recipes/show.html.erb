@@ -1,0 +1,42 @@
+<article class="recipe-article">
+<p><%= link_to(@this_recipe.name, @this_recipe.url)%></p>
+<%= image_tag(@this_recipe.photo_url) %>
+
+
+<section>
+	<ul>
+	<% @this_recipe.health_labels.each do |label| %>
+		<li> <%=label%></li>
+	<%end%>
+	</ul>
+	<h3>Ingredients</h3>
+	<p>(yields: <%=@this_recipe.servings.to_i%>)</p>
+	<ul>
+	<% @this_recipe.ingredients.each do |ingredient| %>
+		<li> <%=ingredient.text%></li>
+	<%end%>
+	</ul>
+
+</section>
+	<h3>Nutritional Information</h3>
+	<p>(per serving)</p>
+	<table>
+		<th>Nutrient</th>
+		<th>Amount per serving</th>
+		<th>Percent of Daily Recommended Value</th>
+	<% @this_recipe.nutrients.each do |nutrient| %>
+		<tr>
+			<td> <%=nutrient.name%></td>
+			<td> <%=(nutrient.quantity/@this_recipe.servings).round(2)%><%=nutrient.unit%></td>
+			<%unless nutrient.percent_dv.class==Float %> 
+				<td> <%=nutrient.percent_dv%></td>
+			<%else%>
+				<td> <%=(nutrient.percent_dv/@this_recipe.servings).round(1) %>%</td>
+			<%end%>
+
+		</tr>
+		
+	<%end%>
+	</table>
+</article>
+<%= link_to "Back to search results", :back %>

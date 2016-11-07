@@ -1,3 +1,22 @@
+# Reflection
+What do I understand better after doing this project: I understand how to use APIs in rails better.
+
+What do I want more practice with: I want to practice designing a website to make it look nice. Not just knowing html/css, but actually how to think of how to design it. 
+
+What is something I saw my peers do differently: Other people used the uri to get a particular recipe whereas I called search again and then found the recipe I was looking for. Another thing is that Jeannie took the %daily recommended values from the API (which I didn't know was there) while I looked it up somewhere else and read it in as a csv in a hacky way..
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Recipe API Consumer
 
 ## Learning Goals:
