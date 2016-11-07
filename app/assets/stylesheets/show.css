@@ -1,0 +1,20 @@
+@import url('foundation.css');
+@import url('application.css');
+
+h1 {
+  text-align: center;
+}
+
+.recipe-header {
+  text-align: center;
+}
+
+.recipe-details {
+  margin-left: 4em;
+  margin-right: 4em;
+  margin-top: 2em;
+}
+
+li {
+  margin-left: 3em;
+}

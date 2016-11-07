@@ -1,0 +1,29 @@
+@import url('foundation.css');
+@import url('application.css');
+
+.recipe-results {
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+
+.single-recipe-result p {
+  text-align: center;
+}
+
+.single-recipe-result a {
+  color: #b01111;
+}
+
+single-recipe-result a:hover {
+  opacity: 50%;
+}
+
+.pagination-celebration {
+  text-align: center;
+  margin-top: -3em;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 2em;
+}

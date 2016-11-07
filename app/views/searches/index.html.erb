@@ -1,0 +1,31 @@
+<% if @results.nil? %>
+  <h2>There was a problem with your search.</h2>
+  <h3>Please <%= link_to "click here", root_path %> to search again</h3>
+<%else %>
+
+  <h2>Results (<%= @search_index %> - <%= @search_index.to_i + 10 %>) for <em><%= @search_word %></em></h2>
+
+  <article class="row small-up-2 medium-up-3 large-up-5 recipe-results">
+      <% @results.each do |result| %>
+        <div class="column single-recipe-result">
+          <%= link_to search_path(id: result.id), target: "_blank" do %>
+            <%= image_tag result.image %>
+            <p><%= result.name %></p>
+          <% end %>
+        </div>
+      <% end %>
+  </article>
+
+  <article class="pagination-celebration">
+    <% if @search_index.to_i == 0 && @more_pages == true %>
+      <%= link_to "next page >>", page_path(search_index: @search_index.to_i + 10, search_word: @search_word) %>
+    <% elsif @search_index.to_i == 0 && @more_pages == false %>
+      <%= link_to "search again", root_path %>
+    <% elsif @search_index.to_i > 0 && @more_pages == false %>
+      <%= link_to "<< previous page", page_path(search_index: @search_index.to_i - 10, search_word: @search_word) %> |
+    <% else %>
+      <%= link_to "<< previous page", page_path(search_index: @search_index.to_i - 10, search_word: @search_word) %> | <%= link_to "next page >>", page_path(search_index: @search_index.to_i + 10, search_word: @search_word) %>
+    <% end %>
+  </article>
+
+<%end %>
