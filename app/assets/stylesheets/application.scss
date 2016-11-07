@@ -18,19 +18,28 @@
 
 body{
   padding: 1% 1% 1% 1%;
+  font-family: 'PT Sans', sans-serif;
+}
+
+h3{
+    font-family: 'PT Sans', sans-serif;
+}
+
+p, li{
+  font-size: 1.1em;
 }
 
 span.page, span.first, span.prev, span.next, span.last {
   display: inline-block;
 }
 
-.return{
-  border: 1px solid black;
-  margin: auto;
-  margin-bottom: 1%;
+.small-12.medium-6.large-4.columns{
   padding: 1% 1% 1% 1%;
-  width: 35%;
   text-align: center;
+}
+
+.small-12.medium-6.large-4.columns:hover{
+  background-color: gray;
 }
 
 input#q{

@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   def index
     if params[:q].present?
-      @data = paginate EdamamApiWrapper.search(params[:q]), per_page: 10
+      @data = paginate EdamamApiWrapper.search(params[:q]), per_page: 12
     end
   end
 
