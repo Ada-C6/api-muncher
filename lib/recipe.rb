@@ -42,7 +42,7 @@ class Recipe
 
         recipe_results << recipe_object
       end
-    end # if
+    end # if block
     return recipe_results
   end # self.search_results
 

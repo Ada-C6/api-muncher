@@ -4,7 +4,7 @@
     <h1><%= @recipe.title %></h1>
     <h4>recipe from: <%= link_to @recipe.source_name, @recipe.recipe_url, target: "_blank" %></h4>
     <section class="recipe-image-section small-12 medium-6 columns">
-      <%= link_to @recipe.recipe_url, target: "_blank", class: "link-on-black" do %>
+      <%= link_to @recipe.recipe_url, target: "_blank", class: "link-on-black", alt: "Link to recipe: #{@recipe.title}" do %>
         <div class="recipe-image row small-1-up">
           <%= image_tag @recipe.image_url, alt: @recipe.title, class: "column" %>
           <h3 class="column">
@@ -22,7 +22,6 @@
       </section>
     </section>
     <section class="recipe-ingredients small-12 medium-6 columns">
-      <!-- <h3>Ingredients</h3> -->
       <table>
         <thead>
           <tr>

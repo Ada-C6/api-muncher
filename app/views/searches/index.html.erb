@@ -4,9 +4,9 @@
     <h1>We foraged for <%= @search_term %> and found:</h1>
     <% if !@recipe_results.empty? %>
       <% @recipe_results.each do |recipe| %>
-        <%= link_to search_path(recipe.uri_id), class: "column one-recipe-result link-on-black" do %>
+        <%= link_to search_path(recipe.uri_id), class: "column one-recipe-result link-on-black", alt: "Link to view: #{recipe.title}" do %>
           <div class="row">
-            <%= image_tag "#{recipe.image_url}", class: "column" %>
+            <%= image_tag "#{recipe.image_url}", class: "column", alt: recipe.title %>
             <h4 class="column"><%= recipe.title%></h4>
           </div>
         <% end # link_to %>
@@ -24,5 +24,4 @@
       <%= link_to "Try again", root_path, class: "button" %>
     </section>
     <% end # if %>
-
 </main>
