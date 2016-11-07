@@ -1,6 +1,6 @@
 ## Reflection:
 
-I am starting to better understand how Foundation works - less is often more when it comes to arranging items on a page. I am also much more comfortable troubleshooting using the tools I have at hand - there were several instances where I got stuck and couldn't find a TA, so I ended up working through my terminal or raising errors purposely to see what was being handed to my browser in order to find out what was happening under the hood.
+I am starting to better understand how Foundation works - less is often more when it comes to arranging items on a page. I am also much more comfortable troubleshooting using the tools I have at hand - there were several instances where I got stuck and couldn't find a TA, so I ended up working through my terminal or raising errors purposely to see what was being handed to my browser in order to find out what was happening under the hood. Refactoring also took a significant amount of time - I'm starting to see why technical debt can be such an issue.
 
 I would like more practice writing tests for something like this - model and controller tests I get, lib tests much less so. I would also like to get checkboxes for things like "gluten-free" working at some point so this becomes usable for people in my family who have food sensitivities and allergies.  
 
