@@ -1,0 +1,15 @@
+<div class="error">
+  <% if flash[:error] %>
+  <%= flash[:error] %>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+
+    <article class="index-search-bar"><%= render partial: "form" %></article>
+
+  </div>
+</div>
+
+<%= render partial: "list" %>

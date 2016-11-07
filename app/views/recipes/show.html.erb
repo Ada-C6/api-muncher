@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="large-4 small-12 columns">
+
+    <div class="show-image"><%= image_tag(@recipe.photo, alt: @recipe.label) %></div>
+  </div>
+  <div class="large-8 small-12 columns">
+    <h4><%= @recipe.label %></h4>
+    <p><%= link_to "Original recipe", @recipe.link, target: "_blank" %></p>
+    <p><%= "Ingredients:" %></p>
+    <ul><% @recipe.ingredients.each do |i| %>
+      <li><%= i["text"] %></li>
+      <% end %>
+    </ul>
+    <% if @recipe.dietary_info != [] %>
+      <p><%= "Dietary Information:" %></p>
+      <ul><% @recipe.dietary_info.each do |d| %>
+        <li><%= d %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

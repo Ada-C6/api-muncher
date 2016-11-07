@@ -1,15 +1,90 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+  @import url('foundation.css');
+
+  h1 {
+    text-align: center;
+    /*color: #6cf;*/
+  }
+
+  h4 {
+    color: #6cf;
+    padding: 2%;
+  }
+
+  .recipe-name, .page-nav {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .column.page-nav {
+    border: none;
+  }
+
+  .column {
+    border: 1px grey solid;
+    margin: 5px;
+    padding: 0;
+    max-width: 24%;
+  }
+
+  .column:hover {
+    border-right: 3px grey inset;
+    border-bottom: 3px grey inset;
+    border-left: 3px grey outset;
+    border-top: 3px grey outset;
+  }
+
+  .index-search-bar {
+    text-align: center;
+  }
+
+  form {
+    display: inline-block;
+  }
+
+
+  .search-bar {
+    width: 250px;
+  }
+
+  .recipe-image {
+    /*max-height: 40%;
+    max-width: 40%;*/
+  }
+
+
+  .recipe-image:hover {
+    opacity: 0.3;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .show-image {
+    max-height: 60%;
+    display: inline-block;
+    padding: 5% 0 0 5%;
+  }
+
+  .error {
+    color: red;
+  }
+
+  #container {
+    min-height: 10%;
+    overflow: hidden;
+    position: relative;
+    /*padding: 20px;*/
+  }
+
+  html {
+    height: 100%;
+  }
+
+  #footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: #6cf;
+    margin-top: 20px;
+  }

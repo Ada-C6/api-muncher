@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ApiMuncher</title>
+  <title>Nomnom</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="shortcut icon" href="http://kingofwallpapers.com/apple/apple-019.jpg"/>
 </head>
 <body>
 
-<%= yield %>
+  <div id="header">
+    <h1><%= link_to("NOMNOM", root_path) %></h1>
+  </div>
+
+  <div id="body">
+  <%= yield %>
+  </div>
+
+  <div id="container">
+    <footer>
+      <div id="footer">&copy;<%= " Danielle Schrimmer #{Date.today.year}. Data powered by: "%> <%= link_to(image_tag("https://www.edamam.com/images/logo-site-header.png", alt: "Edamam"), "https://www.edamam.com/", target: "_blank") %></div>
+    </footer>
+  </div>
 
 </body>
 </html>

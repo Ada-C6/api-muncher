@@ -1,0 +1,30 @@
+<h4><%= "We found you #{ @recipes.last.count } noms containing '#{ @query }'... Enjoy!" %></h4>
+
+<ul class="row small-up-1 medium-up-2 large-up-4">
+<% @recipes.each do |i| %>
+  <li class="column">
+    <p class="recipe-image"><%= link_to(image_tag(i.photo, alt: i.label), recipe_path(i.label, :data => { :uri => i.uri })) %></p>
+    <p class="recipe-name"><%= link_to i.label, recipe_path(i.label, :data => { :uri => i.uri }) %></p>
+  </li>
+<% end %>
+</ul>
+
+
+<div class="page-nav">
+
+  <!-- current page -->
+  <p><%= "Page #{ @page }" %><p>
+
+  <p>
+    <% if page_navigation_previous %>
+      <%= link_to "<< Page #{ @page.to_i - 1 }", next_page_path(:data => { :query => @query, :page => @page, :page_num => @page_num }) %>
+    <% end %>
+
+    <!-- display only if there are both previous and next page buttons -->
+    <%= " || " if page_navigation_previous && page_navigation_next %>
+
+    <% if page_navigation_next %>
+    <%= link_to "Page #{ @page.to_i + 1 } >>", next_page_path(:data => { :query => @query, :page => @page, :page_num => @page_num }) %>
+    <% end %>
+  </p>
+</div>
