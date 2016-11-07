@@ -111,6 +111,7 @@ GEM
     multi_xml (0.5.5)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
+    pg (0.19.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -218,6 +219,7 @@ DEPENDENCIES
   minitest-rails
   minitest-reporters
   minitest-vcr
+  pg
   pry-rails
   rails (= 4.2.7)
   rails_12factor
@@ -230,6 +232,9 @@ DEPENDENCIES
   web-console (~> 2.0)
   webmock
   will_paginate (~> 3.1.1)
+
+RUBY VERSION
+   ruby 2.3.1p112
 
 BUNDLED WITH
    1.13.1
