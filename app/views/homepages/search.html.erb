@@ -1,0 +1,18 @@
+<h1 class="list">Recipe Search</h1>
+
+
+<div class="row">
+   <div class="large-12 columns">
+     <div class="row collapse">
+       <div class="small-10 columns">
+         <%= form_tag(list_path, :method => "get", id: "search-form") do %>
+         <%= text_field_tag :search, params[:search] %>
+         <%= submit_tag "Search recipes", class:"button"%>
+         <% end %>
+       </div>
+       <div class="small-2 columns">
+         <!-- <a href="#" class="button postfix">Go</a> -->
+       </div>
+     </div>
+   </div>
+ </div>
