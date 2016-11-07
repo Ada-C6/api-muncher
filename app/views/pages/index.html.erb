@@ -1,7 +1,7 @@
-<header>
+<nav>
   <%= link_to "Back to Search Page", root_path %>
   <%= will_paginate @individual_recipe, :page_links => false %>
-</header>
+</nav>
 <section class="row">
   <section class="small-12 medium-6 large-4 columns">
     <ul>RECIPES</ul>
@@ -11,7 +11,7 @@
     </ul>
   </section>
 </section>
-<footer>
+<nav>
   <%= will_paginate @individual_recipe, :page_links => false %>
   <%= link_to "Back to Search Page", root_path %>
-</footer>
+</nav>
