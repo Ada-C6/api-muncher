@@ -150,6 +150,10 @@ a.current {
 	display: flex;
 }
 
+.inputbox{
+  width: 100%;
+}
+
 /*
 .recipes {
   padding: 3%;

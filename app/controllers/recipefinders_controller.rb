@@ -7,6 +7,7 @@ class RecipefindersController < ApplicationController
     @page = 'nonhomepage'
     @recipes = Edamam_Api_Wrapper.search(params[:query], params[:from])
     @count = Edamam_Api_Wrapper.getnumhits(params[:query])
+    @query = params[:query]
 
     if @recipes == false
       redirect_to recipefinders_index_path

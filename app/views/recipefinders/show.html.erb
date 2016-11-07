@@ -50,7 +50,7 @@
             <%= image_tag "#{recipe.image}?#{DateTime.now}", alt: recipe.name, class: 'thumbnail' %>
           </div>
           <div class="column small-12 medium-8 large-9">
-            <p><%= link_to recipe.name, recipes_show_path(recipe.uri)%></p>
+            <p><%= link_to recipe.name, recipes_show_path(id: recipe.uri, query: @query, from: @results_begin-1)%></p>
             <p><%= recipe.description %></p>
           </div>
         </div>
