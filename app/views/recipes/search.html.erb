@@ -1,0 +1,14 @@
+
+<h2>Top Hits For: <%= "#{@ingredient}".capitalize%></h2>
+
+<%= will_paginate @recipes , :page_links => true %>
+<div class="row">
+  <% @recipes.each do |recipe| %>
+  <%uniq_code = recipe.uri.split("_").last%>
+  <div class="small-12 large-4 columns">
+    <p><%=image_tag("#{recipe.image}")%></p>
+    <p><%= link_to "#{recipe.name}", recipes_show_path(@ingredient, uniq_code)%></p>
+  </div>
+  <% end %>
+</div>
+<%= will_paginate @recipes , :page_links =>  true%>

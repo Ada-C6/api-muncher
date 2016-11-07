@@ -1,0 +1,17 @@
+
+<h3 class="title">Find Your Dream Dish Today! </h3>
+
+<form class="search" action="/recipes/name" method="get">
+  <div class="row">
+    <div class="large-4 columns">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" name="name" id="name" placeholder='Feed Me...Information' />
+        </div>
+        <div class="small-2 columns">
+          <%= submit_tag "Search For Yum", class: 'button postfix' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ApiMuncher</title>
+  <title>YumCalories</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <header>
+    <h1>Yumcalories' Yummy Train</h1>
+  </header>
+  <nav id="nav">
+    <div id="page_nav">
+      <%= link_to "Home", recipes_index_path %>
+    </div>
+  </nav>
+  <div id="main_wrap">
+    <%= yield %>
+  </div>
+  <footer>
+    <a class="edamam" href="https://www.edamam.com" target="_blank">
+      Powered By Edamam
+    </a>
+  </footer>
 
 </body>
 </html>
