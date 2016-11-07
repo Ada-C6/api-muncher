@@ -10,5 +10,6 @@
       <li><%= link_to individual_recipe.label, page_path(individual_recipe.id) %><%= link_to image_tag(individual_recipe.image), page_path(individual_recipe.id) %></li>
     <% end %>
     </ul>
+    <%= will_paginate @individual_recipe, :page_links => false %>
   </section>
 </section>
