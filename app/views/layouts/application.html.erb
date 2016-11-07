@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans+Condensed:300|Rock+Salt" rel="stylesheet">
+<head>
+  <title>ApiMuncher</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <p></p>
+    <% if flash[:notice] %>
+      <h3 class="flash-notice"><%= flash[:notice] %></h3>
+    <% end %>
+    <nav class="row">
+      <%= form_tag( list_path, :method => "get" ) do %>
+        <p class="small-8 medium-10 columns first-font">
+          <%= text_field_tag :search, params[:search], placeholder: 'Enter a search term...' %></p>
+        <p class="small-4 medium-2 columns"><%= submit_tag "Search", class: "button third-font" %></p>
+      <% end %>
+    </nav>
+  </header>
+<div class="needs-a-margin">
+<%= yield %>
+</div>
+<footer>
+  <p class="small-12 columns first-font">| &copy; Miriam Cortes 2016 | This website is made possible thanks to a free API powered by <%= link_to(image_tag("https://www.edamam.com/images/logo-site-header.png"),"https://www.edamam.com/", :target => "_blank") %></p>
+</footer>
+</body>
+</html>

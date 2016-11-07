@@ -1,0 +1,26 @@
+<h3 class="small-12 columns third-font">Results for "<%= params[:search] %>"</h3>
+
+<% if flash[:notice] %>
+  <h3 class="flash-notice"><%= flash[:notice] %></h3>
+<% end %>
+
+<section class="row">
+<% sections = ['<section class="small-12 medium-6 large-4  columns">', '<section class="small-12 medium-6 large-4  columns">', '<section class="small-12 medium-12 large-4  columns">'] %>
+
+<table>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <th><%= link_to( image_tag ( recipe.image ),class: "limit-image-size") %></th>
+        <th><%= link_to( recipe.recipe_name, show_path( recipe.recipe_uri ),class: "second-font" ) %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pagination-div">
+  <ul class="pagination">
+    <li class="pagination"><%= paginate @recipes %></li><li>
+    </li>
+  </ul>
+</div>
+</section>
