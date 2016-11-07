@@ -1,40 +1,43 @@
+<header>
+  <p><%= link_to "Back to Search Results",  :back %></p>
+</header>
+
+
 <h1>Recipe</h1>
 
-  <% @individual_recipe.each do |r| %>
-    <p><strong>Name: </strong><%= r.label %></p>
-    <br>
-    <img src="<%= r.image %>" alt="image of individual recipe" />
-    <p><%= link_to "Original Recipe", r.url, :target => "_blank" %></p>
+<% @individual_recipe.each do |r| %>
+<p><strong>Name: </strong><%= r.label %></p>
+<br>
+<img src="<%= r.image %>" alt="image of individual recipe" />
+<p><%= link_to "Original Recipe", r.url, :target => "_blank" %></p>
 
-
-<%# link_to individual_recipe.label, page_path(individual_recipe.id) %>
-      <p><strong>Serves: </strong><%= r.yield.to_i %></p>
-      <ul><p><strong>Ingredients:</strong></p>
-      <% r.ingredientLines.each do |element| %>
-        <li><%= element %></li>
-      <% end %></ul>
-      <p><% if r.cautions.length > 0 %>
-        <ul><strong>Cautions:</strong>
-        <% r.cautions.each do |element| %>
-          <li><%= element %></li>
-        <% end %>
-      <% end %></ul>
-    <p>
-      <% if r.dietLabels.length > 0 %>
-        <ul><p><strong>Dietary Info:</strong></p>
-        <% r.dietLabels.each do |element| %>
-          <li><%= element %></li>
-        <% end %></ul>
-      <% end %>
-    </p>
-    <p>
-    <% if r.healthLabels.length > 0 %>
-      <ul><p><strong>Health Info:</strong></p>
-      <% r.healthLabels.each do |element| %>
-        <li><%= element %></li>
-      <% end %>
-    <% end %></ul>
-    </p>
+<p><strong>Serves: </strong><%= r.yield.to_i %></p>
+<ul><p><strong>Ingredients:</strong></p>
+  <% r.ingredientLines.each do |element| %>
+  <li><%= element %></li>
   <% end %>
-
+</ul>
+<p><% if r.cautions.length > 0 %>
+  <ul><strong>Cautions:</strong>
+    <% r.cautions.each do |element| %>
+    <li><%= element %></li>
+    <% end %>
+    <% end %>
+  </ul>
+  <p><% if r.dietLabels.length > 0 %>
+    <ul><p><strong>Dietary Info:</strong></p>
+      <% r.dietLabels.each do |element| %>
+      <li><%= element %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <p><% if r.healthLabels.length > 0 %>
+    <ul><p><strong>Health Info:</strong></p>
+    <% r.healthLabels.each do |element| %>
+      <li><%= element %></li>
+    <% end %>
+  <% end %></ul></p>
+<% end %>
+<footer>
   <p><%= link_to "Back to Search Results",  :back %></p>
+</footer>

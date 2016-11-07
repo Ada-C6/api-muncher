@@ -1,7 +1,5 @@
-<!-- <ul><h1>RECIPES</h1>
-  <li><%= Recipe.search(@recipe) %></li>
-</ul> -->
 <header>
+  <%= link_to "Back to Search Page", root_path %>
   <%= will_paginate @individual_recipe, :page_links => false %>
 </header>
 <section class="row">
@@ -15,4 +13,5 @@
 </section>
 <footer>
   <%= will_paginate @individual_recipe, :page_links => false %>
+  <%= link_to "Back to Search Page", root_path %>
 </footer>
