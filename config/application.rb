@@ -28,5 +28,10 @@ module ApiMuncher
     # Automatically load all code from <rails_root>/lib
     config.autoload_paths << Rails.root.join('lib')
 
+    # Prewarm the recipe cache, I think. 
+    config.after_initialize do
+      Recipe.baked_searches
+    end
+
   end
 end

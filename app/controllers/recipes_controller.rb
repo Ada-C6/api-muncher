@@ -2,7 +2,9 @@ require 'will_paginate/array'
 
 class RecipesController < ApplicationController
   def index
-    #this displays the search page (non-restful).
+    # this displays the search page (non-restful).
+    # this is slow. in theory, this should be when the application starts up, not on the load of the index page. I need to research where in a rails app this goes.
+
   end
 
   def results
