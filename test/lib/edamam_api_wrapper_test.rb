@@ -36,7 +36,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     end # VCR
   end # test
 
-  # NOTE: I'm not testing or handling non-string-input cases because search form will allow only string input
+
   test "4. should receive an ArgumentError message for a search with no input" do
     VCR.use_cassette("search") do
 
@@ -46,16 +46,6 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
     end # VCR
   end # test
 
-  # # @todo - remove this test; search_results method has been moved to the Recipe class
-  # test "5. search_results should return only recipe hits" do
-  #   VCR.use_cassette("search") do
-  #     term = "jello"
-  #     results = EdamamApiWrapper.search_results(term)
-  #
-  #     results.each do |result|
-  #       assert_instance_of Recipe, result
-  #     end # each
-  #   end # VCR
-  # end
+  # NOTE: I'm not testing or handling non-string-input cases because the API interprets any search terms as strings
 
 end # class

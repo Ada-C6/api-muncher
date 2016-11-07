@@ -19,15 +19,10 @@ class Recipe
 
   def health_and_diet_labels
     return self.diet_labels + self.health_labels
-    # all_labels =
-    # self.diet_labels.each do |label|
-    #
-    # end
   end
 
+  # this method parses the API call data & returns just the recipe hit results, as an array of Recipe objects
   def self.search_results(data)
-    # this method will parse API call data & return just the results (rather than the whole response) as an array of Recipe objects
-
     search_response = data.parsed_response
     recipe_results = []
 
@@ -51,4 +46,4 @@ class Recipe
     return recipe_results
   end # self.search_results
 
-end
+end # class
