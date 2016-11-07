@@ -45,4 +45,13 @@ class RecipesControllerTest < ActionController::TestCase
       assert_equal flash[:no_results], "Sorry! we can't find this recipe."
     end
   end
+
+  test "show should show a recipe when given a good request" do
+    VCR.use_cassette("recipes") do
+      get :show, {identifier: "3b419d0a11e7fadad1680b9e0f8bb63b"}
+      assert_template :show
+      assert_kind_of Recipe, assigns(:recipe)
+      assert_equal assigns(:recipe).label, "Couscous"
+    end
+  end
 end
