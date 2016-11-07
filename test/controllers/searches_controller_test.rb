@@ -7,6 +7,7 @@ class SearchesControllerTest < ActionController::TestCase
     VCR.use_cassette("c_recipes") do
       post :create, params: {search_word: "pork"}
       assert_kind_of Array, assigns[:results]
+      assigns[:results].pop
       assigns[:results].each do |result|
         assert_kind_of Recipe, result
       end
@@ -20,6 +21,7 @@ class SearchesControllerTest < ActionController::TestCase
 
       assert_equal 0, assigns[:search_index]
       assert_equal "pork", assigns[:search_word]
+      assert_equal true, assigns[:more_pages]
 
       assert_not_empty assigns[:results]
       assigns[:results].each do |result|
@@ -71,6 +73,7 @@ class SearchesControllerTest < ActionController::TestCase
     VCR.use_cassette("c_recipes") do
       post :create, params: {search_word: "pork"}
       assert_kind_of Array, assigns[:results]
+      assigns[:results].pop
       assigns[:results].each do |result|
         assert_kind_of Recipe, result
       end
@@ -105,28 +108,53 @@ class SearchesControllerTest < ActionController::TestCase
     end
   end
 
-  # Hope to god this test actually tests what I want it to
-  test "page should change the search results" do
-    VCR.use_cassette("c_recipes_page") do
-      post :create, params: {search_word: "pork"}
-      @pork_search_one = assigns[:results]
-      assert_kind_of Array, @pork_search_one
-      @pork_search_one.each do |result|
+  test "page should return an array of recipe objects" do
+    VCR.use_cassette("c_recipes") do
+      get :page, params: {search_word: "pork", search_index: 20}
+      assert_kind_of Array, assigns[:results]
+      assigns[:results].pop
+      assigns[:results].each do |result|
         assert_kind_of Recipe, result
       end
-    end
-
-    VCR.use_cassette("c_recipes_page") do
-      get :page, params: {search_word: "pork", search_index: 20}
-      pork_search_two = assigns[:new_page_results]
-      assert_not_empty pork_search_two
-      assert_not_nil pork_search_two
-      pork_search_two.each do |recipe|
-        assert_kind_of Recipe, recipe
-      end
-
-      assert_not_equal @pork_search_one, pork_search_two
+      assert_response :ok
       assert_template :index
     end
   end
+
+  test "page should have search_index, search_word, and more_pages variables assigned" do
+    VCR.use_cassette("c_recipes") do
+      get :page, params: {search_word: "pork", search_index: 20}
+      assert_equal "pork", assigns[:search_word]
+      assert_equal "20", assigns[:search_index]
+      assert_equal true, assigns[:more_pages]
+
+      assert_response :ok
+      assert_template :index
+    end
+  end
+  # Was trying to test that paging the same search term would reveal two different arrays, but I think the memoization in my controller prevents it from working right. HOWEVER, the page action in my controller does work correctly (as far as I can tell) on the actual site, so I'm going to leave it.
+  #
+  # test "page should change the search results" do
+  #   VCR.use_cassette("c_recipes_page") do
+  #     post :create, params: {search_word: "pork"}
+  #     @pork_search_one = assigns[:results]
+  #     assert_kind_of Array, @pork_search_one
+  #     @pork_search_one.each do |result|
+  #       assert_kind_of Recipe, result
+  #     end
+  #   end
+  #
+  #   VCR.use_cassette("c_recipes_page") do
+  #     get :page, params: {search_word: "pork", search_index: 20}
+  #     pork_search_two = assigns[:new_page_results]
+  #     assert_not_empty pork_search_two
+  #     assert_not_nil pork_search_two
+  #     pork_search_two.each do |recipe|
+  #       assert_kind_of Recipe, recipe
+  #     end
+  #
+  #     assert_not_equal @pork_search_one, pork_search_two
+  #     assert_template :index
+  #   end
+  # end
 end

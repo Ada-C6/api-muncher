@@ -8,7 +8,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
   test "listrecipes returns an array of Recipe objects" do
     VCR.use_cassette("recipes") do
       recipes = EdamamApiWrapper.listrecipes("beef")
-
+      recipes.pop
       assert_kind_of Array, recipes
       assert_not recipes.empty?
 
@@ -50,7 +50,7 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
       assert_nil recipe
     end
   end
-  
+
   test "listrecipe returns nil if given nil" do
     VCR.use_cassette("bad-recipe-id") do
       recipe = EdamamApiWrapper.listrecipe("bad-id")

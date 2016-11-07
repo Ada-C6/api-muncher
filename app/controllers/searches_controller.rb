@@ -24,7 +24,13 @@ class SearchesController < ApplicationController
 
   def create
     @results ||= EdamamApiWrapper.listrecipes(params[:search_word])
-    @more_pages = @results.pop
+
+    # To carry through the boolean indicating if there are more results, I tacked it onto the @results array. Here is where I take it off.
+    begin
+      @more_pages = @results.pop
+    rescue NoMethodError
+      nil
+    end
 
     if @results.nil?
       flash[:error] = "No results found, please try another search term."
@@ -40,7 +46,14 @@ class SearchesController < ApplicationController
     @search_index = params[:search_index]
     @search_word = params[:search_word]
     @results ||= EdamamApiWrapper.page(@search_index, @search_word)
-    @more_pages = @results.pop
+
+    # To carry through the boolean indicating if there are more results, I tacked it onto the @results array. Here is where I take it off.
+    begin
+      @more_pages = @results.pop
+    rescue NoMethodError
+      nil
+    end
+
     render :index
   end
 
