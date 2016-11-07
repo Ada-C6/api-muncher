@@ -1,3 +1,12 @@
+# Reflection 
+
+I understand more about how to look at an APIs documentation and then use that API in a project.  However, I definitely still lack confidence in my ability to do this with a different API.  I felt like I struggled to apply what I learned during the lectures in the project this week, probably because it wasn't a situation where I could directly apply what I was shown.  Completing the assignment made me realize that I did not have a deep or broad level of understanding from the API lectures, and as a result I couldn't just expand upon them with a new API.  I do feel more comfortable approaching my next API project though, and I have a feeling with each new implementation of this idea, it will get easier. 
+
+I need more practice with approaching different APIs and using them to add features to a website.  A couple of the features (specifically the show page, and how to use the URIs as IDs) were really tricky for me to approach alone, and I worked with others in addition to TAs to get these features working.  This was really helpful to do as a team, and to be honest, I don't think I could have figured it out alone.  I'm not sure if that was the idea on this project or not, but that is what I needed to do.  
+
+I really enjoyed seeing other projects.  It was cool to see Briana's feature of having numbers (1-10) at the bottom of a page instead of just a "More Results" button.  I liked Alyssa's use of different OAuth accounts.  I think the group show-and-tell time is always great, because I learn a lot from seeing how someone else implemented a feature. 
+
+
 # Recipe API Consumer
 
 ## Learning Goals:
