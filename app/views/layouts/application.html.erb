@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ApiMuncher</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="">
+
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li class="title-bar-title"><%=link_to "Home", root_path %></li>
+      </ul>
+    </div>
+  </header>
+
+<%= yield %>
+
+</body>
+
+
+
+
+<center>
+    <div class="foot_back">
+    <footer class="footer">
+      <a href="https://www.edamam.com/"> <%=image_tag "footer.png" %></a>
+  </footer>
+  </div>
+</center>
+
+
+
+</html>

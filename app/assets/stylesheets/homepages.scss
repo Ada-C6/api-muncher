@@ -1,0 +1,52 @@
+// Place all the styles related to the Homepages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com
+
+
+// .home-hero{
+//   text-align:center;
+//   width: 30em;
+//   display: block;
+//   margin:2em auto;
+//   background-color:#FFF;
+//   border: 1px #000 solid;
+//   box-shadow: 10px 0px 10px #000;
+//   &::before{
+//     content: "";
+//     position:absolute;
+//     top:0px;
+//     left:0px;
+//     z-index: -1;
+//     width:100%;
+//     height:100%;
+
+
+body {
+  background-image: url("vegetable_basket_med.jpg");
+  background-repeat: no-repeat;
+}
+
+
+
+input[type='search'] {
+
+  height: 3em;
+  width: 30em;
+}
+
+.font {
+  color: white;
+}
+
+.headline {
+  color: black;
+  font-weight: bold;
+  font-family: monospace;
+  outline-color: red;
+  font-size: 10em;
+}
+
+.sub_title {
+  font-style: italic;
+  font-size: 3em;
+}

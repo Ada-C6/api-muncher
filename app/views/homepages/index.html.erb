@@ -1,0 +1,17 @@
+
+
+<center>
+
+  <!-- <p class="sub_title">SEARCH ME</p> -->
+</center>
+
+
+
+
+<center>
+    <h3 class="headline">Find Your Recipe</h3>
+  <%= form_tag(search_recipes_path(), :method => "get") do %>
+    <%= search_field_tag("query", nil, :placeholder => "search recipes", class: "large-2 small-centered columns")%>
+      <%= submit_tag "Submit", :name => nil, class: 'button' %>
+    <% end %>
+</center>
