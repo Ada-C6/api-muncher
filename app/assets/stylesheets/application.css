@@ -1,0 +1,392 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+require foundation_and_overrides
+ */
+
+.this-i-dont-want {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.this-i-dont-want h1.main-title, .this-i-dont-want nav {
+  display: inline-block;
+}
+
+.this-i-dont-want h1.main-title {
+  font-size: 4rem;
+  color: black;
+  font-family: 'Kaushan Script', Helvetica, sans-serif;
+  margin-left: 8%;
+  letter-spacing: 4px;
+  padding-bottom: 0.5%;
+  display: inline;
+}
+
+
+.this-i-dont-want nav {
+  font-size: 1.5rem;
+  color: black;
+  font-family: 'Open Sans Condensed', Helvetica, sans-serif;
+  margin-left: 45%;
+  padding-top: 2%;
+}
+
+.this-i-dont-want nav ul li a {
+  color: black;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.this-i-dont-want nav ul li a:hover { font-weight: 600; color: black;}
+
+.no-on-index {
+  opacity: 0;
+}
+
+article.this-i-want {
+  /*background-image: url('pineapples.jpeg');*/
+  background: url('salmon.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin: 0;
+}
+
+main {
+  height: 100%;
+  margin-bottom: 10%;
+}
+
+main.home {
+  margin-bottom: 0;
+}
+
+
+.search-section {
+  text-align: center;
+  margin: 6% auto 25% auto;
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 60%;
+}
+.search-button {
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+article.search-section h3.help-with, h2.welcome-message {
+  font-family: 'Kaushan Script', Helvetica, sans-serif;
+  letter-spacing: 3px;
+  padding-bottom: 2%;
+}
+h2.welcome-message {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.recipe-section {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 1% 0;
+  padding: 0 1%;
+  text-align: center;
+}
+
+.recipe-section a {
+  color: black;
+  letter-spacing: 1px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.5rem;
+}
+
+.recipe-section a:hover {
+text-decoration: underline;
+}
+
+.page-numbers {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  width: auto;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.page-numbers li {
+  font-size: 1.5rem;
+  font-family: 'Open Sans Condensed', Helvetica, sans-serif;
+}
+
+.page-numbers li:hover {
+  text-decoration: underline;
+  background-color: lightgray;
+  font-family: 'Open Sans Condensed', Helvetica, sans-serif;
+}
+
+h3.search-term-styling {
+  font-family: 'Open Sans Condensed', Helvetica, sans-serif;
+  text-align: center;
+  margin: 2% auto;
+  border-bottom: 0.5px solid black;
+  padding-bottom: 1%;
+  letter-spacing: 3px;
+  width: 40%;
+}
+
+h3.search-term-styling a {
+  color: black;
+}
+h3.search-term-styling a:hover {
+  color: black;
+  font-weight: 600;
+}
+
+article.recipe-section {
+   position: relative;
+}
+
+article div.recipe-title-background {
+  background: rgb(255, 255, 255); /* fallback color */
+  background: rgba(255, 255, 255, 0.8) center center fixed;
+  position: absolute;
+  width: 80%;
+  height: 60%;
+  z-index: 5;
+  margin: 6% 6% 0 6%;
+  text-align: center;
+}
+
+h4.recipe-title {
+   position: absolute;
+   top: 5%;
+   left: 0;
+   width: 90%;
+   color: black;
+   z-index: 3;
+}
+h4.recipe-title span {
+   /*letter-spacing: -1px;*/
+   padding: 10px;
+}
+
+.show-content {
+  margin-top: 4%;
+}
+
+ul.no-decoration-list {
+  list-style-type: none;
+}
+ul.no-decoration-list li {
+  font-family: 'Open Sans Condensed', Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+.list-header {
+  font-family: 'Open Sans Condensed', Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+
+
+
+footer {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: block;
+  width: 100%;
+  margin-top: 5vh;
+  color: black;
+  vertical-align: middle;
+  font-weight: 200;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  clear: both;
+}
+
+footer p {
+  display: inline-block;
+  padding-top: 0.5%;
+  letter-spacing: 1px;
+}
+
+footer p:first-of-type {margin-left: 2%; margin-right: 40%;}
+
+
+
+
+
+@media only screen and (max-width: 40em) {
+
+  .this-i-dont-want h1.main-title {
+    font-size: 3rem;
+    margin-left: 5%;
+    letter-spacing: 2px;
+  }
+
+
+  .this-i-dont-want nav {
+    font-size: 1rem;
+    margin-left: 20%;
+  }
+
+
+  article.this-i-want {
+    height: 100%;
+  }
+
+
+  .search-section {
+    text-align: center;
+    margin: 6% auto 25% auto;
+    padding: 2%;
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 80%;
+  }
+
+  article.search-section h3.help-with, h2.welcome-message {
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+  }
+  h2.welcome-message {
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+  }
+
+  h3.search-term-styling {
+    width: 80%;
+    margin-top: 8%;
+    margin-bottom: 5%;
+    font-size: 1.5rem;
+  }
+
+  article div.recipe-title-background {
+    height: 70%;
+  }
+
+  h4.recipe-title a {
+     font-size: 1.2rem;
+  }
+
+  main {
+    height: 100%;
+    margin-bottom: 10%;
+  }
+
+
+  footer p {
+    display: inline-block;
+    padding-top: 0.2%;
+    font-size: 0.7rem;
+  }
+
+  footer p img {
+    width: 40%;
+  }
+
+  footer p:first-of-type { margin-right: 10%;}
+
+  ul.pagination.page-numbers.page-numbers li {
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  ul.pagination.page-numbers {
+    width: 100%;
+  }
+
+}
+
+
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+
+  .this-i-dont-want h1.main-title {
+    font-size: 3.4rem;
+    margin-left: 5%;
+    letter-spacing: 2px;
+  }
+
+
+  article.search-section h3.help-with, h2.welcome-message {
+    letter-spacing: 2px;
+    font-size: 1.6rem;
+  }
+  h2.welcome-message {
+    letter-spacing: 2px;
+    font-size: 2.2rem;
+  }
+
+
+  .this-i-dont-want nav {
+    font-size: 1.4rem;
+    margin-left: 30%;
+  }
+
+
+  article.this-i-want {
+    height: 100%;
+  }
+
+
+  .search-section {
+    text-align: center;
+    margin: 6% auto 25% auto;
+    padding: 2%;
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 80%;
+  }
+
+
+  h3.search-term-styling {
+    width: 80%;
+    margin-top: 8%;
+    margin-bottom: 5%;
+    font-size: 1.8rem;
+  }
+
+  article div.recipe-title-background {
+    height: 70%;
+  }
+
+  h4.recipe-title a {
+     font-size: 1.4rem;
+  }
+
+  main {
+    height: 100%;
+    margin-bottom: 10%;
+  }
+
+
+  footer p {
+    display: inline-block;
+    padding-top: 0.2%;
+    font-size: 0.9rem;
+  }
+
+  footer p img {
+    width: 40%;
+  }
+
+  footer p:first-of-type { margin-right: 10%;}
+
+  ul.pagination.page-numbers.page-numbers li {
+    font-size: 1.2rem;
+  }
+
+  ul.pagination.page-numbers {
+    width: 100%;
+  }
+
+}

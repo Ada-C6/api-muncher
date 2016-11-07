@@ -1,0 +1,20 @@
+<main class="home">
+<article class="search-section">
+  <h2 class="welcome-message">Welcome to Yummily!</h2>
+  <h3 class="help-with">What Can We Help You Find? </h3>
+  <div class="the-form">
+  <%= form_tag(search_path(page: 0), method: :get) do %>
+    <%= text_field_tag(:search_term) %>
+
+    <%# @all_health.each do |label| %>
+      <%# label_tag(label) %>
+      <%# check_box_tag "healthLabels[]", label %>
+    <%# end %>
+
+    <%# Note - turns out you can only search by vegan and vegitarian - the other health labels don't work :( %>
+
+    <%= submit_tag("SEARCH", class: 'secondary button search-button') %>
+  <% end %>
+  </div>
+</article>
+</main>
