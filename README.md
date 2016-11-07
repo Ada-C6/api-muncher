@@ -1,3 +1,25 @@
+# Project Relfection
+
+## What Do You Understand Better After Doing This Project?
+- Omniauth! You can login with four different providers. It took me hours to understand that the omniauth gem circumvents the need to read the provider's documentation--so I struggled with implementing Google OAuth manually. Oops! Now I get it.
+- Foundation! This website is pretty damn responsive.
+- APIs. I'm ready to tackle another one!
+
+
+## What Do You Want More Practice With?
+- Conditional redirection? I would like to be able to have a non-logged in user click the "Add to Favorites" button and be directed to login, then directed back to their favorites where that recipee has now been added.
+- Testing. I did none (although I intend to come back to this during the week).
+- How to use Foundation without making a website look so framework-y.
+- Deploying. Something about my set-up requires that I manually disable sqlite3 for Heroku and pg for localhost. I don't remember this from Betsy.
+- Session. I would like to be able to pass session information through the login process (like recent searches), but I don't totally understand what's happening with session stuff.
+
+## What Is Something You Saw Done Differently?
+- Briana made her pagination with actual page numbering
+
+
+
+
+
 # Recipe API Consumer
 
 ## Learning Goals:
