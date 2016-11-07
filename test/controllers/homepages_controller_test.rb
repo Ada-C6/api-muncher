@@ -69,7 +69,7 @@ class HomepagesControllerTest < ActionController::TestCase
       assert_not_equal @controller.instance_variable_get(:@total), 14 #14 is what the api says it is
       assert_equal @controller.instance_variable_get(:@total), 12 #12 is what the number of actual recipes returned (only knows this when the last set of recepes is delivered)
 
-      # ap @controller.params
+      # ap @controller.params ## OMG!!!!!!!!!!!!!!!!!!
       # ap @response
       # ap @response.status   # Exact status code!
       # ap @controller.instance_variables  # SO GOOD!!!!!!!!!
