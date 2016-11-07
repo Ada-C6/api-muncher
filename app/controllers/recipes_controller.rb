@@ -1,17 +1,22 @@
 require 'will_paginate/array'
 
 class RecipesController < ApplicationController
-   def index
-     @ingredient = params[:name]
-   end
+  before_action :find_ingredient, except:[:show]
 
-   def search
-      @ingredient = params[:name]
-      @page = 1
-      @recipes = EdamamApiWrapper.find_recipes(@ingredient).paginate(:page => params[:page], :per_page => 10)
-   end
+  def index; end
 
-   def show
-     @recipe = Recipe.recipe_look_up(params[:uri])
-   end
+  def search
+    @recipes = EdamamApiWrapper.find_recipes(@ingredient).paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def show
+    @recipe = Recipe.recipe_look_up(params[:uri])
+  end
+
+  private
+
+  def find_ingredient
+    @ingredient = params[:name]
+  end
+
 end
