@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ApiMuncher</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+      <div class="top-bar">
+      <div class="row">
+
+          <div class="large-3 medium-centered medium-5 medium-centered, small-4 small-centered">
+      <nav>
+        <div class="wrap">
+        <h1 class="title"><%= link_to "MY RECIPE", root_path %></h1>
+        </div>
+  </div>
+    </div>
+      </div>
+      </nav>
+    </header>
+
+    <% if flash.now[:notice] %>
+    <h3><%= flash.now[:notice] %></h3>
+    <% end  %>
+
+<%= yield %>
+
+</body>
+</html>

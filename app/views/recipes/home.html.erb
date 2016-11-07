@@ -1,0 +1,15 @@
+<form class="search">
+  <div class="row">
+    <%= form_tag(root_path, :method => "get", id: "search-form") do %>
+    <div class=" large-3 medium-centered medium-4 medium-centered, small-4 small-centered">
+    <h3>FIND A RECIPE</h3>
+  </div>
+    <div class="medium-7 medium-centered, small-10 small-centered">
+      <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+    </div>
+    <div class="medium-1 medium-centered, small-2 small-centered">
+      <%= submit_tag "Search" %>
+    </div>
+    <% end %>
+  </div>
+</form>

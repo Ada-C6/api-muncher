@@ -1,0 +1,20 @@
+<section>
+  <div class="row small-up-2  medium-up-2 medium-centered large-up-4">
+<% @data[0].map do |item| %>
+    <div class="column">
+      <ul>
+        <li><%= link_to image_tag(item.image), recipe_path(parse(item.uri)) %></li>
+        <li><%= link_to item.label, recipe_path(item.uri) %></li>
+      </ul>
+    </div>
+    <% end %>
+  </div>
+  <% if (@end && !(@page == 1)) %>
+  <%= link_to "Back", recipes_search_path(search: params[:search], page: @page -1) %>
+  <% elsif ((@page == 1) && !(@data.empty?) && !@end) %>
+  <%= link_to "Next", recipes_search_path(search: params[:search], page: @page +1) %>
+  <% elsif !(@data.empty?) &&  !(@end) %>
+  <%= link_to "Back", recipes_search_path(search: params[:search], page: @page -1) %>
+  <%= link_to "Next", recipes_search_path(search: params[:search], page: @page +1) %>
+  <%end %>
+</section>
