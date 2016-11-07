@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.1'
 
 gem 'will_paginate', '~> 3.1.1'
 
@@ -36,10 +37,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-# group :production do
-#   gem 'pg'
-#   gem 'rails_12factor'
-# end
+
+group :production do
+  # gem 'pg'
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
