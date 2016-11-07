@@ -33,18 +33,20 @@
    width: 70%;
  }
 
- .baked-searches {
-   float:right;
+ .pre-baked-index  {
+   padding: 20px;
+   /*text-align: center;*/
+   width: 60%;
+ }
+
+ .baked-searches li {
    /*border: solid blue thin;*/
    width: 60%;
+   /*padding: 5px;*/
  }
 
  .img-results {
    border-radius: 50%;
-   /*max-height: 250px;*/
-   /*min-width: 100px;*/
-   /*max-width: 250px;*/
-   /*min-height: 100px;*/
    margin: 15px auto;
  }
 
@@ -60,12 +62,10 @@
 
  .baked-searches li, .health-labels-show li{
    display: inline-block;
-   /*padding: 20px;*/
  }
 
  .baked-searches, .health-labels-show {
    list-style: none;
-   /*border-style: solid;*/
    padding-top: 10px;
  }
 
@@ -112,9 +112,6 @@
 .pages-for-results {
   float: right;
 }
-/*.row{
-  border: solid blue medium;
-}*/
 
 .div{
   border: solid red thin;

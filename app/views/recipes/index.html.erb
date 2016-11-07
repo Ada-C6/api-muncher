@@ -13,17 +13,16 @@
   </section>
 
   <section class="pre-baked-index row small-up-1">
-    <!-- <h4>Pre-baked Searches</h4> -->
+    <h4 class="column">Pre-baked Searches</h4>
     <div class="column">
-      <ul class="row medium-up-1 large-up-4 baked-searches">
-        <li class="column">Pre-baked searches:</li>
-        <li class="column">
+      <ul class="baked-searches">
+        <li class="">
           <%= link_to "Chicken", recipes_results_path(:method => "get", :search => "chicken") %>
           </li>
-        <li class="column">
+        <li class="">
           <%= link_to "Ground Beef", recipes_results_path(:method => "get", :search => "ground beef") %>
           </li>
-        <li class="column">
+        <li class="">
           <%= link_to "Potatoes", recipes_results_path(:method => "get", :search => "potato") %>
           </li>
       </ul>
