@@ -1,0 +1,14 @@
+<section class= "alllist">
+  <h1>Welcome</h1>
+<div class="row small-up-2 medium-up-3 large-up-4">
+  <div class="column">
+    <% if @data != nil %>
+        <% @data.each do |data| %>
+    <li class="thumbnail"><%=image_tag data["image"]%></li>
+    <h5><%=link_to data["label"], recipe_path(data["label"]), method: :get, class:"button small hollow"%></h5>
+        <% end %>
+      <% end %>
+
+  </div>
+  </div>
+</section>

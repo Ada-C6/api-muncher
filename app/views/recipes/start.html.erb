@@ -1,0 +1,21 @@
+
+<div class="row column">
+  <h1> It's high time you find the food that nourishes you. . . Let's get started </h1>
+  <h3>Discover on your own with search, or browse -- no pressure or anything but you eat EVERYday... Eat well.</h3>
+</div>
+
+
+<div class="row medium-up-3 large-up-4">
+  <%  @data.each do |one| %>
+  <div class="column">
+  <li class="thumbnail"><%=image_tag one.image, rwidth: '150', rheight: '150'%></li>
+  <%=link_to "Take a peak", recipe_path(one.label), method: :get, class:"button small expanded hollow"%>
+</div>
+<%end %>
+
+<%  @data.each do |one| %>
+<div class="column">
+<li class="thumbnail"><%=image_tag one.image, rwidth: '150', rheight: '150'%></li>
+<%=link_to "Take a peak", recipe_path(one.label), method: :get, class:"button small expanded hollow"%>
+</div>
+<%end %>

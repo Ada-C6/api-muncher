@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="body">
+  <section class="container">
+
+      <div class="row column">
+        <li><%= form_tag('/recipes/search/:w', :action => "search", :method => "get") do %>
+          <%= label_tag(:q, "search") %>
+          <%= text_field_tag(:q) %>
+          <%= submit_tag("Search")%></li>
+          <% end %>
+        </div>
+
+        <div class="off-canvas-wrapper">
+          <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+            <h1>Recipes for every occasion and lifestyle</h1>
+            <h3 class= "row column"><%=Time.new.strftime("%B #{Time.new.day.ordinalize}, %Y") %></h3>
+            <div class="title-bar">
+              <div class="title-bar">
+                <%= link_to "Home", root_path, method: :get, class:"button expanded small hollow"%>
+                <%= link_to "My Favorites", pop_path, method: :get, class:"button expanded small hollow"%>
+                <%= link_to "edamam", 'https://www.edamam.com', method: :get, class:"button expanded small hollow"%>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <%= yield %>
+
+            <footer class = "footer">
+              <li><% Time.zone = "Pacific Time (US & Canada)" %> n.dot&copy; // edamamAPI &copy;</li>
+            </footer>
+          </div>
+        </section>
+      </body>
+      </html>
