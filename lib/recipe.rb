@@ -72,12 +72,12 @@ class Recipe
 
     # Otherwise, do this.
     recipe = EdamamApiWrapper.find_recipe(identifier)
-      if recipe == nil
-        return nil
-      else
-        @recipes_cache[recipe.identifier] = recipe
-        @api_call = true
-        return recipe
-      end
+    if recipe == nil
+      return nil
+    else
+      @recipes_cache[recipe.identifier] = recipe
+      @api_call = true
+      return recipe
+    end
   end
 end
