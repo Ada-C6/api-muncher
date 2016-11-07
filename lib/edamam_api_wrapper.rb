@@ -19,8 +19,10 @@ class EdamamApiWrapper
     @health_labels = health_labels
   end
 
-  def self.listresults(search)
-    url = BASE_URL + "search?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{search}" + "&to=100"
+  def self.listresults(search,app_id=nil,app_key=nil)
+    app_id ||= APP_ID
+    app_key ||= APP_KEY
+    url = BASE_URL + "search?app_id=#{app_id}" + "&app_key=#{app_key}" + "&q=#{search}" + "&to=100"
     data = HTTParty.get(url)
     @recipes_array = []
     if data["hits"]

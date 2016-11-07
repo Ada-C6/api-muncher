@@ -12,12 +12,12 @@ class HomepagesController < ApplicationController
   def show
     params
 
-    recipe_search = EdamamApiWrapper.listresults(params["format"].split("_")[1])
+    recipe_search = EdamamApiWrapper.listresults(params["format"].split("_")[1],,)
     @recipe = recipe_search.last
   end
 
   def list
-    @recipes_array = EdamamApiWrapper.listresults(params["search"])
+    @recipes_array = EdamamApiWrapper.listresults(params["search"],,)
 
     @recipes = paginate(@recipes_array, per_page: 10)
 
