@@ -1,0 +1,15 @@
+<!-- disabled logic for +5 and -5 page in preparation for search results more than 100 -->
+
+<%# last_page = @page + 5 %>
+<%# if @count == 0 %>
+<%#    last_page = @page %>
+<%# end %>
+
+<%# for i in 1..last_page %>
+
+
+<ul class="pagination  text-center" role="navigation" aria-label="Pagination">
+  <% for i in 1..11  %>
+    <li><%= link_to "#{i}", get_search_path(:page => i, :term => term) %></li>
+  <% end %>
+</ul>

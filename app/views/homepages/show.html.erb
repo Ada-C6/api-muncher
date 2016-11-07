@@ -1,0 +1,45 @@
+<body class="small-12 medium-12 large-12 columns">
+
+  <h2 class="recipe_title"><%= @recipe.label %></h2>
+  <%= image_tag "#{@recipe.image}", :class=>'show_photo'%>
+
+  <% if @diet_labels != [] %>
+    <% @diet_labels.each do |label| %>
+      <span class="alert label"><%= label %></span>
+    <% end %>
+  <% end %>
+
+  <div class="small-6 medium-6 large-6 columns">
+    <% if @health_labels != [] %>
+      <% @health_labels.each do |label| %>
+        <span class="label"><%= label %></span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <table>
+  <tr>
+     <th>Ingredients</th>
+     <th>Quantity</th>
+     <th>Measure</th>
+     <th>Weight</th>
+   </tr>
+  <% @ingredients.each do |row| %>
+    <tr><% row.values.each do |value| %>
+      <td><%= value %></td>
+    <% end %></tr>
+  <% end %>
+  </table>
+
+
+  <p><%= link_to "Learn More", @recipe.url %></p>
+
+  <button onclick="goBack()" class="button">Go Back</button>
+
+  <script>
+  function goBack() {
+      window.history.back();
+  }
+  </script>
+
+</body>

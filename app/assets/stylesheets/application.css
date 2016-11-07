@@ -1,0 +1,130 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import url('foundation.css');
+
+/*===========header & footer=============*/
+.header_box{
+  text-align: center;
+  opacity: 0.6;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: white;
+}
+
+.header_text{
+  font-family:"Dancing Script";
+  font-weight: bold;
+  color: #E15554;
+}
+
+.sub_header{
+  font-family:"PT Sans";
+  font-weight: bold;
+}
+
+.footer{
+  text-align: right;
+  font-family: "PT Sans";
+  font-size: 1.5vw;
+  color: grey;
+  position:relative;
+  bottom: -5vw;
+}
+
+.api_logo{
+  width: 6%;
+  height: 4%;
+}
+/*===========Index Page=============*/
+
+.home_body{
+  background-color: white;
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/26/ba/c3/26bac33e1f8d5105db0000cef734fec3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.search_label{
+  font-family: "Anton";
+  font-size: 5vw;
+  color: #E15554;
+  margin-left: 23%;
+  margin-bottom: 10%;
+  text-transform:uppercase;
+}
+.search_bar{
+  margin-top: 5%;
+  position:relative;
+  left: 25%;
+  opacity: 0.8;
+}
+
+.search_button{
+  width: 10%;
+  position: relative;
+  top: -3.5rem;
+  left: 75%;
+  opacity: 0.8;
+}
+.check_label{
+  color: #E15554;
+  font-family: "PT Sans";
+  font-weight: bold;
+  width: 10%;
+  display: inline;
+}
+.check_boxes{
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-left: 3vw;
+  opacity: 0.8;
+  background-color: white;
+  border-radius: 1vw;
+}
+
+/*===========Search(Result) Page=============*/
+
+.page_body{
+  background-color: white;
+  margin-top: 5%;
+}
+.recipe_box{
+  box-shadow: 10px 10px 10px #888888;
+  background-color: white;
+  text-align: center;
+}
+.recipe_photo{
+  padding-top: 5%;
+}
+
+/*===========Show Page=============*/
+.recipe_title{
+  font-family: "Anton";
+  text-transform:uppercase;
+  color: #E15554;
+  text-align: center;
+}
+.show_photo{
+  width: 100%;
+  padding-left: 30%;
+  padding-right: 30%;
+}
+.label{
+  position:relative;;
+  left: 20%;
+}

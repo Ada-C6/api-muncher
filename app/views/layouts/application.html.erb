@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ApiMuncher</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|PT+Sans|Anton" rel="stylesheet">
+  </head>
+
+  <header class="header_box">
+    <h1>
+    <%= link_to "Muncher", root_path, :class => "header_text" %>
+    <small class="sub_header">
+      : No one rejects food. Even Sea Otters.
+    </small>
+    </h1>
+  </header>
+
+  <body>
+    <%= yield %>
+  </body>
+
+  <footer class="footer">
+      Powered By <%= link_to image_tag("https://www.edamam.com/images/logo-site-header.png", :class => "api_logo"), "https://developer.edamam.com/" %>
+  </footer>
+</html>

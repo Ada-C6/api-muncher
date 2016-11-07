@@ -1,3 +1,33 @@
+Heroku Live: https://otter-muncher.herokuapp.com/
+
+# Reflection
+
+- What do you understand better after doing this project?
+	- I learnt more about applying API to website, especially understanding on query parameters, and how this connects to our previous learning of model and database:
+	- completed all search, search result and show features using API
+	- filter search feature by health label and diet label using checkbox
+	- manually coded pagination feature without use gem 
+	   - Can show a 'sliding' pagination bar for previous 5 and next 5 pages to handle 1000+ results if needed. Knowing our developer account can only return a limited number of 100 recipes, I commented out this part for better user experience.
+	   - When implement the +5 and -5 pagination bar, it is hard to stop pagination without reaching the last page because the API does not return a finite number for search result(1000 and more). 
+	   - I will try to implement pagination gem next time as it seems to handle better on the above described last page pagination situation
+	- change return recipe result to 9 per page for better display(which can be easily changed to any number in  PAGE_SIZE in api wrapper).
+	- added API attribution in footer
+	- foundation framework: responsive, pagination, label, table, checkbox, go back button, sea otter theme design.
+
+
+- What do you want more practice with?
+	- I need to practice more on: API and controller tesing, try more complex foundation grid(e.g. 5 recipes in a row), try pagination gem, and try Google Auth next time:
+	- I did not attempt Google OAuth and save favorite feature this time due to time constrain. I did briefly think about how to implement these features. 
+	    - Google OAuth: will be similar to Github OAuth. will be nice to go through it if has the opportunity.
+	    - Save favorites: create user and favorites model. model relation: User has many favorites. I can save and access user & favorites by sessions[user_id].
+
+	-  under construction: testing on API and controller. I will update and merge my testing branch later. 
+	
+
+- What is something you saw done differently?
+My deskmate Jessica did great job on making the search bar available across pages, which definitely increases user experience. She also implemented api pigination gem for pages which I did not try this time. Her website also has very nice details like hover on recipe will change the recipe background color, etc.
+
+
 # Recipe API Consumer
 
 ## Learning Goals:
