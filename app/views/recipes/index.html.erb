@@ -1,20 +1,16 @@
 <article>
-  <header>
-    <h2 class="page-title text-center border-radius backgrnd-color-yellow add-border"><%= "Recipes that include #{ @ingredient }." %> </h2>
-  </header>
-
-  <ul class="row small-up-2 medium-up-2 no-bullet bkgrnd-color-white centered">
-    <% if @recipes.empty? %>
-      <%= "Sorry, there are no recipes that match that." %>
-    <% else %>
+  <% if @recipes.empty? %>
+    <h5 class="page-title text-center border-radius backgrnd-color-yellow add-border"><%= flash[:empty_array] %></h5>
+  <% else %>
+    <header>
+      <h2 class="page-title text-center border-radius backgrnd-color-yellow add-border"><%= "Recipes that include #{ @ingredient }." %></h2>
+    </header>
+    <ul class="row small-up-2 medium-up-3 no-bullet bkgrnd-color-white centered">
       <% @recipes.each do | recipe | %>
         <% uri_section = recipe.uri.split("_").last %>
         <li class="column padding-bot">
           <p class="centered"><%= link_to(image_tag(recipe.image, class: "rounded-edges add-border"), recipes_show_path(uri_section)) %></p>
           <p class="img-titles"><%= link_to(recipe.label, recipes_show_path(uri_section)) %></p>
-        </li>
-        <li class="column padding-bot">
-          <p><%= link_to(recipe.label, recipes_show_path(uri_section)) %></p>
         </li>
       <% end %>
   </ul>
