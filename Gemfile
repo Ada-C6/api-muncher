@@ -51,7 +51,7 @@ group :development, :test do
   # two below are for VCR for mocking HTTP requests
   gem 'minitest-vcr'
   gem 'webmock'
-  # gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 group :development do
