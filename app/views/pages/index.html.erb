@@ -1,14 +1,27 @@
-<h1>INDEX</h1>
+<h4>Your query: <%= @query %></h4>
 
 
-<%= paginate @recipes_array %>
+<% if @recipes == nil || @recipes == [] %>
+  <section class="row small-6 large-6 small-text-center medium-text-center large-text-center">
+    <p class="column">No result found. </p>
+    <p class="column"><%= link_to "Search again", root_path, class: "alert button" %></p>
+  </section>
 
+<% else %>
+  <section class="row small-6 large-6 small-text-center medium-text-center large-text-center">
+    <p class="column"><%= link_to "Search again", root_path, class: "success button" %></p>
+  </section>
 
+  <main class="row small-up-2 medium-up-3 large-up-4">
+  <% @recipes.each do |recipe| %>
+      <p class="column">
+      <%= image_tag recipe.photo, alt: "Photo", class: "thumbnail" %>
+      <%= link_to "#{recipe.label}", show_page_path(:id => recipe.id, :q => @query, :page => @page) %>
+      </p>
+  <% end %>
+  </main>
 
-<% @recipes_array.each do |recipe| %>
-  <div class="small-12 medium-6 large-6 columns">
-    <h4><%= link_to "#{recipe.label}", show_page_path(recipe.id) %></h4>
-    <p><%= image_tag recipe.photo, size: "40x40", alt: "Photo" %></p>
-    <p><%= link_to "#{recipe.ingredients.length} Ingredients", show_page_path(recipe.id) %></p>
-  </div>
+  <nav class= "small-text-center medium-text-center large-text-center">
+  <%= paginate @recipes %>
+  </nav>
 <% end %>

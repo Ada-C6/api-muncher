@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ApiMuncher</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
+<head>
+  <title>ApiMuncher</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    
+    <header>
+      <h2>Hungry Cook What?</h2>
+    </header>
 
-    <div class="container">
-      <%= yield %>
+    <%= yield %>
 
+  </div>
 
-      <footer>
-        <p>
-          A Website by Kelly Tran. Powered by
-          <%= link_to image_tag("https://www.edamam.com/images/logo-site-header.png"), "http://developer.edamam.com" %>
-        </p>
-      </footer>
-    </div>
-  </body>
+  <footer>
+    <p>
+      A Website by Kelly Tran. Powered by
+      <%= link_to image_tag("https://www.edamam.com/images/logo-site-header.png"), "http://developer.edamam.com" %>
+    </p>
+  </footer>
+
+</body>
 </html>

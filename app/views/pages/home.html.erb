@@ -1,7 +1,9 @@
-<h1>HOME</h1>
+<h3>Recipes at your fingertips!</h3>
 
+<div class="row small-12 medium-12 large-10 end">
 <%= form_tag("/index", method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:q) %>
   <%= submit_tag("Search") %>
 <% end %>
+</div>

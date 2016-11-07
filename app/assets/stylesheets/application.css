@@ -30,9 +30,18 @@
 /*#795548 (brown)
 #ff5722 (orange)*/
 
+header {
+  text-align: center;
+}
+
 footer {
   font-size: 15px;
-  /*text-align: center;*/
-  margin-top: 100px;
+  text-align: center;
+  margin: 100px 20px 20px 20px;
   /*line-height: 0.5;*/
+  /*overflow: hidden;*/
+}
+
+h4 {
+  text-align: center;
 }

@@ -1,5 +1,5 @@
 <h1>SHOW</h1>
-<%= link_to "Back to Index", index_page_path(page: Recipe.current_page) %>
+<%= link_to "Back to Index", index_page_path(:q => @query, :page => @page) %>
 
 <%# button_to "Back to Index", index_page_path, params: {page: Recipe.current_page}, method: :get %>
 

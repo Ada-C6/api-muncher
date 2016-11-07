@@ -21,7 +21,7 @@ class EdamamApiWrapper
 
     data["hits"].each do |hit|
       # how to parse this uri to get the unique ID string after the underscore? use uri.fragment from the URI library.
-      #http://www.edamam.com/ontologies/edamam.owl#recipe_c468dc28f8b64bb711125cc150b15c25
+      # Example: http://www.edamam.com/ontologies/edamam.owl#recipe_c468dc28f8b64bb711125cc150b15c25
 
       uri = URI.parse(hit["recipe"]["uri"])
       id = uri.fragment
@@ -36,6 +36,22 @@ class EdamamApiWrapper
     end
 
     return all_recipes
+  end
+
+  def self.list_a_recipe(id)
+    # search for a specific recipe based on the example in the API documentation
+
+    url = BASE_URL + "r=" + "http://www.edamam.com/ontologies/edamam.owl%23" + "#{id}"
+    data ||= HTTParty.get(url).parsed_response
+
+    label = data[0]["label"]
+    photo = data[0]["image"]
+    url = data[0]["url"]
+    ingredients = data[0]["ingredientLines"]
+    diet = data[0]["dietLabels"]
+
+    recipe = Recipe.new(id, label, photo, url, ingredients, diet)
+    return recipe
   end
 
 end
