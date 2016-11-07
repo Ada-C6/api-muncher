@@ -1,0 +1,16 @@
+
+<h2><%= @recipe[0]["label"] %></h2>
+<%= image_tag @recipe[0]["image"] %>
+<ul>
+  <h4>Ingredients</h4>
+  <%= @recipe[0]["ingredients"].each do |ingredient| %>
+    <li><%= ingredient["text"] %></li>
+  <% end %>
+
+  <h4>Dietary Information</h4>
+  <%= @recipe[0]["dietLabels"].each do |label| %>
+    <li><%= label %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Click to see the original recipe", @recipe[0]["url"] %>

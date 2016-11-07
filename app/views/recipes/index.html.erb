@@ -1,0 +1,10 @@
+<h3><%= "Here's a list of recipes with #{params[:search]}" %></h3>
+
+<section class="row small-up-2 medium-up-5">
+  <div class="column">
+    <%= @recipes.each do |recipe| %>
+      <%= link_to recipe.label, recipe_path(recipe.uri) %>
+      <%= image_tag recipe.image, alt: "#{recipe.label}" %>
+  <% end %>
+  </div>
+</section>

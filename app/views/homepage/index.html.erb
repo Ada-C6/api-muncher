@@ -1,0 +1,6 @@
+<section>
+  <%= form_tag(recipes_path, :method => "get", id: "search-box") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search for recipes" %>
+  <%= submit_tag "Search", id: "search"%>
+  <% end %>
+</section>
