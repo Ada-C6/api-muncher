@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="body">
+  <div class ="container">
+    <nav class="nav">
+      <div class="callout large">
+        <div class="link">
+          <div class="row small-up-1 medium-up-1 large-up-1">
+            <ul class="menu">
+              <li><%= link_to "Home", home_path, method: :get, class:"button"%></li>
+              <li><%= link_to "Search for Recipes", products_path, method: :get, class:"button" %></li>
+
+              <% if session[:user_id].nil? %>
+              <li><%= link_to "Login", "/auth/google", method: :get, class:"button"%></li>
+              <li><%= link_to "Sign Up", "/auth/google", class:"button" %></li>
+              <% else %>
+              <li><%= link_to "My Account", welcome_path(session[:user_id]), class:"button" %></li>
+              <li><%= link_to "Logout", logout_path(:id), method: :delete, class:"button" %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="callout small">
+          <div class="row column text-center">
+            <li><%= form_tag('/search', :action => "search", :method => "get") do %>
+              <%= label_tag(:query, "Search Recipes") %>
+              <%= text_field_tag(:query) %>
+              <%= submit_tag("Search")%></li>
+              <% end %>
+            </div>
+          </div>
+          <div class="callout small">
+            <div class="row column text-center">
+              <h1 class="row text-center"></h1>
+              <h2 class="row text-center">Recipes for every occasion and lifestyle</h2>
+              <h3 class= "subheader"><%=Time.new.strftime("%B #{Time.new.day.ordinalize}, %Y") %></h3>
+              <p class="row text-center"><%= content_for?(:title) ? yield(:title) : " " %></p>
+            </div>
+          </div>
+        </nav>
+
+        <%= yield %>
+
+
+
+
+        <div class="callout small">
+          <div class="row column text-center">
+            <!-- We need this Time.zone code to convert UTC times -->
+            <footer class = "footer">
+              <% Time.zone = "Pacific Time (US & Canada)" %> ThinkieDrinkieProductions   &copy; <%= copyright_notice_year_range(2016) %> All Rights Reserved.
+              <%= login_status %>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>

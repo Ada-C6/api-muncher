@@ -1,0 +1,43 @@
+<section class= "AllList">
+  <% if @data %>
+  <h1><%= @data["label"] %></h1>
+<div class="row">
+  <div class="medium-6 columns medium-push-6">
+    <li class="thumbnail"><%=image_tag @data["image"]%></li>
+
+    <% if @data["dietLabels"] %>
+    <% @data["dietLabels"].each do |label| %>
+    <li><%= label %></li>
+    <% end %>
+    <% end %>
+    <% if @data["healthLabels"] %>
+      <% @data["healthLabels"].each do |label| %>
+    <li><%= label %></li>
+    <% end %>
+    <% end %>
+    <% serving = ((@data["calories"]).to_i / (@data["yield"]).to_i) %>
+    <li> Total Calories (kcals): <%= @data["calories"].to_i %>Calories per serving: <%= serving %> </li>
+  </div>
+
+
+<div class="medium-6 columns medium-pull-6">
+    <% @data["ingredients"].each do |ingredient| %>
+    <li><%= ingredient["quantity"] %>  <%= ingredient["measure"] %>  <%= ingredient["food"] %></li>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="medium-6 columns medium-push-6">
+
+
+    <%= link_to "Share", @data["shareAs"], method: :get, class:"button small expanded hollow" %>
+  </div>
+  <div class="medium-6 columns medium-pull-6">
+    <%=link_to "See original source", @data["url"], method: :get, class:"button small expanded hollow"%>
+
+  </div>
+</div>
+</section>

@@ -1,0 +1,36 @@
+<section class="AllList">
+
+  <div class="row">
+    <div class="column row">
+      <div class="column row">
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <div class="title-bar">
+      <div class="title-bar">
+        <%=link_to "Next", "/recipes/search/w?base=#{(params[:base].to_i+10)}&q=#{params[:q]}", method: :get, class:"button small expanded hollow"%>
+      </div>
+    </div>
+  </div>
+  <% if @data != nil %>
+  <% @data.each do |data| %>
+  <div class="row">
+    <li class="thumbnail"><%=image_tag data["image"]%></li>
+  </div>
+
+  <div class="row">
+    <%= link_to "Share", data["shareAs"], method: :get, class:"button small expanded hollow" %>
+    <%=link_to data["label"], recipe_path(data["label"]), method: :get, class:"button small expanded hollow"%>
+  </div>
+  <% end %>
+  <% end %>
+
+  <div class="row">
+    <div class="title-bar">
+      <div class="title-bar">
+        <%=link_to "Next", "/recipes/search/w?base=#{(params[:base].to_i+10)}&q=#{params[:q]}", method: :get, class:"button small expanded hollow"%>
+      </div>
+    </div>
+  </div>
+</section>
