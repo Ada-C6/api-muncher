@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 
   def index
     @recipe = params[:label]
-    @individual_recipe = Recipe.search(@recipe)
+    @individual_recipe = Recipe.search(@recipe).paginate(:page => params[:page], :per_page => 10)
     @image = params[:image]
   end
 
