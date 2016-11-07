@@ -15,6 +15,4 @@ class EdamamApiWrapperTest < ActiveSupport::TestCase
       end
     end
   end
-
-
 end

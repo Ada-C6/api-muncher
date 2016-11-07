@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'recipe_search/index'
+  root 'recipe_search#index', as: 'recipe_search_index'
 
   get 'recipe_search/show/:id', to: 'recipe_search#show', as: 'recipe_search_show', format: false
 

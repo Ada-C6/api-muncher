@@ -8,5 +8,4 @@ class RecipeSearchController < ApplicationController
   def show
     @recipe = SearchResult.all(params[:id])
   end
-
 end
