@@ -22,4 +22,6 @@ class RecipesController < ApplicationController
       flash[:no_results] = "Sorry! we can't find this recipe."
     end
   end
+
+  def about; end 
 end
