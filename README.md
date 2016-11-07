@@ -1,3 +1,17 @@
+# Reflection
+
+_What do you understand better after doing this project?_
+
+I'm a little better with Foundation. I'm still not where I want to be, but I tried to take this project as an opportunity to focus on styling and on Foundation in particular. I also spent a lot of time focusing on responsive styling and trying to do the design in a mobile-first mindset. Again, I still need more practice but think I have a better understanding of how to think about a website so it looks good on a phone (and OK on desktop too).
+
+_What do you want more practice with?_
+
+I would like more practice understanding when it's advisable to store results from an API vs. when it's better to simply make a number of requests and not store data. I ended up going in the direction of making many calls and not storing any data, but I'm not sure this was the best solution. It would be helpful to have some discussion of the tradeoffs (or even usage rights - can we store recipes ourselves? What are the rules?) involved in storing data vs. making new calls and some types of strategies for minimizing both calls and data storage.
+
+_What is something you saw done differently?_
+
+One thing I loved about Sassa's site (and that I'd wanted to do in mine, but ran out of time for) was having a search box in the header. My site only had a search box on the front page, and you could navigate to the front page from any page by clicking on the title, but I think including the box in the header would be much better in terms of ease of use.
+
 # Recipe API Consumer
 
 ## Learning Goals:
