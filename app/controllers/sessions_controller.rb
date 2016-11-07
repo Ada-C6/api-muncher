@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     # Log the authorizing user in.
     self.current_user = @auth.user
 
-    # redirect_to :back
+    redirect_to favorites_path
   end
 
   def edit

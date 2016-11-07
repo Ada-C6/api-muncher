@@ -26,11 +26,11 @@ class RecipesController < ApplicationController
 
     @recipes = EdamamApiWrapper.search_results(params[:q], params[:from], params[:to], params["health1"], params["health2"], params["diet1"])
 
-    if @recipes.nil?
-      flash[:notice] = "No recipes match those search parameters. Try adjusting your search terms."
+    if @recipes.empty?
+      flash[:notice] = "No recipes match those parameters. Try adjusting your search terms."
     end
 
-    @next_recipes = EdamamApiWrapper.search_results(params[:q], params[:from].to_i + 10, params[:to].to_i + 10, params["health1"], params["health2"], params["diet1"])
+    @next_recipes = EdamamApiWrapper.search_results(params[:q], params[:from].to_i + 12, params[:to].to_i + 12, params["health1"], params["health2"], params["diet1"])
   end
 
   def show

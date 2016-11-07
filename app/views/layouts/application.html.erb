@@ -8,26 +8,79 @@
 </head>
 <body>
 
-  <%= form_tag recipes_path, {method: :get} do %>
-    <%= text_field_tag(:q) %>
-    <%= hidden_field_tag(:from, 0) %>
-    <%= hidden_field_tag(:to, 10) %>
-    <%= check_box_tag("health1", "vegetarian", false) %>
-    <%= label_tag "Vegetarian" %>
-    <%= check_box_tag("health2", "vegan", false) %>
-    <%= label_tag "Vegan" %>
-    <%= check_box_tag("diet1", "high-fiber", false) %>
-    <%= label_tag "High-Fiber" %>
-    <%= submit_tag("Search") %>
-  <% end %>
+  <header>
+    <nav>
+      <div class="row">
 
-  <% if session[:user_id].nil? %>
-    <%= link_to "Login", new_session_path %>
-  <% else %>
-    <%= link_to "Logout", session_path(@user), method: :delete %>
-  <% end %>
+          <div class="search medium-6 small-12 columns">
+            <%= form_tag recipes_path, {method: :get} do %>
+
+            <div class="row">
+              <div class="small-12 columns">
+                <%= text_field_tag :q, nil, placeholder: "Search Recipes" %>
+                <%= hidden_field_tag(:from, 0) %>
+                <%= hidden_field_tag(:to, 12) %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-12 columns">
+                <%= check_box_tag("health1", "vegetarian", false) %>
+                <%= label_tag "Vegetarian" %>
+
+                <%= check_box_tag("health2", "vegan", false) %>
+                <%= label_tag "Vegan" %>
+
+                <%= check_box_tag("diet1", "high-fiber", false) %>
+                <%= label_tag "High-Fiber" %>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="small-12 medium-6 columns">
+            <div class="row">
+              <div class="small-12 medium-4 columns">
+                <%= submit_tag "Search", class:"right-align button" %>
+              </div>
+              <div class="small-12 medium-4 columns">
+                <% if session[:user_id].nil? %>
+                  <%= link_to "Login", new_session_path, class:"hide" %>
+                <% else %>
+                  <%= link_to "Favorites", favorites_path, method: :get, class:"button" %>
+                <% end %>
+              </div>
+              <div class="login small-12 medium-4 columns">
+                <% if session[:user_id].nil? %>
+                  <%= link_to "Login", new_session_path, class:"button" %>
+                <% else %>
+                  <%= link_to "Logout", session_path(@user), method: :delete, class:"button" %>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+
+          <% end %>
+
+
+
+      </div>
+    </nav>
+    <div class="row">
+      <div class="medium-6 small-12 columns nav-spacer"></div>
+      <div class="medium-6 small-12 columns nav-extra-spacer"></div>
+    </div>
+  </header>
 
   <%= yield %>
+
+
+  <div class="foot-spacer"></div>
+
+  <footer>
+    <p>All data courtesy the <a href="http://www.edamam.com">Edamam</a> API</p>
+  </footer>
 
 </body>
 </html>

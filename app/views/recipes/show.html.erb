@@ -1,26 +1,49 @@
-<button onclick="history.back(1)">Back to Search Results</button>
 
-<% if !@user.nil? %>
-  <%= button_to "Save as Favorite", {controller: 'recipes', action: 'create', user_id: @user.id, name: @recipe[:name], link: @recipe[:link], image: @recipe[:image], ingredients: @recipe[:ingredients], diet: @recipe[:diet]}, method: :post %>
-<% else %>
-  <%= button_to "Save as Favorite", new_session_path, method: :get %>
-<% end %>
+<div class="row">
 
+  <h1 class="medium-6 small-12 columns text-left"><%= link_to @recipe[:name], @recipe[:link], target: '_blank' %></h1>
 
-<h1><%= link_to @recipe[:name], @recipe[:link], target: '_blank' %></h1>
-<%= image_tag @recipe[:image] %>
-
-<ul>
-  <h3>Ingredients</h3>
-  <% @recipe[:ingredients].each do |ingredient| %>
-    <li><%= ingredient %></li>
-  <% end %>
-</ul>
+  <div class="medium-3 small-12 columns">
+    <button onclick="history.back(1)" class="button"> < Back to Search Results</button>
+  </div>
 
 
-<ul>
-  <h3>Diet Labels</h3>
-  <% @recipe[:diet].each do |diet| %>
-    <li><%= diet %></li>
-  <% end %>
-</ul>
+  <div class="medium-3 small-12 columns">
+    <% if !@user.nil? %>
+      <%= button_to "Save as Favorite", {controller: 'recipes', action: 'create', user_id: @user.id, name: @recipe[:name], link: @recipe[:link], image: @recipe[:image], ingredients: @recipe[:ingredients], diet: @recipe[:diet]}, method: :post, class:"button" %>
+    <% else %>
+      <%= button_to "Login to Favorite", new_session_path, method: :get, class:"button" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row align-spaced">
+  <div class="small-12 medium-6 columns">
+    <%= image_tag @recipe[:image], class:"recipe-show" %>
+  </div>
+
+
+  <div class="small-12 medium-6 columns">
+    <ul>
+      <h3>Ingredients</h3>
+      <% @recipe[:ingredients].each do |ingredient| %>
+        <li><%=ingredient %></li>
+      <% end %>
+    </ul>
+
+    <div class="small-12 medium-6 colums nav-extra-spacer">
+
+    </div>
+
+    <ul>
+      <h3>Diet Labels</h3>
+      <% if @recipe[:diet].empty? %>
+        <%="None" %>
+      <% else %>
+        <% @recipe[:diet].each do |diet| %>
+          <li><%=diet %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

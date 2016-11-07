@@ -13,3 +13,196 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('foundation.css');
+@import url('https://fonts.googleapis.com/css?family=Antic|Mada|Merriweather:400,700,900|Poppins');
+
+body {
+  font: normal normal 1.15rem/normal 'Mada', sans-serif
+}
+
+a:link,
+a:visited {
+  color: #0a0a0a;
+}
+
+a:hover {
+  color: #3f3f3f;
+}
+
+
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+
+img {
+  border-radius: .25rem;
+}
+
+img:hover {
+  opacity: .9;
+}
+
+.recipe-name {
+  height: 7rem;
+  text-align: center;
+}
+
+.next-button {
+  width: 100%;
+  font: normal normal 1.5rem/normal 'Poppins', sans-serif;
+}
+
+.next-button:hover,
+.button:hover {
+  background-color: #2f4395;
+}
+
+.button,
+.next-button {
+  background-color: #263677;
+  color: #FFF;
+  text-transform: uppercase;
+  padding: .4rem 0;
+  border: 1px solid transparent;
+}
+
+.button {
+  font: normal normal .9rem/normal 'Poppins', sans-serif;
+  width: 100%;
+}
+
+a.button {
+  color: #FFF;
+}
+
+.breadcrumbs {
+  margin: 0 0 3rem 0;
+}
+
+.breadcrumbs li,
+.checkbox,
+label,
+p {
+  font: normal normal .9rem/normal 'Poppins', sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbs li a:hover {
+  text-decoration: none;
+  color: #2f4395
+}
+
+h1 {
+  font: normal normal 2rem/normal 'Merriweather', serif;
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+h3 {
+  font: normal normal 1.7rem/normal 'Merriweather', serif;
+}
+
+.alert {
+  color: #791130;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+
+nav {
+  padding: 1rem 0;
+  border-bottom: 1px solid #d8d8d8;
+  width: 100%;
+  position: fixed;
+  background-color: #FFF;
+}
+
+.nav-spacer {
+  height: 12rem;
+}
+
+.nav-extra-spacer {
+  height: 4rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid #d8d8d8;
+}
+
+.foot-spacer {
+  height: 6rem;
+}
+
+
+.homepage-search {
+  margin: 10vh 0;
+  padding: 4rem 0;
+  background-color: rgba(255, 255, 255, .9);
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
+  width: 100%;
+  display: block;
+}
+
+.banner-image {
+  position: fixed;
+  z-index: -1;
+  margin: -10vh 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+}
+
+.banner-image:hover {
+  opacity: 1;
+}
+
+.recipe-show {
+  width: 100%
+}
+
+ul {
+
+}
+
+.favorites {
+  background-color: #4d4d4d;
+}
+
+.favorites:hover {
+  background-color: #5a5a5a;
+}
+
+
+
+/********* NEXT AND BACK ARROWS **********/
+/*
+.arrow {
+  font: normal normal 12rem/normal 'Poppins', sans-serif;
+  border: 1px solid transparent;
+  background-color: transparent;
+  position: fixed;
+  height: 12rem;
+  top: 0;
+  margin: calc(50vh - 12rem) 2rem 0;
+}
+
+.arrow:hover {
+  color: #3f3f3f
+}
+
+.left-side {
+  left: 0;
+}
+
+.right-side {
+  right: 0;
+}*/

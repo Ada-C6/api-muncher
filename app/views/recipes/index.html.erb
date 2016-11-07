@@ -1,32 +1,58 @@
-<h1>Search results for <%= params[:q] %></h1>
+
+<div class="row">
+  <h1>Search results for <%= params[:q] %></h1>
+</div>
+
 
 <ul>
 
-<%= flash[:notice] %>
+<div class="row">
+  <ul class="12-column columns breadcrumbs">
+    <li>Revisit Recent Searches</li>
+    <% @recent_search_terms.each do |term| %>
+      <li>
+        <%= link_to term["q"], { controller: "recipes", action: "index", q: term["q"], "health1" => term["health1"], "health2" => term["health2"], "diet1" => term["diet1"], from: 0, to: 12 }, method: :get %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
-<h3>Recent Searches</h3>
-<% @recent_search_terms.each do |term| %>
-  <%= link_to term["q"], { controller: "recipes", action: "index", q: term["q"], "health1" => term["health1"], "health2" => term["health2"], "diet1" => term["diet1"], from: 0, to: 10 }, method: :get %>
-<% end %>
 
-<% if params[:from].to_i != 0 %>
-  <button onclick="history.back(1)">Back</button>
-<% end %>
+<div class="row alert">
+  <%= flash[:notice] %>
+</div>
 
-<% if !@next_recipes.nil? %>
-  <%= form_tag recipes_path, {method: :get} do %>
-    <%= hidden_field_tag(:q, params[:q]) %>
-    <%= hidden_field_tag(:from, params[:from].to_i + 10) %>
-    <%= hidden_field_tag(:to, params[:to].to_i + 10) %>
-    <%= submit_tag("Next") %>
+
+<div class="row small-up-2 medium-up-3 large-up-4">
+  <% @recipes.each do |recipe|%>
+    <div class="column">
+      <li><%= link_to (image_tag recipe[:image]), {controller: 'recipes', action: 'show', id: 1, uri: recipe[:uri]} %></li>
+      <li class="recipe-name"><%= link_to recipe[:name].titleize, {controller: 'recipes', action: 'show', id: 1, uri: recipe[:uri]}%></li>
+    </div>
   <% end %>
-<% end %>
+</div>
 
-<% @recipes.each do |recipe|%>
-  <div>
-    <li><%= link_to recipe[:name], {controller: 'recipes', action: 'show', id: 1, uri: recipe[:uri]}%></li>
-    <li><%= image_tag recipe[:image] %></li>
+<div class="row small-up-2 medium-up-2 large-up-2 small-centered">
+  <div class="column">
+    <% if params[:from].to_i != 0 %>
+      <button onclick="history.back(1)" class="next-button right-align">Back</button>
+    <% else %>
+      <button class=blank></button>
+    <% end %>
+
   </div>
-<% end %>
+
+  <div class="column">
+    <% if !@next_recipes.empty? %>
+      <%= form_tag recipes_path, {method: :get} do %>
+        <%= hidden_field_tag(:q, params[:q]) %>
+        <%= hidden_field_tag(:from, params[:from].to_i + 10) %>
+        <%= hidden_field_tag(:to, params[:to].to_i + 10) %>
+        <%= submit_tag "Next", class:"next-button left-align" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 
 </ul>

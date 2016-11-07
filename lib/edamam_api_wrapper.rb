@@ -4,7 +4,7 @@ class EdamamApiWrapper
   BASE_URL = "https://api.edamam.com/search?"
   TOKEN = ENV["EDAMAM_CLIENT_ID"]
 
-  def self.search_results(search_term, from = 0, to = 10, health1 = nil, health2 = nil, diet1 = nil)
+  def self.search_results(search_term, from = 0, to = 12, health1 = nil, health2 = nil, diet1 = nil)
     url = BASE_URL + "token=#{TOKEN}" + "&q=#{search_term}"
 
     if health1 != nil

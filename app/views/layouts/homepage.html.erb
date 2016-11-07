@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recipe Vault</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<img src="assets/picnic.jpg" class="banner-image"/>
+
+<div class="homepage-search">
+  <div class="row">
+
+      <div class="search medium-8 small-12 columns">
+        <%= form_tag recipes_path, {method: :get} do %>
+
+        <div class="row">
+          <div class="small-12 columns">
+            <%= text_field_tag :q, nil, placeholder: "Search Recipes" %>
+            <%= hidden_field_tag(:from, 0) %>
+            <%= hidden_field_tag(:to, 12) %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-12 columns">
+            <%= check_box_tag("health1", "vegetarian", false) %>
+            <%= label_tag "Vegetarian" %>
+
+            <%= check_box_tag("health2", "vegan", false) %>
+            <%= label_tag "Vegan" %>
+
+            <%= check_box_tag("diet1", "high-fiber", false) %>
+            <%= label_tag "High-Fiber" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="small-12 medium-2 columns">
+        <%= submit_tag "Search", class:"right-align button" %>
+      </div>
+
+      <% end %>
+
+      <div class="login small-12 medium-2 columns">
+        <% if session[:user_id].nil? %>
+          <%= link_to "Login", new_session_path, class:"button" %>
+        <% else %>
+          <%= link_to "Logout", session_path(@user), method: :delete, class:"button" %>
+        <% end %>
+      </div>
+
+  </div>
+</div>
+
+</body>
+</html>
