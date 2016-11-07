@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+ ul {
+     list-style-type: none;
+ }
+
+ .recipe-image {
+     border-radius: .8em;
+ }
+
+ .button {
+  font: bold 3em;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+
+body {
+    background-image: url(background.jpg);
+    background-size: 100% 100%;
+    font-family: 'Roboto Slab', serif, arial;
+}
+
+html {
+    height: 100%
+}

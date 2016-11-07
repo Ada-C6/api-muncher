@@ -1,0 +1,30 @@
+<p>
+    Recipe at a glance...
+</p>
+<ul class="row small-up-1 large-up-2">
+    <li class="column">
+        <h1><%= @result.name %></h1>
+
+        <p>
+            <%= link_to "Find recipe details here...", @result.url, :target => "_blank", class: "button" %>
+        </p>
+
+        <h4>Ingredients:</h4>
+        <section>
+            <% @result.ingredients.each do |ingredient| %>
+                <p><%= ingredient %></p>
+            <% end %>
+        </section>
+    </li>
+    <li class="column">
+        <%= image_tag "#{ @result.image }", alt: "image of: #{ @result.name }", class: "recipe-image" %>
+        <h4>Dietary Information:</h4>
+        <section>
+            <% @result.dietary_info.each do |info| %>
+                <p><%= info %></p>
+            <% end %>
+        </section>
+    </li>
+</ul>
+
+<%= link_to "back to search results", recipes_path(page: params[:page], search: params[:search]), class: "button" %>

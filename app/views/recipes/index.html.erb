@@ -1,0 +1,38 @@
+<%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+<h3>Select a recipe to see its details:</h3>
+
+<% if @results.present? %>
+    <ul class="row small-up-2 large-up-4">
+    <% @results.each do |result| %>
+        <li class="column">
+            <section>
+                <%= link_to recipe_path(result.uri, search: params[:search], page: @page) do %>
+                    <%= image_tag "#{ result.image }", alt: "#{ result.name }", class: "recipe-image" %>
+                    <h3><%= result.name %></h3>
+                <% end %>
+            </section>
+        </li>
+    <% end %>
+    </ul>
+<% else %>
+    <p>There are no recipes containing the term(s): <%= params[:search] %>.</p>
+<% end %>
+
+<p>Total recipes: <%= @total_items %></p>
+
+<p><% if @page > 1 %>
+        <%= link_to "prev 10", root_path(page: @page - 1, search: params[:search]), class: "button" %>
+<% end %>
+~ current page ~
+<% if @page < @total_pages %>
+    <%= link_to "next 10", root_path(page: (@page + 1), search: params[:search]), class: "button" %></p>
+<% end %>
+</p>
+
+<!-- Edamam API has a glitch in its count. It will provide a number up to 1000 for a count. I am setting total_items equal to Edamam API's count. However, you are never able to receive index 100 or above for any one search term. Once you send this search to the Edamam API (from=100), it returns a count of 0. Even though from=99 with the same search term returned a count of 1000, for popular items. -->
+
+<!-- All this to say, the code in my "next 10" link is written based off of Edamam API's count. In reality, you can never see pages 11 and above for search terms that say they have over 100 recipes avaiable from the API. -->

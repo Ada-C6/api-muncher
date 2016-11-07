@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ApiMuncher</title>
+  <title>Suzinator'sRecipeSearch</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
 <body>
 
+<header>
+    <h1>Suzinator's Recipe Search</h1>
+</header>
+
 <%= yield %>
+
+<footer>
+    <p><small>Site resources...</small> <%= link_to image_tag('API_Attribution.png', alt: "Edamam's logo"), "http://developer.edamam.com", :target => "_blank" %></p>
+</footer>
 
 </body>
 </html>
