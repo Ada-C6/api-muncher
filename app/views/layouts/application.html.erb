@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ApiMuncher</title>
+  <title>MUNCH ON THIS: A RECIPE FINDER</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+  <!-- Web fonts from Google -->
+  <%=stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Corben:bold' %>
+  <%=stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Nobile' %>
+
+</head>
+
+
+<body>
+  <nav class="row">
+    <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for Munchables Here" %>
+    <%= submit_tag "Search", :name => nil, class: "form_submit" %>
+    <% end %>
+  </nav>
+
+
+  <%= yield %>
+
+  <footer class= "row">
+    <p class="small-3 columns large-6 columns">Website built by Dianne Laguerta.</p>
+    <p class="small-3 columns large-6 columns"> Recipes powered by <a href="https://www.edamam.com/">Edamam.</a></p>
+  </footer>
 
 </body>
 </html>

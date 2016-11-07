@@ -1,0 +1,19 @@
+<% if @recipes.blank? %>
+  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+<% else %>
+<h1 class="large-11 small-centered columns">Results for <%= "#{params[:search]}"  %> </h1>
+<div class = "row page-bar"><%= will_paginate @recipes,  :container => false %></div>
+<section class="row small-up-1 medium-up-2 large-up-4">
+ <% @recipes.each do |recipe| %>
+  <% uri_id = recipe.uri.split("_").last %>
+
+  <p class="column">
+    <br></br>
+    <%= link_to recipe_path(uri_id) do %>
+      <%= image_tag "#{ recipe.photo}" %>
+      <% end %>
+    <%= link_to "#{ recipe.name}", recipe_path(uri_id)%>
+  </p>
+<% end  %>
+</section>
+<% end %>

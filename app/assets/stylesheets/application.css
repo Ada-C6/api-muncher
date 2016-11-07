@@ -1,3 +1,94 @@
+@import url('foundation.min.css');
+
+nav {
+  padding: 2%;
+}
+/*body {
+  background-color: #7c9bf1;
+  }*/
+
+.pagination, a {
+  color: rgb(189, 109, 109);
+}
+
+.page-bar {
+  margin-top: 30px;
+  /*margin-left: 30px;*/
+}
+.page-bar a {
+
+}
+.page-bar em.current {
+  padding: 10px;
+  border-radius: 3px;
+  background-color: rgb(245, 233, 82);
+}
+
+#search-form {
+  padding: 2%;
+  width: 50%;
+  font-family: 'Nobile', arial;
+}
+
+#search-form input, .form_submit{
+    border-radius: 100px;
+    background-color: white;
+    border: 2px solid rgb(30, 132, 215
+    );
+}
+
+#search-form .form_submit{
+  background-color: rgb(30, 132, 215
+  );
+  color:  white;
+  border: 2px solid white;
+  padding: 10px;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1, h2 {
+    font-family: 'Corben', Georgia, Arial, sans-serif;
+    padding-top: 15px;
+}
+
+p, ul, li, a{
+  font-family: 'Nobile', Arial, sans-serif;
+}
+
+h1, h2 {
+  text-align: center;
+  background-color: rgb(245, 233, 82);
+  border-radius: 5px 30px 5px;
+  width: 75%;
+
+ }
+
+.intro {
+  padding: 5%;
+}
+
+.recipe-info {
+  padding: 20px;
+}
+
+.home-image {
+  margin-top: 20px;
+}
+
+footer {
+  margin-top: 8%;
+  margin-bottom: 2%;
+  border-top: 5px solid rgb(245, 233, 82);
+  padding: 2%;
+}
+
+
+
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
