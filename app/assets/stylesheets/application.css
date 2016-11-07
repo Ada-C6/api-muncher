@@ -115,10 +115,10 @@ li {
   list-style-type: none;
 }
 
-#show-pg-bottom {
+#show-pg-bottom, .copyright {
   text-align: center;
-  /*display: block;
-  margin-top: 5%;*/
+  display: block;
+  margin-top: 5%;
 }
 
 
