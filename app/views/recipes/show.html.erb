@@ -1,41 +1,48 @@
-<div class="basic">
-  <% @recipe.each do |item| %>
-  <div class="column medium-7 small-centered large-uncentered">
-    <%= image_tag(item.image, class: 'image') %>
+<nav>
+  <div class="navbarlink">
+    <%= link_to "Muncher", root_path, alt:"Muncher Home" %>
   </div>
+</nav>
 
-  <div class="column medium-5 small-centered large-uncentered">
-    <div class="row">
-      <h3 class="small-12 columns"><%= item.label %></h3>
+<div class="basic">
+  <div class="row">
+    <% @recipe.each do |item| %>
+      <div class="column small-12 medium-5">
+        <%= image_tag(item.image, class: 'image') %>
+      </div>
 
-      <% if item.url != nil %>
-        <h4><%= link_to "View the original recipe here", item.url, alt: "External link to original recipe which opens in a new tab", target: "_blank" %></h4>
-      <% else %>
-        <%= "There is no original link available for this recipe." %>
+    <div class="column small-12 medium-7">
+        <h3><%= item.label %></h3>
+
+        <% if item.url != nil %>
+          <h4><%= link_to "View the original recipe here", item.url, alt: "External link to original recipe which opens in a new tab", target: "_blank" %></h4>
+        <% else %>
+          <%= "There is no original link available for this recipe." %>
+        <% end %>
+        <br>
+
+        <h4>Ingredients:</h4>
+        <% item.ingredientLines.each do |ingredient| %>
+          <h5><%= ingredient %></h5>
+        <% end %>
+        <br>
+
+        <h4>Diet Labels:</h4>
+        <% item.dietLabels.each do |label| %>
+          <h5><%= label %></h5>
+        <% end %>
+        <br>
+
+        <h4>Health Labels:</h4>
+        <% item.healthLabels.each do |label| %>
+          <h5><%= label %></h5>
+        <% end %>
+        <br>
       <% end %>
-      <br>
 
-      <h4>Ingredients:</h4>
-      <% item.ingredientLines.each do |ingredient| %>
-        <h5><%= ingredient %></h5>
-      <% end %>
-      <br>
-
-      <h4>Diet Labels:</h4>
-      <% item.dietLabels.each do |label| %>
-        <h5><%= label %></h5>
-      <% end %>
-      <br>
-
-      <h4>Health Labels:</h4>
-      <% item.healthLabels.each do |label| %>
-        <h5><%= label %></h5>
-      <% end %>
-      <br>
+      <%= link_to 'Return to search results', :back, class: 'button' %>
     </div>
-    <% end %>
 
-    <%= button_to 'Return to search results', :back, class: 'button' %>
   </div>
 
 </div>
