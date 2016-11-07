@@ -38,7 +38,7 @@ end
   test "Recipe.all should make an API call if search hasn't been made before; not make API call if term is same as previous search" do
     VCR.use_cassette("recipes") do
       # ensuring that there's not been a search yet. This seems a little sketchy, but I'm noticing that my memoized data is messing up this test depending on what order the tests have run. If I had time, I'd research how to better clear my cache/memoized data. (maybe with a before each for the tests?)
-      Recipe.search_term = nil
+      Recipe.recipes_cache = nil
 
       term = "couscous"
       Recipe.all(term)
@@ -50,42 +50,32 @@ end
   test "Recipe.all should not make API call if term is same as previous search" do
     # Not quite sure how to test memoization
     VCR.use_cassette("recipes") do
+      # Recipe.api_call = nil
       term = "beer"
       Recipe.all(term)
 
       # call the same search term again, should execute memoized part of method.
       Recipe.all(term)
 
-      assert_equal Recipe.search_term, term
       assert_equal Recipe.api_call, false
     end
   end
 
   test "Recipe.all should not make API calls for baked searches" do
     VCR.use_cassette("recipes") do
-      # ensuring that there's not been a search yet.
-      Recipe.search_term = nil
+      Recipe.baked_searches
 
       chicken = "chicken"
       potato = "potato"
       ground_beef = "ground beef"
 
-      recipes = Recipe.all(chicken)
-
-      assert_equal Recipe.chicken_recipes, recipes
-
+      Recipe.all(chicken)
       assert_equal Recipe.api_call, false
 
-      recipes = Recipe.all(potato)
-
-      assert_equal Recipe.potato_recipes, recipes
-
+      Recipe.all(potato)
       assert_equal Recipe.api_call, false
 
-      recipes = Recipe.all(ground_beef)
-
-      assert_equal Recipe.ground_beef_recipes, recipes
-
+      Recipe.all(ground_beef)
       assert_equal Recipe.api_call, false
 
     end
@@ -115,7 +105,7 @@ end
   test "Recipe.find_recipe does make an API call if recipe is not in stored recipes variable" do
     VCR.use_cassette("recipes") do
       # ensuring that there's not been a search yet.
-      Recipe.search_term = nil
+      Recipe.recipes_cache = nil
 
       chicken_term = "chicken"
       recipes = Recipe.all(chicken_term)

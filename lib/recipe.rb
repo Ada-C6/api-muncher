@@ -18,65 +18,62 @@ class Recipe
   # Much more likely to work as expected than a class variable
   # See http://www.railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/
   class << self
-    attr_accessor :search_term
+    attr_accessor :searches_cache, :recipes_cache
 
-    attr_reader :recipes, :recipe, :api_call, :chicken_recipes, :potato_recipes, :ground_beef_recipes
+    attr_reader :api_call
   end
 
   def self.baked_searches
-    # setting these memoized searches.
-    @chicken_recipes ||= EdamamApiWrapper.search("chicken")
-    @ground_beef_recipes ||=  EdamamApiWrapper.search("ground beef")
-    @potato_recipes ||= EdamamApiWrapper.search("potato")
-
+    self.all("chicken")
+    self.all("ground beef")
+    self.all("potato")
   end
 
   # Return a memoized collection of recipes
   def self.all(term)
 
-    baked_searches
+    #This caches the search results, on their search term.
+    @searches_cache ||= Hash.new
 
-    case term
-    when "chicken"
+    #This caches the individual recipes, on their ID.
+    @recipes_cache ||= Hash.new
+
+    recipes = nil
+    if @searches_cache[term] != nil
       @api_call = false
-      @recipes = @chicken_recipes
-    when "potato"
-      @api_call = false
-      @recipes = @potato_recipes
-    when "ground beef"
-      @api_call = false
-      @recipes = @ground_beef_recipes
-    when @search_term
-      # If term is the same, use memoized search.
-      @api_call = false
-      return @recipes
+      recipes = @searches_cache[term]
     else
-      # If not any of the above, do the search and set the search_term.
-      @recipes = EdamamApiWrapper.search(term)
-      @search_term = term
+      # do the search, add the search to the @searches_cache cache, and add the recipes included in the search to the @recipes cache.
+      # Right now, I'm just caching everything in the hashes. I would probably want to limit the size of the hashes somehow, or the lifespan of the things that are stored, in case the backend API changes.
       @api_call = true
+      recipes = EdamamApiWrapper.search(term)
+      @searches_cache[term] = recipes
+
+      recipes.each do |recipe|
+        @recipes_cache[recipe.identifier] = recipe
+      end
     end
 
-    return @recipes
+    return recipes
   end
 
   def self.find_recipe(identifier)
     # Should check and see if this idenfitier already exists in my @recipes and if it doesn't then, call this.
+    @recipes_cache ||= Hash.new
 
-    if @recipes != nil
-      @recipes.each do |recipe|
-        if recipe.identifier == identifier
-          @recipe = recipe
-          @api_call = false
-          return @recipe
-        end
-      end
+    if @recipes_cache[identifier] != nil
+      @api_call = false
+      return @recipes_cache[identifier]
     end
 
     # Otherwise, do this.
-    @recipe = EdamamApiWrapper.find_recipe(identifier)
-    @api_call = true
-    return @recipe
-    # if @recipes.include?(Recipe)
+    recipe = EdamamApiWrapper.find_recipe(identifier)
+      if recipe == nil
+        return nil
+      else
+        @recipes_cache[recipe.identifier] = recipe
+        @api_call = true
+        return recipe
+      end
   end
 end
