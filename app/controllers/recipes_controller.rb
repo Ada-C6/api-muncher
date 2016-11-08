@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all(params["search"])
+    @page = (params[:page] || 1).to_i
+    @last_page = 10
+    @recipes = Recipe.all(params["search"], @page)
   end
 
   def show

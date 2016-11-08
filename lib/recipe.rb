@@ -17,8 +17,8 @@ class Recipe
     attr_reader :recipe_hash
   end
 
-  def self.all(search_term)
-    @recipes = EdamamApiWrapper.search_recipe(search_term)
+  def self.all(search_term, page)
+    @recipes = EdamamApiWrapper.search_recipe(search_term, page)
     return @recipes
   end
 
