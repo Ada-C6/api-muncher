@@ -11,9 +11,9 @@ class Recipe
     @health_labels = health_labels
 
 
-    # if q = nil || q = ""
-    #   raise ArgumentError
-    # end
+    if name == nil || name == "" || id == nil || id == ""
+      raise ArgumentError
+    end
 
   end
 
