@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Cherry+Swash:700|Sonsie+One" rel="stylesheet">
+
+    <title><%= content_for?(:title) ? yield(:title) : "API-Muncher" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <h1>RECIPE MUNCH</h1>
+    <p id="attribution"><%= image_tag "Attribution_v2.jpg" %></p>
+    <div class="row">
+      <%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
+        <div class="small-7 small-centered medium-5 medium-centered large-4 large-centered columns">
+          <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+        </div>
+        <div "small-3 medium-2 large-1 columns">
+          <%= submit_tag "Search", :name => nil %>
+        </div>
+      <% end %>
+    </div>
+    <%= yield %>
+
+  </body>
+</html>

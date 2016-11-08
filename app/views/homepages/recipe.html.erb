@@ -1,0 +1,19 @@
+<% if @recipes.blank? %>
+  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+<% end %>
+<p></p>
+
+<ul class="row" data-equalizer>
+  <% @recipes.each do |recipe| %>
+    <div class="small-6 medium-4 large-3 columns">
+
+      <p><img src="<%= recipe.image %>" alt="food picture"> </p>
+      <div data-equalizer-watch>
+        <p><%= link_to recipe.name, show_path(recipe.id) %></p>
+      </div>
+
+    </div>
+  <% end %>
+</ul>
+
+<p><%= paginate @recipes %></p>
