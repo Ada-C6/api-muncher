@@ -1,29 +1,33 @@
-<h1>SHOW</h1>
-<%= link_to "Back to Index", index_page_path(:q => @query, :page => @page) %>
 
-<%# button_to "Back to Index", index_page_path, params: {page: Recipe.current_page}, method: :get %>
+<section class="row">
 
-<p>
-  Name: <%= @recipe.label %>
-</p>
-<p>
-  <%= link_to "Original recipe", @recipe.url, target: :_blank %>
-</p>
-<p>
-  Ingredients:
-  <ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient %></li>
-  <% end %>
-  </ul>
-</p>
-<p>
-  Dietary information:
-  <% @recipe.diet.each_with_index do |d, i| %>
-    <% if i != (@recipe.diet.length - 1) %>
+  <div class="small-12 medium-4 columns">
+    <%= image_tag @recipe.photo, alt: "Photo", class: "thumbnail" %>
+  </div>
+
+  <div class="small-12 medium-8 columns">
+    <h5>
+      <strong><%= @recipe.label %></strong>
+    </h5>
+    <p>
+      <%= link_to "Browse original recipe", @recipe.url, target: :_blank %> | <%= link_to "Back to Search Results", index_page_path(:q => @query, :page => @page) %>
+    </p>
+    <p>
+      <strong>Ingredients:</strong>
+      <ul>
+        <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient %></li>
+        <% end %>
+      </ul>
+    </p>
+    <p>
+      <strong>Dietary information:</strong>
+      <% @recipe.diet.each_with_index do |d, i| %>
+      <% if i != (@recipe.diet.length - 1) %>
       <%= d %>,
-    <% else %>
+      <% else %>
       <%= d %>.
-    <% end %>
-  <% end %>
-</p>
+      <% end %>
+      <% end %>
+    </p>
+  </div>

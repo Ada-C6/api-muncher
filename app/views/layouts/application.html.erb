@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Port+Lligat+Slab" rel="stylesheet">
   <title>ApiMuncher</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -8,12 +9,14 @@
 </head>
 <body>
   <div class="container">
-    
+
     <header>
-      <h2>Hungry Cook What?</h2>
+      <h2><%= link_to "Hungry Cook What?", root_path %></h2>
     </header>
 
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
 
   </div>
 

@@ -14,8 +14,10 @@
  *= require_self
  */
 
-* {
+
+*, h2, h3, h4, h5 {
   color: #795548;
+  font-family: 'Port Lligat Slab', serif;
 }
 
 .container {
@@ -24,24 +26,57 @@
 }
 .pagination a, .pagination button {
   display: inline-block;
+  color: #795548;
 }
 
-
-/*#795548 (brown)
-#ff5722 (orange)*/
+.pagination .current {
+  background: #ff5722;
+}
 
 header {
   text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 5px double;
+  font-weight: 600;
 }
 
 footer {
-  font-size: 15px;
+  font-size: 13px;
   text-align: center;
   margin: 100px 20px 20px 20px;
-  /*line-height: 0.5;*/
-  /*overflow: hidden;*/
 }
 
-h4 {
+h2, h3, h4 {
   text-align: center;
+}
+
+h2, h3, h4, h5 {
+  margin-bottom: 20px;
+}
+main {
+  margin-top: 50px;
+}
+
+p {
+  color: #795548;
+}
+
+a {
+  color: #ff5722;
+}
+
+a:hover {
+  color: red;
+}
+
+.button.success {
+  background-color: #ff5722;
+}
+
+.button.alert {
+  background-color: #795548;
+}
+
+label {
+  color: #795548;
 }
