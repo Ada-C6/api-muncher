@@ -41,7 +41,7 @@ class EdamamApiWrapper
   def self.list_a_recipe(id)
     # search for a specific recipe based on the example in the API documentation
 
-    url = BASE_URL + "r=" + "http://www.edamam.com/ontologies/edamam.owl%23" + "#{id}"
+    url = BASE_URL + "app_id=#{ID}&app_key=#{KEY}" + "&r=" + "http://www.edamam.com/ontologies/edamam.owl%23" + "#{id}"
     data ||= HTTParty.get(url).parsed_response
 
     label = data[0]["label"]

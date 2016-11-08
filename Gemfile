@@ -60,6 +60,5 @@ end
 group :test do
   gem 'minitest-reporters'
   gem "pry-rails"
+  gem 'simplecov', :require => false
 end
-
-gem 'simplecov', :require => false, :group => :test
