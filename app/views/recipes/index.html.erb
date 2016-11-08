@@ -1,12 +1,24 @@
-<h3><%= "Here's a list of recipes with #{params[:search]}" %></h3>
 
 <div class="row small-up-2 medium-up-3 large-up-5">
-
+  <% if @recipes.nil? %>
+    <%= "There are no recipes with #{params[:search]}" %>
+  <% else %>
+    <h3><%= "Here's a list of recipes with #{params[:search]}" %></h3>
     <% @recipes.each do |recipe| %>
       <div class="column">
       <%= link_to recipe.label, recipe_path(recipe.uri) %>
       <%= image_tag recipe.image, alt: "#{recipe.label}" %>
       </div>
+    <% end %>
   <% end %>
 </div>
 <h4><%= link_to "Search for new recipes", root_path %></h4>
+
+<section>
+  <% if @page > 1 %>
+    <h5><%= link_to "<- Previous page", recipes_path(search: params[:search], page: @page - 1) %></h5>
+  <% end %>
+  <% if @page < @last_page %>
+    <h5><%= link_to "Next page ->", recipes_path(search: params[:search], page: @page + 1) %></h5>
+  <% end %>
+</section>
