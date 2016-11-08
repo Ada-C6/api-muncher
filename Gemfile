@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'httparty'
 
+gem 'foundation-rails'
+
+gem 'will_paginate', '~> 3.1.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -39,6 +42,8 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'better_errors'
+  gem 'minitest-vcr'
+  gem 'webmock'
 end
 
 group :development do
@@ -48,3 +53,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+group :test do
+  gem 'minitest-reporters'
+  gem 'simplecov'
+
+end
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

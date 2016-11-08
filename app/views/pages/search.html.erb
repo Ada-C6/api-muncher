@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="small 8 column">
+    <h2>You're Lazy. Cook Something.</h2>
+  </div>
+  <div class="small 4 column">
+    <img src="/assets/food.jpg" alt="cute food" />
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 column">
+    <%= form_tag pages_path, method: :get do %>
+      <%= label_tag :label, "Type in a keyword to find related recipes" %>
+      <%= text_field_tag :label %>
+      <%= submit_tag "Search", class: "button-large" %>
+    <% end %>
+  </div>
+</div>

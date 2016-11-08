@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="small-3 column">
+    <h3> Recipe Details </h3>
+  </div>
+</div>
+<% @this_recipe.each do |r| %>
+<div class="row">
+  <div class="small-3 column">
+    <img src ="<%= r.image %>" alt="recipe image" class="recipe image"/>
+  </div>
+</div>
+<div class="row">
+  <div class="small-3 column">
+    <h3><%= r.label %> </h3>
+    <h5>Makes <%=(r.yield).to_i %> servings</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="small-3 column">
+    <p>Ingredients:</p>
+    <ul>
+      <% r.ingredientLines.each do |ingredient| %>
+      <li><%= ingredient %></li>
+      <% end %>
+      <li> Calories: <%= (r.calories).to_i %></li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="small-3 column"
+    <% r.dietLabels.each do |dl| %>
+      <p><%= "*" + dl %></p>
+    <% end %>
+    <p><%= link_to "Find the Original Recipe Here", r.url, target: "_blank" %></p>
+  </div>
+</div>
+<% end %>
