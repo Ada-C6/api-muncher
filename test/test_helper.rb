@@ -1,6 +1,8 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'vcr'
+require 'webmock/minitest'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -14,5 +16,11 @@ class ActiveSupport::TestCase
       :record => :new_episodes, #record new data whem we don't have it yet
       :match_requests_on => [:method, :uri, :body] # the http method, URI and body of a request all need to match
     }
+    config.filter_sensitive_data("<APP_ID>") do
+      ENV['APP_ID']
+    end
+    config.filter_sensitive_data("<APP_KEY>") do
+      ENV['APP_KEY']
+    end
   end
 end

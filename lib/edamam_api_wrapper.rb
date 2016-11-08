@@ -11,9 +11,11 @@ class EdamamApiWrapper
     @q = q
   end
 
-  def self.list_recipes(q, to = 100)
+  def self.list_recipes(q, app_id=nil, app_key=nil)
+    app_id ||= APP_ID
+    app_key ||= APP_KEY
 
-    url = BASE_URL + "?app_id=#{APP_ID}" + "&app_key=#{APP_KEY}" + "&q=#{q}" + "&to=#{to}"
+    url = BASE_URL + "?app_id=#{app_id}" + "&app_key=#{app_key}" + "&q=#{q}" + "&to=100"
     data = HTTParty.get(url)
     recipes = []
     if data["hits"]

@@ -16,4 +16,15 @@ class RecipeTest < ActionController::TestCase
       Recipe.new "", "url", "image", "id", "ingredients", "diet_labels", "health_labels"
     end
   end
+
+  test "must provide an idfor Recipe" do
+    assert_raises ArgumentError do
+      Recipe.new "name", "url", "image", nil, "ingredients", "diet_labels", "health_labels"
+    end
+    assert_raises ArgumentError do
+      Recipe.new "name", "url", "image", "", "ingredients", "diet_labels", "health_labels"
+    end
+  end
+
+
 end
