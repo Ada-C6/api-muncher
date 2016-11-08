@@ -8,21 +8,19 @@
 
 <div class="back-ground-placeholder">
 
-<div class="row medium-8 large-7 columns">
-    <div class="input-group-button">
-      <%= form_tag recipes_index_path, method: "get" do %>
-      <%= text_field_tag :search_term %>
-      <%= submit_tag "Find Recipes", class: "Button" %>
-      <% end %>
-    </div>
-</div>
+  <div class="row small-8 medium-6 large-3 column text-center search">
+    <%= form_tag recipes_index_path, method: "get" do %>
+    <%= text_field_tag :search_term %>
+    <%= submit_tag "Find Recipes", class: "Button" %>
+    <% end %>
+  </div>
 
 </div>
 
 <div class="row column">
-    <hr>
-    <ul class="menu">
-      <li><img src="/assets/Attribution.png"></li>
-      <li class="float-right">Copyright 2016</li>
-    </ul>
-  </div>
+  <hr>
+  <ul class="menu">
+    <li><img src="/assets/Attribution.png"></li>
+    <li class="float-right">Copyright 2016</li>
+  </ul>
+</div>

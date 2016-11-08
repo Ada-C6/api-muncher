@@ -4,16 +4,16 @@
 
 
 .back-ground-placeholder {
-  height: 65%;
+  height: 30%;
   z-index: -1;
 }
 
 .back-ground-placeholder::after {
   content: "";
-  background-image: url("/assets/heart_food.jpg");
-  background-size: contain;
+  background-image: url("/assets/heart_food.png");
   background-repeat: no-repeat;
   background-position: center;
+  margin-top: 30vh;
   opacity: 0.3;
   top: 0;
   left: 0;
@@ -23,10 +23,6 @@
   z-index: -2;
 }
 
-.callout {
-  margin: 0;
-}
-
-.input-group-button {
-  margin-top: 20px;
+.search {
+  margin-top: 30vh;
 }

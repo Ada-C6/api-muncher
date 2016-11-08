@@ -1,32 +1,41 @@
-
+<div class="callout large secondary">
+  <div class="row column text-center">
+    <h2>For The Love of Food</h2>
+    <h3 class="subheader"><%= "#{@recipe.label}" %></h3>
+  </div>
+</div>
 
 <section>
 
-<h3> <%= @recipe.label %></h3>
+<div class="section" >
+  <div class="row" >
 
-<%= image_tag @recipe.image %>
-
-<h4>Recipe Source: <%= link_to @recipe.source, url_for(@recipe.url) %> </h4>
-
-<p>
-  <%= "Recipe Yields: #{@recipe.yield}" %>
-</p>
-
-<h4> Ingredients </h4>
-<ul>
-  <% @recipe.ingredientLines.each do |ingredient| %>
-  <li>
-    <%= ingredient %>
-  </li>
-  <% end %>
-</ul>
-<h4> Dietary Categories </h4>
-<ul>
-  <% @recipe.healthLabels.each do|label| %>
-  <li>
-    <%= label %>
-  </li>
-  <% end %>
-</ul>
-
+    <div class="small-12 medium-5 large-6 column center" >
+      <%= image_tag @recipe.image, class: "thumbnail"%>
+      <h4>Recipe Source: <%= link_to @recipe.source, url_for(@recipe.url) %> </h4>
+      <p>
+        <%= "Recipe Yields: #{@recipe.yield}" %>
+      </p>
+    </div>
+    
+    <div class="small-12 medium-5 large-6 column center" >
+      <h4> Ingredients </h4>
+      <ul>
+        <% @recipe.ingredientLines.each do |ingredient| %>
+        <li>
+          <%= ingredient %>
+        </li>
+        <% end %>
+      </ul>
+      <h4> Dietary Categories </h4>
+      <ul>
+        <% @recipe.healthLabels.each do|label| %>
+        <li>
+          <%= label %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 </section>
