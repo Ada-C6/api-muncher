@@ -1,0 +1,23 @@
+<div class= "container">
+
+  <div class="search-box">
+    <%= form_tag("/", method: "get") do %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+
+  <div class = "recipe-list">
+    <% if !params[:q].blank? %>
+    <ul>
+      <%@recipes.each do |recipe|%>
+        <li><%=link_to(recipe.label, show_one_path(recipe.uri))%></li>
+        <%end%>
+    </ul>
+    <%end%>
+  </div>
+  <% if !params[:q].blank? %>
+    <%= paginate @recipes%>
+  <%end%>
+
+</div>

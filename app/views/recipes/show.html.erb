@@ -1,0 +1,27 @@
+<div class="row small-up-1 medium-up-2 large-up-2" data-equalizer data-equalize-on="true">
+
+  <!-- View -->
+  <div class="column">
+    <div class="callout">
+      <h1><%=@recipe.label%></h1>
+      <h3><%= link_to("More Details", @recipe.url)%></h3>
+      <image><%= image_tag(@recipe.image)%></image>
+      <h3>Serves: <%=@recipe.yield%></h3>
+
+      <ul>
+        <%@recipe.ingredients.each do |i|%>
+        <li><%=i%></li>
+        <% end %>
+      </ul>
+
+      <ul>
+        <%@recipe.diet_labels.each do |dl|%>
+        <li><%=dl%></li>
+        <% end %>
+        <%@recipe.health_labels.each do |hl|%>
+        <li><%=hl%></li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
