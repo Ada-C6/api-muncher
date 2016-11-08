@@ -29,15 +29,34 @@
    font-family: 'Cherry Swash', cursive;
  }
 
- h1 {
+ h1{
    font-family: 'Sonsie One', cursive;
    color: #36558F;
  }
+
+h2, h3 {
+  font-family: 'Cherry Swash', cursive;
+  color: #564256;
+}
+
+h3 {
+  color: #3891A6;
+}
 
 p a {
    color: #564256;
   }
 
+ h3 a {
+   color: #A40E4C;
+ }
+
 p a:hover {
   color: #E76D83;
+}
+
+#attribution {
+  background-color: #23375c;
+  width: 80%;
+  margin-left: 10%;
 }
