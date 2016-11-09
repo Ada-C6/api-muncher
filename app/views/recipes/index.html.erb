@@ -1,0 +1,13 @@
+<div class="basic">
+
+  <a href="/"><%= image_tag("muncher.jpg", alt: "Muncher Home", class: "logo") %></a>
+
+  <h3>Find a recipe: </h3>
+    <%= form_tag(list_recipes_path, method: :get) do %>
+      <%= search_field_tag(:query, nil, :placeholder => "Search", :required => true)%>
+      <%= submit_tag "Submit", class: 'button' %>
+    <% end %>
+
+  <h3><%= render 'layouts/flash' %></h3>
+
+</div>

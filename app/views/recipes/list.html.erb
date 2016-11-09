@@ -1,0 +1,32 @@
+<nav>
+  <div class="navbarlink">
+    <%= link_to "Muncher", root_path, alt:"Muncher Home" %>
+  </div>
+</nav>
+
+<div class="basic">
+  <div class="row small-up-1 medium-up-3 large-up-5">
+    <% if @data != nil %>
+      <h3>We found the following recipes involving "<%= @query %>" :</h3>
+      <% @data.each do |recipe| %>
+
+        <section class="column">
+          <ul class="product-info">
+            <div class="headline">
+              <li><%= link_to image_tag(recipe.image), show_path(recipe.uri) %>
+              </li>
+              <li><%= link_to recipe.label, show_path(recipe.uri) %></li>
+
+            </div>
+          </ul>
+        </section>
+      <% end %>
+  </div>
+
+      <div class="pagination"><%= will_paginate @data %></div>
+
+    <% else %>
+      <h3>We found no recipes matching '<%= @query %>'.</h3>
+    <% end %>
+
+</div>
