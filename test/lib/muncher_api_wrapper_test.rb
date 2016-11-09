@@ -4,12 +4,6 @@ require 'recipe'
 
 class Muncher_Api_Test < ActionController::TestCase
 
-  test "the truth" do
-    VCR.use_cassette("truthy") do
-      assert true
-    end
-  end
-
   test "Can retrieve a list of recipes" do
     VCR.use_cassette("get-recipe-list") do
       recipes = MuncherApiWrapper.get_recipes("durian")
@@ -33,13 +27,13 @@ class Muncher_Api_Test < ActionController::TestCase
       end
     end
   end
-#
-#   test "Each call should return 10 recipes per page" do
-#   VCR.use_cassette("get-ten-recipes") do
-#     recipes = MuncherApiWrapper.get_recipes("stew")
-#     assert recipes.length == 10
-#   end
-# end
 
+  test "Returns an empty array when a query returns zero search results" do
+    VCR.use_cassette("check-zero-results") do
+      recipes = MuncherApiWrapper.get_recipes("353")
+      assert_equal recipes, nil
+      refute recipes.is_a? Array
+    end
+  end
 
 end

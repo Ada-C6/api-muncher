@@ -1,11 +1,6 @@
 require 'test_helper'
 
 class RecipesControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   VCR.use_cassette("truthy") do
-  #     assert true
-  #   end
-  # end
 
   test "should get search" do
     VCR.use_cassette("controller-index") do
@@ -21,6 +16,13 @@ class RecipesControllerTest < ActionController::TestCase
     end
   end
 
+  test "should get show" do
+    VCR.use_cassette("controller-show") do
+      get :show, {uri: "http://www.edamam.com/ontologies/edamam.owl%23recipe_ecc112dcc32f9335f07cfcf6bfc5fc22"}
+      assert_response :success
+    end
+  end
+
   test "should redirect a blank query and or one made of spaces" do
     VCR.use_cassette("blanks-check") do
       get :list, {query: ""}
@@ -31,13 +33,6 @@ class RecipesControllerTest < ActionController::TestCase
 
       get :list, {query: "  "}
       assert_response :redirect
-    end
-  end
-
-  test "should get show" do
-    VCR.use_cassette("controller-show") do
-      get :show, {uri: "http://www.edamam.com/ontologies/edamam.owl%23recipe_ecc112dcc32f9335f07cfcf6bfc5fc22"}
-      assert_response :success
     end
   end
 
