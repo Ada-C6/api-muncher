@@ -6,7 +6,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-    # label = params[:search]
     id = params[:id]
     @recipe = Recipe.find(id)
   end
