@@ -1,6 +1,7 @@
 
 <div class="row small-up-2 medium-up-3 large-up-5">
-  <% if @recipes.nil? %>
+  <% if @recipes.length == 0 %>
+    <% @page = 0 %>
     <%= "There are no recipes with #{params[:search]}" %>
   <% else %>
     <h3><%= "Here's a list of recipes with #{params[:search]}" %></h3>
@@ -18,7 +19,7 @@
   <% if @page > 1 %>
     <h5><%= link_to "<- Previous page", recipes_path(search: params[:search], page: @page - 1) %></h5>
   <% end %>
-  <% if @page < @last_page %>
+  <% if @page < @last_page && @page != 0 %>
     <h5><%= link_to "Next page ->", recipes_path(search: params[:search], page: @page + 1) %></h5>
   <% end %>
 </section>
