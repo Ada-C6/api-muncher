@@ -2,47 +2,13 @@ require 'test_helper'
 require 'recipe'
 
 class Recipe_Test < ActionController::TestCase
-  # test "the truth" do
-  #   VCR.use_cassette("truthy") do
-  #     assert true
-  #   end
-  # end
-#
-  # test "You must provide a search term for " do
-  #   assert_raises ArgumentError do
-  #     Slack_Channel.new nil, nil
-  #   end
 
-#     assert_raises ArgumentError do
-#       Slack_Channel.new "", ""
-#     end
-#
-#     assert_raises ArgumentError do
-#       Slack_Channel.new "", "12345"
-#     end
-#
-#     assert_raises ArgumentError do
-#       Slack_Channel.new "Partytime", ""
-#     end
-#
-#     assert_raises ArgumentError do
-#       Slack_Channel.new "Partytime", nil
-#     end
-#
-#     assert_raises ArgumentError do
-#       Slack_Channel.new nil, "12345"
-#     end
-#
-#   end
-#
-#   test "Name attribute is set correctly" do
-#     test_me = Slack_Channel.new "Elle", "12345"
-#     assert test_me.name == "Elle"
-#   end
-#
-#   test "ID attribute is set correctly" do
-#     test_me = Slack_Channel.new "Elle", "12345"
-#     assert test_me.id == "12345"
-#   end
+  test "Does this class even do what it is supposed to?" do
+    recipe = Recipe.new("banana","image.jpg","http://www.seriouseats.com/recipes/2011/07/durian-smoothie-recipe.html","","","1 banana","http://www.edamam.com/ontologies/edamam.owl%23recipe_d1823f1d793b6f3d9421e8df6c020f1c")
+    assert recipe.is_a? Recipe
+    assert_equal recipe.label, "banana"
+    assert_equal recipe.url, "http://www.seriouseats.com/recipes/2011/07/durian-smoothie-recipe.html"
+    assert_equal recipe.healthLabels, ""
+  end
 
 end
