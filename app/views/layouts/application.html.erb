@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div class="row">
+    <div class="small-6 small-centered columns">
+      <h3>Api Veg Muncher</h3>
+    </div>
+  </div>
 <%= yield %>
-
+  <footer>
+    <div class="row">
+      <div class="small-8 small-centered columns">
+        <p><%= link_to "Powered by Edamam API", "https://www.edamam.com/" %></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
