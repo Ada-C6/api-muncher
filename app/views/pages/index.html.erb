@@ -1,0 +1,26 @@
+<h4>Your recipe query: <%= @query %></h4>
+
+<% if @recipes == nil || @recipes == [] %>
+  <section class="row small-6 large-6 small-text-center medium-text-center large-text-center">
+    <p class="column">No result found. </p>
+    <p class="column"><%= link_to "Search again", root_path, class: "alert button" %></p>
+  </section>
+
+<% else %>
+  <section class="row small-6 large-6 small-text-center medium-text-center large-text-center">
+    <p class="column"><%= link_to "Search again", root_path, class: "success button" %></p>
+  </section>
+
+  <section class="row small-up-2 medium-up-3 large-up-4">
+    <% @recipes.each do |recipe| %>
+    <p class="column">
+      <%= image_tag recipe.photo, alt: "Photo", class: "thumbnail" %>
+      <%= link_to "#{recipe.label}", show_page_path(:id => recipe.id, :q => @query, :page => @page) %>
+    </p>
+    <% end %>
+  </section>
+
+  <div class= "small-text-center medium-text-center large-text-center">
+    <p><%= paginate @recipes %></p>
+  </div>
+<% end %>

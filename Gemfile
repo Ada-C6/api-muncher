@@ -28,12 +28,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'pry'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # API GEMS
 gem 'httparty'
 gem 'foundation-rails'
+
+# Pagination gems
+gem 'rails-api'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,6 +60,5 @@ end
 group :test do
   gem 'minitest-reporters'
   gem "pry-rails"
+  gem 'simplecov', :require => false
 end
-
-gem 'simplecov', :require => false, :group => :test

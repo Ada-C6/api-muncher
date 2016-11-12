@@ -1,0 +1,14 @@
+<section>
+
+<h4>Recipes at your fingertips!</h4>
+
+<div class="row small-12 medium-12 large-10 end">
+  <%= form_tag("/index", method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search", class: "success button") %>
+
+  <% end %>
+</div>
+
+</section>
