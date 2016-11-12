@@ -15,6 +15,15 @@ VCR.configure do |config|
     :record => :new_episodes,    # record new data when we don't have it yet
     :match_requests_on => [:method, :uri, :body] # The http method, URI and body of a request all need to match
   }
+
+  config.filter_sensitive_data("<EDAMAM_APP_KEY>") do
+    ENV['EDAMAM_APP_KEY']
+  end
+
+  config.filter_sensitive_data("<EDAMAM_APP_ID>") do
+    ENV['EDAMAM_APP_ID']
+  end
+
 end
 
 class ActiveSupport::TestCase
