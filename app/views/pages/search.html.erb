@@ -1,0 +1,10 @@
+
+<article id="search-form" class="search-form column small-7 search-form">
+<%= form_tag pages_path, method: :get do %>
+  <%= label_tag :label, "" %>
+  <%= text_field_tag :label %>
+  <%= submit_tag "search", class: "fake-button" %>
+<% end %>
+</article>
+<section class="copyright small-12 medium-12 large-12 columns">&copy; Poodles are awesome!
+<p>API thanks to: Edamam Recipe Search.</p></section>

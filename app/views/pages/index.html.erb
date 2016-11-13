@@ -1,0 +1,17 @@
+<header><nav class="head">
+  <article class="fake-button"><%= link_to "Back to Search Page", root_path %></article>
+  <section><%= will_paginate @individual_recipe, :page_links => false %></section>
+</nav></header>
+<ul><h4 class="color-green"><%= "#{@recipe.upcase} " %>RECIPES</h4>
+
+  <section class="row">
+    <% @individual_recipe.each do |individual_recipe| %>
+      <section class="small-2 medium-4 large-4 columns" id="recipes">
+        <li class="indiv-recipes"><%= link_to individual_recipe.label, page_path(individual_recipe.id) %><%= link_to image_tag(individual_recipe.image), page_path(individual_recipe.id) %></li>
+      </section>
+    <% end %>
+  </section>
+</ul>
+
+<section class="copyright small-12 medium-12 large-12 columns">&copy; Poodles are awesome!
+<p>API thanks to: Edamam Recipe Search.</p></section>
