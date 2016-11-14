@@ -11,7 +11,6 @@ class Recipe
     @ingredients = ingredients
     @dietinfo = dietinfo
     @nutrients = nutrients
-    @daily = daily
     @calories = calories
 
   end
