@@ -20,7 +20,7 @@ body{
   padding: 1% 1% 1% 1%;
   font-family: 'PT Sans', sans-serif;
   background-image: url("http://cdn.wallpapersafari.com/82/11/kJhBd1.png");
-  background-color: #cccccc;
+  background-color: #5D3D28;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -38,17 +38,17 @@ span.page, span.first, span.prev, span.next, span.last {
 }
 
 .small-12.medium-6.large-4.columns{
-  padding: 1% 1% 1% 1%;
+  padding: 1% 0 0 0;
   text-align: center;
 }
 
 .small-12.medium-6.large-4.columns:hover{
-  background-color: gray;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 form {
   text-align: center;
-  margin: 25% 0 10% 0;
+  margin: 25% 0 15% 0;
 
 input#q{
   width: 40%;
@@ -71,11 +71,26 @@ nav.pagination{
 }
 
 footer{
-  text-align: center;
+}
+
+#credit{
+  float: right;
+  width: 20%;
+  margin: 0 auto;
+}
+
+#copyright{
+  float: left;
+  margin-top: 2%;
 }
 
 #logo{
-  width: 10%;
+  width: 50%;
+}
+
+#show{
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 2% 2% 2% 2%;
 }
 
 h1{

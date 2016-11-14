@@ -1,16 +1,48 @@
+<div id="show">
+  <h1><%= @recipe.name %></h1>
+  <img src="<%= @recipe.image %>">
+  <p><%= link_to "Source Recipe", @recipe.url, :target => "_blank" %></p>
+  <h3>Ingredients</h3>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+  </ul>
+  <h3>Dietary Information</h3>
+  <ul>
+    <% @recipe.dietinfo.each do |dietlabel| %>
+      <li><%= dietlabel %></li>
+    <% end %>
+  </ul>
 
-<h1><%= @recipe.name %></h1>
-<img src="<%= @recipe.image %>">
-<p><%= link_to "Source Recipe", @recipe.url, :target => "_blank" %></p>
-<h3>Ingredients</h3>
-<ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient %></li>
-  <% end %>
-</ul>
-<h3>Dietary Information</h3>
-<ul>
-  <% @recipe.dietinfo.each do |dietlabel| %>
-    <li><%= dietlabel %></li>
-  <% end %>
-</ul>
+  <table>
+    <thead>
+      <tr>
+        <th width="200">Table Header</th>
+        <th>Table Header</th>
+        <th width="150">Table Header</th>
+        <th width="150">Table Header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Content Goes Here</td>
+        <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+        <td>Content Goes Here</td>
+        <td>Content Goes Here</td>
+      </tr>
+      <tr>
+        <td>Content Goes Here</td>
+        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+        <td>Content Goes Here</td>
+        <td>Content Goes Here</td>
+      </tr>
+      <tr>
+        <td>Content Goes Here</td>
+        <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+        <td>Content Goes Here</td>
+        <td>Content Goes Here</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
