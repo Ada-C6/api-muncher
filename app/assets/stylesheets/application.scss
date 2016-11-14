@@ -19,6 +19,10 @@
 body{
   padding: 1% 1% 1% 1%;
   font-family: 'PT Sans', sans-serif;
+  background-image: url("http://cdn.wallpapersafari.com/82/11/kJhBd1.png");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 h3{
@@ -42,12 +46,18 @@ span.page, span.first, span.prev, span.next, span.last {
   background-color: gray;
 }
 
+form {
+  text-align: center;
+  margin: 25% 0 10% 0;
+
 input#q{
-  width: 50%;
+  width: 40%;
 }
 
-form input, input#q{
+}
+form input.success.button, input#q{
   display: inline-block;
+  margin-bottom: auto;
 }
 
 nav.pagination{
