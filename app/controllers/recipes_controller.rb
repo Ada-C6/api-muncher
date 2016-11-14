@@ -10,18 +10,19 @@ class RecipesController < ApplicationController
 
   end
 
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
+  ######## may use for additional features
+  # def new
+  # end
+  #
+  # def create
+  # end
+  #
+  # def edit
+  # end
+  #
+  # def update
+  # end
+  #
+  # def destroy
+  # end
 end
