@@ -3,7 +3,6 @@
   <div class="row">
     <div class="small-12 medium-6 large-6 columns">
       <img src="<%= @recipe.image %>" id="recipe_image">
-      <p><%= link_to "Source Recipe", @recipe.url, :target => "_blank" %></p>
     </div>
 
     <div class="small-12 medium-6 large-6 columns" id="diet">
@@ -15,6 +14,8 @@
       </ul>
     </div>
   </div>
+
+  <h3><%= link_to "SEE RECIPE", @recipe.url, :target => "_blank" %></h3>
 
   <h3>Ingredients</h3>
   <ul>
