@@ -32,12 +32,14 @@ class EdamamApiWrapper
       name = response[0]["label"]
       image = response[0]["image"]
       uri = response[0]["uri"]
+      serving = response[0]["yield"]
       url = response[0]["url"]
       ingredients = response[0]["ingredientLines"]
       dietinfo = response[0]["dietLabels"] + response[0]["healthLabels"]
       nutrients = response[0]["digest"]
+      calories = response[0]["calories"]
 
-      Recipe.new(name, image, uri, url, ingredients, dietinfo, nutrients)
+      Recipe.new(name, image, uri, serving, url, ingredients, dietinfo, nutrients, calories)
     else
       return nil
     end
