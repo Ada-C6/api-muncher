@@ -39,6 +39,9 @@ class EdamamApiWrapperTest < ActionController::TestCase
       assert recipe.ingredients.is_a? Array
       assert recipe.ingredients.include? "1 orange , juiced"
       assert recipe.dietinfo.is_a? Array
+      assert recipe.serving, 2
+      assert recipe.nutrients.is_a? Array
+      assert recipe.calories, 2159.1289999999995
     end
   end
 
