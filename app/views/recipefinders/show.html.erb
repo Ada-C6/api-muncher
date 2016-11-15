@@ -22,9 +22,9 @@
 
       <% while counter < max %>
         <% if counter + 1 == @results_begin %>
-          <%= link_to "#{counter/10 + 1}", recipefinders_show_path(counter, query: @search_term), class: 'current page' %>
+          <%= link_to "#{counter/10 + 1}", recipefinders_show_path(from: counter, query: @search_term), class: 'current page' %>
         <% else %>
-          <%= link_to "#{counter/10 + 1}", recipefinders_show_path(counter, query: @search_term), class: 'page' %>
+          <%= link_to "#{counter/10 + 1}", recipefinders_show_path(from: counter, query: @search_term), class: 'page' %>
         <% end %>
         <% if counter + 10 < max %>
           <%= " " %>
@@ -50,7 +50,7 @@
             <%= image_tag "#{recipe.image}?#{DateTime.now}", alt: recipe.name, class: 'thumbnail' %>
           </div>
           <div class="column small-12 medium-8 large-9">
-            <p><%= link_to recipe.name, recipes_show_path(id: recipe.uri, query: @query, from: @results_begin-1)%></p>
+            <p><%= link_to recipe.name, recipes_show_path(recipe.uri, from: @results_begin-1, query: @search_term)%></p>
             <p><%= recipe.description %></p>
           </div>
         </div>

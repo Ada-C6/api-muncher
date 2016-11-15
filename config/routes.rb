@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   root 'recipefinders#index'
 
-  get 'recipefinders/index'
+  get 'recipes/search' => 'recipefinders#index', as: 'recipefinders_index'
 
-  get 'recipefinders/show/:from' => 'recipefinders#show', as: 'recipefinders_show'
+  get 'recipes/show' => 'recipefinders#show', as: 'recipefinders_show'
 
-  get 'recipes/show/:id' => 'recipes#show', as: 'recipes_show'
+  get 'recipe/:id' => 'recipes#show', as: 'recipes_show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
