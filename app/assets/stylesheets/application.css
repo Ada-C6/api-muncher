@@ -1,0 +1,169 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('foundation.css');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Sacramento|Satisfy|Bungee+Hairline|Covered+By+Your+Grace|Gloria+Hallelujah|Lato|Muli|Poiret+One');
+
+h1 {
+  font-family: 'Sacramento';
+}
+
+h2.recipeheader {
+  text-align: center;
+  margin-top: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-family: 'Sacramento';
+  background: #2ba6cb;
+}
+
+
+html {
+  height: 100%;
+}
+
+
+body {
+  font-family: 'Muli';
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body.homepage {
+  background-image: url('landingpicture.jpeg');
+  background-size: cover;
+  background-position: center top;
+}
+
+.non-footer {
+  flex: 1;
+}
+
+.tagline {
+  color: white;
+}
+
+.tagline li {
+  display: inline-block;
+  padding: 1.5%;
+  font-weight: bold;
+}
+
+section {
+  width: 60%;
+  margin: 5% 20% 5% 20%;
+  text-align: center;
+}
+
+header {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+footer {
+
+}
+
+footer.homepage, .push.homepage {
+  height: 50px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.image-source {
+  position: fixed;
+  bottom: 0px;
+  text-align: right;
+  padding-right: 3%;
+}
+
+.centered-item {
+  text-align: center;
+}
+
+li.tile {
+  list-style-type: none;
+  padding: 1%;
+  text-align:center
+}
+
+header.nonhomepage {
+  background-image: url('landingpicture.jpeg');
+  background-size: cover;
+  background-position: center top;
+  padding-bottom: 1%;
+}
+
+.thumbnail {
+  max-height: 200px;
+  margin-bottom: 0;
+}
+
+.wide {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+div.page {
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+a.page {
+  margin: 0.5%;
+  padding: 0.5%;
+  height: 35px;
+  width: 35px;
+  display: inline-block;
+}
+
+a.current {
+  border: 1px lightgray solid;
+}
+
+.main-picture {
+  border: 1px lightgray solid;
+  padding: 2%;
+}
+
+.recipepanel {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.flexbox-container {
+	display: flex;
+}
+
+.inputbox{
+  width: 100%;
+}
+
+/*
+.recipes {
+  padding: 3%;
+}
+
+.name {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}*/
+
+/** {
+  border: 1px solid lightgray;
+}*/

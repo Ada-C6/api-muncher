@@ -1,0 +1,68 @@
+<% if @recipes.length == 0 %>
+  <div class='row'>
+    <div class='column small-11 large-9 small-centered'>
+      <section>
+        <p>Sorry, there were no results for that search. Please try again!</p>
+        <%= form_tag recipefinders_show_path(0), method: "get" do %>
+          <%= text_field_tag :query %>
+          <%= submit_tag "Find recipes", class: "button" %>
+        <% end %>
+      </section>
+    </div>
+  </div>
+<% else %>
+  <div class='row'>
+    <div class='column small-11 large-9 small-centered page'>
+      <% counter = 0 %>
+      <% if @count < 100 %>
+        <% max = @count %>
+      <% else %>
+        <% max = 100 %>
+      <% end %>
+
+      <% while counter < max %>
+        <% if counter + 1 == @results_begin %>
+          <%= link_to "#{counter/10 + 1}", recipefinders_show_path(from: counter, query: @search_term), class: 'current page' %>
+        <% else %>
+          <%= link_to "#{counter/10 + 1}", recipefinders_show_path(from: counter, query: @search_term), class: 'page' %>
+        <% end %>
+        <% if counter + 10 < max %>
+          <%= " " %>
+        <% end %>
+        <% counter += 10 %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='column small-11 large-9 small-centered wide'>
+      <% if @results_begin > 10 %>
+        <%= link_to "Previous page", recipefinders_show_path(@results_begin-11, query: @search_term), class: 'expanded button' %>
+      <% end %>
+    </div>
+  </div>
+
+  <%@recipes.each do |recipe| %>
+    <div class="row" >
+      <div class="column small-11 large-9 small-centered">
+        <div class="row callout recipes">
+          <div class="column small-12 medium-4 large-3">
+            <%= image_tag "#{recipe.image}?#{DateTime.now}", alt: recipe.name, class: 'thumbnail' %>
+          </div>
+          <div class="column small-12 medium-8 large-9">
+            <p><%= link_to recipe.name, recipes_show_path(recipe.uri, from: @results_begin-1, query: @search_term)%></p>
+            <p><%= recipe.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class='row'>
+    <div class='column small-11 large-9 small-centered wide'>
+      <% if @count - @results_end-1 > 0 && @results_end < 100%> <!-- Artificial constraint due to only 100 results being returned with free API plan-->
+        <%= link_to "Next page", recipefinders_show_path(from: @results_end, query: @search_term), class: 'expanded button' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

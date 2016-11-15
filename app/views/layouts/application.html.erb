@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ApiMuncher</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <% # http://www.webdeveloper.com/forum/showthread.php?235790-iPhone-mobile-site-very-small %>
+
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
+  <body class="<%=@page%>">
+
+    <div class="non-footer">
+      <header class="<%=@page%>" %>
+        <div class='row'>
+          <div class='column centered-item'>
+            <h1><%= link_to "r e c i p e f i n d e r s", recipefinders_index_path %></h1>
+            <ul class='tagline'>
+              <li>taste the world</li>
+              <li>explore exotic flavors</li>
+              <li>find a new favorite</li>
+            <ul>
+          </div>
+        </div>
+      </header>
+      <%= yield %>
+    </div>
+
+    <footer>
+      <div class='row <%= @page %>'>
+        <div class='column small-12 medium-6 large-9'>
+          <p><%= link_to image_tag('edamamlogo.png'), 'http://developer.edamam.com'%></p>
+        </div>
+        <div class='column small-12 medium-6 large-3'>
+          <p><%= link_to 'Image source: Pexels.com', 'https://www.pexels.com/photo/food-table-rustic-wooden-119637/' %></p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

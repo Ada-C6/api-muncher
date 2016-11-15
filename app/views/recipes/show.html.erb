@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="column small-12">
+    <h2 class="recipeheader"><%= @recipe.name %></h2>
+  </div>
+  <div class="column small-12">
+    <%= button_to "Back to list", recipefinders_show_path(@from), params: {'query' => @query}, method: :get, class: 'button' %>
+  </div>
+</div>
+
+<% if @from != nil && @query != nil %>
+  <div class="row">
+    <div class="column">
+      <%= button_to "Back", recipefinders_show_path, params: {from: @from, query: @query}, method: :get %>
+    </div>
+  </div>
+<% end %>
+
+<div class="row recipepanel flexbox-container">
+  <div class="column small-12 medium-4">
+    <%= image_tag @recipe.image, alt: @recipe.name, class: 'main-picture' %>
+  </div>
+  <div class="column small-12 medium-8">
+    <ul>
+      <% @recipe.ingredients_block.each do |ingredient| %></p>
+        <li>
+          <%= ingredient %>
+        </li>
+      <% end %>
+    </ul>
+    <p> Makes <%= @recipe.servings.round %> servings. </p>
+    <p>Source: <%= link_to @recipe.name, @recipe.url %> (<%= @recipe.source %>)</p>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="column">
+
+    <div class="callout">
+      <h4>Nutrition info (per serving)</h4>
+
+      <table>
+        <tr>
+          <th>Nutrient</th>
+          <th>Quantity (per serving)</th>
+          <th>Percent RDI (per serving)</th>
+        </tr>
+
+        <tr>
+          <td>Calories</td>
+          <td><%= (@recipe.calories/@recipe.servings).round %> cal</td>
+          <td><%= (@recipe.calories/@recipe.servings/2000*100).round %> %*</td>
+        </tr>
+
+        <% @recipe.digest.each do |block| %>
+          <tr>
+            <td><%= block['label'] %><br
+              <% if block['sub'] %>
+                <br>
+                <% block['sub'].each do |subitem| %>
+                  &nbsp&nbsp&nbsp <%= subitem['label'] %><br>
+                <% end %>
+              <% end %>
+            </td>
+            <td><%= (block['total']/@recipe.servings).round %> <%= block['unit']%>
+              <% if block['sub'] %>
+                <br>
+                <% block['sub'].each do |subitem| %>
+                  <%= (subitem['total']/@recipe.servings).round %> <%= subitem['unit']%><br>
+                <% end %>
+              <% end %>
+            </td>
+            <td><%= (block['daily']/@recipe.servings).round %> %
+              <% if block['sub'] %>
+                <br>
+                <% block['sub'].each do |subitem| %>
+                  <%= (subitem['daily']/@recipe.servings).round %> %<br>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+
+      </table>
+
+      <p>* Based on a caloric intake of 2000 calories a day.</p>
+    </div>
+
+  </div>
+</div>
