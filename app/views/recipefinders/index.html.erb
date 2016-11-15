@@ -4,8 +4,9 @@
     <section>
       <p><%= flash[:notice] %>
 
-      <%= form_tag recipefinders_show_path(0), method: "get" do %>
+      <%= form_tag recipefinders_show_path, method: "get" do %>
         <%= text_field_tag :query %>
+        <%= hidden_field_tag :from, 0 %>
         <%= submit_tag "Find recipes", class: "button" %>
       <% end %>
     </section>

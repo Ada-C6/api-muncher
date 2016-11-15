@@ -5,6 +5,14 @@
   </div>
 </div>
 
+<% if @from != nil && @query != nil %>
+  <div class="row">
+    <div class="column">
+      <%= button_to "Back", recipefinders_show_path, params: {from: @from, query: @query}, method: :get %>
+    </div>
+  </div>
+<% end %>
+
 <div class="row recipepanel flexbox-container">
   <div class="column small-12 medium-4">
     <%= image_tag @recipe.image, alt: @recipe.name, class: 'main-picture' %>
