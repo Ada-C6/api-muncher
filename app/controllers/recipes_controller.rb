@@ -1,4 +1,4 @@
-require './lib/Edamam_Api_Wrapper.rb'
+require File.join(Rails.root, "lib/Edamam_Api_Wrapper.rb")
 class RecipesController < ApplicationController
   def index
     if params[:q].present?
