@@ -1,0 +1,21 @@
+<div id="search_box">
+<%= form_tag(root_path, method: "get") do %>
+  <!-- <%= label_tag(:q, "Search for:") %> -->
+  <%= text_field_tag(:q, nil, placeholder:"What will sate your hanger?")%>
+  <%= submit_tag("Search", name: nil, class:"success button") %>
+<% end %>
+</div>
+
+<% if @data %>
+  <div class="row">
+  <% @data.each do |recipe| %>
+    <%= link_to recipe_path(recipe.name, request.parameters.merge({:uri => recipe.uri})) do %>
+      <div class="small-12 medium-6 large-4 columns">
+        <img src="<%= recipe.image %>" class="thumbnail"/>
+        <p><%= recipe.name%></p>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+  <%= paginate @data %>
+<% end %>

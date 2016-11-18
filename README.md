@@ -1,3 +1,14 @@
+# Reflection
+## What do you understand better after doing this project?
+I understand how to access and utilize APIs in place of creating our own databases and how to test API based code effectively. I also think I'm getting more of the hang of foundation and using custom CSS at the same time. I also learned that postman is great!
+
+## What do you want more practice with?
+I think I need more practicing manipulating and handling large amounts of data (such as in this case filtering for different kinds of food preferences/dietary restrictions..)
+
+## What is something you saw done differently?
+I saw someone have a more accessible homepage (pre-search).
+
+
 # Recipe API Consumer
 
 ## Learning Goals:

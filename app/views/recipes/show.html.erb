@@ -1,0 +1,46 @@
+<div id="show">
+  <h1><%= @recipe.name %></h1>
+  <div class="row">
+    <div class="small-12 medium-6 large-6 columns">
+      <img src="<%= @recipe.image %>" id="recipe_image">
+    </div>
+
+    <div class="small-12 medium-6 large-6 columns" id="diet">
+      <h3>Dietary Information</h3>
+      <ul>
+        <% @recipe.dietinfo.each do |dietlabel| %>
+          <li><%= dietlabel %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <h3><%= link_to "SEE RECIPE", @recipe.url, :target => "_blank" %></h3>
+
+  <h3>Ingredients</h3>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+  </ul>
+
+  <h3>Nutritional Information</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Calories/Serving: <%=(@recipe.calories/@recipe.serving).round %></th>
+        <th>Total Nutrients</th>
+        <th>% Daily Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe.nutrients.each do |nutrient| %>
+        <tr>
+          <td><%= nutrient["label"] %></td>
+          <td><%= (nutrient["total"]/@recipe.serving).round(1)%> <%= nutrient["unit"]%></td>
+          <td><%= (nutrient["daily"]/@recipe.serving).round(1) %>%</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
