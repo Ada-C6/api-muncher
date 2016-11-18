@@ -1,3 +1,4 @@
+require 'Edamam_Api_Wrapper'
 class RecipesController < ApplicationController
   def index
     if params[:q].present?
