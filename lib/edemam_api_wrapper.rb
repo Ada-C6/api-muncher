@@ -7,7 +7,7 @@ class EdemamApiWrapper
 
   # Need to request a list of recipes given a specified search term
   def self.list_recipes(search_term)
-    url = BASE_URL + "search?" + "q=#{search_term}" + "&app_id=#{APP_ID}" + "&app_key=#{TOKEN}"
+    url = BASE_URL + "search?" + "q=#{search_term}" + "&to=100" + "&app_id=#{APP_ID}" + "&app_key=#{TOKEN}"
 
     data = HTTParty.get(url)
     recipes = []
@@ -39,5 +39,3 @@ class EdemamApiWrapper
   end
 
 end
-
-  

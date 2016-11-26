@@ -15,5 +15,31 @@
  *= require foundation_and_overrides
 
  */
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script|Ubuntu');
 
-$input-group-button-margin: 5rem;
+ $display-font: 'Oleo Script', cursive;
+ $body-font: 'Ubuntu', sans-serif;
+
+h1 {
+  font-family: $display-font;
+  color: #BE1C1C;
+}
+
+body, h2, h3, h4, h5  {
+  font-family: $body-font;
+  color: #8A8A8A;
+}
+
+h5 a href {
+  color: #8A8A8A;
+}
+
+hr {
+  margin-top: 10vh;
+}
+
+#centered-search {
+  display: block;
+  text-align: center;
+  margin-top: 5%;
+}

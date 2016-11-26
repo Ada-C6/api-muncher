@@ -1,6 +1,6 @@
 <div class="callout large secondary">
   <div class="row column text-center">
-    <h2>For The Love of Food</h2>
+    <h1>For The Love of Food</h1>
     <h3 class="subheader"><%= "#{@recipe.label}" %></h3>
   </div>
 </div>
@@ -17,7 +17,7 @@
         <%= "Recipe Yields: #{@recipe.yield}" %>
       </p>
     </div>
-    
+
     <div class="small-12 medium-5 large-6 column center" >
       <h4> Ingredients </h4>
       <ul>
@@ -37,5 +37,20 @@
       </ul>
     </div>
   </div>
+
+  <div class="row column center" >
+    <%= link_to "Back to Search Results", :back, class: "secondary hollow button" %>
+  </div>
+
 </div>
+
+
 </section>
+
+<div class="row column">
+  <hr>
+  <ul class="menu">
+    <li><img src="/assets/Attribution.png"></li>
+    <li class="float-right">Copyright 2016</li>
+  </ul>
+</div>
