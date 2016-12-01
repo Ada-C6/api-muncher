@@ -74,6 +74,9 @@ class HomepagesControllerTest < ActionController::TestCase
       # ap @response.status   # Exact status code!
       # ap @controller.instance_variables  # SO GOOD!!!!!!!!!
       # ap @controller.instance_variable_get(:@total)
+      # ap @controller.methods # All the things
+      # ap @response.methods # All the things
+      # ap @request.methods # All the things
     end
   end
 
