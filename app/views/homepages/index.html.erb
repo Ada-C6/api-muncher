@@ -1,0 +1,51 @@
+
+<% if @recipes %>
+  <h2><%= "#{params[:search_term].capitalize} Recipes" %></h2>
+
+  <div class="row small-up-1 medium-up-2 large-up-3" data-equalizer data-equalize-on="true">
+    <% @recipes.each do |recipe| %>
+      <div class="column">
+        <div class="callout">
+          <image><%= link_to(image_tag(recipe.image, alt: "Image of #{recipe.name}"), show_homepage_path(recipe.name, params: {id: recipe.id}))%></image>
+          <h5><%= link_to recipe.name, show_homepage_path(recipe.name, params: {id: recipe.id}) %></h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+      <div class: "page-nav"> <%= "Showing #{params[:first_recipe]} - #{params[:last_recipe]} of #{@total}" %> </div>
+
+      <div class="nav-buttons">
+        <!-- BACK Button -->
+        <%= form_tag index_homepage_path, method: "get", class: "page-nav" do %>
+          <%= hidden_field_tag :back, params[:from] %>
+          <%= hidden_field_tag :search_term, params[:search_term] %>
+          <%= submit_tag "Back", class: "button", :disabled => params[:from] == 0 %>
+        <% end %>
+        <!-- NEXT Button -->
+        <%= form_tag index_homepage_path, method: "get", class: "page-nav" do %>
+          <%= hidden_field_tag :next, params[:from] %>
+          <%= hidden_field_tag :search_term, params[:search_term] %>
+          <%= submit_tag "Next", class: "button", :disabled => @total <= params[:to] %>
+        <% end %>
+      </div>
+<% else %>
+
+  <!-- If they haven't searched yet, show a featured recipe -->
+  <h2>Featured Recipe</h2>
+  <div class="small-10 medium-6 large-4 small-centered medium-centered large-centered columns">
+  <!-- <div class="featured"> -->
+    <% @recipe.each do |recipe| %>
+        <div class="callout">
+          <div class="show-callout">
+            <image><%= link_to(image_tag(recipe.image, alt: "Image of #{recipe.name}"), show_homepage_path(recipe.name, params: {id: recipe.id}))%></image>
+            <h5><%= link_to recipe.name, show_homepage_path(recipe.name, params: {id: recipe.id}) %></h5>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+
+<% end %>
+
+<%# params %>

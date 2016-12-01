@@ -1,0 +1,210 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Nothing+You+Could+Do);
+
+/* These things (html and body are actually for the footer)*/
+html {
+  height: 100%;
+}
+
+main {
+  position: relative;
+  margin: 0;
+  height: 100%;
+}
+
+.all-pages {
+  text-align: center;
+  padding: 0;
+}
+
+.hidden-label {
+  display: none;
+}
+
+ h2 {
+   padding: 2%;
+   font-family: 'Nothing You Could Do', cursive;
+   text-shadow: 2px 2px 10px rgb(205, 195, 180);
+ }
+
+
+
+/* ------- Background image ------ */
+.bg-image {
+
+  /* image specified in seperate class  */
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+	background-image: url(table-medium.jpeg);
+  /* lt ie8 */
+	-ms-background-position-x: center;
+	-ms-background-position-y: bottom;
+	/* default - may override with classes or media query */
+	background-position: center bottom;
+	/* scale bg image proportionately */
+	background-size: cover;
+	/* ie8 polyfill */
+	-ms-behavior: url(backgroundsize.min.htc);
+	/* prevent scaling past src width (or not) */
+	/* max-width: 1200px; */
+  z-index: -1;
+}
+
+
+
+/* ------- HEADER --->>> */
+header {
+    background-color: rgba(255,255,255,0.25) ;
+    z-index: 0;
+    display: inline-block;
+    width: 100%;
+    height: 75px;
+}
+
+
+.logo h1 {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 2em;
+  margin: 10px 0 0 15px;
+  /*width: 25%;*/
+}
+
+.logo h2 {
+  position: absolute;
+  left: 28px;
+  top: 28px;
+  padding: 0;
+  font-family: 'Nothing You Could Do', cursive;
+  font-size: 2em;
+  color: white;
+}
+
+.search-bar {
+  width: 50%;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  margin: 17px 2% 0 0;
+}
+
+.search-field {
+  display: inline-block; /*this keeps the search field on the same line as the button*/
+  top: 0;
+  width: 50%;
+  float: right;
+}
+
+#search_term, .header-button, .logo {
+  margin: 0;
+  display: inline-block;
+  height: 40px;
+}
+
+#search_term {
+  background-color: rgba(255,255,255,0.25);
+}
+
+.header-button {
+  float: right;
+  color: rgb(61, 57, 53);
+  background-color: rgba(255,255,255,0.50) ;
+}
+
+/* <<<---- HEADER ------- */
+
+
+
+/* ------- FOOTER --->>>> */
+
+
+footer {
+  display: inline-block;
+  background-color: rgba(255,255,255,0.25) ;
+  width: 100%;
+  height: 50px;
+  position: relative;
+  bottom: 0;
+  overflow: hidden;
+}
+
+footer .left, footer .right {
+  display: inline-block;
+  padding: 10px;
+}
+footer .left {
+  float: left;
+}
+
+footer .right {
+  float: right;
+}
+
+/* <<<---- FOOTER ------- */
+
+
+
+ /* ---- NEXT and BACK buttons on index page --->>> */
+.page-nav {
+  display: inline-block;
+  padding: 1%;
+}
+/* <<<--- NEXT and BACK buttons on index page ---- */
+
+
+
+.callout {
+  /*padding: 0;*/
+  box-shadow: 0 7px 4px rgba(50,50,50,0.25);
+  border: none;
+  text-align: center;
+  background-color: rgba(255,255,255,0.25) ;
+  /*width: 350px;*/
+}
+
+
+.callout h6, .callout h5 {
+  padding-top: 3%;
+}
+
+.recipe-callout {
+  background-color: rgba(255,255,255,0.45) ;
+  padding: 5%;
+}
+
+ul {
+  text-align: left;
+}
+
+.show-callout img {
+  width: 100%;
+}
+
+
+.featured {
+  padding: 0 25% 0 25%;
+}
+
+
+
+/*.callout img{
+  border-radius: 15px;
+}*/
