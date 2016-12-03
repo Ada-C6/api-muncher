@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
   def index
     @search_term = params[:search_term]
     @search_results = EdemamApiWrapper.list_recipes(params[:search_term])
-    @search_results = Kaminari.paginate_array(@search_results).page(params[:page]).per(10)
+    @search_results = Kaminari.paginate_array(@search_results).page(params[:page]).per(15)
   end
 
   def show

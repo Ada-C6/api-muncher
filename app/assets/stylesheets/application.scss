@@ -38,8 +38,11 @@ hr {
   margin-top: 10vh;
 }
 
-#centered-search {
-  display: block;
+.centered-container {
+  display: inline;
   text-align: center;
-  margin-top: 5%;
+
+}
+.pagination span {
+  display: inline-block;
 }
