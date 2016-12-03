@@ -1,11 +1,26 @@
 
+<div class="callout large secondary">
+  <div class="row column text-center">
+    <h1>For The Love of Food</h1>
+    <h3 class="subheader">Finding All The Food You Love</h3>
+  </div>
+</div>
 
-  <h1>For The Love of Food</h1>
-  <p>Finding all the food you love.</p>
+<div class="back-ground-placeholder">
 
-  <section>
+  <div class="row small-8 medium-6 large-3 column text-center search">
     <%= form_tag recipes_index_path, method: "get" do %>
     <%= text_field_tag :search_term %>
-    <%= submit_tag "Find Recipes", class: "Button" %>
-  <% end %>
-  </section>
+    <%= submit_tag "Find Recipes", class: "secondary hollow Button" %>
+    <% end %>
+  </div>
+
+</div>
+
+<div class="row column">
+  <hr>
+  <ul class="menu">
+    <li><img src="/assets/Attribution.png"></li>
+    <li class="float-right">Copyright 2016</li>
+  </ul>
+</div>

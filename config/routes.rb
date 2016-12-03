@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'recipes/index'
-
-  get 'recipes/show'
 
   root to: 'homepages#index'
 

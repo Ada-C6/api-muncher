@@ -1,3 +1,28 @@
 // Place all the styles related to the hompages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.back-ground-placeholder {
+  height: 30%;
+  z-index: -1;
+}
+
+.back-ground-placeholder::after {
+  content: "";
+  background-image: url("/assets/heart_food.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 30vh;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -2;
+}
+
+.search {
+  margin-top: 25vh;
+}
