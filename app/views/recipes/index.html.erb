@@ -1,0 +1,48 @@
+<div class="callout large secondary">
+  <div class="row column text-center">
+    <h1>For The Love of Food</h1>
+    <h3 class="subheader"><%= "All The #{@search_term.capitalize} You'll Love" %></h3>
+  </div>
+</div>
+
+
+<div class="section">
+    <div class="row small-up-2 medium-up-3 large-up-4">
+      <% @search_results.each do |recipe| %>
+        <div class="column">
+            <%= image_tag recipe.image, class: "thumbnail"%>
+          <h5>
+            <%= link_to recipe.label, recipe_show_path(recipe.uri)%>
+          </h5>
+        </div>
+      <% end %>
+    </div>
+
+</div>
+
+<ul class="pagination text-center" role="navigation" aria-label="Pagination">
+  <li class="pagination-previous disabled">Previous</li>
+  <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+  <li><a href="#" aria-label="Page 2">2</a></li>
+  <li><a href="#" aria-label="Page 3">3</a></li>
+  <li><a href="#" aria-label="Page 4">4</a></li>
+  <li class="ellipsis"></li>
+  <li><a href="#" aria-label="Page 12">12</a></li>
+  <li><a href="#" aria-label="Page 13">13</a></li>
+  <li class="pagination-next"><a href="#" aria-label="Next page">Next</a></li>
+</ul>
+
+<div id="centered-search">
+  <div class="row column center" >
+    <%= link_to "Search", root_path, class: "secondary hollow button" %>
+  </div>
+</div>
+
+
+<div class="row column">
+  <hr>
+  <ul class="menu">
+    <li><img src="/assets/Attribution.png"></li>
+    <li class="float-right">Copyright 2016</li>
+  </ul>
+</div>

@@ -1,0 +1,2 @@
+module HompagesHelper
+end
