@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
     if params[:page] != nil
       @search_results = Kaminari.paginate_array(@search_results).page(params[:page]).per(15)
     else
-      Kaminari.paginate_array(@search_results).page(0).per(15)
+      @search_results = Kaminari.paginate_array(@search_results).page(0).per(15)
     end
   end
 
