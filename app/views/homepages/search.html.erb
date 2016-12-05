@@ -19,8 +19,7 @@
 <section>
   <ul class="row small-up-1 medium-up-2 large-up-3 no-bullets" >
     <% @searched.each do |recipe| %>
-      <% uri = recipe.uri.split("_").last %>
-      <li class="column"><%= link_to "#{image_tag(recipe.photo)}".html_safe, show_recipe_path(uri)%>
+      <li class="column"><%= link_to "#{image_tag(recipe.photo)}".html_safe, show_recipe_path(recipe.id)%>
       <p><%= link_to recipe.label, show_recipe_path(uri), class:"recipe-button" %></p><li>
     <% end %>
 

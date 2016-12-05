@@ -1,5 +1,5 @@
 class Recipe
-  attr_reader :label, :link, :ingredients, :photo, :uri, :health, :ingredients
+  attr_reader :label, :link, :ingredients, :photo, :uri, :health, :ingredients, :id
 
   def initialize(label, options = {})
     raise ArgumentError if label == nil || label == ""
@@ -9,6 +9,7 @@ class Recipe
     @uri = options[:uri]
     @health = options[:health]
     @ingredients = options[:ingredients]
+    @id = @uri.split("_").last
   end
 
   def self.search(string, page)

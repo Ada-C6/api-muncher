@@ -14,12 +14,18 @@ class EdamamApiWrapper
     data = HTTParty.get(url)
     recipe_list = []
     if data["hits"]
+      # total = data["hits"]
+
       data["hits"].each do |item|
         wrapper = Recipe.new item["recipe"]["label"], link: item["recipe"]["url"], photo: item["recipe"]["image"], uri: item["recipe"]["uri"], health: item["recipe"]["healthLabels"], ingredients: item["recipe"]["ingredientLines"]
         recipe_list << wrapper
       end
     end
     return recipe_list
+    # return {
+    #   recipes: recipe_list,
+    #   total_count: total
+    # }
   end
 
   def self.count(string)
