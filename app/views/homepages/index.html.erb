@@ -1,0 +1,35 @@
+<%= render partial: 'header' %>
+
+<div class="row">
+
+  <%= form_tag(results_path, method: :get) do %>
+    <%= hidden_field_tag :back, params[:from] %>
+    <%= hidden_field_tag :query, params[:query] %>
+    <%= submit_tag "back", class: "button", :disabled => params[:from] == 0 %>
+  <% end %>
+
+  <%= form_tag(results_path, method: :get) do %>
+    <%= hidden_field_tag :next, params[:from] %>
+    <%= hidden_field_tag :query, params[:query] %>
+    <%= submit_tag "next", class: "button" %>
+  <% end %>
+
+
+</div>
+
+<div class="row">
+  <h4 class='recipe-fancy'><%= @message %></h4>
+</div>
+
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class='medium-6 columns'>
+      <div class="row results-line">
+      <%= link_to(show_recipe_path(recipe.label, params: {id: recipe.id})) do %>
+        <li class='medium-6 columns'><%=  image_tag(recipe.image, {class: 'recipe-image', title: recipe.label}) %></li>
+        <li class='medium-6 columns title-side'> <%= recipe.label %></li>
+      <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
