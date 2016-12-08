@@ -1,0 +1,17 @@
+<section>
+  <h4>Welcome to your go-to recipe search site! Type your favorite foods below and check out some recipes with those ingrediants!</h4>
+</section>
+
+<section>
+  <h5 class="flash"><%= flash[:notice] %></h5>
+</section>
+
+<section>
+  <h5>Search for recipes using the toolbar below</h5>
+  <%= form_tag(search_recipes_path, method: :get) do %>
+    <p class="search-bar">
+      <%= text_field_tag :search, params[:search]%>
+      <%= submit_tag "Search", :name => nil%>
+    </p>
+  <% end %>
+</section>

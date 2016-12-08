@@ -13,3 +13,63 @@
  *= require_tree .
  *= require_self
  */
+
+header {
+  background-color: #605F5E;
+  padding-right: 2%;
+  padding-left: 2%;
+}
+
+.header-heading {
+  color: #E2E2E2;
+}
+
+h1{
+  color: #247BA0;
+}
+
+.nav-button, .search-button, .original-recipe{
+  background-color: #E2E2E2;
+  border-radius: 25%;
+  margin: 4px;
+  padding: 5px;
+  color: #FB3640;
+  border: 3px solid #0A2463;
+}
+
+.recipe-button{
+  color: #0A2463;
+}
+
+body {
+  padding: 2%;
+}
+
+.no-bullets {
+  list-style: none;
+}
+
+.search-bar {
+  width: 50%;
+}
+
+.recipe-label {
+  color: #0A2463;
+}
+
+li {
+  color: #FB3640;
+}
+
+footer {
+  background-color: #247BA0;
+  padding: 2%;
+  color: #E2E2E2;
+}
+
+.flash {
+  color: red;
+  margin-left: 35%;
+  margin-right: 35%;
+  font-weight: bold;
+}

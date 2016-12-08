@@ -1,0 +1,30 @@
+<h1><%= @recipe.label %></h1>
+
+<section>
+    <h5 class="flash"><%= flash[:notice] %></h5>
+</section>
+
+<section>
+  <div class="row">
+    <span class="small-12 medium-6 columns"><%= image_tag(@recipe.photo)%></span>
+
+    <section  class="small-12 medium-6 columns">
+      <p><%= link_to "View Original Recipe", @recipe.link, class:"original-recipe" %></p>
+
+      <h5 class="recipe-label">Ingrediants Labels</h5>
+      <ul>
+        <% @recipe.ingredients.each do |ingrediant| %>
+        <li><%=ingrediant%></li>
+        <% end %>
+      </ul>
+
+      <h5 class="recipe-label">Health Labels</h5>
+      <ul>
+        <% @recipe.health.each do |label| %>
+        <li><%=label%></li>
+        <% end %>
+      </ul>
+
+    </section>
+  </div>
+<section>
