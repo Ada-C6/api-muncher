@@ -1,0 +1,51 @@
+<!-- Show View:
+
+This shall show the details about a given recipe. These details include:
+Name
+Link to the original recipe (opens in a new tab)
+Ingredients
+Dietary information -->
+<div class="center-this bigger-image">
+  <%= image_tag @recipe.image %>
+</div>
+
+<h1 class="center-this"><%= @recipe.name %></h1>
+
+<section class="recipe-details">
+  <h5>Original Recipe:</h5>
+  <p><%= link_to @recipe.name, @recipe.link, :target => '_blank' %></p>
+
+  <h5>Ingredients:</h5>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li>
+        <%= ingredient["text"] %>
+      </li>
+    <% end %>
+  </ul>
+
+  <h5>Dietary Information:</h5>
+  <% if @recipe.health_info != [] %>
+  <p>Health label(s):
+      <% @recipe.health_info.each do |info_item| %>
+        <% if info_item != @recipe.health_info[-1] %>
+          <%= "#{info_item}, " %>
+        <% else %>
+          <%= "#{info_item}" %>
+        <% end %>
+      <% end %>
+  </p>
+  <% end %>
+
+  <% if @recipe.diet_info != [] %>
+  <p>Diet label(s):
+    <% @recipe.diet_info.each do |info_item| %>
+      <% if info_item != @recipe.diet_info[-1] %>
+        <%= "#{info_item}, " %>
+      <% else %>
+        <%= "#{info_item}" %>
+      <% end %>
+    <% end %>
+  </p>
+  <% end %>
+</section>

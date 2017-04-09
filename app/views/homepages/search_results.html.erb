@@ -1,0 +1,33 @@
+<!-- List View:
+
+This shall show a paged list of recipes for a given search term, ten at a time
+This view shall show the name of the recipe and the corresponding photo
+The view shall have a link from the recipe to a recipe show view -->
+
+<h1 class="center-this">Search Results</h1>
+
+<% if @results == [] %>
+  <section class="center-this no-results">
+    <p>No results found</p>
+    <p>😐</p>
+  </section>
+<% else %>
+  <section class="results">
+      <% @results.each do |recipe| %>
+      <div class="row">
+        <div class="small-12 medium-6 large-5 column center-this">
+          <%= image_tag recipe.image %>
+        </div>
+        <div class="small-12 medium-6 large-7 column text">
+            <p><%= link_to recipe.name, show_path(recipe_uri: recipe.uri) %></p>
+        </div>
+      </div>
+    <% end %>
+  </section>
+<% end %>
+
+<ul class="pagination center-this">
+  <% @num_pages.times do |i| %>
+  <li><%= link_to i+1, results_path(i+1, search_term: params[:search_term], "health_terms" => params["health_terms"], "diet_terms" => params["diet_terms"], num_pages: @num_pages), method: :get %></li>
+  <% end %>
+</ul>

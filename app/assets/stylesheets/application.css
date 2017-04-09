@@ -1,0 +1,182 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+/*-- ALL --*/
+.content {
+  min-height: calc(100vh - 110px);
+}
+.footer {
+  height: 50px;
+}
+
+html, body {
+  background-color: rgb(255, 255, 255);
+}
+
+body {
+  width: 75%;
+  margin: .5rem auto;
+  font-family: serif;
+  font-size: 1.25rem;
+}
+
+h3, h5 {
+  font-family: serif;
+  font-weight: bold;
+}
+
+header nav {
+  border-bottom: 1px rgb(185, 185, 185) solid;
+  margin-bottom: 1rem;
+}
+
+.home {
+  text-align: center;
+  margin: 0 auto;
+  width: 25%;
+  padding-bottom: .1rem;
+  padding-top: .25rem;
+}
+
+.home a {
+  font-size: 5rem;
+}
+
+.auth {
+  float: right;
+  clear: both;
+}
+
+.auth a {
+  margin: .25rem;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  font-size: .75em;
+  padding: 1em;
+}
+
+a, a:visited  {
+  color: rgb(80, 80, 80);
+  font-size: 1.25rem;
+}
+
+a:hover:not(.logo) {
+  color: rgb(80, 80, 80);
+  opacity: .7;
+}
+
+.center-this {
+  text-align: center;
+}
+
+img:not(.logo){
+  height: 12rem;
+  width: auto;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+}
+
+/*-- INDEX --*/
+.search-form {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.past-searches {
+  margin: 3rem;
+}
+
+.button, .button:hover, .button:visited {
+  background-color: rgb(19, 115, 185);
+  font-size: 1.1rem;
+}
+
+.recipe-label {
+  display: inline-block;
+  padding: .25rem;
+}
+
+.check-boxes {
+  clear: both;
+}
+
+/*-- PROFILE --*/
+.profile-page {
+  margin: 0 auto;
+}
+
+/*-- SEARCH RESULTS --*/
+.results {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.row div {
+  margin: 1rem 0;
+}
+
+.text a {
+  font-size: 1.25rem;
+}
+
+.no-results {
+  margin: 3rem;
+  color: rgb(172, 67, 67);
+  font-size: 2rem;
+}
+
+ul.pagination li {
+   font-size: .5rem;
+   display: inline-block;
+ }
+
+/*-- SHOW --*/
+.bigger-image img {
+  height: 20rem;
+  width: auto;
+}
+
+.recipe-details {
+  padding: 5rem;
+}
+
+/*-- MEDIA QUERIES --*/
+
+@media only screen and (min-width: 0px) and (max-width: 640px) {
+  .results .row {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 641px) and (max-width: 1019px) {
+  .text {
+    padding-top: 3rem;
+  }
+}
+
+@media only screen and (min-width: 1020px) and (max-width: 1600px) {
+  .text {
+    padding-top: 5rem;
+  }
+}

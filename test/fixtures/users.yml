@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+test_user:
+  name: "Test"
+  email: "Test@test.com"
+  image: "image.jpg"
+  provider: "google"
+  uid: "324"
+
+# two:
+#   name: MyString
+#   email: MyString
+#   image: MyString
+#   provider: MyString
+#   uid: MyString

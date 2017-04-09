@@ -1,0 +1,42 @@
+<!-- Search:
+
+The user shall type in a search term that will:
+Make a request to the API using the search term
+Display the results in a list to the user -->
+
+<article class="center-this">
+  <h1>Search Recipes</h1>
+
+  <section class="search-form">
+    <%= form_tag results_path(1), method: :get do %>
+      <%= text_field_tag :search_term, nil, placeholder: "Enter search term(s)" %>
+
+      <section class="check-boxes">
+        <% @health_options.each do |option| %>
+          <p class="recipe-label">
+            <%= label_tag option %>
+            <%= check_box_tag 'health_terms[]', option %>
+          </p>
+        <% end %>
+
+        <% @diet_options.each do |option| %>
+          <p class="recipe-label">
+            <%= label_tag option %>
+            <%= check_box_tag 'diet_terms[]', option %>
+          </p>
+        <% end %>
+      </section>
+
+      <%= submit_tag "Search", class: "button" %>
+    <% end %>
+  </section>
+
+  <section class="past-searches">
+    <% if !session[:searches].empty? %>
+      <h3>Recent Searches</h3>
+      <% @searches.each do |search| %>
+        <p><%= link_to search, results_path(1, search_term: search) %></p>
+      <% end %>
+    <% end %>
+  </section>
+</article>
