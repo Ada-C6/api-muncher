@@ -1,39 +1,20 @@
-# Project Relfection
+# API Muncher
+This was an early API practice project to consume an API.
 
-## What Do You Understand Better After Doing This Project?
-- Omniauth! You can login with four different providers. It took me hours to understand that the omniauth gem circumvents the need to read the provider's documentation--so I struggled with implementing Google OAuth manually. Oops! Now I get it.
-- Foundation! This website is pretty damn responsive.
-- APIs. I'm ready to tackle another one!
+## Recipe API Consumer Assignment
 
-
-## What Do You Want More Practice With?
-- Conditional redirection? I would like to be able to have a non-logged in user click the "Add to Favorites" button and be directed to login, then directed back to their favorites where that recipee has now been added.
-- Testing. I did none (although I intend to come back to this during the week).
-- How to use Foundation without making a website look so framework-y.
-- Deploying. Something about my set-up requires that I manually disable sqlite3 for Heroku and pg for localhost. I don't remember this from Betsy.
-- Session. I would like to be able to pass session information through the login process (like recent searches), but I don't totally understand what's happening with session stuff.
-
-## What Is Something You Saw Done Differently?
-- Briana made her pagination with actual page numbering
-
-
-
-
-
-# Recipe API Consumer
-
-## Learning Goals:
+### Learning Goals:
 - Configure an API for consumption
 - Create authenticated API requests using HTTParty
 - Consume JSON responses from an API
 - Map response to application-specific data
 - Separate API logic from application logic
 
-## Purpose
+### Purpose
 Create a web application that will display recipes based on a search term. We will utilize an API from Edamam called the [Recipe Search API](https://developer.edamam.com/edamam-recipe-api).
 
 
-### Baseline
+#### Baseline
 Before you start writing _any_ code:
 
 - Explore the API documentation to become familiar with the request(s) you can make
@@ -50,7 +31,7 @@ Once you've explored the API docs, this project:
 **You shall submit a pull request _with a meaningful pull request description_ once you are done with the baseline which shall be merged before moving onto implementing the requirements. _Do not push any additional code until your baseline PR has been merged_**
 
 
-### Detailed Requirements  
+#### Detailed Requirements  
 **Search**:  
 - The user shall type in a search term that will:
   - Make a request to the API using the search term
@@ -74,11 +55,11 @@ Once you've explored the API docs, this project:
 - You must also create tests for your API Wrapper & any classes as well as controller tests using VCR
 - Your site must have a **responsive** look and feel, use semantic HTML as well as any grid formatting using Zurb Foundation
 
-### Important Notes:
+#### Important Notes:
 - Using this API as a developer limits the number of API calls in a month to 5000. This means that we must try to minimize API calls for testing purposes as much as possible, to ensure you do not exceed this number of API calls in the one week of development we have.
 
 
-### Optional Requirements:
+#### Optional Requirements:
 - Keep track of most recent search terms and allow user's to return to those searches
 - Implement an OAuth strategy using Google
   - Allow users to save recipes to a "favorites" section that they can return to
