@@ -1,17 +1,20 @@
-# Recipe API Consumer
+# API Muncher
+This was an early API practice project to consume an API.
 
-## Learning Goals:
+## Recipe API Consumer Assignment
+
+### Learning Goals:
 - Configure an API for consumption
 - Create authenticated API requests using HTTParty
 - Consume JSON responses from an API
 - Map response to application-specific data
 - Separate API logic from application logic
 
-## Purpose
+### Purpose
 Create a web application that will display recipes based on a search term. We will utilize an API from Edamam called the [Recipe Search API](https://developer.edamam.com/edamam-recipe-api).
 
 
-### Baseline
+#### Baseline
 Before you start writing _any_ code:
 
 - Explore the API documentation to become familiar with the request(s) you can make
@@ -28,7 +31,7 @@ Once you've explored the API docs, this project:
 **You shall submit a pull request _with a meaningful pull request description_ once you are done with the baseline which shall be merged before moving onto implementing the requirements. _Do not push any additional code until your baseline PR has been merged_**
 
 
-### Detailed Requirements  
+#### Detailed Requirements  
 **Search**:  
 - The user shall type in a search term that will:
   - Make a request to the API using the search term
@@ -52,11 +55,11 @@ Once you've explored the API docs, this project:
 - You must also create tests for your API Wrapper & any classes as well as controller tests using VCR
 - Your site must have a **responsive** look and feel, use semantic HTML as well as any grid formatting using Zurb Foundation
 
-### Important Notes:
+#### Important Notes:
 - Using this API as a developer limits the number of API calls in a month to 5000. This means that we must try to minimize API calls for testing purposes as much as possible, to ensure you do not exceed this number of API calls in the one week of development we have.
 
 
-### Optional Requirements:
+#### Optional Requirements:
 - Keep track of most recent search terms and allow user's to return to those searches
 - Implement an OAuth strategy using Google
   - Allow users to save recipes to a "favorites" section that they can return to
