@@ -40,13 +40,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # API GEMS
 gem 'httparty'
+gem 'dotenv-rails'
 
 gem 'foundation-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'dotenv-rails'
   gem 'better_errors'
   # two below are for VCR for mocking HTTP requests
   gem 'minitest-vcr'
