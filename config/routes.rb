@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get 'recipes/page/:page', to: 'recipes#page', as: 'page'
 
   resources :recipes, only: [:index, :show]
-  
+  get '/', to: 'recipes#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
