@@ -1,5 +1,8 @@
 # Recipe API Consumer
 
+## Deployed at:
+[Recipe API Consumer](http://agile-shelf-70146.herokuapp.com/)
+
 ## Learning Goals:
 - Configure an API for consumption
 - Create authenticated API requests using HTTParty
@@ -24,7 +27,7 @@ Once you've explored the API docs, this project:
 - requires you to create a Rails application
   - conform to Rails conventions on naming and inflection
   - by using `rails new .` you will create a new rails app _inside_ of the fork folder instead of creating a _new_ folder for your rails app
-  
+
 **You shall submit a pull request _with a meaningful pull request description_ once you are done with the baseline which shall be merged before moving onto implementing the requirements. _Do not push any additional code until your baseline PR has been merged_**
 
 
@@ -33,7 +36,7 @@ Once you've explored the API docs, this project:
 - The user shall type in a search term that will:
   - Make a request to the API using the search term
   - Display the results in a list to the user
-  
+
 **List View**:  
 - This shall show a **paged** list of recipes for a given search term, _ten at a time_
 - This view shall show the name of the recipe and the corresponding photo
@@ -45,9 +48,9 @@ Once you've explored the API docs, this project:
   - Link to the original recipe (opens in a new tab)
   - Ingredients
   - Dietary information
-  
+
 **Additional Requirements**:  
-- One of the things that permits us to use this API, it providing attibution to the API's created. We must provide this somewhere on our site. Example locations include the footer or an about page. 
+- One of the things that permits us to use this API, it providing attibution to the API's created. We must provide this somewhere on our site. Example locations include the footer or an about page.
   - [Examples from the API site](https://www.dropbox.com/sh/ss34tnh4kyfxkxu/AADNJ_pB7Ou8_MVrYxgM4aQYa?dl=0&preview=Attribution+examples.pdf)
 - You must also create tests for your API Wrapper & any classes as well as controller tests using VCR
 - Your site must have a **responsive** look and feel, use semantic HTML as well as any grid formatting using Zurb Foundation
@@ -65,4 +68,3 @@ Once you've explored the API docs, this project:
 	-  Soy Free
 	-  High Protein
 	-  Etc
- 
