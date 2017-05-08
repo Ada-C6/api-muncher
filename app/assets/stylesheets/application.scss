@@ -15,3 +15,92 @@
  *= require foundation_and_overrides
 
  */
+
+body {
+  position: relative;
+  // width: 60%;
+  // margin: 10vh auto;
+}
+
+header {
+  background-image: url(logo.png);
+  background-size: cover;
+  height: 20vh;
+}
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 8vh;
+}
+
+h1.title {
+  text-align: center;
+  color: #c2ed82;
+  // float: left;
+}
+
+h1.title a {
+  color: #cbf442;
+  text-shadow: 1px 1px 2px black;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 6vh;
+}
+
+textarea.search {
+  text-align: center;
+}
+
+input.search {
+  text-align: center;
+}
+
+.search-bar input.search, .search-bar .button {
+  display: inline-block;
+}
+// .column a {
+//   white-space: nowrap;
+// }
+// footer {
+//   position: relative;
+//   bottom: 0;
+// }
+
+
+// footer img {
+//   z-index: 99;
+//   position: relative;
+//   // top: 90vh;
+// }
+
+ul {
+  list-style: none;
+}
+
+.ingredients ul {
+  list-style: square;
+}
+
+img {
+  margin: 2vh auto;
+}
+
+table {
+  margin: 2vh auto;
+}
+
+.recipe {
+  text-align: center;
+}
+
+.page-nav {
+  text-align: center;
+}
+
+.credits p {
+  position: relative;
+  bottom: 2vh;
+  text-align: center;
+}

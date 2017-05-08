@@ -10,7 +10,7 @@ gem 'awesome_print'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,14 +40,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # API GEMS
 gem 'httparty'
+gem 'dotenv-rails'
 
 gem 'foundation-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'dotenv-rails'
   gem 'better_errors'
+  # two below are for VCR for mocking HTTP requests
+  gem 'minitest-vcr'
+  gem 'webmock'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -56,4 +60,17 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # Use pry for rails console
+  gem 'pry-rails'
+
+end
+
+group :test do
+  gem 'minitest-reporters'
+  gem 'simplecov'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
