@@ -1,0 +1,56 @@
+<div class="callout large secondary">
+  <div class="row column text-center">
+    <h1>For The Love of Food</h1>
+    <h3 class="subheader"><%= "#{@recipe.label}" %></h3>
+  </div>
+</div>
+
+<section>
+
+<div class="section" >
+  <div class="row" >
+
+    <div class="small-12 medium-5 large-6 column center" >
+      <%= image_tag @recipe.image, class: "thumbnail"%>
+      <h4>Recipe Source: <%= link_to @recipe.source, url_for(@recipe.url) %> </h4>
+      <p>
+        <%= "Recipe Yields: #{@recipe.yield}" %>
+      </p>
+    </div>
+
+    <div class="small-12 medium-5 large-6 column center" >
+      <h4> Ingredients </h4>
+      <ul>
+        <% @recipe.ingredientLines.each do |ingredient| %>
+        <li>
+          <%= ingredient %>
+        </li>
+        <% end %>
+      </ul>
+      <h4> Dietary Categories </h4>
+      <ul>
+        <% @recipe.healthLabels.each do|label| %>
+        <li>
+          <%= label %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row column center" >
+    <%= link_to "Back to Search Results", :back, class: "secondary hollow button" %>
+  </div>
+
+</div>
+
+
+</section>
+
+<div class="row column">
+  <hr>
+  <ul class="menu">
+    <li><img src="/assets/Attribution.png"></li>
+    <li class="float-right">Copyright 2016</li>
+  </ul>
+</div>
