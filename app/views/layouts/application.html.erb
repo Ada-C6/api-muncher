@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sky Sky Binks Food Eats</title>
+  <title>API Recipe Search</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,7 @@
     <section class="top-bar" id="main-header">
       <nav class="top-bar-section">
         <ul class="menu top-bar-left">
-          <li><h1><%= link_to("Sky Sky Binks Food Eats", root_path, class: "") %></h1></li>
+          <li><h1><%= link_to("API Recipe Search", root_path, class: "") %></h1></li>
         </ul>
         <%= form_tag recipes_path, class: "header-form", method: :get do %>
           <ul class="menu top-bar-right">
@@ -34,7 +34,7 @@
 
   <footer>
     <div class="row">
-      <p class="small-9 columns">&copy; <%= Time.now.year %> SkySkyBinksFoodEats</p>
+      <p class="small-9 columns">&copy; <%= Time.now.year %> API Recipe Search</p>
       <p class="small-1 columns">Powered by:</p>
       <p class="small-2 columns"><%= link_to(image_tag("edamam-logo.png", class: "logo"), "https://www.edamam.com/") %></p>
     </div>
