@@ -1,15 +1,111 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+ @import url('foundation.css');
+
+ body, h1, h2, h3, h4, h5 {
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ .top-bar a {
+   color: white;
+ }
+
+ .top-bar a:hover {
+   color: #2dce93;
+ }
+
+ .top-bar ul {
+  background-color: #0f5148;
+ }
+
+ .attribution {
+   float: right;
+ }
+
+ .top-bar, footer {
+   background: linear-gradient(45deg, #16701f, #d4f9d8);
+ }
+
+ footer {
+   padding-top: 5px;
+   color: white;
+ }
+
+ .header-home, .search-bar {
+   width: 70%;
+ }
+
+ .pre-baked-index  {
+   padding: 20px;
+   width: 60%;
+ }
+
+ .baked-searches li {
+   width: 60%;
+ }
+
+ .img-results {
+   border-radius: 50%;
+   margin: 15px auto;
+ }
+
+ .table-results {
+  width: 70%;
+ }
+
+ .labels-results {
+   text-align: right;
+   font-size: .75em;
+ }
+
+
+ .baked-searches li, .health-labels-show li{
+   display: inline-block;
+ }
+
+ .baked-searches, .health-labels-show {
+   list-style: none;
+   padding-top: 10px;
+ }
+
+.header-img-show {
+  margin-top: 10px;
+}
+
+.img-show {
+  border-radius: 50%;
+  width: 70%;
+  max-height: 250px;
+  max-width: 250px;
+  display: block;
+  margin: 15px auto;
+}
+
+.recipe-header-show {
+  text-align: center;
+}
+
+.health-labels-show li {
+  font-size: .75em;
+}
+
+.instructions-show-button {
+  text-align: right;
+}
+
+.search-results {
+  border: solid lightgrey thin;
+}
+
+.search-results-label {
+  margin-top: 10%;
+}
+.labels-results {
+  margin-top: 8.5%;
+}
+
+.pagination a, span, em {
+  float: left;
+}
+
+.pages-for-results {
+  float: right;
+}

@@ -1,5 +1,11 @@
 # Recipe API Consumer
 
+## Deployed to Heroku at: 
+https://detective-muncher.herokuapp.com/
+
+## Notes: 
+This was a project for Ada Developer's Academy. In addition to the learning goals and purpose listed below, I also spent time figuring out how to cache search results to speed up performance and reduce the number of API calls made; and caching recipes included in search results so that if a user wanted to return to a search page and view other recipes returned, they would not require another API call. I also have several pre-baked search results available, which are cached when the application starts (rather than when the index gets requested) so that users do not have to wait for the cache to be filled when requesting the website. Known issue: cache is never emptied, so eventually the app will crash if the cache fills up. 
+
 ## Learning Goals:
 - Configure an API for consumption
 - Create authenticated API requests using HTTParty
@@ -9,24 +15,6 @@
 
 ## Purpose
 Create a web application that will display recipes based on a search term. We will utilize an API from Edamam called the [Recipe Search API](https://developer.edamam.com/edamam-recipe-api).
-
-
-### Baseline
-Before you start writing _any_ code:
-
-- Explore the API documentation to become familiar with the request(s) you can make
-- If desired, create a Trello board to manage tasks
-
-Once you've explored the API docs, this project:
-
-- requires an individual **branch** and fork
-- Use better_errors for debugging purposes
-- requires you to create a Rails application
-  - conform to Rails conventions on naming and inflection
-  - by using `rails new .` you will create a new rails app _inside_ of the fork folder instead of creating a _new_ folder for your rails app
-  
-**You shall submit a pull request _with a meaningful pull request description_ once you are done with the baseline which shall be merged before moving onto implementing the requirements. _Do not push any additional code until your baseline PR has been merged_**
-
 
 ### Detailed Requirements  
 **Search**:  
@@ -54,15 +42,4 @@ Once you've explored the API docs, this project:
 
 ### Important Notes:
 - Using this API as a developer limits the number of API calls in a month to 5000. This means that we must try to minimize API calls for testing purposes as much as possible, to ensure you do not exceed this number of API calls in the one week of development we have.
-
-
-### Optional Requirements:
-- Keep track of most recent search terms and allow user's to return to those searches
-- Implement an OAuth strategy using Google
-  - Allow users to save recipes to a "favorites" section that they can return to
--  Provide checkboxes or other controls to limit the search to options such as:
-	-  Peanut Free
-	-  Soy Free
-	-  High Protien
-	-  Etc
  

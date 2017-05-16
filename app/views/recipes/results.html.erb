@@ -1,0 +1,38 @@
+<article class="small-1-up row">
+  <% if @recipes != [] %>
+  <section class="column">
+    <div "table-results">
+      <% @recipes.each do |recipe| %>
+      <div class="search-results row">
+        <div class="large-3 medium-3 small-3 column">
+          <%= link_to "#{image_tag(recipe.image, :class =>"img-results")}".html_safe, recipe_path(identifier:recipe.identifier) %>
+        </div>
+        <div class="large-6 medium-7 small-9 column search-results-label">
+          <h4>
+            <%= link_to recipe.label, recipe_path(identifier:recipe.identifier) %>
+          </h4>
+          From: <%= recipe.source %>
+        </div>
+        <div class="show-for-large labels-results large-3 column">
+          <p class="large-1-up row">
+            <% recipe.health_labels.each do |label| %>
+              <div class="column">
+                <%= label %>
+              </div>
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="show-for-small-only pages-for-results">
+      <%= will_paginate @recipes, :page_links => false %>
+    </div>
+    <div class="hide-for-small-only pages-for-results">
+      <%= will_paginate @recipes, :page_links => true %>
+    </div>
+  </section>
+  <% else %>
+    <h4 class="column"><%= flash[:no_results] %></h4>
+  <% end %>
+</article>

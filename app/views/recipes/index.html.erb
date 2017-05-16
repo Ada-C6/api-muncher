@@ -1,0 +1,31 @@
+<article>
+  <header class="header-home row small-up-1">
+    <h3 class="column">Enter an Ingredient, get Recipes</h3>
+  </header>
+
+  <section class="search-bar row small-up-1">
+    <div class="column">
+      <%= form_tag(recipes_results_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="pre-baked-index row small-up-1">
+    <h4 class="column">Pre-baked Searches</h4>
+    <div class="column">
+      <ul class="baked-searches">
+        <li class="">
+          <%= link_to "Chicken", recipes_results_path(:method => "get", :search => "chicken") %>
+          </li>
+        <li class="">
+          <%= link_to "Ground Beef", recipes_results_path(:method => "get", :search => "ground beef") %>
+          </li>
+        <li class="">
+          <%= link_to "Potatoes", recipes_results_path(:method => "get", :search => "potato") %>
+          </li>
+      </ul>
+    </div>
+  </section>
+<article>

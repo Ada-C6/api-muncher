@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
 module ApiMuncher
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -22,5 +24,14 @@ module ApiMuncher
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Automatically load all code from <rails_root>/lib
+    config.autoload_paths << Rails.root.join('lib')
+
+    # Prewarm the recipe cache, I think. 
+    config.after_initialize do
+      Recipe.baked_searches
+    end
+
   end
 end
