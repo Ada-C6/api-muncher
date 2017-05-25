@@ -51,7 +51,7 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'better_errors'
-  gem 'sqlite3'
+  # gem 'sqlite3'
 
   #FOR VCR
   gem 'minitest-vcr'
