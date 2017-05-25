@@ -1,0 +1,16 @@
+<article>
+  <section class="indent search-me">
+    <header class="row">
+      <h2 class="small-3 change-font">Welcome.</h2>
+      <h6 class="small-6 change-font padding-bot">Enter a keyword below to begin searching for delicious recipes from various sources. Happy Cooking!</h6>
+    </header>
+    <%= form_tag recipes_path, method: :get do %>
+      <div class="row">
+        <p class="small-1 columns no-padding"><%= label_tag :keyword, "Food Name:" %></p class="columns">
+        <p class="small-8 columns"><%= text_field_tag :search_term, params[:search_term],  class: "rounded-edges" %></p class="columns">
+        <p class="small-3 columns"><%= submit_tag "Find Recipe", class: "button  rounded-edges" %></p class="columns">
+      </div>
+    <% end %>
+  </section>
+
+</article>

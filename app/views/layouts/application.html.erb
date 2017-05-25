@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ApiMuncher</title>
+  <title>API Recipe Search</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <section class="top-bar" id="main-header">
+      <nav class="top-bar-section">
+        <ul class="menu top-bar-left">
+          <li><h1><%= link_to("API Recipe Search", root_path, class: "") %></h1></li>
+        </ul>
+        <%= form_tag recipes_path, class: "header-form", method: :get do %>
+          <ul class="menu top-bar-right">
+            <li>
+              <%= label_tag :keyword, "Key Word:" %>
+            </li>
+            <li>
+              <%= text_field_tag :search_term, params[:search_term], class: "rounded-edges" %>
+            </li>
+            <li>
+              <%= submit_tag "Find Recipe", class: "button rounded-edges" %>
+            </li>
+          </ul>
+        <% end %>
+      </nav>
+    </section>
+  </header>
 
-<%= yield %>
+  <%= yield %>
 
+  <footer>
+    <div class="row">
+      <p class="small-9 columns">&copy; <%= Time.now.year %> API Recipe Search</p>
+      <p class="small-1 columns">Powered by:</p>
+      <p class="small-2 columns"><%= link_to(image_tag("edamam-logo.png", class: "logo"), "https://www.edamam.com/") %></p>
+    </div>
+  </footer>
 </body>
 </html>
